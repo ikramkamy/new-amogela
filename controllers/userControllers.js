@@ -17,12 +17,13 @@ exports.signup = (req, res) => {
          error: "User already registered",
         });
   
-      const { firstName, lastName, email, password ,username } = req.body;
+      const { firstName, lastName, email,phone, password ,username } = req.body;
       const hash_password = await bcrypt.hash(password, 10);
       const myuser = new userModel({
         firstName,
         lastName,
         email,
+        phone,
         hash_password,
         username,
       });
@@ -36,10 +37,10 @@ exports.signup = (req, res) => {
   
         if (user) {
           const token = generateJwtToken(user._id, user.role);
-          const { _id, firstName, lastName, email, role, username } = user;
+          const { _id, firstName, lastName, email, role,phone, username } = user;
           return res.status(201).json({
             token,
-            user: { _id, firstName, lastName, email, role, username },
+            user: { _id, firstName, lastName, email, role,phone, username },
           });
         }
       });
@@ -59,11 +60,12 @@ exports.signup = (req, res) => {
         });
       });
   }
+
+  /*
 exports.signin=(req,res)=>{
 userModel.findOne({email: req.body.email}).exec(async (error, user) => {
   if (error)return res.status(400).json({ error});
   if(!user) return res.status(400).json({message:"we can't find this user try again"})
- 
   let result= await user.authenticate(req.body.password).then(function(result){
     console.log(result);
     console.log(user);
@@ -72,7 +74,7 @@ userModel.findOne({email: req.body.email}).exec(async (error, user) => {
     var pass= bcrypt.hashSync(req.body.password,10)
     console.log("pass :",pass)
   }).then(function (result){return res.status(200).json({result}) })
-
+  
   if(result){
    
     
@@ -88,13 +90,39 @@ userModel.findOne({email: req.body.email}).exec(async (error, user) => {
             user: {firstName, lastName, email, role, fullName,password },
             message:"password correct",
           });
-          */
-    
-  }
-
+            }else return res.statur(404).json({message:"error"})
 })
-
 }
+          */
+       
+exports.signin = (req, res) => {
+  userModel.findOne({ email: req.body.email }).exec(async (error, user) => {
+    if (error) return res.status(400).json({ error });
+    if (user) {
+      const isPassword = await user.authenticate(req.body.password);
+      if (isPassword && user.role === "user") {
+        // const token = jwt.sign(
+        //   { _id: user._id, role: user.role },
+        //   process.env.JWT_SECRET,
+        //   { expiresIn: "1d" }
+        // );
+        const token = generateJwtToken(user._id, user.role);
+        const { _id, firstName, lastName, email, role,phone, fullName } = user;
+        res.status(200).json({
+          token,
+          user: { _id, firstName, lastName, email, role,phone, fullName },
+        });
+      } else {
+        return res.status(400).json({
+          message: "Pssword incorrect",
+        });
+      }
+    } else {
+      return res.status(400).json({ message: "Something went wrong" });
+    }
+  });
+};
+
 exports.requiresignin=(req,res,next)=>{
 const token=(req.headers.authorization).split(" ")[1];
 console.log(token)

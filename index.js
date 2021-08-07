@@ -1,30 +1,36 @@
 const express = require("express");
+const debug = require("debug")("server")
 const app = express();
 const db=require('./config/db');
 const env=require('dotenv');
-//const CommandRouter=require('./Routes/commandRoute')
-//const ArticlRouter=require('./Routes/articlRoutes')
-
+const cors=require('cors');
+const morgan=require('morgan');
 const bodyParser = require("body-parser");
-app.use(bodyParser.json());
 const userRoutes=require('./routes/userRoute');
 const adminRoutes=require('./routes/adminRoutes');
-app.use(userRoutes);
-app.use(adminRoutes);
-//app.use(CommandRouter);
+const clickretireRoute=require('./routes/clickretireRoutes');
 
-//app.use(ArticlRouter);
+app.use(express.json())
+
+
+
 app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*"); // update to match the domain you will make the request from
+    res.header("Access-Control-Allow-Origin","*"); // update to match the domain you will make the request from
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
   });
+  app.use(cors());
+app.use(morgan("combined"));
+  
 app.get('/all',(req,res)=>{
 res.send('hello amogela')
 })
+app.use(userRoutes);
+app.use(adminRoutes);
+app.use(clickretireRoute);
 env.config();
 app.listen(process.env.PORT,() =>{
-console.log("server amogela is running on port 3001")
+console.log(`server amogela is running on port ${process.env.PORT}`)
 })
 
 //l'architecture mvc 

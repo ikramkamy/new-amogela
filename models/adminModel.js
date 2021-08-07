@@ -17,10 +17,11 @@ const adminSchema = new mongoose.Schema(
       min: 3,
       max: 20,
     },
-   role:{
-
-type:String
-   },
+    role: {
+      type: String,
+      enum: ["user", "admin", "super-admin"],
+      default: "admin",
+    },
     email: {
       type: String,
       required: true,

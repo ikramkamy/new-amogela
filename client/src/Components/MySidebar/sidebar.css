@@ -1,0 +1,25 @@
+.prosidbar{
+    height: 100vh;
+    
+}
+.pro-sidebar > .pro-sidebar-inner {
+    background: #12705e;
+    color: white;
+    font-weight: bolder;
+    transform: translateX(-90%);
+    transition-delay: .5s;
+}
+.pro-sidebar > .pro-sidebar-inner:hover{
+    transform: translateX(0%);  
+}
+.pro-sidebar .pro-menu > ul > .pro-sub-menu > .pro-inner-list-item {
+    position: relative;
+    background-color: #12705e;
+    color: white;
+}
+.pro-sidebar .pro-menu.shaped .pro-menu-item > .pro-inner-item > .pro-icon-wrapper {
+    background-color: #12705e;
+}
+.sidebar{
+    position: fixed;
+}

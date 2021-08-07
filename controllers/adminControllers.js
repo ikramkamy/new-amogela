@@ -45,7 +45,7 @@ exports.signupadmin = (req, res) => {
     });
 }
 
-
+/*
 exports.signinadmin=(req,res)=>{
     adminModel.findOne({email: req.body.email}).exec(async (error, admin) => {
       if (error)return res.status(400).json({ error});
@@ -66,3 +66,32 @@ exports.signinadmin=(req,res)=>{
     })
     
     }
+    */
+
+    exports.signinadmin = (req, res) => {
+      adminModel.findOne({ email: req.body.email }).exec(async (error, user) => {
+        if (error) return res.status(400).json({ error });
+        if (user) {
+          const isPassword = await user.authenticate(req.body.password);
+          if (isPassword && user.role === "admin") {
+            // const token = jwt.sign(
+            //   { _id: user._id, role: user.role },
+            //   process.env.JWT_SECRET,
+            //   { expiresIn: "1d" }
+            // );
+            const token = generateJwtToken(user._id, user.role);
+            const { _id, firstName, lastName, email, role, fullName } = user;
+            res.status(200).json({
+              token,
+              user: { _id, firstName, lastName, email, role, fullName },
+            });
+          } else {
+            return res.status(400).json({
+              message: "not an admin acount",
+            });
+          }
+        } else {
+          return res.status(400).json({ message: "Something went wrong" });
+        }
+      });
+    };
