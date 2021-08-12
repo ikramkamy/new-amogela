@@ -8,6 +8,8 @@
     font-weight: bolder;
     transform: translateX(-90%);
     transition-delay: .5s;
+    position: fixed;
+    top:0%;
 }
 .pro-sidebar > .pro-sidebar-inner:hover{
     transform: translateX(0%);  
@@ -19,7 +21,4 @@
 }
 .pro-sidebar .pro-menu.shaped .pro-menu-item > .pro-inner-item > .pro-icon-wrapper {
     background-color: #12705e;
-}
-.sidebar{
-    position: fixed;
 }

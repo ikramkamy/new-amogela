@@ -1,13 +1,14 @@
 import React from 'react';
 import './command.css';
 import { Link } from 'react-router-dom';
-const Command=()=>{
+import { propTypes } from 'react-bootstrap/esm/Image';
+const Command=(props)=>{
     return(<div className="Command">
 
 <div className="bloc-command" style={{backgroundImage:"URL(/images/1.jpg)"}}>
     
     <span className="command-name"><h1>CLIQUEZ ET RETIREZ</h1>REGGIO EMILIA</span>
-    <div className="command-btn"><a href="/shop" >Commander</a></div>
+    <div className="command-btn"><div onClick={props.openModal} >Commander</div></div>
     
 </div>
 <div className="bloc-command" style={{backgroundImage:"URL(/images/2.jpg)"}}>

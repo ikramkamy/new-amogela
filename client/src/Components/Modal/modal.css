@@ -1,0 +1,57 @@
+.modal-container{
+    
+    width: 100%;
+    height: 100vh;
+    background-color: lightgray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+}
+.modal-content{
+    height: 50%;
+    width: 40%;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+   position: fixed;
+   z-index: 1;
+   top: 25%;
+   left: 30%;
+   text-align: center;
+}
+.dialog-box{
+    height: 70%;
+    width: 80%;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2%;
+}
+
+.date-picker{
+  
+   width: 70%;
+   border: 2px solid #12705e;
+   color: #12705e;
+   z-index: 2;
+}
+.dialog-box button{
+    height: fit-content;
+    width: 50%;
+    border-radius: 25px 25px 25px 25px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: red;
+    
+}
+.dialog-box h6{
+    color: lightgray;
+}
+.dialog-box button a{
+    text-decoration: none;
+    color: #12705e;
+}

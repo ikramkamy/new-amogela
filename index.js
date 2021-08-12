@@ -9,7 +9,8 @@ const bodyParser = require("body-parser");
 const userRoutes=require('./routes/userRoute');
 const adminRoutes=require('./routes/adminRoutes');
 const clickretireRoute=require('./routes/clickretireRoutes');
-
+const BarquetteRoutes=require('./routes/BarquetteRoutes');
+const produitRoutes=require('./routes/produitsRoutes');
 app.use(express.json())
 
 
@@ -28,6 +29,8 @@ res.send('hello amogela')
 app.use(userRoutes);
 app.use(adminRoutes);
 app.use(clickretireRoute);
+app.use(BarquetteRoutes);
+app.use(produitRoutes);
 env.config();
 app.listen(process.env.PORT,() =>{
 console.log(`server amogela is running on port ${process.env.PORT}`)

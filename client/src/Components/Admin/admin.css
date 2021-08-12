@@ -1,10 +1,19 @@
+*{
+  padding: 0%;
+  margin: 0%;
+  
+}
 .admin{
     width: 100%;
     height: 100vh;
-color:goldenrod;
-font-family: 'Style Script', cursive;
-font-size: 500%;
+    color:goldenrod;
+    border: 1px solid grey;
 }
+.admin h1{
+font-family: 'Style Script', cursive;
+font-size: 300%;
+}
+
 .admin-background{
   width: 100%;
   height: 100vh;

@@ -1,121 +1,158 @@
-import React,{useState} from 'react';
-import './product.css';
-import axios from 'axios';
-const Product=()=>{
-const [input,setInput]=useState({
-        gout1:"",
-        gout2:"",
-        gout3:"",
-        gout4:"",
-        quantite:""
-      })
-const [counter, setCounter]=useState(0);
-    const  handleCount=()=>{
+import React, { useState, useContext,useEffect } from "react";
+import axios from "axios";
+import { FaShoppingBag, FaBars, FaFacebook, FaInstagram } from "react-icons/fa";
+import { slide as Menu } from "react-burger-menu";
+import Produit from "../Produit";
+import "./product.css";
+import Footer from '../Footer';
 
-      setCounter(2);
-
-    }
-        const handelChange=(event)=>{
-        const {name,value}=event.target;
-        setInput(prevInput=>{
-          return  { 
-            ...prevInput,
-            [name]:value
-        
-          }
-        })
-        }
-        const handelClick=(event)=>{
-        event.preventDefault();
-        console.log("we are posting ")
-        const newCommand={
-          gout1:input.gout1,
-          gout2:input.gout2,
-          gout3:input.gout3,
-          gout4:input.gout4,
-          quantite:input.quantite
-        }
-        console.log(newCommand);
-        axios.post(`http://localhost:3001/clickretire`,newCommand)
-        .then(response => {
-         console.log("fetch with axios succed")
-        }).catch(error => {
-          console.log("the raison of failure", error) 
-        });
-        
-        }
-
-
-return(<div className="product">
-<div className="command-bloc">
-<form>
-  <label>GOUT GLACE (1) 
-    <select data-id="domain-switcher" onChange={handelChange} value={input.gout1} type="text" name="gout1" >
-              <option defaultValue>  GOUT GLACE (1)</option>
-              <option value="Framboise–passio" >Framboise–passion</option>
-              <option value="Citron jaune–basilic" >Citron jaune–basilic</option>
-              <option value="Caramel–noix de coco">Caramel–noix de coco</option>
-              <option value="Noix de coco–banane" >Noix de coco–banane</option>
-  </select>
-  </label>
-  <label>
-  GOUT GLACE (2)
-   <select data-id="domain-switcher" onChange={handelChange} value={input.gout2} type="text" name="gout2" >
-              <option value="">GOUT GLACE (2)</option>
-              <option value="Framboise–passio">Framboise–passion</option>
-              <option value="Citron jaune–basilic">Citron jaune–basilic</option>
-              <option value="Caramel–noix de coco">Caramel–noix de coco</option>
-              <option value="Noix de coco–banane">Noix de coco–banane</option>
-  </select>
-  </label>
-  <label>
-    GOUT GLACE (3)
-    <select data-id="domain-switcher" onChange={handelChange} value={input.gout3}type="text" name="gout3" >
-             <option value="">GOUT GLACE(3)</option>
-              <option value="Framboise–passio">Framboise–passion</option>
-              <option value="Citron jaune–basilic">Citron jaune–basilic</option>
-              <option value="Caramel–noix de coco">Caramel–noix de coco</option>
-              <option value="Noix de coco–banane">Noix de coco–banane</option>
-  </select>
-  </label>
-  <label>
-  GOUT GLACE (4)
-  <select data-id="domain-switcher" onChange={handelChange} value={input.gout4}type="text" name="gout4">
-              <option value="">GOUT GLACE (4)</option>
-              <option value="Framboise–passio">Framboise–passion</option>
-              <option value="Citron jaune–basilic">Citron jaune–basilic</option>
-              <option value="Caramel–noix de coco">Caramel–noix de coco</option>
-              <option value="Noix de coco–banane">Noix de coco–banane</option>
-  </select>
-  </label>
- <label>
-     Quantité
-     <input type="Number"placeholder="quantié" onChange={handelChange} value={input.quantite} name="quantite"/>
- </label>
-  <input  onClick={handelClick} type="submit" value="Submit" className="submit-bnt" />
-</form>
-
-
-
-
-</div>
-<div className="image-product" style={{backgroundImage:"url(/images/2.jpg)"}}>
-
-
-</div>
-
-
-
-
-</div>)
-}
-const Button = (props) => {
-    return (
-      <button onClick={() =>
-        props.sign == "+" ? props.updateCount(1) : props.updateCount(-1)} >
-        {props.sign}
-      </button>
+const Product = (props) => {
+  const [barquette,setBarquette]=useState([]);
+  const [products,setProducts]= useState([]);
+  const MyContext = React.createContext();
+  const [input, setInput] = useState({
+    gout1: "",
+    gout2: "",
+    gout3: "",
+    gout4: "",
+    quantite: "",
+  });
+  const MyProvider = (props) => {
+    const [menuOpenState, setMenuOpenState] = useState(false);
+  };
+  const [menuOpenState, setMenuOpenState] = useState(false);
+  const [items, setItems] = useState(0);
+  const [isOpen, setIsOpen] = useState(false);
+ 
+  const [counter, setCounter] = useState(0);
   
-    );
-  }
+  const handleCount = () => {
+    setCounter(2);
+  };
+  const handelChange = (event) => {
+    const { name, value } = event.target;
+    setInput((prevInput) => {
+      return {
+        ...prevInput,
+        [name]: value,
+      };
+    });
+  };
+ 
+  const Handelopne = () => {
+    setIsOpen(true);
+    console.log("the value is", isOpen);
+  };
+  const handleStateChange = () => {
+    setIsOpen(true);
+  };
+  const [cart,setCart]=useState([]);
+  console.log("the cart legnth is ",cart.length)
+  const [count, setCount]=useState(cart.length);
+ // const [showme,setShowme]=true;
+  const handleClick=()=>{setCount(cart.length)};
+const addproduct=(product)=>{
+setCount(cart.length)
+console.log("we are in add to cart")
+setCart([...cart,product])
+console.log(cart)
+}
+/******************************fetching data with axios****************************/
+axios.get('/getAllbarquettes')
+.then(res => {
+  const data=res.data;
+  setBarquette (data);
+  console.log('barquette',barquette)
+  
+})
+.catch(function (error) {
+    console.log(error);
+})
+/********************************************************************************* */
+/*******************************fetching data with axios*****************************/
+axios.get('/getproduit')
+.then(res => {
+  const data=res.data;
+  setProducts (data);
+  console.log('products',products)
+  
+})
+.catch(function (error) {
+    console.log(error);
+})
+  return (
+    <div className="product" >
+    
+      <div className="nav-shop">
+      
+        <MyContext.Provider
+          value={{
+            isMenuOpen: menuOpenState,
+            toggleMenu: () => setMenuOpenState(!menuOpenState),
+            stateChangeHandler: (newState) => setMenuOpenState(newState.isOpen),
+          }}
+        >
+          {props.children}
+        </MyContext.Provider>
+        <Menu
+          onStateChange={handleStateChange}
+          className="burger-menu"
+          customBurgerIcon={<FaBars className="FaBars" onClick={Handelopne} />}
+        >
+          
+          <a id="home" className="menu-item" href="/">
+            Home
+          </a>
+          <a id="about" className="menu-item" href="/about">
+            About
+          </a>
+          <a id="contact" className="menu-item" href="/contact">
+            Contact
+          </a>
+          <a className="menu-item--small" href="">
+            Settings
+          </a>
+        </Menu>
+        
+
+        <a href="/home">
+          <img src="/images/logoamo.png" className="product-logo" />
+        </a>
+
+        <div className="shoping-cart-icon">
+        <FaFacebook className="icon-shoping" />
+        <FaInstagram className="icon-shoping" />
+          <FaShoppingBag className="icon-shoping" />
+          <div className="items">{items}</div>
+        </div>
+      </div>
+     
+      <div
+        className="product-backg-container"
+        style={{ backgroundImage: "url(/images/5.jpg)" }}
+      >
+        <div className="sevice-name">
+          Clickez & Retirez
+          <h3>Amogela</h3>
+        </div>
+      </div>
+
+      <div className="shop-items">
+
+{barquette.map((e)=><Produit purl={e.img} pname={e.name} pprice={e.prix} addproduct={addproduct}/>)}
+
+   
+      </div>
+
+
+      <div className="shop-items">
+
+{products.map((e)=><Produit purl={e.img} pname={e.name} pprice={e.prix} addproduct={addproduct}/>)}
+
+   
+      </div>
+      <Footer/>
+    </div>
+  );
+};
 export default Product;
