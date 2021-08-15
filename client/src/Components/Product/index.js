@@ -3,20 +3,18 @@ import axios from "axios";
 import { FaShoppingBag, FaBars, FaFacebook, FaInstagram } from "react-icons/fa";
 import { slide as Menu } from "react-burger-menu";
 import Produit from "../Produit";
+import Produitstock from "../Produit/Produitstock";
 import "./product.css";
 import Footer from '../Footer';
+import Filter from "../Filter";
+import { getProductsBycath } from "../../actions/productActions";
 
 const Product = (props) => {
   const [barquette,setBarquette]=useState([]);
   const [products,setProducts]= useState([]);
   const MyContext = React.createContext();
-  const [input, setInput] = useState({
-    gout1: "",
-    gout2: "",
-    gout3: "",
-    gout4: "",
-    quantite: "",
-  });
+  const [cathegorie, setCathegorie]=useState("Barquette");
+ 
   const MyProvider = (props) => {
     const [menuOpenState, setMenuOpenState] = useState(false);
   };
@@ -29,17 +27,7 @@ const Product = (props) => {
   const handleCount = () => {
     setCounter(2);
   };
-  const handelChange = (event) => {
-    const { name, value } = event.target;
-    setInput((prevInput) => {
-      return {
-        ...prevInput,
-        [name]: value,
-      };
-    });
-  };
- 
-  const Handelopne = () => {
+const Handelopne = () => {
     setIsOpen(true);
     console.log("the value is", isOpen);
   };
@@ -50,7 +38,7 @@ const Product = (props) => {
   console.log("the cart legnth is ",cart.length)
   const [count, setCount]=useState(cart.length);
  // const [showme,setShowme]=true;
-  const handleClick=()=>{setCount(cart.length)};
+const handleClick=()=>{setCount(cart.length)};
 const addproduct=(product)=>{
 setCount(cart.length)
 console.log("we are in add to cart")
@@ -58,6 +46,7 @@ setCart([...cart,product])
 console.log(cart)
 }
 /******************************fetching data with axios****************************/
+/*
 axios.get('/getAllbarquettes')
 .then(res => {
   const data=res.data;
@@ -68,8 +57,11 @@ axios.get('/getAllbarquettes')
 .catch(function (error) {
     console.log(error);
 })
+*/
+
 /********************************************************************************* */
 /*******************************fetching data with axios*****************************/
+
 axios.get('/getproduit')
 .then(res => {
   const data=res.data;
@@ -80,77 +72,86 @@ axios.get('/getproduit')
 .catch(function (error) {
     console.log(error);
 })
+
+
+/*********************************Filter par cathegorie********************** */
+/*
+ const  cathogry =()=>{
+
+  
+  axios.get(`/cathegorie/Barquette`)
+  .then(res => {
+  const data=res.data;
+  setBarquette (data);
+  //console.log('barquette',barquette)
+  
+  }).catch(function (error) {
+    console.log(error);
+  })
+ } 
+*/
+
+/****************************************************************************** */
+useEffect(() => {     
+  const getData = async () => {  
+    await axios.get(`/cathegorie/${cathegorie}`)  
+    .then(res => {  
+      console.log(res) 
+      const data=res.data.data;
+      setBarquette(data);
+    })  
+    .catch(err => {  
+      console.log(err)  
+    });  
+  }  
+  getData()  
+}, [])
+/*************************************************************************** */
+/*
+useEffect(() => {     
+  const getData2 = async () => {  
+    await axios.get(`/getproduit`)  
+    .then(res => {  
+      console.log(res) 
+      const data=res.data.data;
+      setProducts(data);
+    })  
+    .catch(err => {  
+      console.log(err)  
+    });  
+  }  
+  getData2()  
+}, [])
+*/
   return (
     <div className="product" >
     
       <div className="nav-shop">
-      
-        <MyContext.Provider
-          value={{
-            isMenuOpen: menuOpenState,
-            toggleMenu: () => setMenuOpenState(!menuOpenState),
-            stateChangeHandler: (newState) => setMenuOpenState(newState.isOpen),
-          }}
-        >
-          {props.children}
-        </MyContext.Provider>
-        <Menu
-          onStateChange={handleStateChange}
-          className="burger-menu"
-          customBurgerIcon={<FaBars className="FaBars" onClick={Handelopne} />}
-        >
-          
-          <a id="home" className="menu-item" href="/">
-            Home
-          </a>
-          <a id="about" className="menu-item" href="/about">
-            About
-          </a>
-          <a id="contact" className="menu-item" href="/contact">
-            Contact
-          </a>
-          <a className="menu-item--small" href="">
-            Settings
-          </a>
-        </Menu>
-        
-
-        <a href="/home">
+        <a href="/home" className="image-wrapper">
           <img src="/images/logoamo.png" className="product-logo" />
         </a>
-
-        <div className="shoping-cart-icon">
-        <FaFacebook className="icon-shoping" />
-        <FaInstagram className="icon-shoping" />
-          <FaShoppingBag className="icon-shoping" />
-          <div className="items">{items}</div>
+<div className="shoping-cart-icon">
+<FaShoppingBag className="icon-shoping" />
+          <div className="items">{counter}</div>
         </div>
-      </div>
+      </div>   
+<Filter />
      
-      <div
-        className="product-backg-container"
-        style={{ backgroundImage: "url(/images/5.jpg)" }}
-      >
-        <div className="sevice-name">
-          Clickez & Retirez
-          <h3>Amogela</h3>
-        </div>
-      </div>
-
+     <div className="deco-th-style">
       <div className="shop-items">
-
-{barquette.map((e)=><Produit purl={e.img} pname={e.name} pprice={e.prix} addproduct={addproduct}/>)}
-
-   
+      
+{barquette.map((e)=><Produit purl={e.img} pname={e.name} pprice={e.prix} prodID={e.__id} addproduct={addproduct} />)}
+</div>
       </div>
-
-
+      <div className="deco-th-style2"> 
       <div className="shop-items">
+{products.map((e)=><Produitstock purl={e.img} pname={e.name} pprice={e.prix} prodID={e.__id} addproduct={addproduct} />)}  
 
-{products.map((e)=><Produit purl={e.img} pname={e.name} pprice={e.prix} addproduct={addproduct}/>)}
+     </div>
+  
 
-   
-      </div>
+
+ </div>
       <Footer/>
     </div>
   );

@@ -19,8 +19,12 @@ type:String,
 },
 img: { 
     type:String,
-    default:'/images/3.jpg',
- }
+    default:'/images/2.jpg',
+ },
+ cathegorie: {
+     
+    type:String,
+}
 
 
 

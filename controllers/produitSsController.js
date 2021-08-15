@@ -65,6 +65,20 @@ exports.getproduit=(req,res)=>{
       });
     });
 }
+exports.findbycategorie=(req,res)=>{
+  produiSSModel.find({"cathegorie": req.params.cathegorie,},function (err,data) {
+    if (err) {
+        err.status = 406;
+        return next(err);
+    }
+    console.log(data);
+    return res.status(201).json({
+        message: ' success.',data:data
+    })
+})
+
+}
+
 /*
 exports.updateBarquette=(req,res)=>{
 

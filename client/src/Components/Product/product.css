@@ -25,11 +25,7 @@ border-radius: 50%;
 }
 
 .product{
-    width: 100%;
-    
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    width: 100%;    
 }
 
 .product form{
@@ -55,31 +51,41 @@ border-radius: 50%;
     height: 20vh;
     display: flex;
     justify-content: space-between;
+   
 }
 .shoping-cart-icon{
     height: 100%;
-    width: 14%;
+    width: 45%;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
+    
 
 }
 .items{
-    
-    border-radius: 25%;
-    color: red;
+   
+border-radius: 25%;
+
     font-size: bolder;
-    font-size: 150%;
-    width: 20%;
-    height: 30%;
-    position: relative;
-    top: 10%;
-    right: 13%;
+    font-size: 100%;
+    width: 5%;
+    height: 15%;
+   position: relative;
+   top: -10%;
+   right: 2%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   z-index: -1;
    
 }
 .icon-shoping, .FaBars{
-    font-size: 200%;
+    font-size: 150%;
+    cursor: pointer;
+}
+.icon-shoping:hover{
     color:#12705e;
+
 }
 .burger-menu{
   
@@ -115,9 +121,7 @@ border-radius: 50%;
     font-family: 'Style Script', cursive;
     border-top: 1px solid grey;
 }
-.shop-items{
-    width: 100%;
-}
+
 .name-buger{
     height: 100%;
     border:1px  solid grey;
@@ -125,11 +129,33 @@ border-radius: 50%;
 }
 .shop-items{
     width: 100%;
-    
-  margin-top: 10%;
-  margin-bottom: 10%;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
+ 
+    background-color: rgb(196,222,164);
 }
 
+.button-wrapper button a{
+    text-decoration: none;
+    color: black;
+}
+.image-wrapper{
+  
+    width: 55%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+/*
+.shop-items div:nth-of-type(6n+1), .shop-items div:nth-of-type(6n+2), .shop-items div:nth-of-type(6n+3){
+    background-color: rgb(196,222,164);
+    color: red;
+  }
+  */
+
+
+  
+ 
+  
+ 

@@ -1,6 +1,8 @@
 import React from 'react'
-import './footer.css'
+import './footer.css';
+
 //import Smalllogo from '../images/LOGO_Plan de travail 1 (2).jpg'
+
 export default function Footer() {
     return (
       
@@ -20,6 +22,7 @@ export default function Footer() {
                             <div className="boxContent">
                                 <h5> Amogela</h5>
                                 <div className="address"> 115 Avenue Colonel Lotfi Bab El Oued </div>
+                               
                                 <div className="opening">
                                     <h5> Heures/jours d'ouverture</h5>
                                     <div> Samedi-Jeudi <section>  8H-30 - 22H  </section></div>

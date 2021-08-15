@@ -9,13 +9,15 @@ import MySidebar from './Components/MySidebar';
 import Admin from './Components/Admin';
 import Modal from './Components/Modal';
 import ProdbyID from './Components/ProdbyID';
-
+import {Product2 }from './Components/Product/Product2';
 
 function App() {
   const [open,setOpen]=useState(false);
+  const [etat, setEtat] = useState(false);
+
   const close=()=>{
     setOpen(false);
-  }
+}
   return (
     <div className="App">
    <Router> 
@@ -41,6 +43,11 @@ function App() {
 <ProdbyID />
 
 </route>
+<routre path="/shop-barquette">
+<Product2/>
+
+</routre>
+
 
 
      </Switch> 

@@ -1,5 +1,6 @@
 const BarquetteModel=require('../models/BarquetteModel');
 const multer=require('multer');
+const mongoose = require('mongoose');
 const storage = multer.diskStorage({
   //destination for files
   destination: function (request, file, callback) {
@@ -67,7 +68,11 @@ exports.gettAllbarquette=(req,res)=>{
 
 
 }
+exports.getproduibyID=(req,res)=>{
+  BarquetteModel.findById(req.params.id)
 
+
+}
 exports.updateBarquette=(req,res)=>{
 
   BarquetteModel.findOneAndUpdate({img:"/images/5.png"},{img:"/images/2.jpg"}).then(function(){
@@ -76,5 +81,18 @@ exports.updateBarquette=(req,res)=>{
       done();
   });
   })
+
+}
+exports.Filtercatégorie=(req,res)=>{
+  BarquetteModel.find({"cathegorie": req.params.cathegorie,},function (err,data) {
+    if (err) {
+        err.status = 406;
+        return next(err);
+    }
+    console.log(data);
+    return res.status(201).json({
+        message: ' success.',data:data
+    })
+})
 
 }

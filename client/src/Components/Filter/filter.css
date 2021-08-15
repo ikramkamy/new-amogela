@@ -1,0 +1,44 @@
+
+
+.filter{
+    width: 100%;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.filter-items{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+}
+.filter-item{
+    font-family: 'Heebo', sans-serif;
+    color: #12705e;
+    font-size: 1.3em ;
+    font-weight: 300;
+    cursor: pointer;
+}
+.filter-item a{
+text-decoration: none;
+color: #12705e;
+}
+.shop-title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+.line{
+    width: 45%;
+    height: 2px;
+    background-color:#12705e ;
+}
+#shop a{
+    font-family: 'Poppins', sans-serif;
+    color:#12705e ;
+    text-decoration: none;
+    font-weight: 700;
+}

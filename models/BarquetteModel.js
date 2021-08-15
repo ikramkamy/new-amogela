@@ -20,7 +20,15 @@ type:String,
 img: { 
     type:String,
     default:'/images/2.jpg',
- }
+ },
+ 
+     cathegorie:{
+type:String,
+default:'Barquette',
+
+     }
+ 
+
 
 
 

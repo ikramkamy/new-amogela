@@ -5,25 +5,25 @@ import  { useState ,useEffect} from "react";
 
 const Produit=(props)=>{
 
-const {addproduct}=props;
+const {prodID,getprodbyID,addproduct}=props;
 
-    return(<div className="produit-component">
-
-<div className="card-header">
+    return(<div className="produit-component" >
+<div>
+<div className="">
   
   <img style={{width:"10em"} }src={props.purl}></img></div>
-    <div className="content-wrapper">
+<div className="content-wrapper">
            <div className="info-product">
               <div> {props.pname}</div>
-              <div> {props.pprice} </div>
+             
            </div>
         <div className="button-wrapper">
-             <button  onClick = {addproduct}   variant="contained" color="secondary">
-            Ajouter
+             <button  onClick={getprodbyID}  variant="contained" color="secondary">
+            <a href={`/getproduitbyID/:${props.prodID}`} onClick={addproduct}> {props.pprice}-Ajouter</a>
              </button>
         </div>
       </div>  
-
+      </div>
 
     </div>)
 }

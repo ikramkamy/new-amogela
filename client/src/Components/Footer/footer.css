@@ -66,6 +66,7 @@
     width: 400px;
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
 }
 
 .boxContent p{
@@ -96,8 +97,6 @@
     font-weight: 700;
     font-family: 'Poppins', sans-serif;
  }
-
-
  .newsletter{
     border : 1px hidden black;
     height: 200px;
@@ -105,7 +104,7 @@
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
-  
+    align-items: flex-start;
  }
 
  .newsletter h5{
@@ -118,6 +117,7 @@
    border-bottom: 1px solid rgba(180,180,180,.6);
    margin-top: 10px;
    width: 80%;
+   height: 40px;
  }
 
  
@@ -149,7 +149,14 @@
  .socialMedia i:hover{
   color: #146f5b;
  }
- 
+ .icons-footer{
+     
+     width: 20%;
+     display: flex;
+     height: 30%;
+     justify-content: space-between;
+     align-items: center;
+ }
 
 
 
