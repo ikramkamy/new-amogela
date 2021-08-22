@@ -1,28 +1,30 @@
 import React from 'react';
 import './command.css';
 import { Link } from 'react-router-dom';
-import { propTypes } from 'react-bootstrap/esm/Image';
-const Command=(props)=>{
-    return(<div className="Command">
 
-<div className="bloc-command" style={{backgroundImage:"URL(/images/1.jpg)"}}>
-    
-    <span className="command-name"><h1>CLIQUEZ ET RETIREZ</h1>REGGIO EMILIA</span>
-    <div className="command-btn"><div onClick={props.openModal} >Commander</div></div>
-    
-</div>
-<div className="bloc-command" style={{backgroundImage:"URL(/images/2.jpg)"}}>
-<span className="command-name"><h1>HOME DELIVERY</h1>
-REGGIO EMILIA</span>
-    <div className="command-btn"><a href="/shop">Commander</a></div>
-</div>
-<div className="bloc-command" style={{backgroundImage:"URL(/images/3.jpg)"}}>
-<span className="command-name"><h1>SHOP <br/>ONLINE</h1>
-REGGIO EMILIA</span>
-    <div className="command-btn" ><a href="https://food.jumia.com.ng/">Commander</a></div>
-   
-</div>
+const Command = () => {
+    return (<div className="Command">
 
+<div className="containerCommand"> 
+        <div className="bloc-command comBox1">
+
+            <span className="command-name"><h1>Cliquez & Retirez </h1> 
+            <h3> Amogela Glaces </h3></span>
+            <div className="command-btn"><a href="/shop" >Commander</a></div>
+
+        </div>
+        <div className="bloc-command comBox2">
+            <span className="command-name"><h1>Service Livraison</h1>
+           <h3> Amogela Glaces </h3> </span>
+            <div className="command-btn"><a href="/shop">Commander</a></div>
+        </div>
+        <div className="bloc-command comBox3">
+            <span className="command-name"><h1> Shop professionnel</h1>
+           <h3> Amogela Glaces </h3> </span>
+            <div className="command-btn" ><a href="https://food.jumia.com.ng/">Commander</a></div>
+
+        </div>
+        </div>
 
     </div>
 

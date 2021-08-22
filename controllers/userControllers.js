@@ -18,7 +18,9 @@ exports.signup = (req, res) => {
         });
   
       const { firstName, lastName, email,phone, password ,username } = req.body;
-      const hash_password = await bcrypt.hash(password, 10);
+      const salt = await bcrypt.genSalt(10);
+     const  hash_password=  await bcrypt.hashSync( req.body.password, salt);
+
       const myuser = new userModel({
         firstName,
         lastName,
@@ -30,9 +32,13 @@ exports.signup = (req, res) => {
   
       myuser.save((error, user) => {
         if (error) {
-          return res.status(400).json({
+
+         // return console.log("somenthing is rong",error)
+          return res.status(400).json({ 
             message: "Something went wrong",
+           
           });
+           
         }
   
         if (user) {
@@ -118,7 +124,10 @@ exports.signin = (req, res) => {
         });
       }
     } else {
-      return res.status(400).json({ message: "Something went wrong" });
+      return res.status(400).json({ 
+        
+        message: "Something went wrong" 
+      });
     }
   });
 };

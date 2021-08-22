@@ -19,7 +19,7 @@ const {prodID,getprodbyID,addproduct}=props;
            </div>
         <div className="button-wrapper">
              <button  onClick={getprodbyID}  variant="contained" color="secondary">
-            <a href={`/getproduitbyID/:${props.prodID}`} onClick={addproduct}> {props.pprice}-Ajouter</a>
+            <a href={`/getproduitbyID/:${props.prodID}`} > {props.pprice}-Ajouter</a>
              </button>
         </div>
       </div>  

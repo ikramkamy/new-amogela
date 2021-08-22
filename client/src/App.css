@@ -1,6 +1,6 @@
 *{
-  margin-left: 5px;
-  margin-right: 5px;
+  margin-left: 0px;
+  margin-right: 0px;
 }
 
 .App {
@@ -10,6 +10,40 @@
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+}
+.logo-accueil{
+  height: 100%;
+  transform: translateY(-17%);
+}
+.logo-accueil-wrappeur{
+  width: 100%;
+  height: 25vh;
+ 
+  
+  position: sticky;
+  top: 0px;
+  z-index: 2;
+  background-color: white;
+  padding-bottom: 20px;
+}
+
+/*
+.navApp{
+  border: 1px solid black;
+  position: sticky;
+top: 0;
+}
+*/
+
+
+
+.navv{
+  height: auto;
+  width: 100%;
+  border: 1px hidden black;
+  background: white;
+  
+  overflow: hidden;
 }
 
 @media (prefers-reduced-motion: no-preference) {

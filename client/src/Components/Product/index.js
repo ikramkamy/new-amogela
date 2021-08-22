@@ -8,16 +8,13 @@ import "./product.css";
 import Footer from '../Footer';
 import Filter from "../Filter";
 import { getProductsBycath } from "../../actions/productActions";
+import Mynavbar from "../Mynavbar";
 
 const Product = (props) => {
   const [barquette,setBarquette]=useState([]);
   const [products,setProducts]= useState([]);
-  const MyContext = React.createContext();
+  
   const [cathegorie, setCathegorie]=useState("Barquette");
- 
-  const MyProvider = (props) => {
-    const [menuOpenState, setMenuOpenState] = useState(false);
-  };
   const [menuOpenState, setMenuOpenState] = useState(false);
   const [items, setItems] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
@@ -74,6 +71,7 @@ axios.get('/getproduit')
 })
 
 
+
 /*********************************Filter par cathegorie********************** */
 /*
  const  cathogry =()=>{
@@ -125,8 +123,7 @@ useEffect(() => {
 */
   return (
     <div className="product" >
-    
-      <div className="nav-shop">
+  <div className="nav-shop">
         <a href="/home" className="image-wrapper">
           <img src="/images/logoamo.png" className="product-logo" />
         </a>
@@ -134,18 +131,19 @@ useEffect(() => {
 <FaShoppingBag className="icon-shoping" />
           <div className="items">{counter}</div>
         </div>
-      </div>   
+      </div> 
+<Mynavbar/>  
 <Filter />
      
      <div className="deco-th-style">
       <div className="shop-items">
       
-{barquette.map((e)=><Produit purl={e.img} pname={e.name} pprice={e.prix} prodID={e.__id} addproduct={addproduct} />)}
+{barquette.map((e)=><Produit  purl={e.img} pname={e.name} pprice={e.prix} prodID={e.__id}  />)}
 </div>
       </div>
       <div className="deco-th-style2"> 
       <div className="shop-items">
-{products.map((e)=><Produitstock purl={e.img} pname={e.name} pprice={e.prix} prodID={e.__id} addproduct={addproduct} />)}  
+{products.map((e)=><Produitstock purl={e.img} pname={e.name} pprice={e.prix} prodID={e.__id}  />)}  
 
      </div>
   

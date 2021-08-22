@@ -1,18 +1,20 @@
 const express = require("express");
-const debug = require("debug")("server")
+const bodyParser = require("body-parser");
 const app = express();
+const debug = require("debug")("server")
+
 const db=require('./config/db');
 const env=require('dotenv');
 const cors=require('cors');
 const morgan=require('morgan');
-const bodyParser = require("body-parser");
+
 const userRoutes=require('./routes/userRoute');
 const adminRoutes=require('./routes/adminRoutes');
 const clickretireRoute=require('./routes/clickretireRoutes');
 const BarquetteRoutes=require('./routes/BarquetteRoutes');
 const produitRoutes=require('./routes/produitsRoutes');
-app.use(express.json())
-
+const cartRoutes=require('./routes/cartRoutes');
+app.use(bodyParser.json())
 
 
 app.use(function(req, res, next) {
@@ -22,7 +24,7 @@ app.use(function(req, res, next) {
   });
   app.use(cors());
 app.use(morgan("combined"));
-  
+
 app.get('/all',(req,res)=>{
 res.send('hello amogela')
 })
@@ -31,6 +33,7 @@ app.use(adminRoutes);
 app.use(clickretireRoute);
 app.use(BarquetteRoutes);
 app.use(produitRoutes);
+app.use(cartRoutes);
 env.config();
 app.listen(process.env.PORT,() =>{
 console.log(`server amogela is running on port ${process.env.PORT}`)

@@ -68,7 +68,7 @@ border: 1px hidden green;
  .comBox3{
     background-image: url('../../images/bg-3.jpg');
  }
-
+ 
  .command-name h1{
    width: 100%; 
    font-size: 2.5em;
@@ -101,11 +101,47 @@ border: 1px hidden green;
 .command-btn:hover{
     background-color: #146f5b;  
 }
+.carousel-control-next-icon, .carousel-control-prev-icon{
+    background-color:#146f5b ;
+}
+.container{
 
+margin-top: 30px;
+}
+.description{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.img{
+    width: 100%;
+    height: 100%;
+}
+.img-ac-size{
+    width: 100%;
+    height: 100%;
+}
+.text{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.glaceContainer{
+    display: flex;
+    height: 500px;
+}
+.Home{
+    margin-top: 80px;
+}
 @media screen and (max-width : 1337px) {
+    /*
     .Command{
         height: auto;
     }
+    */
 
     .containerCommand{
         flex-direction: column;

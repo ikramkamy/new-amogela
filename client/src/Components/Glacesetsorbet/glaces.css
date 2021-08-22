@@ -1,0 +1,26 @@
+
+
+
+.principal-desc{
+    width: 100%;
+    margin-top: 100px;
+    padding: 0px 50px 0px 50px;
+    margin-bottom: 100px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 2vw;
+    font-weight: 600;
+}
+.sorbets-ceontent{
+    display: flex;
+    flex-direction: row;
+    height: fit-content;
+    padding: 0px 10px 0px 10px;
+}
+.text-sorbets{
+ 
+    display: flex;
+   align-items: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 2vw;
+    font-weight: 600;
+}
