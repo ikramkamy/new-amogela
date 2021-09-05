@@ -3,7 +3,6 @@
     padding: 0;
     font-family: 'Heebo', sans-serif;
 }
-
 .Nav {
     border: 1px hidden black;
     height: 100px;
@@ -13,18 +12,14 @@
     justify-content: space-between;
     flex-direction: column;
     position: sticky;
-    top:13vh;
+    top:0px;
     background-color: white;
     color:#12705e;
   z-index: 11;
 }
-
-
 .logo  img {
     width: 250px;
 }
-
-
 .menu {
     border: 1px hidden red;
     width: 100%;

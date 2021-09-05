@@ -25,19 +25,38 @@ window.removeEventListener('resize',changeWidth);
 
 
 },[])
+const [scroll,setScroll]=useState(false);
+useEffect(() => {
+  window.onscroll = () => {
+while(window.pageYOffset >70){
+
+  setScroll(true)
+}
+    
+
+    console.log("window.pageYOffset",window.pageYOffset);
+    console.log("scroll",scroll);
+    
+  }
+}, []);
 
     return (
         <div className="Nav">
      
         
-            <div className="menu" >
+            <div className="menu">
 
                
-                    <ul className="menuLarge">
-                   <li>  <Link to="/">Accueil</Link> </li>
+                 <ul className="menuLarge">
+
+                   {scroll &&( <img src="/images/logoamo.png" className="product-logo" />)
+
+
+                   }
+                   <li> <Link to="/">Accueil</Link> </li>
                    <li> <Link to="/histoire"> Histoire</Link></li> 
                    <li>  <Link to="/Glacesetsorbets">Glaces et sorbets</Link>  </li>
-                   <li><Link to="/Chocolat " >Chocolat </Link></li> 
+                   <li><Link to="/Chocolat">Chocolat </Link></li> 
                    <li> <Link to="/shop">Shop</Link> </li> 
                    <li>  <Link to="Consulting">Consulting</Link> </li>
                   <li> <Link to="/signin">Connexion</Link> </li>  

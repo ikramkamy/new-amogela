@@ -1,0 +1,30 @@
+.size-chocolat{
+    width: 700px;
+    height: 400px;
+}
+.text-choco-wrap{
+    width: 100%;
+    margin-top: 10%;
+    display: flex;
+    justify-content: center;
+}
+.text-chocolat{
+    width: 80%;
+    text-align: left;
+    font-family: 'Dancing Script', cursive;
+    font-size: 2vw;
+}
+.text-chocolat h1{
+    color: #12705e;
+}
+.chocolat button{
+    width: 20%;
+    border-radius: 20px;
+    border: none;
+    background-color: #12705e;
+    
+}
+.chocolat button a{
+    text-decoration: none;
+    color: white;
+}

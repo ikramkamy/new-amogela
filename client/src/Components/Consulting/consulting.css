@@ -1,0 +1,85 @@
+.back-consulting{
+    width:100%;
+    height: fit-content;
+    overflow: hidden;
+    margin-top: 100px;
+}
+.Consulting{
+    color: #12705e;
+    font-size: 7em;
+    font-weight: 700;
+    width: 100%;
+    padding-left: 3%;
+    
+    display: flex;
+    justify-content: flex-start;
+    position: absolute;
+    top: 30vh;
+}
+.consulting{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.consult-form{
+    width: 50%;
+    margin-top: 10%;
+    display: flex;
+    justify-content: flex-end;
+}
+.consult-form h1{
+    color: aquamarine;
+    font-size: 3em;
+    font-weight: 700;
+}
+.form-consulting{
+    border: 1px solid red;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+   justify-content: space-between;
+   align-items: space-between;
+   text-align: left;
+   padding-right: 2%;
+}
+.message{
+    width: 30%;
+    height: 100%;
+}
+.consult-form button{
+
+background-color:rgb(195,140,163) ;
+width: 50%;
+height: fit-content;
+border: none;
+color: white;
+font-weight: 500;
+}
+.consult-form button:hover{
+    background-color:#12705e;   
+}
+.message{
+    height: 100px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.image-consult{
+    
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+}
+.Form-ui-styling{
+    z-index: 1;
+    margin-right: 2%;
+}
+.size-consult{
+    width: 100%;
+    height: 100%;
+}

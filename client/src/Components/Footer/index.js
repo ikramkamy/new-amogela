@@ -1,5 +1,6 @@
 import React from 'react'
 import './footer.css';
+import { Link } from 'react-router-dom';
 
 //import Smalllogo from '../images/LOGO_Plan de travail 1 (2).jpg'
 
@@ -33,13 +34,13 @@ export default function Footer() {
                         <div className="box">
 
                             <div className="boxContent">
-                                <div className="menuFooter"> Accueil</div>
-                                <div className="menuFooter"> Histoire</div>
-                                <div className="menuFooter"> Glaces et sorbets </div>
-                                <div className="menuFooter"> Chocolat </div>
-                                <div className="menuFooter"> Shop </div>
-                                <div className="menuFooter"> Consulting </div>
-                                <div className="menuFooter"> Contact </div>
+                                <div className="menuFooter"><Link to="/">Accueil</Link> </div>
+                                <div className="menuFooter"> <Link to="/histoire">Histoire</Link></div>
+                                <div className="menuFooter"> <Link to="/Glacesetsorbets">Glaces et sorbets</Link> </div>
+                                <div className="menuFooter"> <Link to="/Chocolat ">Chocolat</Link> </div>
+                                <div className="menuFooter"> <Link to="/shop">Shop</Link> </div>
+                                <div className="menuFooter"> <Link to="Consulting">Consulting </Link></div>
+                                <div className="menuFooter"> <Link to="/signin">Contact</Link> </div>
                             </div>
 
                         </div>
@@ -47,13 +48,13 @@ export default function Footer() {
                             <div className="boxContent">
                                 <div className="newsletter">
                                     <h5> NEWSLETTER</h5>
-                                    <div> <input type="text"  placeholder="Entrez email"/> </div>
-                                    <div> <button> <b>  Envoyer</b> </button></div>
+                                    <input type="text"  placeholder="Entrez email" /> 
+                                    <div> <button> <b>Envoyer</b> </button></div>
                                 </div>
 
                                 <div className="socialMedia">
-                                    <div> <i class="fab fa-instagram"></i></div>
-                                    <div> <i class="fab fa-facebook-f"></i></div>
+                                    <div> <i class="fab fa-instagram" style={{cursor:"pointer"}}></i></div>
+                                    <div> <i class="fab fa-facebook-f" style={{cursor:"pointer"}}></i></div>
 
 
                                 </div>

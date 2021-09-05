@@ -13,14 +13,11 @@ import Mynavbar from "../Mynavbar";
 const Product = (props) => {
   const [barquette,setBarquette]=useState([]);
   const [products,setProducts]= useState([]);
-  
   const [cathegorie, setCathegorie]=useState("Barquette");
   const [menuOpenState, setMenuOpenState] = useState(false);
   const [items, setItems] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
- 
   const [counter, setCounter] = useState(0);
-  
   const handleCount = () => {
     setCounter(2);
   };
@@ -73,9 +70,9 @@ axios.get('/getproduit')
 
 
 /*********************************Filter par cathegorie********************** */
-/*
- const  cathogry =()=>{
 
+ 
+/*
   
   axios.get(`/cathegorie/Barquette`)
   .then(res => {
@@ -86,10 +83,11 @@ axios.get('/getproduit')
   }).catch(function (error) {
     console.log(error);
   })
- } 
-*/
+ */
+
 
 /****************************************************************************** */
+
 useEffect(() => {     
   const getData = async () => {  
     await axios.get(`/cathegorie/${cathegorie}`)  
@@ -104,6 +102,7 @@ useEffect(() => {
   }  
   getData()  
 }, [])
+
 /*************************************************************************** */
 /*
 useEffect(() => {     

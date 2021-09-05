@@ -1,17 +1,12 @@
 import React from 'react'
 //import 'bootstrap/dist/css/bootstrap.min.css'
-import Carousel from 'react-bootstrap/Carousel'
+import Carousel from 'react-bootstrap/Carousel';
 import Logo from '../../images/logo.png'
 //import OwlCarousel from 'react-owl-carousel'
 //import 'owl.carousel/dist/assets/owl.carousel.css'
 //import 'owl.carousel/dist/assets/owl.theme.default.css'
 import './home.css'
-import Jus from '../../images/1 (2).png'
-import Tarte from '../../images/2 (1).png'
-import Esquimot from '../../images/3 (1).png'
-import Gauffres from '../../images/4 (1).png'
-import TarteGlacé from '../../images/5 (1).png'
-import Icecream from '../../images/6 (1).png'
+
 import Picture from '../../images/A.jpg'
 import Slideimg from '../../images/B.jpg'
 import Slideimg1 from '../../images/C.jpg'
@@ -29,16 +24,16 @@ var num = trans * counter;
 
             <Carousel className="slide">
                 <Carousel.Item className="carousselItem">
-                    <img src={Slideimg1} />
+                    <img src={Slideimg1} className="carousselItem" />
                 </Carousel.Item >
 
                 <Carousel.Item className="carousselItem">
-                    <img src={Slideimg2} />
+                    <img src={Slideimg2} className="carousselItem" />
                 </Carousel.Item>
 
 
-                <Carousel.Item className="carousselItem">
-                    <img src={Slideimg} />
+                <Carousel.Item className="carousselItem" >
+                    <img src={Slideimg} className="carousselItem" />
                 </Carousel.Item>
             </Carousel>
 
@@ -46,7 +41,8 @@ var num = trans * counter;
 
                 <div className="description">
                     <p>
-                        Une fabrication artisanale basée sur des ingrédients de qualité, du lait, de la crème et des oeufs, comme au beau vieux temps. Mais aussi des gousses de vanille, du chocolat praliné et des fruits d'excellence.
+                    Une fabrication artisanale basée sur des ingrédients de qualité, du lait, de la crème et des oeufs, comme au beau vieux temps. Mais aussi des gousses de vanille, du chocolat praliné et des fruits d'excellence.
+                   C'est ici la route que nous avons choisi d'entreprendre depuis 2015.
                     </p>
                 </div>
 

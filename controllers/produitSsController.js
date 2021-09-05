@@ -30,6 +30,7 @@ const produit=new  produiSSModel({
     quantite:req.body.quantite,
     gout:req.body.gout,
     prix:req.body.prix,
+    cathegorie:req.body.cathegorie,
 
    
 });
@@ -43,10 +44,10 @@ produit.save((error, produit)=>{
       }
       if (produit) {
         
-        const { name, img,prix } = produit;
+        const { name, img,prix,cathegorie } = produit;
         return res.status(201).json({
           
-          produit: {name, img,prix},
+          produit: {name, img,prix,cathegorie},
         });
       } 
 

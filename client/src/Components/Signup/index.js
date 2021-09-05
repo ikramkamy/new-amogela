@@ -2,6 +2,10 @@ import React,{useState} from 'react';
 import './signup.css';
 import axios from 'axios';
 import ReCAPTCHA from "react-google-recaptcha";
+import Footer from '../Footer';
+import Mynavbar from '../Mynavbar';
+import { Link } from "react-router-dom";
+
 const Signup=()=>{
 const [input,setInput]=useState({
     nom:"",
@@ -41,7 +45,13 @@ const handelChange=(event)=>{
 
     
 return(<div className="signup">
-<div className="logo-wrapper"><img src="/images/logoamo.png" className="logo-size"/></div>
+ <div className="nav-shop" style={{zIndex:"10"}}>
+    <Link to="/" className="image-wrapper">
+          <img src="/images/logoamo.png" className="product-logo" />
+        </Link>
+        </div>
+<Mynavbar/>
+
 <div className="signup-box">
 <div className="signin-title">Inscription</div>
 <div></div>
@@ -59,12 +69,13 @@ return(<div className="signup">
 <label>Password</label>
 <input  type="password"  placeholder="password" onChange={handelChange} value={input.password} name="password" />
 
-<div className="btn-signin-wrapper">
+<div className="btn-signup-wrapper">
 <button onClick={handelClick}>S'inscrire</button>
+
 </div>
 </form>
 </div>
-
+<Footer/>
 </div>)
 }
 

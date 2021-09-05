@@ -24,3 +24,12 @@
     font-size: 2vw;
     font-weight: 600;
 }
+.Pagename{
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    font-size: 3.5em;
+    font-family: 'Heebo', sans-serif;
+    color: #12705e;
+    margin-bottom: 2%;
+}

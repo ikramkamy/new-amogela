@@ -1,0 +1,26 @@
+.histoire{
+
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.histoire-wrapper{
+    width: 85%;
+}
+.text-histoire{
+    font-family: 'Heebo', sans-serif;
+    font-size: 2vw;
+    font-weight: 600;
+    text-align: center;
+}
+.text-histoire-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.text-histoire-wrapper span{
+color:#12705e;
+font-family: 'Heebo', sans-serif;
+}

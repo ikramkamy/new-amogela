@@ -11,7 +11,7 @@ const {prodID,getprodbyID,addproduct}=props;
 <div>
 <div className="">
   
-  <img style={{width:"10em"} }src={props.purl}></img></div>
+  <img src={props.purl}></img></div>
 <div className="content-wrapper">
            <div className="info-product">
               <div> {props.pname}</div>

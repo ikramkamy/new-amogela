@@ -230,7 +230,7 @@ getData()
 
       <div className="shoping-cart-icon">
      
-    <Link to="/shopingcart" style={{color:"black"}}>
+    <Link to="/signin" style={{color:"black"}}>
        <FaShoppingBag className="icon-shoping" />
        </Link>
         <div className="items">{count}</div>
