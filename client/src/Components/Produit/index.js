@@ -1,29 +1,29 @@
 import React from 'react';
 import './produits.css';
 import  { useState ,useEffect} from "react";
-
+import { Link } from 'react-router-dom';
 
 const Produit=(props)=>{
+ 
 
-const {prodID,getprodbyID,addproduct}=props;
+return(<div className="produit-component" id={props.prodID}>
 
-    return(<div className="produit-component" >
-<div>
 <div className="">
-  
-  <img src={props.purl}></img></div>
+
+<img src={props.purl} style={{width:"300px",height:"300px"}}></img></div>
 <div className="content-wrapper">
-           <div className="info-product">
-              <div> {props.pname}</div>
-             
-           </div>
-        <div className="button-wrapper">
-             <button  onClick={getprodbyID}  variant="contained" color="secondary">
-            <a href={`/getproduitbyID/:${props.prodID}`} > {props.pprice}-Ajouter</a>
-             </button>
-        </div>
-      </div>  
-      </div>
+       <div className="info-product">
+          <div> {props.pname}</div>
+          {props.pprice}
+          
+       </div>
+    <div className="button-wrapper">
+         <button     variant="contained" color="secondary">
+        <Link to={`/getproduitbyID/:${props.prodID}`}>{props.pprice} - Ajouter</Link> 
+         </button>
+    </div>
+  </div>  
+
 
     </div>)
 }

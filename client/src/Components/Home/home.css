@@ -108,14 +108,16 @@ border: 1px hidden green;
 .container{
 
 margin-top: 30px;
+
 }
-.description{
+.description p{
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 25px;
+    font-size: 1.3em;
     font-weight: 300;
-    
+    font-family: 'Poppins', sans-serif;
+    text-align: left;
 }
 .img{
     width: 100%;
@@ -132,9 +134,11 @@ margin-top: 30px;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    text-align: left;
 }
 .glaceContainer{
     display: flex;
+    justify-content: space-between;
     height: 500px;
 }
 .Home{

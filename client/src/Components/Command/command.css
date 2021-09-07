@@ -62,7 +62,10 @@ align-items: center;
     color: black;
     height: 30%;
     width: 100%;
-   
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.3em;
+    font-weight: 600;
+    text-align: left;
     display: flex;
     justify-content: center;
     align-items: center;

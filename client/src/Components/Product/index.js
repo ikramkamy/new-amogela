@@ -60,7 +60,18 @@ axios.get('/getproduit')
 .then(res => {
   const data=res.data;
   setProducts (data);
-  console.log('products',products)
+  
+  
+})
+.catch(function (error) {
+    console.log(error);
+})
+
+axios.get('/getAllbarquettes')
+.then(res => {
+  const data=res.data;
+  setBarquette (data);
+  
   
 })
 .catch(function (error) {
@@ -87,14 +98,15 @@ axios.get('/getproduit')
 
 
 /****************************************************************************** */
-
+/*
 useEffect(() => {     
   const getData = async () => {  
-    await axios.get(`/cathegorie/${cathegorie}`)  
+    await axios.get("/getAllbarquettes")  
     .then(res => {  
       console.log(res) 
       const data=res.data.data;
       setBarquette(data);
+      console.log("barquette",barquette)
     })  
     .catch(err => {  
       console.log(err)  
@@ -102,7 +114,7 @@ useEffect(() => {
   }  
   getData()  
 }, [])
-
+*/
 /*************************************************************************** */
 /*
 useEffect(() => {     
@@ -137,7 +149,7 @@ useEffect(() => {
      <div className="deco-th-style">
       <div className="shop-items">
       
-{barquette.map((e)=><Produit  purl={e.img} pname={e.name} pprice={e.prix} prodID={e.__id}  />)}
+{barquette?.map((e)=><Produit  purl={e.img} pname={e.name} pprice={e.prix} prodID={e._id} />)}
 </div>
       </div>
       <div className="deco-th-style2"> 

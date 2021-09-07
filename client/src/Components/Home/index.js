@@ -14,7 +14,7 @@ import Slideimg2 from '../../images/D.jpg'
 
 import Command from '../Command'
 import Footer from '../Footer'
-
+import { Link } from "react-router-dom";
 export default function Home() {
  var counter = 0;
 const trans = 300;

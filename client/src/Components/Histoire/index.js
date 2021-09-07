@@ -21,7 +21,7 @@ const Histoire =()=>{
 <img src="/images/histo1.jpg"/>
 </div>
 <div className="sorbets-ceontent">
-<img src="/images/histo2.jpg"/>
+<img src="/images/histo3.jpg"/>
 <div className="text-histoire-wrapper">
 <div className="text-histoire"><span>Toufik Khelef,</span> ingénieur de formation a eu l'idée d'entreprendre dans le domaine de la glace artisanale suite à un séjour effectué en Italie entre 2011 et 2013 à Cuneo dans le région de Piemount</div> 
 </div>
@@ -30,7 +30,7 @@ const Histoire =()=>{
 <div className="text-histoire-wrapper">
 <div className="text-histoire">A partie de ce moment il a décider d'abondonner l'industrie pour l'artisanat et entreprend plusieurs formation en Italie dans le domaine du Gelato, et finie par créer <span>Amogela</span></div> 
 </div>
-<img src="/images/histo3.png"/>
+<img src="/images/histo2.jpg"/>
 </div>
 </div>
 <Footer/>

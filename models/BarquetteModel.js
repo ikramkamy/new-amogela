@@ -15,7 +15,7 @@ gout: {
     
 },
 prix:{
-type:Number,
+type:String,
 },
 img: { 
     type:String,

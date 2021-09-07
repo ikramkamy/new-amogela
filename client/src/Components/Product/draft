@@ -39,3 +39,19 @@
           <h3>Amogela</h3>
         </div>
       </div>
+
+
+      const [scroll,setScroll]=useState(false);
+useEffect(() => {
+  window.onscroll = () => {
+while(window.innerHeight >70){
+
+  setScroll(true)
+}
+    
+
+    console.log("window.pageYOffset",window.innerHeight);
+    console.log("scroll",scroll);
+    
+  }
+}, []);

@@ -11,9 +11,6 @@ import Icon from './Icon';
 
 
 
-
-
-
 const Signin=(props)=>{
 const AUTH = 'AUTH';
 const history = useHistory();

@@ -54,7 +54,8 @@ return(<div className="signup">
 
 <div className="signup-box">
 <div className="signin-title">Inscription</div>
-<div></div>
+
+
 <form className="form-signup">
 <label>Nom</label>
 <input type="text"  placeholder="Nom" onChange={handelChange} value={input.lastName} name="lastName" />
@@ -70,10 +71,12 @@ return(<div className="signup">
 <input  type="password"  placeholder="password" onChange={handelChange} value={input.password} name="password" />
 
 <div className="btn-signup-wrapper">
-<button onClick={handelClick}>S'inscrire</button>
+<div className="signup-btn-wrapper" ><button className="signup-btn" onClick={handelClick}><Link to="/shop">S'inscrir</Link></button></div>
 
 </div>
 </form>
+
+
 </div>
 <Footer/>
 </div>)

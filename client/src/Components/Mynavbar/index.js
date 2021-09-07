@@ -6,6 +6,7 @@ import {FaBars} from "react-icons/fa";
  export default function Mynavbar(props) {
    const [toggleMenu,setToggleMenu]=useState(false);
    const [larger,setLarger]=useState(window.innerWidth);
+   const [isVisible, setIsVisible] = useState(false);
 const togglesmallscreen=()=>{
     setToggleMenu(!toggleMenu);
 
@@ -22,23 +23,27 @@ window.addEventListener('resize', changeWidth);
 return()=>{
 window.removeEventListener('resize',changeWidth);
 }
-
-
 },[])
-const [scroll,setScroll]=useState(false);
-useEffect(() => {
-  window.onscroll = () => {
-while(window.pageYOffset >70){
 
-  setScroll(true)
-}
-    
+const listenToScroll = () => {
+  let heightToHideFrom = 10;
+  const winScroll = document.body.scrollTop || 
+      document.documentElement.scrollTop;
+     
+  if (winScroll > heightToHideFrom) { 
+                
+       setIsVisible(true);
+  } else {
+       setIsVisible(false);
+  }  
+};
 
-    console.log("window.pageYOffset",window.pageYOffset);
-    console.log("scroll",scroll);
-    
-  }
-}, []);
+useEffect(() => {   
+  window.addEventListener("scroll", listenToScroll);
+  return () => 
+     window.removeEventListener("scroll", listenToScroll); 
+}, [])
+
 
     return (
         <div className="Nav">
@@ -49,10 +54,12 @@ while(window.pageYOffset >70){
                
                  <ul className="menuLarge">
 
-                   {scroll &&( <img src="/images/logoamo.png" className="product-logo" />)
+                   
 
 
-                   }
+                {isVisible &&( <Link to="/"><img src="/images/logoamo.png" className="product-logo" /></Link> )
+                
+                }
                    <li> <Link to="/">Accueil</Link> </li>
                    <li> <Link to="/histoire"> Histoire</Link></li> 
                    <li>  <Link to="/Glacesetsorbets">Glaces et sorbets</Link>  </li>

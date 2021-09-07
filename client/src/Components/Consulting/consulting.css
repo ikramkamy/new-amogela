@@ -10,11 +10,10 @@
     font-weight: 700;
     width: 100%;
     padding-left: 3%;
-    
     display: flex;
     justify-content: flex-start;
     position: absolute;
-    top: 30vh;
+    top: 22vh;
 }
 .consulting{
     width: 100%;

@@ -1,6 +1,6 @@
 import './App.css';
 import React, {useState } from 'react'
-import {BrowserRouter as Router,Switch, Route } from "react-router-dom"
+import {BrowserRouter as Router,Switch, Route, useParams } from "react-router-dom"
 import Command from './Components/Command';
 import Product from './Components/Product';
 import Signin from './Components/Signin';
@@ -19,6 +19,7 @@ import Consulting from './Components/Consulting';
 import Counter from './Components/Dispatchtest';
 import Chocolat from './Components/Chocolat';
 import Lognav from './Components/Lognav';
+import { Link } from "react-router-dom";
 function App() {
   const [open,setOpen]=useState(false);
   const [etat, setEtat] = useState(false);
@@ -36,9 +37,12 @@ const showinscription=()=>{
    <Router> 
   <Switch> 
   <Route exact path="/">
-        <div className="logo-accueil-wrappeur" >
-        <img src="/images/logoamo.png" className="logo-accueil"/>
+  <div className="nav-shop" style={{zIndex:"10"}}>
+    <Link to="/" className="image-wrapper">
+          <img src="/images/logoamo.png" className="product-logo" />
+        </Link>
         </div>
+       
         <Mynavbar className="stylemodify"/>
         <Home/>
 </Route>
@@ -64,8 +68,8 @@ const showinscription=()=>{
 <Product/>
 </Route>
     
-<Route path="/prodbyID">
-<ProdbyID />
+<Route path="/getproduitbyID">
+<ProdbyID ID={useParams} />
 
 </Route>
 <Route path="/shop-barquette">

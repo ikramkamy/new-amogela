@@ -29,6 +29,7 @@ export const Product2=()=>{
         console.log(res) 
         const data=res.data.data;
         setBarquette(data);
+        console.log("data barquettees is here",data)
       })  
       .catch(err => {  
         console.log(err)  

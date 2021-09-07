@@ -17,16 +17,16 @@ const Chocolat=()=>{
         <div className="Pagename">Chocolat</div>
  <Carousel className="slide">
                 <Carousel.Item className="carousselItem">
-                    <img src="images/chocolat1.jpg" className="size-chocolat"/>
+                    <img src="images/chocolat1.jpg" />
                 </Carousel.Item >
 
                 <Carousel.Item className="carousselItem">
-                    <img src="images/chocolat2.jpg" className="size-chocolat" />
+                    <img src="images/chocolat2.jpg" />
                 </Carousel.Item>
 
 
                 <Carousel.Item className="carousselItem">
-                    <img src="images/chocolat3.jpg" className="size-chocolat" />
+                    <img src="images/chocolat3.jpg"/>
                 </Carousel.Item>
             </Carousel>
 <div className="text-choco-wrap">
@@ -42,7 +42,7 @@ un méme magazin; Et c'est à partie de cette reflexion que nous avons commencé
 
 
 </div>
-<div className="chocolat" ><button><Link to="/shop">Shop </Link></button></div>
+<div className="choco-btn-wrapper" ><button className="choco-btn nohover"><Link to="/shop">Shop </Link></button></div>
 <Footer/>
     </div>)
 }
