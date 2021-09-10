@@ -3,14 +3,10 @@ const clickRetireModel=require('../models/clickRetireModel');
 
 exports.commander=(req,res)=>{
 
-    const { gout1, gout2, gout3, gout4,quantite } = req.body;
+    const {cart } = req.body;
     
     const command = new clickRetireModel({
-      gout1,
-      gout2,
-      gout3,
-      gout4,
-      quantite
+    cart,
     });
 
     command.save((error, command) => {
@@ -22,8 +18,8 @@ exports.commander=(req,res)=>{
   
         if (command) {
          
-          const { gout1, gout2, gout3, gout4,quantite} = command;
-          return res.status(201).json({command:{ gout1, gout2, gout3, gout4,quantite},});
+          const { cart} = command;
+          return res.status(201).json({command:{ cart},});
         }
       });
 }

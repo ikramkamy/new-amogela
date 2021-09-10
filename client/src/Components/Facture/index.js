@@ -3,18 +3,21 @@ import './facture.css';
 
 
 const Facture=(props)=>{
-
+const{names}=props;
 
 return (
-<div className="facture">
-    <div className="table-cart principal">
-               
-               <div className="principal-item">Produit</div>
+<div >
+   <ul>
+<li>{names}</li>)</ul>
+             
               <div className="principal-item">Prix</div>
                <div className="principal-item">Gout</div>
-               <div className="principal-item">Quantité</div>
+               
                <div className="principal-item">Prix Totale</div>
-        </div>
+     
+
+
+
         </div>)
         
     
