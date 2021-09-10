@@ -10,6 +10,7 @@ import Filter from "../Filter";
 import { getProductsBycath } from "../../actions/productActions";
 import Mynavbar from "../Mynavbar";
 
+
 const Product = (props) => {
   const [barquette,setBarquette]=useState([]);
   const [products,setProducts]= useState([]);
@@ -18,6 +19,18 @@ const Product = (props) => {
   const [items, setItems] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
   const [counter, setCounter] = useState(0);
+  const [cart,setCart]=useState([]);
+  const token=localStorage.getItem('token');
+  console.log("i m in product page token is here",token);
+
+  const config = {
+    headers: { Authorization: `Bearer ${token}` }
+};
+
+const bodyParameters = {
+  key: "value"
+};
+
   const handleCount = () => {
     setCounter(2);
   };
@@ -28,7 +41,7 @@ const Handelopne = () => {
   const handleStateChange = () => {
     setIsOpen(true);
   };
-  const [cart,setCart]=useState([]);
+  
   console.log("the cart legnth is ",cart.length)
   const [count, setCount]=useState(cart.length);
  // const [showme,setShowme]=true;
@@ -37,26 +50,38 @@ const addproduct=(product)=>{
 setCount(cart.length)
 console.log("we are in add to cart")
 setCart([...cart,product])
-console.log(cart)
+console.log(cart);
+/************************** */
+//************            product to mu user cart  ******************************/
+//event.preventDefault();
+
+console.log("we are posting ")
+const cartItems={
+  "cart" :{
+    id:product._id,
+    name:product.name,
+    prix:product.prix,
+    gout1:product.gout1,
+    gout2:product.gout2,
+    gout3:product.gout3,
+    gout4:product.gout4,
+
+  }
+   
 }
-/******************************fetching data with axios****************************/
-/*
-axios.get('/getAllbarquettes')
-.then(res => {
-  const data=res.data;
-  setBarquette (data);
-  console.log('barquette',barquette)
-  
-})
-.catch(function (error) {
-    console.log(error);
-})
-*/
+console.log(cartItems);
+axios.post("/addToCartUser",cartItems, { headers: {"Authorization" : `Bearer ${token}`} })
+.then(response => {
+ console.log("post with axios succed")
+}).catch(error => {
+  console.log("the raison of failure", error) 
+});
 
-/********************************************************************************* */
-/*******************************fetching data with axios*****************************/
+}
 
-axios.get('/getproduit')
+useEffect(() => {
+  //this to execute oncly once
+  axios.get('/getproduit')
 .then(res => {
   const data=res.data;
   setProducts (data);
@@ -66,7 +91,6 @@ axios.get('/getproduit')
 .catch(function (error) {
     console.log(error);
 })
-
 axios.get('/getAllbarquettes')
 .then(res => {
   const data=res.data;
@@ -77,61 +101,14 @@ axios.get('/getAllbarquettes')
 .catch(function (error) {
     console.log(error);
 })
+}, []);
 
 
-
-/*********************************Filter par cathegorie********************** */
-
- 
-/*
+const getbyID=(e)=>{
   
-  axios.get(`/cathegorie/Barquette`)
-  .then(res => {
-  const data=res.data;
-  setBarquette (data);
-  //console.log('barquette',barquette)
-  
-  }).catch(function (error) {
-    console.log(error);
-  })
- */
+  console.log("we are getting the id")
+}
 
-
-/****************************************************************************** */
-/*
-useEffect(() => {     
-  const getData = async () => {  
-    await axios.get("/getAllbarquettes")  
-    .then(res => {  
-      console.log(res) 
-      const data=res.data.data;
-      setBarquette(data);
-      console.log("barquette",barquette)
-    })  
-    .catch(err => {  
-      console.log(err)  
-    });  
-  }  
-  getData()  
-}, [])
-*/
-/*************************************************************************** */
-/*
-useEffect(() => {     
-  const getData2 = async () => {  
-    await axios.get(`/getproduit`)  
-    .then(res => {  
-      console.log(res) 
-      const data=res.data.data;
-      setProducts(data);
-    })  
-    .catch(err => {  
-      console.log(err)  
-    });  
-  }  
-  getData2()  
-}, [])
-*/
   return (
     <div className="product" >
   <div className="nav-shop">
@@ -149,12 +126,14 @@ useEffect(() => {
      <div className="deco-th-style">
       <div className="shop-items">
       
-{barquette?.map((e)=><Produit  purl={e.img} pname={e.name} pprice={e.prix} prodID={e._id} />)}
+{barquette?.map((e)=>
+
+<Produit  purl={e.img} pname={e.name} pprice={e.prix} prodID={e._id} addproduct={() => addproduct(e)}/>)}
 </div>
       </div>
       <div className="deco-th-style2"> 
       <div className="shop-items">
-{products.map((e)=><Produitstock purl={e.img} pname={e.name} pprice={e.prix} prodID={e.__id}  />)}  
+{products.map((e)=><Produitstock purl={e.img} pname={e.name} pprice={e.prix} prodID={e.__id} addproduct={() => addproduct(e)} />)}  
 
      </div>
   

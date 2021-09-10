@@ -33,13 +33,6 @@
     padding: 2%;
 }
 
-.date-picker{
-  
-   width: 70%;
-   border: 2px solid #12705e;
-   color: #12705e;
-   z-index: 2;
-}
 .dialog-box button{
     height: fit-content;
     width: 50%;

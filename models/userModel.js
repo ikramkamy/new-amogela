@@ -40,6 +40,10 @@ const userSchema = new mongoose.Schema(
      type:Number,
      required: true,
     },
+    cart: {
+      type: Array,
+      default: []
+  },
     role: {
       type: String,
       enum: ["user", "admin", "super-admin"],

@@ -81,7 +81,7 @@ exports.findbycategorie=(req,res)=>{
 }
 
 exports.getproduitByID=(req,res)=>{
-produiSSModel.find({"cathegorie": req.params.cathegorie,},function (err,data) {
+produiSSModel.findOne({"_id": req.params._id,},function (err,data) {
     if (err) {
         err.status = 406;
         return next(err);

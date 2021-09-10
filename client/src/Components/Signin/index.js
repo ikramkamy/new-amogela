@@ -17,7 +17,7 @@ const history = useHistory();
 console.log("we are in signin");
 const [issignin,setIssignin]=useState(false);
 const googleSuccess = async (res) => {
-const result = res?.profileObj;
+const result = res?.profileObj
 const token = res?.tokenId;
 setLoginout("logout")
 try {
@@ -62,8 +62,14 @@ const handelChange=(event)=>{
         console.log(newuser);
         axios.post("http://localhost:3001/signin",newuser)
         .then(response => {
-         console.log("post with axios succed",response )
-         history.push('/signin');
+         console.log("LOGIN axios succed",response )
+         localStorage.setItem('token', response.data.token);
+         localStorage.setItem('user', response.data.user);
+        console.log("token",response.data.token)
+         
+         const id=response.data.user._id;
+         console.log("id from response",id)
+         history.push(`/shopingcart/:${id}`);
          setLoginout("logout")
  
         }).catch(error => {

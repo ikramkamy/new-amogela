@@ -68,8 +68,8 @@ const showinscription=()=>{
 <Product/>
 </Route>
     
-<Route path="/getproduitbyID">
-<ProdbyID ID={useParams} />
+<Route  path="/ID/:productId">
+<ProdbyID prodID="6112eae87406252de8f9e039" />
 
 </Route>
 <Route path="/shop-barquette">
@@ -95,10 +95,10 @@ const showinscription=()=>{
       </div>
 </Route>
 
-<Route path="/shopingcart">
+<Route path="/shopingcart/:userId">
 
 <ShopinCart/>
-<Counter/>
+
 </Route>
 
 <Route path="/nav">

@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{useEffect, useState} from 'react';
 import './prodbyID.css';
 import axios from "axios";
 import Mynavbar from '../Mynavbar';
@@ -8,18 +8,65 @@ import Shopingcart from '../Shopingcart';
 import { ManagedUpload } from 'aws-sdk/clients/s3';
 import { useParams } from 'react-router-dom';
 const ProdbyID=(props)=>{
-  const {ID}=props;
-  console.log("id",ID);
-  const{id,getprodbyID}=props;
+  const [products,setProducts]=useState([]);
+  const [here,setHere]=useState([]);
+  const token=localStorage.getItem('token');
+  //const [counter, setCounter] = useState(0);
+  //const {addproduct}=props;
+  let {productId}=useParams();
+
+  let idsplited=productId.split(":")[1];
+  console.log("idsplited",idsplited)
+  //const objectID=("611fc0d3ba3b3720b4666a49");
+  console.log("ID from Params",productId)
+  // setId(props.prodID)
+  //const productId = props.match.params.productId;
+  /*
+  useEffect(()=>{
+
+    
+   const response= await axios.get('/getproduit').then(res => {
+     setProducts(response.data);
+     setHere(response.data);
+      console.log("fetchin by IS from params",products);
+      console.log("data from fetch axios",res.data);
+      console.log("heeere",here)
+    })
+    .catch(function (error) {
+        console.log(error);6112eae87406252de8f9e039
+    })
+},[])
+   */
+useEffect(() => {
+  const expensesListResp = async () => {
+    await axios.get(`/getproduitByID/${idsplited}`)
+    .then(response =>setHere(response.data.data))
+     
+  }
+  expensesListResp();
+}, []);
+ 
+  
+     
+console.log("heeere",here)
+ 
+
+
+
+
+  const{id,getbyID}=props;
+  
   const [cart,setCart]=useState([]);
   const [count, setCount]=useState(cart.length);
-  const [products,setProducts]=useState();
+ 
  const [input, setInput] = useState({
         gout1: "",
         gout2: "",
         gout3: "",
         gout4: "",
         quantite: "",
+        name:here.name,
+        prix:here.prix,
       });
     const handelChange = (event) => {
         const { name, value } = event.target;
@@ -30,57 +77,44 @@ const ProdbyID=(props)=>{
           };
         });
       };
-axios.get(`/getproduitbyID/:${props.prodID}`).then(res => {
-  const data=res.data;
-  setProducts (data);
-  console.log(products);
-  
-})
-.catch(function (error) {
-    console.log(error);
-})
+      const addproduct=(product)=>{
+        setCount(cart.length)
+        console.log("we are in add to cart")
+        setCart([...cart,product])
+        console.log(cart);
+        /************************** */
+        //************            product to mu user cart  ******************************/
+        //event.preventDefault();
+        
+        console.log("we are posting ")
+        const cartItems={
+          "cart" :{
+            id:here._id,
+            name:here.name,
+            prix:here.prix,
+            gout1: input.gout1,
+            gout2: input.gout2,
+            gout3: input.gout3,
+            gout4: input.gout4,
+        
+          }
+           
+        }
+        console.log(cartItems);
+        axios.post("/addToCartUser2",cartItems, { headers: {"Authorization" : `Bearer ${token}`} })
+        .then(response => {
+         console.log("post with axios succed")
+        }).catch(error => {
+          console.log("the raison of failure", error) 
+        });
+        
+        }     
 
-      const handelClick = (event) => {
-        event.preventDefault();
-        console.log("we are posting ");
-        const newCommand = {
-          gout1: input.gout1,
-          gout2: input.gout2,
-          gout3: input.gout3,
-          gout4: input.gout4,
-          quantite: input.quantite,
-        };
-        console.log(newCommand);
-        axios
-          .post(`http://localhost:3001/clickretire`, newCommand)
-          .then((response) => {
-            console.log("fetch with axios succed");
-          })
-          .catch((error) => {
-            console.log("the raison of failure", error);
-          });
-      };
       var counter = 0;
       const trans = 300;
       var num = trans * counter;
 
-      
-      const addproduct=(product)=>{
-       
-        console.log("we are in add to cart")
-        const newCommand = {
-          gout1: input.gout1,
-          gout2: input.gout2,
-          gout3: input.gout3,
-          gout4: input.gout4,
-          quantite: input.quantite,
-        };
-        console.log(newCommand);
-        setCount(cart.length)
-        
-        setCart([...cart,newCommand ])
-        console.log(cart)
-        }
+   
     return(<div className="prodbyID">
       <div className="nav-shop" style={{zIndex:"10"}}>
     <Link to="/" className="image-wrapper">
@@ -88,7 +122,7 @@ axios.get(`/getproduitbyID/:${props.prodID}`).then(res => {
         </Link>
         </div>
       <Mynavbar/>
-<div className="prod-name">{props.prodname}</div>
+<div className="prod-name">{here.name}</div>
 <div className="product-bloc">
 <div className="command-bloc">
 <div className="image-product" style={{backgroundImage:"url(/images/prod2.png)"}}></div>
@@ -200,7 +234,7 @@ axios.get(`/getproduitbyID/:${props.prodID}`).then(res => {
 </form>
 </div>
 </div>
-<button className="btn-produit" onClick={(p) => addproduct(p)}>Ajouter</button> 
+<button className="btn-produit" onClick={addproduct}>Ajouter</button> 
 <div className="buttonsControl">
                 <button className="minusButton" onClick={() => {
                                counter = counter - 1;
@@ -282,7 +316,7 @@ axios.get(`/getproduitbyID/:${props.prodID}`).then(res => {
 
 
 
-{cart.map((pr,idx)=><Shopingcart key={idx} sname={pr.name} sprice={pr.prix} squantity={pr.quantite} /> )}
+
     </div>)
 }
 export default ProdbyID;

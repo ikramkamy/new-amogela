@@ -42,7 +42,7 @@ un méme magazin; Et c'est à partie de cette reflexion que nous avons commencé
 
 
 </div>
-<div className="choco-btn-wrapper" ><button className="choco-btn nohover"><Link to="/shop">Shop </Link></button></div>
+<div className="choco-btn-wrapper"><button className="choco-btn nohover"><Link to="/shop">Shop </Link></button></div>
 <Footer/>
     </div>)
 }

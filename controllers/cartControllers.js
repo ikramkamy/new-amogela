@@ -10,6 +10,7 @@ cartModel.findOneAndUpdate({user: req.user._id},{
         '$push':{'cartItems':req.body.cartItems}
        
     });
+    console.log("we found cart")
 }else{
     const cart=new cartModel({
     user: req.user._id,

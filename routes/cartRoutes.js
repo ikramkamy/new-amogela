@@ -22,6 +22,18 @@ module.exports = router;
 	"price":"100"
 }
  }
+
+ {
+
+   "cart":
+	
+{
+	
+	"id":"6113fac8d6848926acbba136",
+"quantity":"3",
+"date":"1631122043078"
+}
+ }
 */ 
 
 /*{
