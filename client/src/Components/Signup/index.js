@@ -5,7 +5,7 @@ import ReCAPTCHA from "react-google-recaptcha";
 import Footer from '../Footer';
 import Mynavbar from '../Mynavbar';
 import { Link } from "react-router-dom";
-
+/*puul test*/
 const Signup=()=>{
 const [input,setInput]=useState({
     nom:"",
