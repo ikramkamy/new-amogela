@@ -13,7 +13,9 @@
     display: flex;
     justify-content: flex-start;
     position: absolute;
-    top: 22vh;
+    top: 320px;
+    
+ 
 }
 .consulting{
     width: 100%;

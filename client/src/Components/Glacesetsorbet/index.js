@@ -12,7 +12,7 @@ const Glaces=()=>{
 return(<div className="glaces">
     <div className="nav-shop" style={{zIndex:"10"}}>
     <Link to="/" className="image-wrapper">
-          <img src="/images/logoamo.png" className="product-logo" />
+          <img src="/images/logo.png" className="product-logo" />
         </Link>
         </div>
     <Mynavbar/>

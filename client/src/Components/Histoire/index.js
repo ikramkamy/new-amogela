@@ -8,7 +8,7 @@ const Histoire =()=>{
     return(<div className="histoire">
  <div className="nav-shop" style={{zIndex:"10"}}>
     <Link to="/" className="image-wrapper">
-          <img src="/images/logoamo.png" className="product-logo" />
+          <img src="/images/logo.png" className="product-logo" />
         </Link>
         </div>
 <Mynavbar/>
@@ -23,7 +23,7 @@ const Histoire =()=>{
 <div className="sorbets-ceontent">
 <img src="/images/histo3.jpg"/>
 <div className="text-histoire-wrapper">
-<div className="text-histoire"><span>Toufik Khelef,</span> ingénieur de formation a eu l'idée d'entreprendre dans le domaine de la glace artisanale suite à un séjour effectué en Italie entre 2011 et 2013 à Cuneo dans le région de Piemount</div> 
+<div className="text-histoire"><span>Toufik Khelef,</span> ingénieur de formation a eu l'idée d'entreprendre dans le domaine de la glace artisanale suite à un séjour effectué en Italie entre 2011 et 2013 à Cuneo dans le région de Piemont</div> 
 </div>
 </div>
 <div className="sorbets-ceontent">
@@ -33,6 +33,7 @@ const Histoire =()=>{
 <img src="/images/histo2.jpg"/>
 </div>
 </div>
+<div className="choco-btn-wrapper"><button className="choco-btn nohover"><Link to="/Consulting">Consulting </Link></button></div>
 <Footer/>
     </div>)
 }

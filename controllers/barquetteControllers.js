@@ -68,9 +68,17 @@ exports.gettAllbarquette=(req,res)=>{
 
 
 }
-exports.getproduibyID=(req,res)=>{
-  BarquetteModel.findById(req.params.id)
-
+exports.getbarquettebyID=(req,res)=>{
+BarquetteModel.findOne({"_id": req.params._id,},function (err,data) {
+    if (err) {
+        err.status = 406;
+        return next(err);
+    }
+    console.log(data);
+    return res.status(201).json({
+        message: ' success.',data:data
+    })
+  })
 
 }
 exports.updateBarquette=(req,res)=>{

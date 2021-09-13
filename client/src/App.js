@@ -19,6 +19,7 @@ import Consulting from './Components/Consulting';
 import Counter from './Components/Dispatchtest';
 import Chocolat from './Components/Chocolat';
 import Lognav from './Components/Lognav';
+import CommandeValide from './Components/CommandeValide';
 import { Link } from "react-router-dom";
 function App() {
   const [open,setOpen]=useState(false);
@@ -39,7 +40,7 @@ const showinscription=()=>{
   <Route exact path="/">
   <div className="nav-shop" style={{zIndex:"10"}}>
     <Link to="/" className="image-wrapper">
-          <img src="/images/logoamo.png" className="product-logo" />
+          <img src="/images/logo.png" className="product-logo" />
         </Link>
         </div>
        
@@ -109,6 +110,7 @@ lalall
 <Route exact path='/histoire' component={Histoire}/>
 <Route exact path='/Consulting' component={Consulting}/>
 <Route exact path="/Chocolat" component={Chocolat}/>
+<Route exact path="/commadevalidee" component={CommandeValide}/>
      </Switch> 
      </Router>
 

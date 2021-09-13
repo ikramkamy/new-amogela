@@ -5,6 +5,7 @@ const {addBarquette,gettAllbarquette,updateBarquette,getproduibyID,Filtercatégo
 router.post('/addbarquette',addBarquette);
 router.get('/getAllbarquettes',gettAllbarquette);
 router.post('/findOneAndUpdate',updateBarquette);
-router.get('/getproduibyID',getproduibyID);
+//router.get('/getproduibyID/:_id',getproduibyID);
+
 router.get('/cathegorie/:cathegorie',Filtercatégorie)
 module.exports = router;

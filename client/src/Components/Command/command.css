@@ -1,3 +1,11 @@
+@font-face {
+    font-family:GaramondPremrPro-It;
+    src: url('./GaramondPremrPro-It.otf');
+  }
+*{
+    font-family: GaramondPremrPro-It;
+}
+
 .Command{
     width: 100%;
     /*height: 600px;*/
@@ -36,8 +44,7 @@ align-items: center;
 .bloc-command::before{
     content: "";
     opacity: 0.5;
-  
-    position: absolute;
+      position: absolute;
       top: 0px;
       right: 0px;
       bottom: 0px;
@@ -49,27 +56,37 @@ align-items: center;
 }
 .command-name{
     width: 100%;
-    height: 50%;
+    height: 20%;
     display: flex;
     flex-direction: column;
-  
+    justify-content: flex-start;
     align-items: center;
+    text-align: center;
     z-index: 1;
     opacity: 100;
-    font-family: 'Poppins', sans-serif;
+    font-family: GaramondPremrPro-It;
+}
+.command-name h2{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: GaramondPremrPro-It;
 }
 .command-discreption{
     color: black;
     height: 30%;
     width: 100%;
-    font-family: 'Poppins', sans-serif;
-    font-size: 1.3em;
+    font-family: GaramondPremrPro-It;
+    font-size: 1.5em;
     font-weight: 600;
     text-align: left;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-start;
+    align-items: flex-start;
     z-index: 1;
+    padding-left: 3%;
+   margin-top: 5%;
 }
 
 
@@ -106,7 +123,7 @@ align-items: center;
    font-size: 2.5em;
    text-align: center;
    overflow: hidden;
-   font-family: 'Poppins', sans-serif;
+   font-family: GaramondPremrPro-It;
    font-weight: 900;
 }
 .command-name h3{
@@ -128,7 +145,8 @@ align-items: center;
     text-decoration: none;
     color: white;
     font-weight: 900;
-    font-family: 'Poppins', sans-serif;
+    font-family: GaramondPremrPro-It;
+    font-size: 1.5em;
 }
 .command-btn:hover{
     background-color: #146f5b;  

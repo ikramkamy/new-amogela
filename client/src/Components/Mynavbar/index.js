@@ -26,7 +26,7 @@ window.removeEventListener('resize',changeWidth);
 },[])
 
 const listenToScroll = () => {
-  let heightToHideFrom = 10;
+  let heightToHideFrom = 180;
   const winScroll = document.body.scrollTop || 
       document.documentElement.scrollTop;
      
@@ -34,7 +34,7 @@ const listenToScroll = () => {
                 
        setIsVisible(true);
   } else {
-       setIsVisible(false);
+       setIsVisible(false)
   }  
 };
 
@@ -52,22 +52,22 @@ useEffect(() => {
             <div className="menu">
 
                
-                 <ul className="menuLarge">
+                 <div className="menuLarge">
 
                    
 
 
-                {isVisible &&( <Link to="/"><img src="/images/logoamo.png" className="product-logo" /></Link> )
+                {isVisible &&( <img src="/images/logos.jpg" className="side-logo" /> )
                 
                 }
-                   <li> <Link to="/">Accueil</Link> </li>
-                   <li> <Link to="/histoire"> Histoire</Link></li> 
-                   <li>  <Link to="/Glacesetsorbets">Glaces et sorbets</Link>  </li>
-                   <li><Link to="/Chocolat">Chocolat </Link></li> 
-                   <li> <Link to="/shop">Shop</Link> </li> 
-                   <li>  <Link to="Consulting">Consulting</Link> </li>
-                  <li> <Link to="/signin">Connexion</Link> </li>  
-                    </ul>
+                    <Link to="/">Accueil</Link> 
+                    <Link to="/histoire"> Histoire</Link> 
+                     <Link to="/Glacesetsorbets">Glaces et sorbets</Link>  
+                   <Link to="/Chocolat">Chocolat </Link> 
+                    <Link to="/shop">Shop</Link>  
+                     <Link to="Consulting">Consulting</Link> 
+                   <Link to="/signin">Connexion</Link>   
+                    </div>
 {/*<div className="compressedLogo"> <img src={CompressLogo}/>  </div>*/}
 <div className="burgerMenu">
                   <FaBars onClick={togglesmallscreen} />

@@ -64,12 +64,12 @@ const handelChange=(event)=>{
         .then(response => {
          console.log("LOGIN axios succed",response )
          localStorage.setItem('token', response.data.token);
-         localStorage.setItem('user', response.data.user);
+         localStorage.setItem('user_id', response.data.user._id);
         console.log("token",response.data.token)
          
          const id=response.data.user._id;
          console.log("id from response",id)
-         history.push(`/shopingcart/:${id}`);
+         history.push(`/shop`);
          setLoginout("logout")
  
         }).catch(error => {
@@ -90,12 +90,7 @@ console.log("submit succed")
 
 return(
 <div className="signin">
-<div className="nav-shop" style={{zIndex:"10"}}>
-    <Link to="/" className="image-wrapper">
-          <img src="/images/logoamo.png" className="product-logo" />
-        </Link>
-        </div>
-<Mynavbar/>
+
 <Lognav log={loginout} issignin/>
 <div className="signin-box">
 <div className="signin-title">Signin</div>
@@ -124,7 +119,7 @@ return(
 </div>
 Si vous n'étes pas inscrits appuyez sur:
 <div onClick={showinscription} style={{color:"#12705e",fontSize:"1.3em",fontWeight:"500",cursor:"pointer"}}>S'inscrire</div>
-<Footer/>
+
 </div>)
 }
 

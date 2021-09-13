@@ -300,3 +300,29 @@ exports.getMycartUserprofile=(req,res)=>{
 }
 
 }
+//this one removes all documets of this colection
+/*
+exports.Clearcard = function(req, res, next) {
+  userModel.remove({}, function(err) {
+          if (err) {
+              console.log(err)
+          } else {
+              res.end('success');
+          }
+      }
+  );
+};
+*/
+//
+exports.Clearcard=function(req,res,next){
+  userModel.findOneAndUpdate({ "_id": req.params._id,}, {$set:{cart:[]}}, {new: true}, (err, doc) => {
+    if (err) {
+        console.log("Something wrong when updating data!");
+    }
+
+    console.log(doc);
+    return res.status(201).json({
+      message: ' CART DELETED '
+  })
+});
+}

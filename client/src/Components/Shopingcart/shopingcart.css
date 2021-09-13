@@ -15,7 +15,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border: 1px solid blueviolet;
+   
 }
 .principal{
     background-color: #ffdda6;
@@ -105,6 +105,17 @@ color: white;
      width: 80%;
      border: 1px solid #ffdda6;
      margin-top: 3%;
+    
+   
+ }
+ .wrap-this{
+
+    width: 100%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
  }
  .blac-facture{
      display: flex;
@@ -127,3 +138,51 @@ text-align: left;
      align-items: center;
      width: 30%;
  }
+ .modal , .modal2 {
+    
+    position: fixed;
+   z-index: 10;
+    background-color: rgba(0, 0, 0, 0.25);
+   }
+  .modal_content ,.modal_content2{
+    background-color:  #146f5b;
+   margin-top: 11%;
+   margin-left: 35%;
+   height: 50%;
+   width: 40%;
+    border: 2px solid  #c19a5d;
+   z-index: 10;
+   display: flex;
+     flex-direction: column;
+     justify-content: space-between;
+     align-items: center;
+     color: white;
+  }
+  .modal_content p{
+   font-size: 1.3em;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+
+  }
+  .close ,.close2{
+      cursor: pointer;
+      color: #c19a5d;
+        font-size: 1.3em;
+        width: 90%;
+        display: flex;
+        justify-content: flex-end;
+  }
+  .modal2{
+      display: none;
+  }
+  a{
+      text-decoration: none;
+      color: white;
+     
+  }
+/*
+.js-btn
+
+
+*/

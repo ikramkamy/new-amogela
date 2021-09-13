@@ -362,7 +362,7 @@ border: none;
         .container {
             width: 100%;
         }
-    
+    /*
         .glaceContainer {
             flex-direction: column;
         }
@@ -372,6 +372,7 @@ border: none;
         width: 100%;
     
      }
+     */
     
      .text {
         width: 90%;

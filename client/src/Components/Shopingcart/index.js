@@ -10,19 +10,29 @@ import { useParams } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
 import  DatePicker from "react-datepicker";
 const ShopinCart=(props)=>{
+  const token=localStorage.getItem('token');
 /*********************************favture***************************** */
-const [valide,setValise]=useState(false);
+const [valide,setValide]=useState(false);
 const handelValide=()=>{
-  setValise(!valide);
+  setValide(!valide);
 }
 const [names,setNames]=useState([]);
 const [somme,setSomme]=useState(0);
+
 const setvalSomme =()=>{
 let n=0;
-  mycart.map((e)=>n=n+ parseInt(e.prix.split(" ")[0])*e.quantity)
+  mycart?.map((e)=>n=n+ parseInt(e.prix.split(" ")[0])*e.quantity)
   setSomme(n);
   console.log("sommevalue here",somme);
-  setValise(!valide);
+   if(mycart?.length===0){
+    setValide(false)
+    const modal = document.querySelector(".modal")
+    const closeBtn = document.querySelector(".close")
+    modal.style.display = "block";
+    closeBtn.addEventListener("click", () => {
+      modal.style.display = "none";
+    })
+  }else(setValide(!valide))
 }
 
 //********************************date picker***************************** */
@@ -61,7 +71,7 @@ let n=0;
          }) 
         
        
-    const {addproduct,removeproduct}=props;
+   // const {addproduct,removeproduct}=props;
 /*********************Sending Clic et retirer commande***************** */
 const handelClick=(event)=>{
   event.preventDefault();
@@ -79,20 +89,60 @@ const handelClick=(event)=>{
   }).catch(error => {
     console.log("the raison of failure", error) 
   });
+
+
+  axios.delete(`/Clearcard/${idsplited}`)
+  .then(response => {
+    console.log("DELETE with axios succed")
+   }).catch(error => {
+     console.log("the raison of failure", error) 
+   });
   }
+const deletitem=()=>{
+
+}
+/*************************************adding quntity************************** */
+const addproduct=(product)=>{
+ 
+  /************************** */
+  //************            product to mu user cart  ******************************/
+  //event.preventDefault();
+  
+  console.log("we are posting ")
+  const cartItems={
+    "cart" :{
+      id:product._id,
+      name:product.name,
+      prix:product.prix,
+      gout1:product.gout1,
+      gout2:product.gout2,
+      gout3:product.gout3,
+      gout4:product.gout4,
+  
+    }
+     
+  }
+  console.log(cartItems);
+  axios.post("/addToCartUser",cartItems, { headers: {"Authorization" : `Bearer ${token}`} })
+  .then(response => {
+   console.log("post with axios succed")
+  }).catch(error => {
+    console.log("the raison of failure", error) 
+  });
+  
+  }
+/********************************POP-UP***************************/
 
 
-
-
-
-
-
+/***************************************************************** */
 
     return(
 <div className="shopcart-wrapper" >
           <Mynavbar/>
           <div className="show">
-                Bienvenu chez Amogela : {usercart.username}
+                Bienvenu chez Amogela : {usercart.username}<br/>
+                Cliquez & Retirez
+
       <div className="table-cart principal">
            
              <div className="principal-item">Produit</div>
@@ -103,7 +153,7 @@ const handelClick=(event)=>{
       </div>
      
 
-{mycart?.map((e)=><Cart  sname={e.name}  sprice={e.prix} gout1={e.gout1} gout2={e.gout2} gout3={e.gout3} gout4={e.gout4} squantity={e.quantity}/>) }
+{mycart?.map((e)=><Cart  sname={e.name}  sprice={e.prix} gout1={e.gout1} gout2={e.gout2} gout3={e.gout3} gout4={e.gout4} squantity={e.quantity} deletitem={(e)=>addproduct(e)}/>) }
 </div>
 
 <div className="validtaion-btns">
@@ -124,7 +174,7 @@ Veuillez s'il vous plait M/Mme :{usercart.username}  selectionner la date et l'h
   </div>
   </div>
 <div className="cart-btn-wrapper"><button className="cart-btn nohover" onClick = {setvalSomme}  >
-            Valider Votre commande
+           VOIR LA SOMME
 </button>
 </div>
 </div>
@@ -158,17 +208,27 @@ Veuillez s'il vous plait M/Mme :{usercart.username}  selectionner la date et l'h
          <div className="montnat-total"  >{setvalSomme} Totale:{somme} DA</div> 
 
 
-         <div className="cart-btn-wrapper"><button className="cart-btn nohover">
-            Envoyer la commande
-        </button>
-        <div    onClick={handelClick}>Envoyer la commande </div>
+         
+        <div className="wrap-this"><div className="cart-btn nohover" onClick={handelClick}><Link to="/commadevalidee">Envoyer la commande </Link></div></div>
          </div>
             
-        </div>
+       
 
         )}
 
+
+
+<div className="js-btn"></div>
+<div class="modal">
+   <div class="modal_content">
+     <span class="close">&times;</span>
+     <img src="/images/logoamo.png"/>
+     <p>Votre Shoping Cart est vide SVP sellectionez des produits</p>
+     amogela
+   </div>
+</div>
 <Footer/>
+
     </div>)
 }
 export default ShopinCart;

@@ -2,7 +2,7 @@ import React from 'react';
 import './shopingcart.css';
 import { Link } from 'react-router-dom';
 const Cart=(props)=>{
-    const {addproduct,removeproduct}=props;
+    const {addproduct,deletitem}=props;
 
     return(
      
@@ -20,7 +20,11 @@ const Cart=(props)=>{
     
     
     </div>
-<div className="cart-item">{props.squantity}</div>
+<div className="cart-item">{props.squantity}
+
+<div onClick={deletitem}>Supprimer</div>
+<div>+ / - </div>
+</div>
 </div>
 
 

@@ -12,7 +12,7 @@ export default function Footer() {
 
                     <div className="logoFooter">
                         <div className="logoBox">
-                            <img src="/images/logoamo.png" />
+                            <img src="/images/logos.jpg" />
                         </div>
                     </div>
 

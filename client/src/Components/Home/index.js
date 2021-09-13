@@ -41,23 +41,23 @@ var num = trans * counter;
 
                 <div className="description">
                     <p>
-                    Une fabrication artisanale basée sur des ingrédients de qualité, du lait, de la crème et des oeufs, comme au beau vieux temps. Mais aussi des gousses de vanille, du chocolat praliné et des fruits d'excellence.
-                   C'est ici la route que nous avons choisi d'entreprendre depuis 2015.
+                    Une fabrication artisanale basée sur des ingrédients de qualité, du lait, de la crème et des oeufs, comme au beau vieux temps; mais aussi des gousses de vanille, du chocolat, des praliné et des fruits d'excellence.
+                  <br/> C'est ici la route que nous avons choisi d'entreprendre depuis 2015.
                     </p>
                 </div>
 
-
+{/*
                 <div className="glaceContainer">
-                    <div className="img">
+                    <div className="">
                         <img src={Picture} className="img-ac-size"/>
                     </div>
 
-                    <div className="text">
-                        <div> <h1> Amogela </h1></div>
-                        <div> <h2> Une passion glacée</h2> </div>
+                    <div className="text-glace">
+                         <h1> Amogela </h1>
+                         <h2> Une passion glacée</h2> 
                         <div> <p>   Une fabrication artisanale basée sur des ingrédients de qualité, du lait, de la crème et des oeufs, comme au beau vieux temps. Mais aussi</p></div>
                     </div>
-                </div>
+</div>*/}
 
 
             </div>

@@ -3,10 +3,13 @@ const clickRetireModel=require('../models/clickRetireModel');
 
 exports.commander=(req,res)=>{
 
-    const {cart } = req.body;
+    const {cart ,user,time,somme,} = req.body;
     
     const command = new clickRetireModel({
     cart,
+    user,
+    time,
+    somme,
     });
 
     command.save((error, command) => {
@@ -18,8 +21,8 @@ exports.commander=(req,res)=>{
   
         if (command) {
          
-          const { cart} = command;
-          return res.status(201).json({command:{ cart},});
+          const { cart,user} = command;
+          return res.status(201).json({command:{ cart,user,time,somme},});
         }
       });
 }

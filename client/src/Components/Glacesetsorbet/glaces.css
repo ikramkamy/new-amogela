@@ -1,4 +1,4 @@
-
+ 
 
 
 .principal-desc{
@@ -10,10 +10,12 @@
     font-size:1.3em;
     font-weight: 600;
     text-align: left;
+    
 }
 .sorbets-ceontent{
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     height: fit-content;
     padding: 0px 10px 0px 10px;
 }
