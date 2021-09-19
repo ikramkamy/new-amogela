@@ -1,12 +1,15 @@
 import React,{useState} from 'react';
 import './signup.css';
 import axios from 'axios';
+import {FaArrowCircleLeft} from "react-icons/fa";
 import ReCAPTCHA from "react-google-recaptcha";
 import Footer from '../Footer';
 import Mynavbar from '../Mynavbar';
 import { Link } from "react-router-dom";
-/*puul test*/
-const Signup=()=>{
+import { useHistory } from 'react-router-dom';
+const Signup=(props)=>{
+  const {handelshow}=props;
+  const history = useHistory();
 const [input,setInput]=useState({
     nom:"",
     email:"",
@@ -38,6 +41,8 @@ const handelChange=(event)=>{
         axios.post(`http://localhost:3001/signup`,newuser)
         .then(response => {
          console.log("post with axios succed")
+         /*history.push(`/`)*/
+         handelshow();
         }).catch(error => {
           console.log("the raison of failure", error) 
         });
@@ -45,15 +50,10 @@ const handelChange=(event)=>{
 
     
 return(<div className="signup">
- <div className="nav-shop" style={{zIndex:"10"}}>
-    <Link to="/" className="image-wrapper">
-          <img src="/images/logoamo.png" className="product-logo" />
-        </Link>
-        </div>
-<Mynavbar/>
 
+<div className="signin-box-wrap">
 <div className="signup-box">
-<div className="signin-title">Inscription</div>
+
 
 
 <form className="form-signup">
@@ -71,14 +71,22 @@ return(<div className="signup">
 <input  type="password"  placeholder="password" onChange={handelChange} value={input.password} name="password" />
 
 <div className="btn-signup-wrapper">
-<div className="signup-btn-wrapper" ><button className="signup-btn" onClick={handelClick}><Link to="/shop">S'inscrir</Link></button></div>
+<div className="signup-btn-wrapper" ><button className="signup-btn" onClick={handelClick} ><Link to="/shop">S'inscrir</Link></button></div>
 
 </div>
+
 </form>
-
+<FaArrowCircleLeft onClick ={handelshow} style={{color:"#c19a5d",cursor:"pointer"}}/>
 
 </div>
-<Footer/>
+<div  className="signin-box back-signin">
+<div className="signin-title">
+  Signup</div>
+
+{/*<Lognav log={loginout} issignin/>*/}
+</div>
+</div>
+
 </div>)
 }
 

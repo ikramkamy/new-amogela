@@ -1,18 +1,18 @@
 import React, { useState, useContext,useEffect } from "react";
 import axios from "axios";
-import { FaShoppingBag, FaBars, FaFacebook, FaInstagram } from "react-icons/fa";
+import { FaShoppingBag, FaBars, FaFacebook, FaInstagram, FaClosedCaptioning, FaCross, FaIceCream, FaCalculator, FaWindowClose } from "react-icons/fa";
 import { slide as Menu } from "react-burger-menu";
 import Produit from "../Produit";
 import Produitstock from "../Produit/Produitstock";
 import "./product.css";
 import Footer from '../Footer';
 import Filter from "../Filter";
-import { getProductsBycath } from "../../actions/productActions";
+import {getProductsBycath} from "../../actions/productActions";
 import Mynavbar from "../Mynavbar";
-import { useParams,useHistory } from 'react-router-dom';
-import {loginUser} from '../../actions/productActions.js';
+import {useParams,useHistory } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import Signin from '../Signin';
+import ShopinCart from "../Shopingcart";
 const Product = (props) => {
   const history = useHistory();
   const [barquette,setBarquette]=useState([]);
@@ -33,14 +33,12 @@ const Product = (props) => {
 const bodyParameters = {
   key: "value"
 };
-
-
 const Handelopne = () => {
-    setIsOpen(true);
-    console.log("the value is", isOpen);
-  };
+    setIsOpen(!isOpen);
+    };
   const handleStateChange = () => {
     setIsOpen(true);
+
   };
   
   console.log("the cart legnth is ",cart.length)
@@ -51,15 +49,17 @@ const addproduct=(product)=>{
 
 if(token===null){
   const modal = document.querySelector(".modal")
-    const closeBtn = document.querySelector(".close")
+    const closeBtn3 = document.querySelector(".close3")
     modal.style.display = "block";
-    closeBtn.addEventListener("click", () => {
+    closeBtn3.addEventListener("click", () => {
       modal.style.display = "none";
     })
 console.log("WE ARE NO ADDING PRODUCT BEFOR SIGN IN")
 
-loginUser();
+
 }else{
+
+  setLnth(n++);
 setCounter(cart.length);
 console.log("we are in add to cart")
 setCart([...cart,product])
@@ -72,6 +72,7 @@ console.log("we are posting ")
 const cartItems={
   "cart" :{
     id:product._id,
+    img:product.img,
     name:product.name,
     prix:product.prix,
     gout1:product.gout1,
@@ -143,11 +144,11 @@ console.log("COUNTER",counter);
 */
 
 }) 
+const [lnth,setLnth]=useState(0);
+let n=0;
 useEffect(()=>{
-
-  console.log("COUNTER",counter);
-
-
+  
+  
 })
 /*************************************POPUP SIGN IN***************************** */
 
@@ -171,10 +172,10 @@ const getbyID=(e)=>{
         </Link>
         </div>
 <div className="shoping-cart-icon">
-<div className="tite-panier" >Mon panier</div>
-<FaShoppingBag className="icon-shoping" onClick={() => {history.push(`/shopingcart/:${user_id}`) }} />
-          
-        </div>
+{/*<div className="tite-panier" ></div>*/}
+<FaShoppingBag className="icon-shoping" onClick={Handelopne /*() =>/* {history.push(`/shopingcart/:${user_id}`) }*/} />
+         
+</div>
        
 <Mynavbar/>  
 <Filter />
@@ -184,7 +185,7 @@ const getbyID=(e)=>{
       
 {barquette?.map((e)=>
 
-<Produit  purl={e.img} pname={e.name} pprice={e.prix} prodID={e._id} addproduct={() => addproduct(e)}/>)}
+<Produit  purl={e.img} pname={e.name} pprice={e.prix} prodID={e._id} />)}
 </div>
       </div>
       <div className="deco-th-style2"> 
@@ -193,17 +194,27 @@ const getbyID=(e)=>{
 
      </div>
   
+{isOpen &&
 
-
+(<div class="modal-side-shop">
+<div className="side-shop" >
+<div className="shoping-cart-icon">
+<FaWindowClose className="icon-Close-cart" onClick={Handelopne}/>
+</div> 
+  <ShopinCart/>
+  </div>
+  </div>)
+}
+    
  </div>
  <div className="js-btn"></div>
 <div class="modal">
-   <div class="modal_content">
-     <span class="close">&times;</span>
-     <img src="/images/logoamo.png"/>
+<span class="close3">&times;</span>
+   <div class="modal_content-signin">
+   
+     
     <Signin/>
-     <p>Votre Shoping Cart est vide SVP sellectionez des produits</p>
-     amogela
+     
    </div>
 </div>
       <Footer/>

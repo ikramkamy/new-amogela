@@ -1,12 +1,12 @@
 
-
 .signup{
     width: 100%;
-    height: auto;
+    height: 150%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    background-color: white;
 }
 .form-signup{
     width: 100%;
@@ -20,15 +20,11 @@ display: flex;
 justify-content: center;
 }
 .signup-box{
-    width: 60%;
-    height: 60%;
-    border: 1px solid goldenrod;
-    background-color:#12705e ;
-    color: white;
+    width: 50%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 0% 5% 0% 5% ;
+    padding: 0px 2% 0px 2%;
 }
 .form-signup label,input,button{
     font-size: 100%;
@@ -37,7 +33,6 @@ justify-content: center;
 .form-signup button{
     font-size: 100%;
     height: fit-content;
-
 }
 .signup-btn{
     background-color: #c19a5d;

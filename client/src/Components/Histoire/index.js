@@ -14,21 +14,21 @@ const Histoire =()=>{
 <Mynavbar/>
 <div className="histoire-wrapper">
 <div className="Pagename"> Histoire</div>
-<div className="sorbets-ceontent">
+<div className="histoirs-ceontent">
 <div className="text-histoire-wrapper">
-<div className="text-histoire">Amogela est le résultat d'une réconversion professionnele opérée à partir de 2014,aprés plusieurs parcours dans divers industrie.</div> 
+<div className="text-histoire">Amogela est le résultat d'une réconversion professionnelle opérée à partir de 2014,aprés plusieurs parcours dans diveres industries.</div> 
 </div>
 <img src="/images/histo1.jpg"/>
 </div>
-<div className="sorbets-ceontent">
+<div className="histoirs-ceontent">
 <img src="/images/histo3.jpg"/>
 <div className="text-histoire-wrapper">
 <div className="text-histoire"><span>Toufik Khelef,</span> ingénieur de formation a eu l'idée d'entreprendre dans le domaine de la glace artisanale suite à un séjour effectué en Italie entre 2011 et 2013 à Cuneo dans le région de Piemont</div> 
 </div>
 </div>
-<div className="sorbets-ceontent">
+<div className="histoirs-ceontent">
 <div className="text-histoire-wrapper">
-<div className="text-histoire">A partie de ce moment il a décider d'abondonner l'industrie pour l'artisanat et entreprend plusieurs formation en Italie dans le domaine du Gelato, et finie par créer <span>Amogela</span></div> 
+<div className="text-histoire">A partir de ce moment il  décide d'abandonner l'industrie pour l'artisanat et entreprend plusieurs formations en Italie dans le domaine du Gelato, et fini par créer Amogela.</div> 
 </div>
 <img src="/images/histo2.jpg"/>
 </div>

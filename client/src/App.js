@@ -21,6 +21,7 @@ import Chocolat from './Components/Chocolat';
 import Lognav from './Components/Lognav';
 import CommandeValide from './Components/CommandeValide';
 import { Link } from "react-router-dom";
+import Mod from './Components/Mod';
 function App() {
   const [open,setOpen]=useState(false);
   const [etat, setEtat] = useState(false);
@@ -73,23 +74,11 @@ const showinscription=()=>{
 <ProdbyID prodID="6112eae87406252de8f9e039" />
 
 </Route>
-<Route path="/shop-barquette">
-<Product2/>
+<Route path="/shop-barquette" component={Product2}/>
+<Route path="/escimau-biscuit" component={Product3}/>
+<Route exact path="/entremets-glace"  component={Product4}/>
+<Route path="/chocolat-confiserie" component={Product5}/>
 
-</Route>
-<Route path="/Escimau-Biscuit">
-<Product3/>
-
-</Route>
-<Route path="/glace">
-<Product4/>
-
-</Route>
-
-<Route path="/chocolat-confiserie">
-<Product5/>
-
-</Route>
 <Route path="/home">
 <div className="navv">
 <Mynavbar/>
@@ -111,6 +100,7 @@ lalall
 <Route exact path='/Consulting' component={Consulting}/>
 <Route exact path="/Chocolat" component={Chocolat}/>
 <Route exact path="/commadevalidee" component={CommandeValide}/>
+<Route exact path="/mod" component={Mod}/>
      </Switch> 
      </Router>
 

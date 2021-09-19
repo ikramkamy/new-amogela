@@ -1,15 +1,27 @@
- 
 
 
+
+.glaces{
+width: 100%;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+
+
+
+} 
 .principal-desc{
-    width: 100%;
+    width: 80%;
     margin-top: 100px;
-    padding: 0px 50px 0px 50px;
+   /* padding: 0px 50px 0px 50px;*/
     margin-bottom: 100px;
-    font-family: 'Poppins', sans-serif;
+    font-family:'times-new-roman-italic' ;
+    font-style: italic;
     font-size:1.3em;
-    font-weight: 600;
+    font-weight: 300;
     text-align: left;
+  
     
 }
 .sorbets-ceontent{
@@ -18,14 +30,16 @@
     justify-content: space-between;
     height: fit-content;
     padding: 0px 10px 0px 10px;
+    width: 80%;
 }
 .text-sorbets{
  
     display: flex;
    align-items: center;
-   font-family: 'Poppins', sans-serif;
+   font-family:'times-new-roman-italic' ;
+   font-style: italic;
     font-size: 1.3em;
-    font-weight: 600;
+    font-weight: 300;
     text-align: left;
 }
 .Pagename{
@@ -33,7 +47,8 @@
     justify-content: center;
     align-items: center;
     font-size: 3.5em;
-    font-family: 'Heebo', sans-serif;
+    font-family:'times-new-roman-italic' ;
+    font-style: italic;
     color: #12705e;
     margin-bottom: 2%;
 }

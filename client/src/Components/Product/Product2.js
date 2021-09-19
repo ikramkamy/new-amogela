@@ -1,7 +1,7 @@
 import React, { useState, useContext,useEffect } from 'react';
 import './product.css';
 import axios from "axios";
-import { FaShoppingBag, FaBars, FaFacebook, FaInstagram } from "react-icons/fa";
+import { FaShoppingBag, FaBars, FaFacebook, FaInstagram ,FaWindowClose} from "react-icons/fa";
 import { slide as Menu } from "react-burger-menu";
 import Produit from "../Produit";
 import Produitstock from "../Produit/Produitstock";
@@ -12,7 +12,8 @@ import { getProductsBycath } from "../../actions/productActions";
 import Mynavbar from '../Mynavbar';
 import ShopinCart from '../Shopingcart';
 import { Link } from 'react-router-dom'
-
+import {addproduct} from '../../actions/productActions';
+import Signin from '../Signin';
 export const Product2=()=>{
     const [barquette,setBarquette]=useState([]);
     const [products,setProducts]= useState([]);
@@ -37,22 +38,25 @@ export const Product2=()=>{
     }  
  getData()  
   }, [])
-
+  const Handelopne = () => {
+    setIsOpen(!isOpen);
+    };
     return(
     <div className="product" >
     
       <div className="nav-shop">
-      <a href="/home" className="image-wrapper">
-          <img src="/images/logoamo.png" className="product-logo" />
-        </a>
+      <Link to="/" className="image-wrapper">
+          <img src="/images/logo.png" className="product-logo" />
+        </Link>
 
-        <div className="shoping-cart-icon">
+        
+      </div>
+      <div className="shoping-cart-icon">
        
       
-         <FaShoppingBag className="icon-shoping" />
-          <div className="items">{counter}</div>
+         <FaShoppingBag className="icon-shoping"  onClick={Handelopne} />
+         
         </div>
-      </div>
      <Mynavbar/>
       
 <Filter />
@@ -64,7 +68,28 @@ export const Product2=()=>{
 
 </div>
       </div>
-      
+      {isOpen &&
+
+(<div class="modal-side-shop">
+<div className="side-shop" >
+<div className="shoping-cart-icon">
+<FaWindowClose className="icon-shoping" onClick={Handelopne}/>
+</div>
+  
+  <ShopinCart/>
+  </div>
+  </div>)
+}
+      <div className="js-btn"></div>
+<div class="modal">
+<span class="close3">&times;</span>
+   <div class="modal_content-signin">
+   
+     
+    <Signin/>
+     
+   </div>
+</div>
      
       <Footer/>
     </div>
@@ -79,7 +104,9 @@ export const Product3=()=>{
   const [items, setItems] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
  const [counter, setCounter] = useState(0);
-
+ const Handelopne = () => {
+  setIsOpen(!isOpen);
+  };
 useEffect(() => {     
   const getData = async () => {  
     await axios.get(`/findbycategorie/escimau-biscuit`)  
@@ -94,21 +121,21 @@ useEffect(() => {
   }  
 getData()  
 }, [])
+const handelClick=(e)=>{
+  addproduct(e)
+}
   return(
   <div className="product" >
   
     <div className="nav-shop">
-    <a href="/home" className="image-wrapper">
-        <img src="/images/logoamo.png" className="product-logo" />
-      </a>
-
-      <div className="shoping-cart-icon">
-     
-    
-       <FaShoppingBag className="icon-shoping" />
+    <Link to="/" className="image-wrapper">
+        <img src="/images/logo.png" className="product-logo" />
+      </Link>
+</div>
+    <div className="shoping-cart-icon">
+     <FaShoppingBag className="icon-shoping"  onClick={Handelopne}/>
         <div className="items">{counter}</div>
       </div>
-    </div>
     <Mynavbar/>
     
 <Filter />
@@ -116,11 +143,31 @@ getData()
    <div className="deco-th-style">
     <div className="shop-items">
     
-{products.map((e)=><Produitstock purl={e.img} pname={e.name} pprice={e.prix} prodID={e.__id}  />)}
+{products.map((e)=><Produitstock purl={e.img} pname={e.name} pprice={e.prix} prodID={e.__id} addproduct={() => handelClick(e)} />)}
+{isOpen &&
 
+(<div class="modal-side-shop">
+<div className="side-shop" >
+<div className="shoping-cart-icon">
+<FaWindowClose className="icon-shoping" onClick={Handelopne}/>
+</div> 
+  
+  <ShopinCart/>
+  </div>
+  </div>)
+}
 </div>
     </div>
-    
+    <div className="js-btn"></div>
+<div class="modal">
+<span class="close3">&times;</span>
+   <div class="modal_content-signin">
+   
+     
+    <Signin/>
+     
+   </div>
+</div>
    
     <Footer/>
   </div>
@@ -138,9 +185,12 @@ export const Product4=()=>{
  const [counter, setCounter] = useState(0);
  const [count, setCount] = useState(0);
  const [cart,setCart]=useState([{}]);
+ const Handelopne = () => {
+  setIsOpen(!isOpen);
+  };
 useEffect(() => {     
   const getData = async () => {  
-    await axios.get(`/findbycategorie/glace`)  
+    await axios.get(`/findbycategorie/entremets-glace`)  
     .then(res => {  
       console.log(res) 
       const data=res.data.data;
@@ -152,39 +202,65 @@ useEffect(() => {
   }  
 getData()  
 }, [])
+/*
 const addproduct=(product)=>{
   setCount(cart.length)
   console.log("we are in add to cart")
   setCart([...cart,product])
   console.log(cart)
   }
+  */
+  const handelClick=(e)=>{
+    addproduct(e)
+  }
   return(
   <div className="product" >
   
     <div className="nav-shop">
-    <a href="/home" className="image-wrapper">
-        <img src="/images/logoamo.png" className="product-logo" />
-      </a>
+    <Link to="/" className="image-wrapper">
+        <img src="/images/logo.png" className="product-logo" />
+      </Link>
 
-      <div className="shoping-cart-icon">
+      
+    </div>
+    <div className="shoping-cart-icon">
      
     
-       <FaShoppingBag className="icon-shoping" />
-        <div className="items">{counter}</div>
-      </div>
+     <FaShoppingBag className="icon-shoping" onClick={Handelopne}  />
+      <div className="items">{counter}</div>
     </div>
-   
     <Mynavbar/> 
 <Filter />
    
    <div className="deco-th-style">
     <div className="shop-items">
     
-{products4.map((e)=><Produitstock  addproduct={()=>addproduct(e)} purl={e.img} pname={e.name} pprice={e.prix} prodID={e.__id}  />)}
+{products4.map((e)=><Produitstock  purl={e.img} pname={e.name} pprice={e.prix} prodID={e.__id} addproduct={() => handelClick(e)}/>)}
 
 </div>
     </div>
-    
+    {isOpen &&
+
+(<div class="modal-side-shop">
+<div className="side-shop" >
+<div className="shoping-cart-icon">
+<FaWindowClose className="icon-shoping" onClick={Handelopne}/>
+</div> 
+ 
+  <ShopinCart/>
+  </div>
+  </div>)
+}
+    <div className="js-btn"></div>
+<div class="modal">
+<span class="close3">&times;</span>
+   <div class="modal_content-signin">
+   
+     
+    <Signin/>
+     
+   </div>
+</div>
    
     <Footer/>
   </div>
@@ -207,6 +283,9 @@ export const Product5=()=>{
   setCart([...cart,product])
   console.log(cart)
   }
+  const Handelopne = () => {
+    setIsOpen(!isOpen);
+    };
 useEffect(() => {     
   const getData = async () => {  
     await axios.get(`/findbycategorie/chocolat-confiserie`)  
@@ -221,34 +300,58 @@ useEffect(() => {
   }  
 getData()  
 }, [])
+const handelClick=(e)=>{
+  addproduct(e)
+}
   return(
   <div className="product" >
   
     <div className="nav-shop">
-    <a href="/home" className="image-wrapper">
-        <img src="/images/logoamo.png" className="product-logo" />
-      </a>
+    <Link to="/" className="image-wrapper">
+          <img src="/images/logo.png" className="product-logo" />
+        </Link>
 
-      <div className="shoping-cart-icon">
-     
-    <Link to="/signin" style={{color:"black"}}>
-       <FaShoppingBag className="icon-shoping" />
-       </Link>
-        <div className="items">{count}</div>
-      </div>
+      
     </div>
+    <div className="shoping-cart-icon">
+     
    
+     <FaShoppingBag className="icon-shoping" onClick={Handelopne} />
+     
+      <div className="items">{count}</div>
+    </div>
     <Mynavbar/>
 <Filter />
    
    <div className="deco-th-style">
     <div className="shop-items">
     
-{products5.map((e)=><Produitstock addproduct={()=>addproduct(e)} purl={e.img} pname={e.name} pprice={e.prix} prodID={e.__id}  />)}
+{products5.map((e)=><Produitstock addproduct={() => handelClick(e)} purl={e.img} pname={e.name} pprice={e.prix} prodID={e.__id}  />)}
 
 </div>
     </div>
-    
+    {isOpen &&
+
+(<div class="modal-side-shop">
+<div className="side-shop" >
+<div className="shoping-cart-icon">
+<FaWindowClose className="icon-shoping" onClick={Handelopne}/>
+</div> 
+  
+  <ShopinCart/>
+  </div>
+  </div>)
+}
+    <div className="js-btn"></div>
+<div class="modal">
+<span class="close3">&times;</span>
+   <div class="modal_content-signin">
+   
+     
+    <Signin/>
+     
+   </div>
+</div>
    
     <Footer/>
   </div>

@@ -1,0 +1,128 @@
+ {
+        /*<MyContext.Provider
+          value={{
+            isMenuOpen: menuOpenState,
+            toggleMenu: () => setMenuOpenState(!menuOpenState),
+            stateChangeHandler: (newState) => setMenuOpenState(newState.isOpen),
+          }}
+        >
+          {props.children}
+        </MyContext.Provider>
+        <Menu
+          onStateChange={handleStateChange}
+          className="burger-menu"
+          customBurgerIcon={<FaBars className="FaBars" onClick={Handelopne} />}
+        >
+         
+          <a id="home" className="menu-item" href="/">
+            Home
+          </a>
+          <a id="about" className="menu-item" href="/about">
+            About
+          </a>
+          <a id="contact" className="menu-item" href="/contact">
+            Contact
+          </a>
+          <a className="menu-item--small" href="">
+            Settings
+          </a>
+        </Menu>
+        */}
+
+        /******************************cliquer et retirez background*************////
+         <div
+        className="product-backg-container"
+        style={{ backgroundImage: "url(/images/5.jpg)" }}
+      >
+        <div className="sevice-name">
+          Clickez & Retirez
+          <h3>Amogela</h3>
+        </div>
+      </div>
+
+
+      const [scroll,setScroll]=useState(false);
+useEffect(() => {
+  window.onscroll = () => {
+while(window.innerHeight >70){
+
+  setScroll(true)
+}
+    
+
+    console.log("window.pageYOffset",window.innerHeight);
+    console.log("scroll",scroll);
+    
+  }
+}, []);
+
+{/*<div className=" facture-finale">
+Cliquez & Retirez
+<div className="facture-title"> M/Mme {usercart.username}Votre facture est prete</div>     
+<div className="blac-facture">
+
+<div className="facture-item">{mycart?.map((e)=><li>{e.name}</li> )}</div>
+<div className="facture-item">{mycart?.map((e)=><li>{e.prix}</li> )}</div>
+<div >{mycart?.map((e)=><li>{e.quantity}</li> )}</div>
+<div className="facture-item-total">
+  
+  
+  {mycart?.map((e)=><li>{parseInt(e.prix.split(" ")[0])*e.quantity} DA</li> )}
+  
+  
+  </div>
+
+</div> 
+<div>Vous pouvez récupérer votre commande:le{JSON.stringify(startDate).split("T")[0]} </div>
+
+    à    <div>{JSON.stringify(startDate).split("T")[1].split(".")[0]}</div>
+ 
+
+<div className="montnat-total"  >{setvalSomme} Totale:{somme} DA</div> 
+
+
+
+<div className="wrap-this"><div className="cart-btn nohover" onClick={handelClick}><Link to="/commadevalidee">Envoyer la commande </Link></div></div>
+</div>*/}
+   
+/*******************************Date picker removede*******************/
+  <div className="date-picker">  
+      <DatePicker 
+      className="date-picker-inter" 
+      selected={date} 
+      onChange={(date) => setStartDate(date)} 
+      showTimeSelect
+      timeFormat="HH:mm"
+      timeIntervals={15}
+      dateFormat="LLL"
+       dateFormat="Pp" minDate={date} dateFormat="d MMMM , yyyy h:mm aa"/>
+  </div>
+
+
+
+<div className="validtaion-btns">
+<div className="picker-wrapper">
+
+
+
+  
+  </div>
+  
+
+</div>
+
+
+<GoogleLogin
+ clientId="72069573706-926pu7ebkqucafvq4n0jlud8u5des64d.apps.googleusercontent.com"
+ render={(renderProps)=>(
+ <button  color="primary" fullWidth onClick={renderProps.onClick} disabled={renderProps.disabled}  variant="contained">
+  
+  login  with google
+  </button>)}
+  startIcon={<Icon />}
+  onSuccess={googleSuccess}
+  onFailure={googleError}
+  cookiePolicy="single_host_origin"
+  />
+
+

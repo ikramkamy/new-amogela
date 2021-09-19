@@ -1,19 +1,34 @@
 import React from 'react';
 import {Navlink, link} from 'react-router-dom';
+import { fetchUtils  } from 'react-admin';
+import {fetchJson as httpClient} from './httpClient'
+import { stringify } from 'query-string';
 import './admin.css';
 import MySidebar from '../MySidebar';
 import '../../index.css';
 import { Container } from 'react-bootstrap';
-const Admin=()=>{
+import { Admin,Resource,ListGuesse,Datagrid, TextField, EmailField   } from 'react-admin';
+import { UserList } from './users';
+import jsonServerProvider from 'ra-data-simple-rest';
+import restProvider from 'ra-data-simple-rest';
+import simpleRestProvider from 'ra-data-simple-rest';
+import {getUsers} from './dataProvider';
 
+const Admin1=()=>{
+    const dataProvider = jsonServerProvider('https://jsonplaceholder.typicode.com/users');
+    //const apiUrl = '/getallusers';
+    //const httpClient = fetchUtils.fetchJson;
+//const getUsers = jsonServerProvider('http://localhost:3000');
+//const dataProvider=getUsers('http://localhost:3000',httpClient)
 return(<div className="admin">
-    <h1>Bienvenue à Amogela Administration</h1>
-
-<div className="admin-background"><img src="/images/logoamo.png" className="admin-background-image"/></div>
-
-<MySidebar usertype="Admin"/>
-
-
+    <Admin dataProvider={dataProvider}>
+    
+   {/* <Resource name="barquettes" list={UserList}/>
+    <Resource name="click-retirezs" list={UserList}/>
+    <Resource name="click-retirezs" list={UserList}/>
+    <Resource name="produits-sur-stocks" list={UserList}/>
+<TextField name="username" list={UserList}/>*/}
+    </Admin>
 
 </div>
 
@@ -21,4 +36,4 @@ return(<div className="admin">
 
 
 }
-export default Admin;
+export default Admin1;

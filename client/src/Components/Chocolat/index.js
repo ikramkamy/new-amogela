@@ -10,29 +10,29 @@ const Chocolat=()=>{
     return(<div >
         <div className="nav-shop" style={{zIndex:"10"}}>
           <Link to="/" className="image-wrapper">
-          <img src="/images/logoamo.png" className="product-logo" />
+          <img src="/images/logo.png" className="product-logo" />
           </Link>
         </div>
         <Mynavbar/>
         <div className="Pagename">Chocolat</div>
  <Carousel className="slide">
                 <Carousel.Item className="carousselItem">
-                    <img src="images/chocolat1.jpg" />
+                    <img src="images/chocolat1.jpg" style={{width:"100%",height:"600px"}}/>
                 </Carousel.Item >
 
                 <Carousel.Item className="carousselItem">
-                    <img src="images/chocolat2.jpg" />
+                    <img src="images/chocolat2.jpg" style={{width:"100%",height:"600px"}} />
                 </Carousel.Item>
 
 
                 <Carousel.Item className="carousselItem">
-                    <img src="images/chocolat3.jpg"/>
+                    <img src="images/chocolat3.jpg" style={{width:"100%",height:"600px"}}/>
                 </Carousel.Item>
             </Carousel>
 <div className="text-choco-wrap">
     <p className="text-chocolat">
 <h1>Pourquoi le chocolat?</h1><br/>
-La réponse se trouve certainement dans les pages d'un livre "Gelatria Per tutte le stagioni" de Paolo Brundlii; 
+La réponse se trouve certainement dans les pages d'un livre <span>"Gelatria Per tutte le stagioni" </span>de <span>"Paolo Brundlii"</span>; 
 un chef glacier chocolatier que j'ai eu a rencontrer plusieurs fois pendant le salon de la glace artisanale à
 Rimini en Italie.
 qui selon lui l'activité de glacerie et de chocolaterie sont trés complémentaires et deverons se cotoyer dans

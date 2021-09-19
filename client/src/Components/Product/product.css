@@ -17,17 +17,13 @@
 .product-logo
 {
 cursor: pointer;
-
 height: 200px;
 width: 200px;
 
 }
-
-
 .product{
     width: 100%;    
 }
-
 .product form{
     display: flex;
     flex-direction: column;
@@ -64,10 +60,17 @@ border: 1px solid red;
     justify-content: flex-end;
     align-items: center;
 }
+.icon-Close-cart{
+    position: fixed;
+    top: 8px;
+    z-index: 21;
+    font-size: 150%;
+    cursor: pointer;
+    color:white;
+}
 .items{
    
-border-radius: 25%;
-
+    border-radius: 25%;
     font-size: bolder;
     font-size: 100%;
     width: 5%;
@@ -88,6 +91,11 @@ border-radius: 25%;
 .icon-shoping:hover{
     color:#12705e;
 
+}
+.icon-shoping{
+    position: fixed;
+    top: 33px;
+    z-index: 21;
 }
 .burger-menu{
   
@@ -150,6 +158,58 @@ border-radius: 25%;
     align-items: center;
 }
 
+
+.side-shop{
+  
+    right: 0px;
+    top: 0px;
+   
+   height: fit-content;
+    background-color: white;
+    width: 40%;
+   height: 100vh;
+   
+  /* transform: translateX(-100%);*/
+   
+}
+.modal-side-shop{
+    /*position: fixed;*/
+    z-index: 25;
+     background-color: rgba(0, 0, 0, 0.25);
+     width: 100%;
+     height: fit-content;
+     position: fixed;
+     top: 0px;
+     display: flex;
+     justify-content: flex-end;
+    
+}
+.modal_content-signin{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.close3{
+  
+    margin-top: 8%;
+    margin-left: 30%;
+    padding-right: 2%;
+    cursor: pointer;
+    color: #c19a5d;
+    font-weight: 900;
+    font-size: 1.3em;
+    width: 40%;
+    display: flex;
+    justify-content: flex-end;
+    background-image: url("../../images/bg-1.jpg");
+    background-size: 80%;
+    background-repeat: repeat;
+    border-top: 1px solid #c19a5d;
+    border-left:  1px solid #c19a5d;
+    border-right:  1px solid #c19a5d;
+}
 /*
 .shop-items div:nth-of-type(6n+1), .shop-items div:nth-of-type(6n+2), .shop-items div:nth-of-type(6n+3){
     background-color: rgb(196,222,164);

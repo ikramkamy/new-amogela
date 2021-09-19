@@ -9,8 +9,9 @@ import Footer from '../Footer';
 import { useParams } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
 import  DatePicker from "react-datepicker";
+import Mod from '../Mod';
 const ShopinCart=(props)=>{
-  const token=localStorage.getItem('token');
+const token=localStorage.getItem('token');
 /*********************************favture***************************** */
 const [valide,setValide]=useState(false);
 const handelValide=()=>{
@@ -18,6 +19,7 @@ const handelValide=()=>{
 }
 const [names,setNames]=useState([]);
 const [somme,setSomme]=useState(0);
+const [lnth,setLnth]=useState(0);
 
 const setvalSomme =()=>{
 let n=0;
@@ -45,10 +47,11 @@ let n=0;
   console.log("date after stringifying",startDate);
   //date.setDate(date.getDate() + 1);
 //********************************************************************** */
-      const {userId}=useParams();
-      console.log("ID from Params",userId)
-      let idsplited=userId.split(":")[1];
-      console.log("idsplited",idsplited)
+      //const {userId}=useParams();
+      const user_id=localStorage.getItem('user_id');
+     // console.log("ID from Params",userId)
+      //let idsplited=user_id.split(":")[1];
+     // console.log("idsplited",idsplited)
       const history = useHistory();
       console.log("HIstory info are here",history);
       const[usercart,setUsercart]=useState([]);
@@ -56,7 +59,7 @@ let n=0;
  /*************************************************************************** */    
       useEffect(() => {
             const expensesListResp = async () => {
-              await axios.get(`/getMycartUserprofile/${idsplited}`)
+              await axios.get(`/getMycartUserprofile/${user_id}`)
               .then(response =>setUsercart(response.data))
                }
             expensesListResp();
@@ -66,15 +69,14 @@ let n=0;
 
           setMyCart(usercart.cart);
           console.log("we are setting your cart",mycart);
-   
-          
-         }) 
+          }) 
         
-       
+        
    // const {addproduct,removeproduct}=props;
 /*********************Sending Clic et retirer commande***************** */
 const handelClick=(event)=>{
   event.preventDefault();
+  if(somme==!0){
   console.log("we are posting commande ")
   const command={
   cart:mycart,
@@ -89,9 +91,9 @@ const handelClick=(event)=>{
   }).catch(error => {
     console.log("the raison of failure", error) 
   });
+}
 
-
-  axios.delete(`/Clearcard/${idsplited}`)
+  axios.delete(`/Clearcard/${user_id}`)
   .then(response => {
     console.log("DELETE with axios succed")
    }).catch(error => {
@@ -99,6 +101,8 @@ const handelClick=(event)=>{
    });
   }
 const deletitem=()=>{
+
+
 
 }
 /*************************************adding quntity************************** */
@@ -112,6 +116,7 @@ const addproduct=(product)=>{
   const cartItems={
     "cart" :{
       id:product._id,
+      img:product.img,
       name:product.name,
       prix:product.prix,
       gout1:product.gout1,
@@ -132,89 +137,39 @@ const addproduct=(product)=>{
   
   }
 /********************************POP-UP***************************/
-
+useEffect(()=>{
+  let n=0;
+  mycart?.map((e)=>n=n+ parseInt(e.prix?.split(" ")[0])*e.quantity)
+  setSomme(n);
+  setLnth(mycart?.length);
+})
 
 /***************************************************************** */
 
     return(
 <div className="shopcart-wrapper" >
-          <Mynavbar/>
-          <div className="show">
-                Bienvenu chez Amogela : {usercart.username}<br/>
-                Cliquez & Retirez
+<div className="user-name">Mon panier :{usercart.username}</div>      
+<div className="show">
 
-      <div className="table-cart principal">
-           
-             <div className="principal-item">Produit</div>
-            <div className="principal-item">Prix</div>
-             <div className="principal-item">Gout</div>
-             <div className="principal-item">Quantité</div>
+     <div style={{height:"auto",top:"0px",position:"absolute",width:"100%",paddingLeft:"2%",paddingRight:"2%"}}>        
 
-      </div>
-     
-
-{mycart?.map((e)=><Cart  sname={e.name}  sprice={e.prix} gout1={e.gout1} gout2={e.gout2} gout3={e.gout3} gout4={e.gout4} squantity={e.quantity} deletitem={(e)=>addproduct(e)}/>) }
+{mycart?.map((e)=><Cart  sname={e.name}  sprice={e.prix} gout1={e.gout1} gout2={e.gout2} gout3={e.gout3} gout4={e.gout4} squantity={e.quantity} deletitem={(e)=> deletitem(e)} img={e.img}/>) }
+</div>  
 </div>
 
-<div className="validtaion-btns">
-<div className="picker-wrapper">
-
-Veuillez s'il vous plait M/Mme :{usercart.username}  selectionner la date et l'heure souhaitées pour votre commandre
-
-    <div className="date-picker">  
-      <DatePicker 
-      className="date-picker-inter" 
-      selected={date} 
-      onChange={(date) => setStartDate(date)} 
-      showTimeSelect
-      timeFormat="HH:mm"
-      timeIntervals={15}
-      dateFormat="LLL"
-       dateFormat="Pp" minDate={date} dateFormat="d MMMM , yyyy h:mm aa"/>
+<div className="footer-cart">
+<div className="total-tag">
+  <div className="total-tag-contain">
+  Total : {somme}DA
   </div>
   </div>
-<div className="cart-btn-wrapper"><button className="cart-btn nohover" onClick = {setvalSomme}  >
-           VOIR LA SOMME
-</button>
-</div>
-</div>
+<div className="wrap-this">
+  <div className="cart-btn nohover" onClick={handelClick}>
+    <Link to="/commadevalidee">Envoyer la commande </Link>
+    </div>
+    </div>
+    </div>
 
-
-
-{valide &&
-           (
-<div className=" facture-finale">
-  Cliquez & Retirez
-<div className="facture-title"> M/Mme {usercart.username}Votre facture est prete</div>     
-       <div className="blac-facture">
-        
-       <div className="facture-item">{mycart?.map((e)=><li>{e.name}</li> )}</div>
-         <div className="facture-item">{mycart?.map((e)=><li>{e.prix}</li> )}</div>
-         <div >{mycart?.map((e)=><li>{e.quantity}</li> )}</div>
-         <div className="facture-item-total">
-           
-           
-           {mycart?.map((e)=><li>{parseInt(e.prix.split(" ")[0])*e.quantity} DA</li> )}
-           
-           
-           </div>
-         
-         </div> 
-         <div>Vous pouvez récupérer votre commande:le{JSON.stringify(startDate).split("T")[0]} </div>
-        
-             à    <div>{JSON.stringify(startDate).split("T")[1].split(".")[0]}</div>
-          
-        
-         <div className="montnat-total"  >{setvalSomme} Totale:{somme} DA</div> 
-
-
-         
-        <div className="wrap-this"><div className="cart-btn nohover" onClick={handelClick}><Link to="/commadevalidee">Envoyer la commande </Link></div></div>
-         </div>
-            
-       
-
-        )}
 
 
 
@@ -226,8 +181,8 @@ Veuillez s'il vous plait M/Mme :{usercart.username}  selectionner la date et l'h
      <p>Votre Shoping Cart est vide SVP sellectionez des produits</p>
      amogela
    </div>
-</div>
-<Footer/>
+    </div>
+
 
     </div>)
 }

@@ -1,5 +1,6 @@
 import React,{useState} from 'react';
 import './signin.css';
+import {FaArrowCircleLeft} from "react-icons/fa";
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import {GoogleLogin} from 'react-google-login';
@@ -8,8 +9,9 @@ import Footer from '../Footer';
 import Mynavbar from '../Mynavbar';
 import Lognav from '../Lognav';
 import Icon from './Icon';
-
-
+import {loginUser} from '../../actions/productActions.js';
+/* test pull2*/ 
+import Signup  from '../Signup';
 
 const Signin=(props)=>{
 const AUTH = 'AUTH';
@@ -35,6 +37,10 @@ console.log(error)
     alert('Google Sign In was unsuccessful. Try again later');
   } 
 const {showinscription}=props;
+const [show,setShow]=useState(false)
+const handelshow=()=>{
+  setShow(!show);
+}
 const [input,setInput]=useState({
     email:"",
     password:""
@@ -51,6 +57,7 @@ const handelChange=(event)=>{
       }
     })
     }
+    /*
     const handelClick=(event)=>{
     if(input.password===""||input.email===""){alert(`SVP remplissez tous les champs`)}
         event.preventDefault();
@@ -76,10 +83,15 @@ const handelChange=(event)=>{
           console.log("the raison of failure", error) 
           /*history.push('/signin');
           alert("check you if you are signed up ")
-          */
+          
         });
-        
-        }
+      
+      }
+*/
+const handelClick=()=>{
+ loginUser(input);
+ 
+ }
 
 const [loginout,setLoginout]=useState("login");
 
@@ -89,11 +101,14 @@ console.log("submit succed")
 }
 
 return(
+
 <div className="signin">
 
-<Lognav log={loginout} issignin/>
+
+{ !show && (
+<div className="signin-box-wrap">
 <div className="signin-box">
-<div className="signin-title">Signin</div>
+
 <form className="form-signin" onSubmit={handelSubmit}>
 <label>Email</label>
 <input  type="text"  placeholder="email@gmail.com" onChange={handelChange} value={input.email} name="email"/>
@@ -101,24 +116,35 @@ return(
 <input  type="password"  required placeholder="password" onChange={handelChange} value={input.password} name="password" />
 <div className="btn-signin-wrapper">
  
-<button  onClick={handelClick}>Signin</button>
-<GoogleLogin
- clientId="72069573706-926pu7ebkqucafvq4n0jlud8u5des64d.apps.googleusercontent.com"
- render={(renderProps)=>(
- <button  color="primary" fullWidth onClick={renderProps.onClick} disabled={renderProps.disabled}  variant="contained">
-  
-  login  with google
-  </button>)}
-  startIcon={<Icon />}
-  onSuccess={googleSuccess}
-  onFailure={googleError}
-  cookiePolicy="single_host_origin"
-  />
+<button  onClick={handelClick}><Link to="/">Signin</Link></button>
+
 </div>
 </form>
-</div>
+
+
 Si vous n'étes pas inscrits appuyez sur:
-<div onClick={showinscription} style={{color:"#12705e",fontSize:"1.3em",fontWeight:"500",cursor:"pointer"}}>S'inscrire</div>
+<div onClick={handelshow} className="inscrire">S'inscrire</div>
+
+</div>
+<div  className="signin-box back-signin">
+<div className="signin-title">
+  Signin</div>
+
+{/*<Lognav log={loginout} issignin/>*/}
+</div>
+</div>
+
+)}
+
+
+{show && (<div className="wrap-signup">
+ 
+<Signup handelshow={handelshow}/>
+
+
+</div>)
+  }
+
 
 </div>)
 }

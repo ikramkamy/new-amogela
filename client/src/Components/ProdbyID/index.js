@@ -4,13 +4,19 @@ import axios from "axios";
 import Mynavbar from '../Mynavbar';
 import Footer from '../Footer';
 import {Link} from 'react-router-dom';
-import Shopingcart from '../Shopingcart';
+import ShopinCart from "../Shopingcart";
 import { ManagedUpload } from 'aws-sdk/clients/s3';
 import { useParams } from 'react-router-dom';
+import {FaShoppingBag,FaWindowClose} from "react-icons/fa";
+
 const ProdbyID=(props)=>{
   const [products,setProducts]=useState([]);
   const [here,setHere]=useState([]);
   const token=localStorage.getItem('token');
+  const [isOpen, setIsOpen] = useState(false);
+  const Handelopne = () => {
+    setIsOpen(!isOpen);
+    };
   //const [counter, setCounter] = useState(0);
   //const {addproduct}=props;
   let {productId}=useParams();
@@ -39,9 +45,8 @@ const ProdbyID=(props)=>{
    */
 useEffect(() => {
   const expensesListResp = async () => {
-    await axios.get(`/getproduitByID/${idsplited}`)
+    await axios.get(`/getbarquettebyID/${idsplited}`)
     .then(response =>setHere(response.data.data))
-     
   }
   expensesListResp();
 }, []);
@@ -67,6 +72,7 @@ console.log("heeere",here)
         quantite: "",
         name:here.name,
         prix:here.prix,
+        img:here.img,
       });
     const handelChange = (event) => {
         const { name, value } = event.target;
@@ -92,6 +98,7 @@ console.log("heeere",here)
             id:here._id,
             name:here.name,
             prix:here.prix,
+            img:here.img,
             gout1: input.gout1,
             gout2: input.gout2,
             gout3: input.gout3,
@@ -118,9 +125,16 @@ console.log("heeere",here)
     return(<div className="prodbyID">
       <div className="nav-shop" style={{zIndex:"10"}}>
     <Link to="/" className="image-wrapper">
-          <img src="/images/logoamo.png" className="product-logo" />
+          <img src="/images/logo.png" className="product-logo" />
         </Link>
         </div>
+        <div className="shoping-cart-icon">
+     
+   
+     <FaShoppingBag className="icon-shoping" onClick={Handelopne} />
+     
+      <div className="items"></div>
+    </div>
       <Mynavbar/>
 <div className="prod-name">{here.name}</div>
 <div className="product-bloc">
@@ -311,7 +325,17 @@ console.log("heeere",here)
                         </div>
 <Footer/>
 
+{isOpen &&
 
+(<div class="modal-side-shop">
+<div className="side-shop" >
+<div className="shoping-cart-icon">
+<FaWindowClose className="icon-Close-cart" onClick={Handelopne}/>
+</div> 
+  <ShopinCart/>
+  </div>
+  </div>)
+}
 
 
 

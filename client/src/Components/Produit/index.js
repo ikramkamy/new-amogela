@@ -45,7 +45,7 @@ return(<div className="produit-component" id={props.prodID}>
        </div>
     <div className="button-wrapper">
          <button     variant="contained" color="secondary">
-        <Link to={`/ID/:${props.prodID}`} >{props.pprice} - Ajouter</Link> 
+        <Link to={`/ID/:${props.prodID}`} style={{color:"white"}}>{props.pprice} - Ajouter</Link> 
          </button>
     </div>
   </div> 

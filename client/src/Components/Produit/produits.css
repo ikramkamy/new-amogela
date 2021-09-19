@@ -28,6 +28,7 @@ justify-content: center;
    border: none;
    background-color: #c19a5d;
 }
+
 .button-wrapper button:hover{
     background-color: #c19a5d;
     color: white;  
