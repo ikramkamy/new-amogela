@@ -22,7 +22,35 @@ exports.commander=(req,res)=>{
         if (command) {
          
           const { cart,user} = command;
-          return res.status(201).json({command:{ cart,user,time,somme},});
+          console.log("WE HAVE ACCEEEEDED",command.user[0]._id)
+        const userid= command.user[0]._id;
+          return res.status(201).json({command:{ cart,user,time,somme,userid},});
         }
       });
 }
+
+exports.getcommandeByID=(req,res)=>{
+clickRetireModel.find({"user._id":req.params._id,},function (err,data) {
+  if (err) {
+      err.status = 406;
+      return next(err);
+     
+  }
+  console.log(data);
+  return res.status(201).json({
+      message: 'success.',data:data
+  })
+})
+}
+  exports.getallcommands=(req,res)=>{
+    clickRetireModel.find().then((data) => {
+      res.json(data)
+      })
+      .catch((err) => {
+        res.json({
+          err: err,
+          message: "Une erreur c'est produite",
+        });
+      });
+  }
+  

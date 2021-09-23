@@ -8,7 +8,7 @@ import Mynavbar from '../Mynavbar';
 import { Link } from "react-router-dom";
 import { useHistory } from 'react-router-dom';
 const Signup=(props)=>{
-  const {handelshow}=props;
+  const {handelshowBack}=props;
   const history = useHistory();
 const [input,setInput]=useState({
     nom:"",
@@ -42,7 +42,7 @@ const handelChange=(event)=>{
         .then(response => {
          console.log("post with axios succed")
          /*history.push(`/`)*/
-         handelshow();
+         handelshowBack();
         }).catch(error => {
           console.log("the raison of failure", error) 
         });
@@ -71,19 +71,11 @@ return(<div className="signup">
 <input  type="password"  placeholder="password" onChange={handelChange} value={input.password} name="password" />
 
 <div className="btn-signup-wrapper">
-<div className="signup-btn-wrapper" ><button className="signup-btn" onClick={handelClick} ><Link to="/shop">S'inscrir</Link></button></div>
-
+<div className="signup-btn-wrapper"><Link className="signup-btn"  onClick={handelClick} to="/shop">S'inscrir</Link></div>
+<FaArrowCircleLeft onClick={handelshowBack} style={{color:"#c19a5d",cursor:"pointer"}}/>
 </div>
-
 </form>
-<FaArrowCircleLeft onClick ={handelshow} style={{color:"#c19a5d",cursor:"pointer"}}/>
 
-</div>
-<div  className="signin-box back-signin">
-<div className="signin-title">
-  Signup</div>
-
-{/*<Lognav log={loginout} issignin/>*/}
 </div>
 </div>
 

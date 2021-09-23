@@ -26,6 +26,12 @@
   background-color: white;
   padding-bottom: 20px;
 }
+.sign-page{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 
 /*
 .navApp{

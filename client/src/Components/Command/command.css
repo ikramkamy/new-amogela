@@ -41,6 +41,31 @@ justify-content: center;
 align-items: center;
 
 }
+.back-color1{
+    width: 350px;
+    height: 600px;
+    position: absolute;
+    top: 0px;
+  
+    background-color: #c19a5d;
+    opacity: 0.2;
+}
+.back-color2{
+    width: 350px;
+    height: 600px;
+    position: absolute;
+    top: 0px;
+    background-color: #c19a5d;
+    opacity: 0.2;
+}
+.back-color3{
+    width: 350px;
+    height: 600px;
+    position: absolute;
+    top: 0px;
+    background-color: #146f5b;
+    opacity: 0.2;  
+}
 .bloc-command::before{
     content: "";
     opacity: 0.5;
@@ -94,31 +119,32 @@ align-items: center;
 
 
  .comBox1::before{
-    background-image: url('../../images/bg-1.jpg');
+    background-image: url('../../images/bg1.jpg');
   background-color: red;
-  opacity: 0.3;
+  opacity: 0.70;
  }
  .comBox1::after{
-    background-image: url('../../images/bg-1.jpg');
+    background-image: url('../../images/bg1.jpg');
   background-color: black;
-  opacity: 0.3;
+  opacity: 0.70;
  }
  .comBox2::before{
-    background-image: url('../../images/bg-2.jpg');
+    background-image: url('../../images/pg2.jpg');
     background-color: green;
+    opacity: 0.70;
   
  }
 
  .comBox2::after{
-    background-image: url('../../images/bg-2.jpg');
+    background-image: url('../../images/pg2.jpg');
     background-color: green;
-    opacity: 0.3;
+    opacity: 0.70;
  }
 
  .comBox3::before{
-    background-image: url('../../images/bg-3.jpg');
+    background-image: url('../../images/pg3.jpg');
     background-color: blue;
-    opacity: 0.3;
+    opacity: 0.70;
  }
 
  .command-name h1{

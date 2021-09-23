@@ -183,20 +183,16 @@ margin-top: 30px;
 .modal_content_cmd{
     background-color:  white;
     margin-top: 11%;
-    margin-left: 25%;
-    height: 50%;
-    width: 50%;
-     border: 2px solid  #c19a5d;
-    z-index: 21;
+    margin-left: 30%;
+    height: 55%;
+    width: 45%;
+   z-index: 21;
     display: flex;
       flex-direction: column;
-     justify-content: space-around;
+     justify-content:space-around;
       align-items: center;
-      
       border-radius: 20px;
-      
-
-} 
+     } 
 .choice-box{
     display: flex;
     width: 60%;
@@ -209,11 +205,16 @@ margin-top: 30px;
     width: 45%;
     font-size: 1.5em;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     background-color: #146f5b;
     color: white;
     cursor: pointer;
+    font-weight: 900;
+    font-family:'times-new-roman-italic' ;
+    font-style: italic;
+    height: 50px;
+    margin-bottom: 15px;
 }
 .livraison-btn{
     border: 1px solid #c19a5d;
@@ -223,28 +224,61 @@ margin-top: 30px;
     justify-content: space-around;
     align-items: center;
     cursor: pointer;
-
+    font-weight: 900;
+    font-family:'times-new-roman-italic' ;
+    font-style: italic;
+    height: 50px;
+    margin-bottom: 15px;
+}
+.mrgn{
+    margin-bottom: 10px;
 }
 .box-cmd-text{
     height: 10%;
-   
+ /* margin-top: 10px;*/
     display: flex;
     justify-content: center;
     align-items: center;
 }
 .btn-box-valid{
     
-    width: 30%;
+    width: 25%;
+    height: 30px;
     background-color: #c19a5d;
     font-weight: 900;
     font-family:'times-new-roman-italic' ;
     font-style: italic;
     color: white;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -10px;
 }
 .select-style{
     border: 1px solid #c19a5d;
     width: 90%;
+    margin-top: -15px;
+}
+.font-s{
+    font-weight: 900;
+    font-family:'times-new-roman-italic' ;
+    font-style: italic;
+    font-size: 1.3em; 
+    
+}
+.qst{
+    width: 90%;
+  font-weight: 600;
+    text-align: left;
+    font-family:'times-new-roman-italic' ;
+    font-style: italic;
+    font-size: 1.2em; 
+    
+}
+.icon-box{
+    margin-right: 10px;
+    
 }
 @media screen and (max-width : 1337px) {
     /*

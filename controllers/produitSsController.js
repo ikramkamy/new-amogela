@@ -30,9 +30,7 @@ const produit=new  produiSSModel({
     quantite:req.body.quantite,
     gout:req.body.gout,
     prix:req.body.prix,
-    cathegorie:req.body.cathegorie,
-
-   
+    cathegorie:req.body.cathegorie, 
 });
 
 produit.save((error, produit)=>{
@@ -50,8 +48,6 @@ produit.save((error, produit)=>{
           produit: {name, img,prix,cathegorie},
         });
       } 
-
-
 })
 }
 
@@ -81,6 +77,7 @@ exports.findbycategorie=(req,res)=>{
 }
 
 exports.getproduitByID=(req,res)=>{
+  console.log("WEAREHEREINGET COMMAND BY ID")
 produiSSModel.findOne({"_id": req.params._id,},function (err,data) {
     if (err) {
         err.status = 406;
@@ -88,7 +85,7 @@ produiSSModel.findOne({"_id": req.params._id,},function (err,data) {
     }
     console.log(data);
     return res.status(201).json({
-        message: ' success.',data:data
+        message: 'success.',data:data
     })
   })
 }

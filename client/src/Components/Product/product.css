@@ -30,8 +30,7 @@ width: 200px;
     height: 50%;
     width: 100%;
     justify-content: space-between;
-    
-  }
+}
  .tite-panier{
      width: 20%;
 border: 1px solid red;
@@ -146,10 +145,7 @@ border: 1px solid red;
     background-color: white;
 }
 
-.button-wrapper button a{
-    text-decoration: none;
-    color: black;
-}
+
 .image-wrapper{
    width: fit-content;
    height: fit-content;
@@ -203,12 +199,10 @@ border: 1px solid red;
     width: 40%;
     display: flex;
     justify-content: flex-end;
-    background-image: url("../../images/bg-1.jpg");
+    background-color:#146f5b;
     background-size: 80%;
     background-repeat: repeat;
-    border-top: 1px solid #c19a5d;
-    border-left:  1px solid #c19a5d;
-    border-right:  1px solid #c19a5d;
+    
 }
 /*
 .shop-items div:nth-of-type(6n+1), .shop-items div:nth-of-type(6n+2), .shop-items div:nth-of-type(6n+3){

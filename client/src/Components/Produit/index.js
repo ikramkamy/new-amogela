@@ -24,28 +24,22 @@ const Produit=(props)=>{
        .catch(function (error) {
            console.log(error);
        })
-      
-       
-
-   }
-   
+      }
    */
  
 
 return(<div className="produit-component" id={props.prodID}>
-
 <div className="">
-
 <img src={props.purl} style={{width:"300px",height:"300px"}}></img></div>
 <div className="content-wrapper">
        <div className="info-product">
           <div> {props.pname}</div>
-          {props.pprice}
+         <div  className="price-prod" >Prix: {props.pprice}</div> 
           {props.getbyID}
        </div>
     <div className="button-wrapper">
-         <button     variant="contained" color="secondary">
-        <Link to={`/ID/:${props.prodID}`} style={{color:"white"}}>{props.pprice} - Ajouter</Link> 
+         <button     variant="contained" color="secondary" className="ajoute">
+        <Link to={`/ID/:${props.prodID}`}>Ajouter</Link> 
          </button>
     </div>
   </div> 

@@ -44,7 +44,7 @@ const Handelopne = () => {
   console.log("the cart legnth is ",cart.length)
   const [count, setCount]=useState(cart.length);
  // const [showme,setShowme]=true;
-const handleClick=()=>{setCount(cart.length)};
+//const handleClick=()=>{setCount(cart.length)};
 const addproduct=(product)=>{
 
 if(token===null){
@@ -55,8 +55,6 @@ if(token===null){
       modal.style.display = "none";
     })
 console.log("WE ARE NO ADDING PRODUCT BEFOR SIGN IN")
-
-
 }else{
 
   setLnth(n++);
@@ -64,11 +62,10 @@ setCounter(cart.length);
 console.log("we are in add to cart")
 setCart([...cart,product])
 console.log(cart);
-/************************** */
-//************            product to mu user cart  ******************************/
+
 //event.preventDefault();
 
-console.log("we are posting ")
+console.log("we are posting")
 const cartItems={
   "cart" :{
     id:product._id,
@@ -79,14 +76,13 @@ const cartItems={
     gout2:product.gout2,
     gout3:product.gout3,
     gout4:product.gout4,
-
-  }
-   
+}
 }
 console.log(cartItems);
 axios.post("/addToCartUser",cartItems, { headers: {"Authorization" : `Bearer ${token}`} })
 .then(response => {
  console.log("post with axios succed")
+ setIsOpen(!isOpen);
 }).catch(error => {
   console.log("the raison of failure", error) 
 });
@@ -99,8 +95,7 @@ useEffect(() => {
 .then(res => {
   const data=res.data;
   setProducts (data);
-  
-  
+
 })
 .catch(function (error) {
     console.log(error);
@@ -108,9 +103,7 @@ useEffect(() => {
 axios.get('/getAllbarquettes')
 .then(res => {
   const data=res.data;
-  setBarquette (data);
-  
-  
+  setBarquette (data); 
 })
 .catch(function (error) {
     console.log(error);
@@ -147,8 +140,6 @@ console.log("COUNTER",counter);
 const [lnth,setLnth]=useState(0);
 let n=0;
 useEffect(()=>{
-  
-  
 })
 /*************************************POPUP SIGN IN***************************** */
 
@@ -190,7 +181,7 @@ const getbyID=(e)=>{
       </div>
       <div className="deco-th-style2"> 
       <div className="shop-items">
-{products.map((e)=><Produitstock purl={e.img} pname={e.name} pprice={e.prix} prodID={e.__id} addproduct={() => addproduct(e)} />)}  
+{products?.map((e)=><Produitstock purl={e.img} pname={e.name} pprice={e.prix} prodID={e.__id} addproduct={() => addproduct(e)} />)}  
 
      </div>
   

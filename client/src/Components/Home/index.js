@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from 'react'
-import {FaHome, FaShoppingBag,FaBicycle, FaBaby, FaLocationArrow, FaBackspace, FaRecycle, FaArrowCircleLeft} from "react-icons/fa";
+import {FaHome, FaShoppingBag,FaBicycle, FaBaby, FaLocationArrow, FaBackspace, FaRecycle, FaArrowCircleLeft, FaMapMarked} from "react-icons/fa";
 import Carousel from 'react-bootstrap/Carousel';
 import Logo from '../../images/logo.png'
 import './home.css'
@@ -203,33 +203,33 @@ const choiceEmporte=()=>{
 
             <div className="js-btn"></div>
 <div class="modal">
-    {  show &&(<div class="modal_content_cmd">
+    {show &&(<div class="modal_content_cmd">
      <span class="close">&times;</span>
-     <p>Comment voulez-vous récupérer votre commande?</p>
+     <p className="font-s">Comment voulez-vous récupérer votre commande?</p>
     <div className="choice-box">
-<div className="emporte" onClick={choiceEmporte} ><FaHome />A emporté</div>
-<div className="livraison-btn" onClick={choiseDilivery}><FaBicycle/> Livraison</div>
+<div className="emporte" onClick={choiceEmporte} ><FaHome className="icon-box" />A emporté</div>
+<div className="livraison-btn" onClick={choiseDilivery}><FaBicycle className="icon-box"/> Livraison</div>
 
 
     </div>
-    <div className="box-cmd-text"><FaHome/>Adresse amogela,</div>
+    <div className="box-cmd-text"><FaHome/> :Adresse amogela,</div>
    {/*<div className="btn-box-valid">Valider</div>*/}
    </div>)
 
     }
-    {  emporte &&(<div class="modal_content_cmd">
+    {emporte &&(<div class="modal_content_cmd">
      <span class="close">&times;</span>
      <FaArrowCircleLeft onClick ={goback} style={{color:"#c19a5d"}}/>
-     <p>Quand voulez-vous récupérer votre commande?</p>
-     A quelle date?
+     <p className="font-s">Quand voulez-vous récupérer votre commande?</p>
+     <p className="qst"> Quel jour ?</p>
    
-    <select data-id="domain-switcher" onChange={handelChange} value={input.jour} type="text" name="jour" className="select-style" >
+    <select data-id="domain-switcher" onChange={handelChange} value={input.jour} type="text" name="jour" className="select-style" style={{marginBottom:"10px"}}>
               <option defaultValue>  Date</option>
               <option value="jeudi" >jeudi</option>
               <option value="lundi" >lundi</option>
     </select>
     
-   A quelle heure
+   <p className="qst">À  quelle heure</p>
    <select data-id="domain-switcher" onChange={handelChange} value={input.heur} type="text" name="heur" className="select-style" >
               <option defaultValue>  heure</option>
               <option value="15:30" >15:30</option>
@@ -237,18 +237,18 @@ const choiceEmporte=()=>{
     </select>
       
     <div className="box-cmd-text"><FaHome/>Adresse amogela,</div>
-    <div className="btn-box-valid" onClick={validate}>Valider</div>
+    <div className="btn-box-valid mrgn" onClick={validate}>Valider</div>
     
    </div>)
 
     }
       { dilevery &&(<div class="modal_content_cmd">
      <span class="close">&times;</span>
-     <FaArrowCircleLeft onClick ={goback} style={{color:"#c19a5d"}}/>
-     <p>la livraison est disponible pour ces endroits</p>
+     <FaArrowCircleLeft onClick ={goback} style={{color:"#c19a5d",cursor:"pointer"}}/>
+     <p className="font-s">la livraison est disponible pour ces endroits</p>
      <div className="choice-box">
-     <div className="emporte"  onClick={handelwilaya}><FaLocationArrow/>Alger</div>
-     <div className="emporte" onClick={handelwilaya2}><FaLocationArrow/> Boumerdes</div>
+     <div className="emporte"  onClick={handelwilaya}><FaMapMarked className="icon-box"/>Alger</div>
+     <div className="emporte" onClick={handelwilaya2}><FaMapMarked className="icon-box"/> Boumerdes</div>
      </div>
      {wilaya &&(
      

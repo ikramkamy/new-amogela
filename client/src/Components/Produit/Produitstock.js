@@ -15,11 +15,11 @@ const {addproduct,prodID}=props;
     <div className="content-wrapper">
            <div className="info-product">
               <div> {props.pname}</div>
-              {props.pprice}
+             <div className="price-prod" >Prix: {props.pprice}</div> 
            </div>
         <div className="button-wrapper">
-             <button  onClick = {addproduct}   variant="contained" color="secondary">
-             {props.pprice} - Ajouter
+             <button style={{fontSize:"1.85em"}} onClick = {addproduct}   variant="contained" color="secondary">
+             Ajouter
              </button>
         </div>
       </div>  

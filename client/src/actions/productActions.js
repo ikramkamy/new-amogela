@@ -42,8 +42,7 @@ return {
 /****************************function 2******************* */
 
 export const addproduct=(product)=>{
-
-  if(token===null){
+if(token===null){
     const modal = document.querySelector(".modal")
       const closeBtn3 = document.querySelector(".close3")
       modal.style.display = "block";

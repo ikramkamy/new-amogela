@@ -18,14 +18,17 @@ import Histoire from './Components/Histoire';
 import Consulting from './Components/Consulting';
 import Counter from './Components/Dispatchtest';
 import Chocolat from './Components/Chocolat';
-import Lognav from './Components/Lognav';
 import CommandeValide from './Components/CommandeValide';
 import { Link } from "react-router-dom";
 import Mod from './Components/Mod';
+import Lognav from './Components/Lognav';
+import Footer from './Components/Footer';
+import Clientpage from "./Components/Clientpage";
 function App() {
   const [open,setOpen]=useState(false);
   const [etat, setEtat] = useState(false);
   const [show,setShow]=useState(false);
+  const user_id=localStorage.getItem('user_id');
 const showinscription=()=>{
   setShow(!show);
 }
@@ -43,12 +46,14 @@ const showinscription=()=>{
     <Link to="/" className="image-wrapper">
           <img src="/images/logo.png" className="product-logo" />
         </Link>
+       
         </div>
        
         <Mynavbar className="stylemodify"/>
         <Home/>
 </Route>
     <Route exact path="/accueil">
+   
    <Modal open={open} close={close} />
   <Command openModal={()=>setOpen(true)}/>
      </Route>
@@ -62,11 +67,19 @@ const showinscription=()=>{
     <Admin/>
     </Route>
  <Route exact path="/signin">
-      {show && (<Signup/>)}
-    {!show && ( <Signin showinscription={showinscription}/>)}
+   <div className="sign-page">
+  
+   <Mynavbar/>
    
+   <Lognav/>
+   
+     <Signin/>
+     
+ <Footer/>
+ 
+ </div>
 </Route>
-<Route exact path="/shop" >
+<Route exact path="/shop">
 <Product/>
 </Route>
     
@@ -93,7 +106,7 @@ const showinscription=()=>{
 
 <Route path="/nav">
 <Mynavbar/>
-lalall
+
 <Lognav/>
 </Route>
 <Route exact path='/histoire' component={Histoire}/>
@@ -101,12 +114,12 @@ lalall
 <Route exact path="/Chocolat" component={Chocolat}/>
 <Route exact path="/commadevalidee" component={CommandeValide}/>
 <Route exact path="/mod" component={Mod}/>
+<Route  path="/clientpage" component={Clientpage}/>
      </Switch> 
      </Router>
 
 
 
-     
     </div>
   );
 }

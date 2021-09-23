@@ -7,8 +7,8 @@ import {Link} from 'react-router-dom';
 import ShopinCart from "../Shopingcart";
 import { ManagedUpload } from 'aws-sdk/clients/s3';
 import { useParams } from 'react-router-dom';
-import {FaShoppingBag,FaWindowClose} from "react-icons/fa";
-
+import {FaShoppingBag,FaWindowClose,FaMinus ,FaPlus} from "react-icons/fa";
+import Signin from '../Signin';
 const ProdbyID=(props)=>{
   const [products,setProducts]=useState([]);
   const [here,setHere]=useState([]);
@@ -84,10 +84,19 @@ console.log("heeere",here)
         });
       };
       const addproduct=(product)=>{
-        setCount(cart.length)
-        console.log("we are in add to cart")
-        setCart([...cart,product])
-        console.log(cart);
+
+        if(token===null){
+          const modal = document.querySelector(".modal")
+            const closeBtn3 = document.querySelector(".close3")
+            modal.style.display = "block";
+            closeBtn3.addEventListener("click", () => {
+              modal.style.display = "none";
+            })
+        console.log("WE ARE NO ADDING PRODUCT BEFOR SIGN IN")
+        
+        
+        }else{
+       
         /************************** */
         //************            product to mu user cart  ******************************/
         //event.preventDefault();
@@ -111,17 +120,18 @@ console.log("heeere",here)
         axios.post("/addToCartUser2",cartItems, { headers: {"Authorization" : `Bearer ${token}`} })
         .then(response => {
          console.log("post with axios succed")
+         setIsOpen(!isOpen);
         }).catch(error => {
           console.log("the raison of failure", error) 
         });
         
         }     
-
+      }
       var counter = 0;
       const trans = 300;
       var num = trans * counter;
 
-   
+   const n=0;
     return(<div className="prodbyID">
       <div className="nav-shop" style={{zIndex:"10"}}>
     <Link to="/" className="image-wrapper">
@@ -240,9 +250,9 @@ console.log("heeere",here)
               <option value="Sorbet coco/Ananas" >Sorbet coco/Ananas</option>
   </select>
   </label>
- <label>
-     Quantité
-     <input type="Number"placeholder="quantié" onChange={handelChange} value={input.quantite} name="quantite"/>
+ <label className="quantite">
+ <div className="quantite">Quantité:<FaMinus style={{color:"#12705e"}}/>{n}<FaPlus style={{color:"#12705e",cursor:"pointer"}}/></div>
+     {/*<input type="Number"placeholder="quantié" onChange={handelChange} value={input.quantite} name="quantite"/>*/}
  </label>
    
 </form>
@@ -337,7 +347,16 @@ console.log("heeere",here)
   </div>)
 }
 
-
+<div className="js-btn"></div>
+<div class="modal">
+<span class="close3">&times;</span>
+   <div class="modal_content-signin">
+   
+     
+    <Signin/>
+     
+   </div>
+</div>
 
 
 

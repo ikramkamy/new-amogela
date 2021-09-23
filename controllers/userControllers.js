@@ -1,4 +1,5 @@
 const userModel=require('../models/userModel');
+const product=require('../models/ProduitsurstackModel');
 const bcrypt=require('bcrypt');
 const shortid=require('shortid');
 const jwt = require("jsonwebtoken");
@@ -181,7 +182,7 @@ exports.addToCartUser=(req, res)=>{
                         alger:req.body.cart.alger,
                         communeAlger:req.body.cart.communeAlger,
                         boumerdes:req.body.cart.boumerdes,
-                       communeboumerdes:req.body.cart.communeboumerdes,
+                        communeboumerdes:req.body.cart.communeboumerdes,
                         emporte:req.body.cart.emporte,
                         jour:req.body.cart.jour,
                         heur:req.body.cart.heur,
@@ -297,6 +298,8 @@ exports.getMycartUser=(req,res)=>{
       });
     });
 exports.getMycartUserprofile=(req,res)=>{
+  
+
   userModel.findOne({"_id": req.params._id,},function (err,data) {
     if (err) {
         err.status = 406;
@@ -304,7 +307,7 @@ exports.getMycartUserprofile=(req,res)=>{
     }
     console.log(data);
     return res.status(201).json({
-        message: ' success.',data:data
+        message: 'success.',data:data
     })
   })
 }
@@ -339,6 +342,34 @@ exports.Clearcard=function(req,res,next){
 
 
 exports.DeletefromCartUser=(req, res)=>{
+
+  userModel.findOneAndUpdate(
+    { _id: req.user._id },
+    {
+        "$pull":
+            { "cart": { "id": req.body.id } }
+    },
+    { new: true },
+    (err, userInfo) => {
+        let cart = userInfo.cart;
+        let array = cart.map(item => {
+            return item.id
+        })
+
+        product.find({ '_id': { $in: array } })
+            .populate('writer')
+            .exec((err, cartDetail) => {
+                return res.status(200).json({
+                    cartDetail,
+                    cart
+                })
+            })
+    }
+)
+}
+
+
+exports.MinuOneItemCartUser=(req, res)=>{
   userModel.findOne({ _id: req.user._id }, (err, userInfo) => {
     let duplicate = false;
 
@@ -352,22 +383,31 @@ exports.DeletefromCartUser=(req, res)=>{
 
 
     if (duplicate) {
-      userModel.findOneAndDelete(
+      userModel.findOneAndUpdate(
             { _id: req.user._id, "cart.id": req.body.cart.id },
-           
+            { $inc: { "cart.$.quantity": -1 } },
+            { new: true },
             (err, userInfo) => {
                 if (err) return res.json({ success: false, err });
                 res.status(200).json(userInfo.cart)
             }
         )
     } else {
-      userModel.findOneAndDelete(
+      userModel.findOneAndUpdate(
             { _id: req.user._id },
             {
-                $filter: {
+                $push: {
                     cart: {
                         id: req.body.cart.id,
-                       
+                        img:req.body.cart.img,
+                        name:req.body.cart.name,
+	                      prix:req.body.cart.prix,
+	                      gout1:req.body.cart.gout1,
+	                      gout2:req.body.cart.gout2,
+	                      gout3:req.body.cart.gout3,
+	                      gout4:req.body.cart.gout4,
+	                     quantity: -1,
+                        date: Date.now()
                     }
                 }
             },

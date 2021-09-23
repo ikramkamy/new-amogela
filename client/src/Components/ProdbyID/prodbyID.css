@@ -1,11 +1,13 @@
 .prodbyID{
     width: 100%;
-
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 .prod-name{
     width: 100%;
     height: 10vh;
-    
     display: flex;
     justify-content: center;
     align-items: center;
@@ -71,6 +73,9 @@
         
         color: white;
         cursor: pointer;
+        display: flex;
+    justify-content: center;
+    align-items: center;
     }
     .btn-produit:hover{
 background-color: #c19a5d;
@@ -351,6 +356,9 @@ border: none;
         background: transparent;
         border-radius: 50px;
         margin: 5px;
+        display: flex;
+    justify-content: center;
+    align-items: center;
     }
     
     .minusButton{
@@ -384,7 +392,12 @@ border: none;
         width: 100%; 
      }
      }
-    
+    .quantite{
+        background-color: yellow;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
     
      @media screen and (max-width : 1036px) {
         .infoContent{

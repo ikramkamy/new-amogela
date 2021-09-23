@@ -1,8 +1,8 @@
 import React,{useState,useEffect} from "react";
 import axios from 'axios';
 import { Link } from "react-router-dom";
-import {FaIceCream } from "react-icons/fa";
-
+import {FaIceCream, FaLock } from "react-icons/fa";
+import {FaPersonBooth} from "react-icons/fa";
 const Lognav = (props) => {
 const {issignin}=props;
 console.log("issignin",issignin);
@@ -36,8 +36,10 @@ const logout=()=>{
   return (
     <div className="filter">
         <div className="filter-items">
-       <div className="filter-item" ><Link to="/signin" onClick={logout}>Logout</Link></div>
-       <div className="filter-item" ><Link to="/signin" onClick={logout}>login</Link></div>
+       <div className="filter-item" >
+         
+         <Link to="/signin" onClick={logout}>Logout <FaLock/></Link></div>
+       
       </div>
       <div className="burgerMenu-filer">
                   <FaIceCream onClick={togglesmallscreen} />

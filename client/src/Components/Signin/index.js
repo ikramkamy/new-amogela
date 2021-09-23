@@ -7,7 +7,7 @@ import {GoogleLogin} from 'react-google-login';
 import { useHistory } from 'react-router-dom';
 import Footer from '../Footer';
 import Mynavbar from '../Mynavbar';
-import Lognav from '../Lognav';
+
 import Icon from './Icon';
 import {loginUser} from '../../actions/productActions.js';
 /* test pull2*/ 
@@ -37,9 +37,16 @@ console.log(error)
     alert('Google Sign In was unsuccessful. Try again later');
   } 
 const {showinscription}=props;
+const [sign,setSign]=useState("Connectez-vous")
 const [show,setShow]=useState(false)
 const handelshow=()=>{
   setShow(!show);
+  setSign("Inscrivez-vous")
+}
+const handelshowBack=()=>{
+  setShow(!show);
+  setSign("Connectez-vous")
+
 }
 const [input,setInput]=useState({
     email:"",
@@ -103,47 +110,35 @@ console.log("submit succed")
 return(
 
 <div className="signin">
-
-
+<div className="header-sign" >{sign}</div>
+<img src="/images/logo.png" className="logo-sign"/>
 { !show && (
 <div className="signin-box-wrap">
+
 <div className="signin-box">
 
 <form className="form-signin" onSubmit={handelSubmit}>
 <label>Email</label>
 <input  type="text"  placeholder="email@gmail.com" onChange={handelChange} value={input.email} name="email"/>
-<label>Password</label>
+<label>Mot de Passe</label>
 <input  type="password"  required placeholder="password" onChange={handelChange} value={input.password} name="password" />
 <div className="btn-signin-wrapper">
  
-<button  onClick={handelClick}><Link to="/">Signin</Link></button>
+<button  onClick={handelClick}><Link to="/">Connexion</Link></button>
 
 </div>
 </form>
-
-
-Si vous n'étes pas inscrits appuyez sur:
-<div onClick={handelshow} className="inscrire">S'inscrire</div>
-
+Vous n'avez pas un compte?<span onClick={handelshow} className="inscrire">S'inscrire</span>
 </div>
-<div  className="signin-box back-signin">
-<div className="signin-title">
-  Signin</div>
-
-{/*<Lognav log={loginout} issignin/>*/}
-</div>
-</div>
-
-)}
+</div>)}
 
 
 {show && (<div className="wrap-signup">
  
-<Signup handelshow={handelshow}/>
+<Signup handelshowBack={handelshowBack}/>
 
 
-</div>)
-  }
+</div>)}
 
 
 </div>)
