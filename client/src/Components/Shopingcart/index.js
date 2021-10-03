@@ -67,7 +67,7 @@ useEffect(() => {
               .then(response =>setUsercart(response.data))
                }
             expensesListResp();
-          },[]);
+          });
           console.log("we are getting the cart",usercart.cart); 
          useEffect(()=>{
 
@@ -224,7 +224,7 @@ const Minesone=(e)=>{
 
      <div style={{height:"auto",top:"0px",position:"absolute",width:"100%",paddingLeft:"2%",paddingRight:"2%"}}>        
 
-{mycart?.map((e)=><Cart  sname={e.name}  sprice={e.prix} gout1={e.gout1} gout2={e.gout2} gout3={e.gout3} gout4={e.gout4} squantity={e.quantity}  Deletitem={()=>  Deletitem(e)} img={e.img} Minesone={()=>Minesone(e)} addproduct={()=>addproduct(e)}/>) }
+{mycart?.map((e)=><Cart  sname={e.name}  sprice={e.prix} gout1={e.gout1} gout2={e.gout2} gout3={e.gout3} gout4={e.gout4} squantity={e.quantity}  Deletitem={()=>  Deletitem(e)} img={e.img} Minesone={()=>Minesone(e)} addproduct={()=>addproduct(e)}/>)}
 </div>  
 </div>
 

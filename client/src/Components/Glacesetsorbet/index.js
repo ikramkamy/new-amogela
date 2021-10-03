@@ -37,18 +37,18 @@ return(<div className="glaces">
     <div className="principal-desc">
     Nos glaces et sorbets se distinguent par leurs gouts et leurs saveurs fraiches, Pour y arriver nous avons le choix de les réaliser avec des ingrédients naturels, Privés de colorants et d'aromes de synthése,
     </div>
-     <div className="sorbets-ceontent">
-     <div className="text-histoire-wrapper">
-     <div className="text-sorbets">La liste des ingrédients qui compose nos recettes et la plus breve pioufle pour laisser la place à la vraie saveur des matiérs premiéres,</div> 
+     <div className="sorbets-ceontent" style={{marginBottom:"100px"}}>
+     <div className="text-sorbet-wrapper">
+     <div className="text-sorbets">La liste des ingrédients qui compose nos recettes et la plus breve possible pour laisser la place à la vraie saveur des matiérs premiéres,</div> 
 
      </div>
  
- <img src="/images/sorbet1.jpg"/>
+ <img src="/images/sorbet1.jpg" style={{width:"45%",height:"425px"}}/>
  </div>
  <div className="sorbets-ceontent">
- <img src="/images/sorbet2.jpg" style={{width:"420px",height:"425px"}}/>
- <div className="text-histoire-wrapper">
- <div className="text-sorbets"> Le choix des parfums commence par les classiques comme l vanille, le chocolat en passant les
+ <img src="/images/sorbet2.jpg" style={{width:"45%",height:"425px"}}/>
+ <div className="text-sorbet-wrapper">
+ <div className="text-sorbets"> Le choix des parfums commence par les classiques comme la vanille, le chocolat en passant par les
  Sorbets fraise, citron jusqu'à arrivé à des saveurs authentiques tel que le Gianduja ou la nougatine.
  </div>
 
@@ -60,6 +60,7 @@ return(<div className="glaces">
  </div>
  
  </div>
+ <div className="choco-btn-wrapper"><button className="choco-btn nohover"><Link to="/shop">Shop </Link></button></div>
  <Footer/>
 </div>)
 

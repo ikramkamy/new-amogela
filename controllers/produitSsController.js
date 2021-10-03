@@ -53,6 +53,8 @@ produit.save((error, produit)=>{
 
 exports.getproduit=(req,res)=>{
   produiSSModel.find().then((data) => {
+    res.header('Access-Control-Expose-Headers', 'Content-Range')
+    res.header("Content-Range", `produits-sur-stocks 1-18/18`);
     res.json(data)
     })
     .catch((err) => {

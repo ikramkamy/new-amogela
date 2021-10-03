@@ -58,6 +58,8 @@ exports.signup = (req, res) => {
   }
   exports.getallusers=(req,res)=>{
       userModel.find().then((data) => {
+        res.header('Access-Control-Expose-Headers', 'Content-Range')
+        res.header("Content-Range", `simple_users 1-9/9`);
       res.json(data)
       })
       .catch((err) => {

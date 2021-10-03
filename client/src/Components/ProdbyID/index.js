@@ -73,6 +73,7 @@ console.log("heeere",here)
         name:here.name,
         prix:here.prix,
         img:here.img,
+        id:here._id,
       });
     const handelChange = (event) => {
         const { name, value } = event.target;
@@ -108,6 +109,7 @@ console.log("heeere",here)
             name:here.name,
             prix:here.prix,
             img:here.img,
+            quantite:here.quantite,
             gout1: input.gout1,
             gout2: input.gout2,
             gout3: input.gout3,
@@ -132,6 +134,46 @@ console.log("heeere",here)
       var num = trans * counter;
 
    const n=0;
+   const Minesone=(e)=>{
+    if(token===null){
+      const modal = document.querySelector(".modal")
+        const closeBtn3 = document.querySelector(".close3")
+        modal.style.display = "block";
+        closeBtn3.addEventListener("click", () => {
+          modal.style.display = "none";
+        })
+    console.log("MINUS PRODUCT BEFOR SIGN IN")
+    }else{
+    
+   /************************** */
+    //************            product to mu user cart  ******************************/
+    //event.preventDefault();
+    
+    console.log("we are MINUSING")
+    const cartItems={
+      "cart" :{
+        id:e.id,
+        img:e.img,
+        name:e.name,
+        prix:e.prix,
+        quantite:e.quantite,
+        gout1:e.gout1,
+        gout2:e.gout2,
+        gout3:e.gout3,
+        gout4:e.gout4,
+    }
+    }
+    console.log(cartItems);
+    axios.post("/MinuOneItemCartUser",cartItems, { headers: {"Authorization" : `Bearer ${token}`} })
+    .then(response => {
+     console.log("MINUS")
+    
+    }).catch(error => {
+      console.log("the raison of failure MINUS", error) 
+    });
+    }
+   }
+  
     return(<div className="prodbyID">
       <div className="nav-shop" style={{zIndex:"10"}}>
     <Link to="/" className="image-wrapper">
@@ -250,9 +292,15 @@ console.log("heeere",here)
               <option value="Sorbet coco/Ananas" >Sorbet coco/Ananas</option>
   </select>
   </label>
- <label className="quantite">
- <div className="quantite">Quantité:<FaMinus style={{color:"#12705e"}}/>{n}<FaPlus style={{color:"#12705e",cursor:"pointer"}}/></div>
+ <label className="quantite.wrap">
+ 
      {/*<input type="Number"placeholder="quantié" onChange={handelChange} value={input.quantite} name="quantite"/>*/}
+<div className="quantite">
+  Quantité:
+  <FaMinus onClick={Minesone} style={{color:"#12705e"}}/>
+  {here.quantity}
+  <FaPlus onClick={addproduct} style={{color:"#12705e",cursor:"pointer"}}/>
+  </div>
  </label>
    
 </form>

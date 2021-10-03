@@ -56,6 +56,8 @@ Barquette.save((error, Barquette)=>{
 
 exports.gettAllbarquette=(req,res)=>{
   BarquetteModel.find().then((data) => {
+    res.header('Access-Control-Expose-Headers', 'Content-Range')
+    res.header("Content-Range", `barquettes 1-3/3`);
     res.json(data)
     })
     .catch((err) => {

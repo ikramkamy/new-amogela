@@ -1,16 +1,14 @@
 
 import axios from 'axios';
 import {LOGIN_USER,ADD_PRODUCT} from './types';
-import { useHistory } from 'react-router-dom';
+import {useHistory} from 'react-router-dom';
 const token=localStorage.getItem('token');
 export function loginUser (newuser){
     
 if(newuser.password===""||newuser.email===""){alert(`SVP remplissez tous les champs`)}
 //event.preventDefault();
 console.log("we are posting ")
-/*
-
-*/
+/**/
 console.log(newuser);
 const request =axios.post("http://localhost:3001/signin",newuser)
 .then(response => {

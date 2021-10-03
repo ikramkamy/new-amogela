@@ -159,7 +159,7 @@ const getbyID=(e)=>{
     <div className="product" >
   <div className="nav-shop">
         <Link to="/home" className="image-wrapper">
-          <img src="/images/logo.png" className="product-logo" />
+          <img src="/images/logos.jpg" className="product-logo" />
         </Link>
         </div>
 <div className="shoping-cart-icon">
@@ -170,7 +170,7 @@ const getbyID=(e)=>{
        
 <Mynavbar/>  
 <Filter />
-     
+ 
      <div className="deco-th-style">
       <div className="shop-items">
       

@@ -10,17 +10,18 @@
 }
 .text-chocolat{
     width: 80%;
-    text-align: left;
+    text-align: justify;
     font-family:'times-new-roman-italic' ;
     font-style: italic;
     font-weight: 300;
-    font-size: 1.3em;
+    font-size: 2.2em;
 }
 .text-chocolat h1{
     color: #12705e;
     font-family:'times-new-roman-italic' ;
     font-style: italic;
     font-weight: 300;
+    font-size: 2.2em;
 }
 .text-chocolat span{
     
@@ -47,14 +48,16 @@
     font-weight: 900;
     font-family:'times-new-roman-italic' ;
     font-style: italic;
+    font-size: 1.8em;
 }
 .choco-btn-wrapper{
     width: 100%;
-    height: 10vh;
+    height: 8vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 3%;
+    margin-top: 100px;
+
 }
 .choco-btn:hover{
     background-color: #146f5b;  

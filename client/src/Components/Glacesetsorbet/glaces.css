@@ -18,7 +18,7 @@ align-items: center;
     margin-bottom: 100px;
     font-family:'times-new-roman-italic' ;
     font-style: italic;
-    font-size:1.3em;
+    font-size:2.5em;
     font-weight: 300;
     text-align: left;
   
@@ -38,9 +38,9 @@ align-items: center;
    align-items: center;
    font-family:'times-new-roman-italic' ;
    font-style: italic;
-    font-size: 1.3em;
+    font-size: 2.5em;
     font-weight: 300;
-    text-align: left;
+    text-align: justify;
 }
 .Pagename{
     width: 100%;
@@ -51,4 +51,13 @@ align-items: center;
     font-style: italic;
     color: #12705e;
     margin-bottom: 2%;
+}
+
+.text-sorbet-wrapper{
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+   
+    width: 45%;
 }

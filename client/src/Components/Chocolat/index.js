@@ -32,7 +32,7 @@ const Chocolat=()=>{
 <div className="text-choco-wrap">
     <p className="text-chocolat">
 <h1>Pourquoi le chocolat?</h1><br/>
-La réponse se trouve certainement dans les pages d'un livre <span>"Gelatria Per tutte le stagioni" </span>de <span>"Paolo Brundlii"</span>; 
+La réponse se trouve certainement dans les pages d'un livre <span>"Gelatrea Per tutte le stagioni" </span>de <span>"Paolo Brundlii"</span>; 
 un chef glacier chocolatier que j'ai eu a rencontrer plusieurs fois pendant le salon de la glace artisanale à
 Rimini en Italie.
 qui selon lui l'activité de glacerie et de chocolaterie sont trés complémentaires et deverons se cotoyer dans

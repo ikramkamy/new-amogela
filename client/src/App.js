@@ -24,6 +24,7 @@ import Mod from './Components/Mod';
 import Lognav from './Components/Lognav';
 import Footer from './Components/Footer';
 import Clientpage from "./Components/Clientpage";
+import ShopPro from "./Components/ShopPro";
 function App() {
   const [open,setOpen]=useState(false);
   const [etat, setEtat] = useState(false);
@@ -44,7 +45,7 @@ const showinscription=()=>{
   <Route exact path="/">
   <div className="nav-shop" style={{zIndex:"10"}}>
     <Link to="/" className="image-wrapper">
-          <img src="/images/logo.png" className="product-logo" />
+          <img src="/images/logos.jpg" className="product-logo" />
         </Link>
        
         </div>
@@ -91,7 +92,7 @@ const showinscription=()=>{
 <Route path="/escimau-biscuit" component={Product3}/>
 <Route exact path="/entremets-glace"  component={Product4}/>
 <Route path="/chocolat-confiserie" component={Product5}/>
-
+<Route path="/shopPro" component={ShopPro}/>
 <Route path="/home">
 <div className="navv">
 <Mynavbar/>

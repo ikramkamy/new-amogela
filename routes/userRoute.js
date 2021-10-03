@@ -5,7 +5,7 @@ const {requiresignin}=require('../controllers/userControllers')
 const user=require('../models/userModel');
 
 router.post('/signup',signup);
-router.get('/getallusers',getallusers);
+router.get('/api/utilisateurs',getallusers);
 router.get('/getMycartUser',requiresignin,getMycartUser);
 router.get('/getMycartUserprofile/:_id',getMycartUser);
 router.post('/signin',signin);
@@ -14,7 +14,7 @@ router.post('/addToCartUser2',requiresignin,addToCartUser2)
 router.delete('/Clearcard/:_id',Clearcard);
 router.post('/DeletefromCartUser',requiresignin,DeletefromCartUser);
 router.post('/MinuOneItemCartUser',requiresignin,MinuOneItemCartUser);
-
+/*
 router.get('/simple_users', async (req, res) => {
     try {
         const users = await user.find({});
@@ -25,5 +25,6 @@ router.get('/simple_users', async (req, res) => {
         console.log(`Error in getting simple_users ${error}`);
     }
 })
+*/
 /*router.delete('/DeletefromCartUser',requiresignin,DeletefromCartUser)*/
 module.exports = router;
