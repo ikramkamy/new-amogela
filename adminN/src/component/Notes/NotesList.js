@@ -5,12 +5,12 @@ import {List,Datagrid,TextField,EditButton,DeleteButton,} from 'react-admin';
 const NotesList = (props) => {
   return (
     <List {...props}>
-      <Datagrid>
+      <Datagrid rowClick="edit">
         <TextField source="id" />
      
         <TextField source="text" />
-        <EditButton label="Edit" basePath="/edit" />
-        <DeleteButton label="Delete" basePath="/horaire" />
+        <EditButton label="Edit" basePath="/notes" />
+        <DeleteButton label="Delete" basePath="/notes" />
       </Datagrid>
     </List>
   );

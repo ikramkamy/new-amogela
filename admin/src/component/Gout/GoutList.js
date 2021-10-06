@@ -1,25 +1,21 @@
 import React from 'react';
-import { alpha } from '@material-ui/core/styles';
-import {
-  List,
-  Datagrid,
-  TextField,
-  EditButton,
-  DeleteButton,
-} from 'react-admin';
+import { Link } from 'react-router-dom';
+import {FaPen,FaTrash} from "react-icons/fa";
+const GoutList=(props)=>{
+const {handelDelete}=props;
 
-const GoutList = (props) => {
-  return (
-    <List {...props}>
-      <Datagrid>
-      <TextField source="name" />
-        <TextField source="id" />
-       
-        <EditButton label="Edit" basePath="/gouts"/>
-        <DeleteButton label="Delete" basePath="/gouts"/>
-      </Datagrid>
-    </List>
-  );
-};
 
+    
+return(
+<div className="user_info">
+
+<div className="item-user">{props._id}</div>
+  <div className="item-user">{props.name}</div>      
+  <div className="item-user">{props.disponible}</div>
+  
+  
+  <div className="item-user edite-btn-u" onClick={props.show}><FaPen className="icon-edit-u"/><Link to={`/gouts/${props._id}`}>Edite</Link> </div>
+  <div className="item-user edite-btn" onClick={handelDelete}><FaTrash className="icon-edit"/><Link>Supprimer</Link> </div>
+    </div>)
+}
 export default GoutList;

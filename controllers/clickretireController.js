@@ -43,6 +43,8 @@ clickRetireModel.find({"user._id":req.params._id,},function (err,data) {
 })
 }
   exports.getallcommands=(req,res)=>{
+    res.header('Access-Control-Expose-Headers', 'Content-Range')
+    res.header("Content-Range", `gouts 1-9/9`);
     clickRetireModel.find().then((data) => {
       res.json(data)
       })
@@ -53,4 +55,18 @@ clickRetireModel.find({"user._id":req.params._id,},function (err,data) {
         });
       });
   }
-  
+  exports.getallcarts=(req,res)=>{
+ 
+    clickRetireModel.find().then((data) => {
+      let i=1;
+      let j=0;
+     
+      res.json(data[i].cart[j].name)
+      })
+      .catch((err) => {
+        res.json({
+          err: err,
+          message: "Une erreur c'est produite",
+        });
+      });
+  }

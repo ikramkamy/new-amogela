@@ -6,7 +6,10 @@ const noteSchema = new Schema({
   text: { type: String, required: true },
   id: {
     type:String
-  }
+  },
+  jour:{
+    type:String
+    }
 });
 
 const Note = mongoose.model('note', noteSchema);

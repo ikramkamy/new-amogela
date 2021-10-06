@@ -1,12 +1,54 @@
 .App {
   text-align: center;
-}
+  display: flex;
 
+}
+.side-bar{
+  height: 100vh;
+  width: 20%;
+  border: 1px solid lightgray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.side-elements{
+display: flex;
+flex-direction: column;
+height: 80%;
+width: 100%;
+margin-left: 15px;
+
+}
+.side-elem{
+height: 6%;
+width: 100%;
+font-family: 'Times New Roman', Times, serif;
+font-style: italic;
+font-size: 0.9em;
+text-align: left;
+
+display: flex;
+justify-content: space-between;
+
+}
+.side-elem a{
+  color: black;
+  text-decoration: none;
+  width: 100%;
+  
+  cursor: pointer;
+  padding-left: 20px;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
-
+.side-elem a:hover{
+  color:#12705e;
+}
+.icon-side{
+  color:#12705e;
+}
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;

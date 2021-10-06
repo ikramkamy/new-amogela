@@ -26,6 +26,10 @@ img: {
 type:String,
 default:'Barquette',
 
+     },
+     disponible:{
+         type:String,
+         default:'oui',
      }
  
 

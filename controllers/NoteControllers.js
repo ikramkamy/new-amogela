@@ -1,8 +1,6 @@
 
-
 const Note = require('../models/Note');
 
- 
   //# create a note
 exports.create =  (req, res) => {
   
@@ -10,6 +8,7 @@ exports.create =  (req, res) => {
      const note=new  Note({
       text:req.body.text,
       id:req.body.id,
+      jour:req.body.jour,
     
     
  });
@@ -22,10 +21,10 @@ exports.create =  (req, res) => {
        }
        if (note) {
          
-         const {text,id} = note;
+         const {text,id,jour} = note;
          return res.status(201).json({
            
-           note: {text,id},
+           note: {text,id,jour},
          });
        } 
  })
@@ -47,18 +46,17 @@ exports.getnotes =(req,res)=>{
 }
 
  //#update a note
- exports.edit= (req, res) => {
+
+ exports.update= (req, res) => {
  console.log("WE ARE UPDATING HORAIRE")
- const id=req.params.id;
+ const _id=req.body.id;
 const text=req.body.text;
- Note.findByIdAndUpdate((id),{text:req.body.text}
+ Note.findByIdAndUpdate({_id:req.body._id},{text:req.body.text}
      ).then((data)=>{
-const noteup={id,text}
+const noteup={_id,text}
       res.json(noteup)
       console.log("UPDATE SUCCED",noteup)
-      
-
-     })
+})
  // const goutToUpdate =  Gout.findById(noteId).then()
  // res.code(200).send({ data: goutToUpdate })
  
@@ -71,6 +69,7 @@ const noteup={id,text}
       });
   
 }
+
 
 
 

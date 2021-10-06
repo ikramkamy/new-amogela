@@ -1,0 +1,36 @@
+*{
+    font-size: 1em;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 400;
+    font-style: italic;
+}
+
+
+.open{
+    width: 85%;
+    height: 100px;
+    border: 1px hidden red;
+    margin-top: 5%;
+    margin-left: 10px;
+}
+.tableau{
+    border: 1px hidden blue;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid lightgray;
+    padding-bottom:20px;
+}
+.tab-item{
+    width: 200px;
+    border: 1px hidden red;
+}
+.icon-edit-u{
+color: blue;
+}
+
+.tab-item a{
+    text-decoration: none;
+color: blue;
+margin-left: 10px;
+}

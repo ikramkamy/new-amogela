@@ -1,77 +1,48 @@
-import React,{useState,useEffect} from 'react' 
 
 import './App.css';
-import { Admin,Resource, ListGuesser ,MenuItemLink,Layout } from 'react-admin';
-import { fetchUtils } from 'ra-core';
-import restProvider from 'ra-data-simple-rest';
-import simpleRestProvider from 'ra-data-simple-rest';
-import {UserList} from './component/Users.js';
-import  ProduitssList from "./component/ProsuitsStock/ProduitssList";
-import dataProvider from './dataProvider';
-import lb4Provider from 'react-admin-lb4';
-import hasuraDataProvider from 'ra-data-hasura';
-import NotesList from './component/Notes/NotesList';
-import NotesEdit from './component/Notes/NotesEdit.js';
-import NotesCreate from './component/Notes/NotesCreate.js';
-import GoutCreate from './component/Gout/GoutCreate.js';
-import GoutList from './component/Gout/GoutList';
-import { alpha } from '@material-ui/core/styles';
-import UserIcon from '@material-ui/icons/People';
-import Alarm from '@material-ui/icons/Alarm';
-import {FaIceCream } from "react-icons/fa";
-import GoutEdit from './component/Gout/GoutEdit.js';
-/*
-const dataProvider = function () {
-  const authToken="";
-  const dataProvider = hasuraDataProvider("http://localhost:3001", { "content-type": "application/json","Authorization": "Bearer " +  authToken});
-  return dataProvider;
-}
-*/
-
+import {FaIceCream,FaGlasses,FaJediOrder,FaCube,FaProductHunt,FaTasks,FaImage,FaClock,FaUser} from "react-icons/fa";
+import {BrowserRouter as Router,Switch, Route, useParams } from "react-router-dom"
+import { Link } from "react-router-dom";
+import Utilisateurs from './component/Utillisateurs';
+import Opning from './component/Opning';
+import Barquette from './component/Barquettes';
+import Gout from './component/Gout';
 function App() {
- 
   return (
-   
-    <Admin dataProvider={simpleRestProvider('http://localhost:3001/api')} >
-     
-    
-    
-        <Resource
-        name="horaire"
-        list={NotesList}
-        edit={NotesEdit}
-        
-        create={NotesCreate}
-        icon={Alarm}
-       
-      />
-        <Resource
-        name="utilisateurs"
-        list={UserList}
-        icon={UserIcon }
-        />
+    <div className="App">
+        <Router>
+    <div className="side-bar">
+  
+<div className="side-elements">
+<div className="side-elem"><FaUser className="icon-side"/><Link to="/users">Utilisateurs</Link></div>
+<div className="side-elem"><FaProductHunt className="icon-side"/><Link exact path="/acc">Produits sur stock</Link></div>
+<div className="side-elem"><FaCube className="icon-side"/><Link  to="/barquettes">Barquettes</Link></div>
+<div className="side-elem"><FaIceCream className="icon-side"/><Link to="/gouts">Gouts</Link></div>
+<div className="side-elem"><FaJediOrder className="icon-side"/><Link exact path="/acc">Cliqué et Retiré</Link></div>
+<div className="side-elem"><FaTasks className="icon-side"/><Link exact path="/acc">Cammande Livraison</Link></div>
+<div className="side-elem"><FaGlasses className="icon-side"/><Link exact path="/acc">Cammande Proffesionnelles</Link></div>
+<div className="side-elem"><FaImage className="icon-side"/><Link exact path="/acc">Photos pages</Link></div>
+<div className="side-elem"><FaClock className="icon-side"/><Link  to="/heure">Les heurs de travail</Link></div>
+</div>
+</div>
+
+  <Switch> 
+
+<Route exact path="/users" component={Utilisateurs }/>
+<Route exact path='/heure' component={Opning}/> 
+<Route exact path="/barquettes" >
+  <Barquette/>
+</Route>
+<Route  exact path="/barquettes/:_id" component={Barquette} />
+<Route exact path="/gouts" component={Gout}/>
+<Route exact path="/gouts/:_id" component={Gout}/>
+  </Switch>
+</Router>
 
 
-        <Resource
-        name="produitsStock"
-        list={ProduitssList}
-        icon={FaIceCream}
-        />
-         <Resource
-        name="Barquettes"
-        list={ProduitssList}
-        icon={FaIceCream}
-        />
-         <Resource
-        name="gouts"
-        list={GoutList}
-        create={GoutCreate}
-        edit={GoutEdit}
-        icon={FaIceCream}
-        />
 
-     </Admin>
 
+    </div>
   );
 }
 

@@ -1,0 +1,57 @@
+.Edite{
+    height: auto;
+    width: 40%;
+    border: 1px solid lightgray;
+    position: absolute;
+    top: 20%;
+    left: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: white;
+    box-shadow: 5px 5px 5px 5px lightgray;
+}
+.Edit-fields{
+    height: 60%;
+    width: 60%;
+    border: 1px solid lightgray;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding-left: 20px;
+}
+.Edit-fields input{
+    height: 50px;
+    border: none;
+    border-bottom: 1px solid lightgray;
+    width: 60%;
+}
+.icon-save{
+    color: blue;
+    font-size: 1.3em;
+    margin-right: 10px;
+    cursor:initial;
+}
+.save-btn{
+    font-size: 1.3em;
+    font-weight: 600;
+    color: blue;
+     cursor: pointer;
+     border: 1px hidden red;
+     display: flex;
+     margin-top: 20px;
+     margin-bottom: 20px;
+}
+.close{
+    width: 95%;
+    
+    display: flex;
+    justify-content: flex-end;
+    font-size: 1.5em;
+    font-weight: 900;
+    cursor: pointer;
+    color: #c19a5d;
+
+}

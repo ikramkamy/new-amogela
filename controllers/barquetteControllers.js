@@ -84,14 +84,32 @@ BarquetteModel.findOne({"_id": req.params._id,},function (err,data) {
 
 }
 exports.updateBarquette=(req,res)=>{
-
-  BarquetteModel.findOneAndUpdate({img:"/images/5.png"},{img:"/images/2.jpg"}).then(function(){
-    BarquetteModel.findOne({name: "Barquetes 750g "}).then(function(res){
-      assert(res.img === '/images/2.jpg');
-      done();
-  });
-  })
-
+  console.log("WE ARE UPDATING HORAIRE")
+  const _id=req.params.id;
+ const name=req.body.name;
+ const prix=req.body.prix;
+ BarquetteModel.findByIdAndUpdate({_id:req.params._id},
+  {
+  name:req.body.name,
+  prix:req.body.prix,
+ disponible:req.body.disponible
+}
+      ).then((data)=>{
+ const noteup={_id,name,prix}
+       res.json(noteup)
+       console.log("UPDATE SUCCED",noteup)
+ })
+  // const goutToUpdate =  Gout.findById(noteId).then()
+  // res.code(200).send({ data: goutToUpdate })
+  
+       .catch((err) => {
+         console.log("UPDATE FAILED",err)
+         res.json({
+           err: err,
+           message: "Une erreur c'est produite",
+         });
+       });
+  
 }
 exports.Filtercatégorie=(req,res)=>{
   BarquetteModel.find({"cathegorie": req.params.cathegorie,},function (err,data) {
@@ -106,3 +124,19 @@ exports.Filtercatégorie=(req,res)=>{
 })
 
 }
+
+exports.Delete=(req,res)=>{
+
+  BarquetteModel.findOneAndDelete({ "_id": req.params._id},(err, doc) => {
+    if (err) {
+        console.log("Something wrong when DELETING data!");
+    }
+
+    console.log(doc);
+    return res.status(201).json({
+      message: ' Barquette DELETED '
+  })
+});
+
+}
+

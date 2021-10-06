@@ -12,10 +12,10 @@ import {
 const ProduitssList = (props) => {
   return (
     <List {...props}>
-      <Datagrid rowClick="edit">
+      <Datagrid > 
          
       <TextField source="name" />
-         <TextField source="_id" />
+         <TextField source="id" />
          <TextField source="img" />
          
          <EditButton label="Edit" />

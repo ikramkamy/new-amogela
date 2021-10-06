@@ -422,3 +422,18 @@ exports.MinuOneItemCartUser=(req, res)=>{
     }
 })
 }
+
+exports.Delete=(req,res)=>{
+
+  userModel.findOneAndDelete({ "_id": req.params._id},(err, doc) => {
+    if (err) {
+        console.log("Something wrong when DELETING data!");
+    }
+
+    console.log(doc);
+    return res.status(201).json({
+      message: ' CART DELETED '
+  })
+});
+
+}

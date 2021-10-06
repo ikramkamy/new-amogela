@@ -14,7 +14,8 @@ export const UserList = (props) =>{
             <TextField source="username" />
             <EmailField source="email" />
             <TextField source="phone" /> 
-            
+            <EditButton label="Edit" basePath="/utilisateurs" />
+        <DeleteButton label="Delete" basePath="/utilisateurs" />
 </Datagrid>
 
 

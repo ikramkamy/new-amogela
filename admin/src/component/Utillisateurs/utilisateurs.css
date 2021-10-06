@@ -1,0 +1,58 @@
+.utilisateurs{
+    border: 1px solid lightgray;
+    width: 80%;
+    height: 100vh;
+    padding-top: 50px;
+    padding-left: 5px;
+}
+.user_info{
+   
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid lightgray;
+    margin-bottom: 15px;
+    
+}
+.item-user{
+    width: 130px;
+    text-align: left;
+   
+
+
+  
+}
+.icon-edit{
+    color: red;
+    font-size: 1em;
+}
+.edite-btn{
+    font-size: 1em;
+    color: red;
+    
+}
+.edite-btn a{
+    font-size: 1em;
+    color: red;
+    text-decoration: none;
+    margin-left: 15px; 
+    font-weight: 500;
+    cursor: pointer;
+}
+.icon-creat{
+    color: #12705e;
+    margin-right: 1%;
+}
+.btn-create{
+    font-family: 'Times New Roman', Times, serif;
+    font-style: italic;
+    font-size: 1.2em; 
+    font-weight: 600;
+  
+    display: flex;
+    width: 95%;
+    justify-content: flex-end;
+    color: #12705e;
+height: 70px;
+cursor: pointer;
+}

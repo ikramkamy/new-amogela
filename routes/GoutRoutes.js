@@ -6,7 +6,7 @@ const router=express.Router();
   router.post('/api/gouts', creategout);
 
   router.get('/api/gouts',getgouts); 
-  router.post('/api/goutsEdit', EditGout);
+  router.put('/api/gouts/:_id', EditGout);
 /*
   //#get a single note
   router.get('/api/notes/:id', notesController.get);

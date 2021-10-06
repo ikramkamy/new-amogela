@@ -15,6 +15,8 @@ const contentRangeHook = require('./hooks/contentrangeHook');
 const userRoutes=require('./routes/userRoute');
 const adminRoutes=require('./routes/adminRoutes');
 const clickretireRoute=require('./routes/clickretireRoutes');
+const LivraisonRoutes=require('./routes/LivraisonRoutes');
+const CommandeProRoutes=require('./routes/CommandProRoutes');
 const BarquetteRoutes=require('./routes/BarquetteRoutes');
 const produitRoutes=require('./routes/produitsRoutes');
 const cartRoutes=require('./routes/cartRoutes');
@@ -41,7 +43,7 @@ app.use(function(req, res, next) {
     next();
   });
   
-  app.use(cors());
+app.use(cors());
 app.use(morgan("combined"));
 
 app.get('/all',(req,res)=>{
@@ -54,6 +56,8 @@ res.header('Access-Control-Expose-Headers', 'Content-Range,notes  0-9/9')
 app.use(userRoutes);
 app.use(adminRoutes);
 app.use(clickretireRoute);
+app.use(LivraisonRoutes);
+app.use(CommandeProRoutes);
 app.use(BarquetteRoutes);
 app.use(produitRoutes);
 app.use(cartRoutes);

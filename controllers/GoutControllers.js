@@ -12,7 +12,7 @@ exports.creategout =  (req, res) => {
     
  });
  
- gout.save((error, note)=>{
+ gout.save((error, gout)=>{
      if (error) {
        
          return res.status(400).json({
@@ -32,7 +32,7 @@ exports.creategout =  (req, res) => {
 exports.getgouts =(req,res)=>{
  Gout.find().then((data) => {
   res.header('Access-Control-Expose-Headers', 'Content-Range')
-  res.header("Content-Range", `gouts 1-9/9`);
+  res.header("Content-Range", `gouts 1-7/7`);
     res.json(data)
     console.log("FETCH GOUT SUCCED")
     })
@@ -46,10 +46,15 @@ exports.getgouts =(req,res)=>{
 }
  //#update a note
  exports.EditGout= (req, res) => {
-      const noteId = req.body.id;
+      const noteId = req.params._id;
       const name = req.body.name;
-      Gout.findByIdAndUpdate({ _id:req.body._id},{name:req.body.name}
-         )
+      Gout.findByIdAndUpdate({ _id:req.params._id},{
+        name:req.body.name,
+        disponible:req.body.disponible,
+      }
+      ).then(console.log("OPERATION SUCCES"))
+
+        
      // const goutToUpdate =  Gout.findById(noteId).then()
      // res.code(200).send({ data: goutToUpdate })
      

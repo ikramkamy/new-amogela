@@ -1,12 +1,15 @@
-const {create,getnotes,edit} = require('../controllers/NoteControllers');
+
+const {create,getnotes,update} = require('../controllers/NoteControllers');
 const express=require('express');
 const router=express.Router();
 const Note=require('../models/Note');
   //# create a note
-  router.post('/api/horaire', create);
+  router.post('/api/notes', create);
+  router.get('/api/notes',getnotes); 
+  router.post('/api/note',update);
 
   //#get the list of notes
- /*
+
   router.get('/api/notes', (req,res)=>{
   Note.find()
     .then((err, result) => {
@@ -19,9 +22,8 @@ const Note=require('../models/Note');
     });
 
   })
-  */
-  router.get('/api/horaire',getnotes); 
-  router.post('/api/edit/:id', edit);
+ 
+
   //router.delete('/api/horaire/:id')
 /* 
   //#get a single note
@@ -31,6 +33,8 @@ const Note=require('../models/Note');
  
 
   //#delete a note
+ 
+  
  
   */
   module.exports = router;

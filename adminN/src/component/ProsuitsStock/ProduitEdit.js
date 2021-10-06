@@ -1,16 +1,17 @@
 import React from 'react';
 import { Edit, SimpleForm, TextInput } from 'react-admin';
 import { alpha } from '@material-ui/core/styles';
-const NotesEdit = (props) => {
+const ProduitEdit = (props) => {
   return (
     <Edit {...props}>
-      <SimpleForm>
+      <SimpleForm >
         
-      <TextInput disabled source="id" />
-        <TextInput required source="text" />
+           <TextInput required source="name" />
+           <TextInput required source="prix" />
+           
       </SimpleForm>
     </Edit>
   );
 };
 
-export default NotesEdit;
+export default ProduitEdit;
