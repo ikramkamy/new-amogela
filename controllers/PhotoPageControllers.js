@@ -7,7 +7,7 @@ exports.postPhoto =  (req, res) => {
      console.log('ROUTE SUCCEED')
      const photo=new PhotoPage({
       name:req.body.name,
-      id:req.body.id,
+      img:req.body.img
     
     
  });
@@ -21,11 +21,27 @@ exports.postPhoto =  (req, res) => {
        }
        if (photo) {
          
-         const {name,id} = photo;
+         const {name,img} = photo;
          return res.status(201).json({
            
-            photo: {name,id},
+            photo: {name,img},
          });
        } 
  })
+  }
+  exports.getimages=(req,res)=>{
+    PhotoPage.find().then((data) => {
+      
+        res.json(data)
+        console.log("FETCH Photoss SUCCED")
+        })
+        .catch((err) => {
+          console.log("FETCH FAILED",err)
+          res.json({
+            err: err,
+            message: "Une erreur c'est produite",
+          });
+        });
+
+
   }

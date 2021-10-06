@@ -1,28 +1,31 @@
 import React,{useState,useEffect} from 'react';
 import axios from 'axios';
 import { FaPlus } from 'react-icons/fa';
+import FileBase64 from 'react-file-base64';
 
 
-
-const GoutCreate=(props)=>{
+const PhotoCreate=(props)=>{
   const {showhendel1}=props;
-    const [gout,setGout]=useState(
+  const[files,setFiles]=useState([]);
+    const [photo,setPhoto]=useState(
       {    
         name:"",
-        prix:"",
-        disponible:""}
+        img:"",
+        
+     }
 );
-    const create=()=>{
+  
+  
+  const create=()=>{
         
         const expensesListResp = async () => {
-          
+          alert("WE ARE CREATING")
       
-          await axios.post(`/api/gouts`,gout)
-          .then(setGout({
+          await axios.post(`/api/photoPages`,{img:photo.img,name:photo.name})
+          .then(setPhoto({
             name:"",
            
-            disponible:""
-
+            img:""            
 
           }))
        }
@@ -32,12 +35,13 @@ const GoutCreate=(props)=>{
      
       const handelchange=(event)=>{
         const {name,value}=event.target;
-        setGout(prevInput=>{
+        setPhoto(prevInput=>{
                 return  { 
                   ...prevInput,
                   [name]:value }
               })
             }
+            console.log("PHOTO",photo)
    return( <div className="Edite">
 
    <div className="close" onClick={props.showhendel1}>&times;</div>
@@ -45,14 +49,14 @@ const GoutCreate=(props)=>{
    
    <div className="Edit-fields">
    
-   <div></div>
    
-   <input placeholder="Gout" name="name" onChange={handelchange} value={gout.name}/>
-  
-   <input placeholder="Disponible sur stock?" name="disponible" onChange={handelchange} value={gout.disponible}/>
+   
+   <input placeholder="La page" name="name" onChange={handelchange} value={photo.name}/>
+   <input type="file" name="img" onChange={handelchange} value={photo.img} style={{marginTop:"50px"}}/>
+   
    </div>
    <div className="save-btn" onClick={create} ><FaPlus className="icon-save" onClick={props.showhendel1} /> Ajouter</div>
     </div>)
   
   }
-  export default GoutCreate;
+  export default PhotoCreate;

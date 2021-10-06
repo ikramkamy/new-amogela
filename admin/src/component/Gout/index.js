@@ -37,7 +37,7 @@ return(
     <div className="tab-item"></div>
 </div>
 
-{gout?.map((e)=><GoutList name={e.name} _id={e._id}  disponible={e.disponible} show={(()=>setShow(true) )}/>)}
+{gout?.map((e)=><GoutList name={e.name} _id={e._id}  disponible={e.disponible} show={(()=>setShow(true) )} handelDelete={(()=>handelDelete(e))}/>)}
 {
   show&&(<GoutEdit  showhendel={(()=>setShow(false))}/>)
 }

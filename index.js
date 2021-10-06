@@ -22,6 +22,7 @@ const produitRoutes=require('./routes/produitsRoutes');
 const cartRoutes=require('./routes/cartRoutes');
 const NoteRoutes=require('./routes/NoteRoutes');
 const GoutRoutes=require('./routes/GoutRoutes');
+const PhotoRoutes=require('./routes/PhotoPagesRoutes');
 const contentrangeHook = require("./hooks/contentrangeHook");
 const { countDocuments } = require("./models/userModel");
 app.use(bodyParser.json())
@@ -63,7 +64,7 @@ app.use(produitRoutes);
 app.use(cartRoutes);
 app.use(NoteRoutes);
 app.use(GoutRoutes);
-
+app.use(PhotoRoutes);
 env.config();
 app.listen(process.env.PORT,() =>{
 console.log(`server amogela is running on port ${process.env.PORT}`)

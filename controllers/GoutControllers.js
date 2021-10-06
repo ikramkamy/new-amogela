@@ -7,7 +7,7 @@ exports.creategout =  (req, res) => {
      console.log('ROUTE SUCCEED')
      const gout=new  Gout({
       name:req.body.name,
-      id:req.body.id,
+     disponible:req.body.disponible
     
     
  });
@@ -21,10 +21,10 @@ exports.creategout =  (req, res) => {
        }
        if (gout) {
          
-         const {name,id} = gout;
+         const {name, disponible} = gout;
          return res.status(201).json({
            
-           gout: {name,id},
+           gout: {name, disponible},
          });
        } 
  })
@@ -69,50 +69,28 @@ exports.getgouts =(req,res)=>{
   }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-  //#get the list of notes
-  /*
-  fetch: async (request, reply) => {
-    try {
-      const notes = await Note.find({});
-      reply.code(200).send(notes);
-    } catch (e) {
-      reply.code(500).send(e);
+exports.Delete=(req,res)=>{
+  Gout.findOneAndDelete({ "_id": req.params._id},(err, doc) => {
+    if (err) {
+        console.log("Something wrong when DELETING data!");
     }
-  },
 
-  //#get a single note
-  get: async (request, reply) => {
-    try {
-      const noteId = request.params.id;
-      const note = await Note.findById(noteId);
-      reply.code(200).send(note);
-    } catch (e) {
-      reply.code(500).send(e);
-    }
-  },
+    console.log(doc);
+    return res.status(201).json({
+      message: ' Gout DELETED '
+  })
+});
 
- 
-  //#delete a note
-  delete: async (request, reply) => {
-    try {
-      const noteId = request.params.id;
-      const noteToDelete = await Note.findById(noteId);
-      await Note.findByIdAndDelete(noteId);
-      reply.code(200).send({ data: noteToDelete });
-    } catch (e) {
-      reply.code(500).send(e);
-    }
-  },
-*/
+
+
+}
+
+
+
+
+
+
+
+
+
+

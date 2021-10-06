@@ -13,8 +13,8 @@ const PhotoSchema = new Schema({
     type:String
   },
   img:{
-      type:Buffer, 
-      contentType:String
+     type:String,
+     required:true
   }
 });
 

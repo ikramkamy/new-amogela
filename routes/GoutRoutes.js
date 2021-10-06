@@ -1,4 +1,4 @@
-const {creategout,getgouts,EditGout} = require('../controllers/GoutControllers');
+const {creategout,getgouts,EditGout,Delete} = require('../controllers/GoutControllers');
 const express=require('express');
 const router=express.Router();
 
@@ -7,6 +7,7 @@ const router=express.Router();
 
   router.get('/api/gouts',getgouts); 
   router.put('/api/gouts/:_id', EditGout);
+  router.delete('/api/gouts/:_id',Delete);
 /*
   //#get a single note
   router.get('/api/notes/:id', notesController.get);

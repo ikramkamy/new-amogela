@@ -15,7 +15,7 @@ return(
   
   
   <div className="item-user edite-btn-u" onClick={props.show}><FaPen className="icon-edit-u"/><Link to={`/gouts/${props._id}`}>Edite</Link> </div>
-  <div className="item-user edite-btn" onClick={handelDelete}><FaTrash className="icon-edit"/><Link>Supprimer</Link> </div>
+  <div className="item-user edite-btn" onClick={handelDelete}><FaTrash className="icon-edit"/><Link to='/gouts'>Supprimer</Link> </div>
     </div>)
 }
 export default GoutList;

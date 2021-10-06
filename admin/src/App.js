@@ -7,6 +7,7 @@ import Utilisateurs from './component/Utillisateurs';
 import Opning from './component/Opning';
 import Barquette from './component/Barquettes';
 import Gout from './component/Gout';
+import PhotosPages from './component/PhotoPages';
 function App() {
   return (
     <div className="App">
@@ -15,13 +16,13 @@ function App() {
   
 <div className="side-elements">
 <div className="side-elem"><FaUser className="icon-side"/><Link to="/users">Utilisateurs</Link></div>
-<div className="side-elem"><FaProductHunt className="icon-side"/><Link exact path="/acc">Produits sur stock</Link></div>
+<div className="side-elem"><FaProductHunt className="icon-side"/><Link to="/acc">Produits sur stock</Link></div>
 <div className="side-elem"><FaCube className="icon-side"/><Link  to="/barquettes">Barquettes</Link></div>
 <div className="side-elem"><FaIceCream className="icon-side"/><Link to="/gouts">Gouts</Link></div>
 <div className="side-elem"><FaJediOrder className="icon-side"/><Link exact path="/acc">Cliqué et Retiré</Link></div>
 <div className="side-elem"><FaTasks className="icon-side"/><Link exact path="/acc">Cammande Livraison</Link></div>
 <div className="side-elem"><FaGlasses className="icon-side"/><Link exact path="/acc">Cammande Proffesionnelles</Link></div>
-<div className="side-elem"><FaImage className="icon-side"/><Link exact path="/acc">Photos pages</Link></div>
+<div className="side-elem"><FaImage className="icon-side"/><Link to="/photos">Photos pages</Link></div>
 <div className="side-elem"><FaClock className="icon-side"/><Link  to="/heure">Les heurs de travail</Link></div>
 </div>
 </div>
@@ -36,6 +37,7 @@ function App() {
 <Route  exact path="/barquettes/:_id" component={Barquette} />
 <Route exact path="/gouts" component={Gout}/>
 <Route exact path="/gouts/:_id" component={Gout}/>
+<Route exact path="/photos"  component={ PhotosPages}/>
   </Switch>
 </Router>
 
