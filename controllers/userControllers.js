@@ -378,7 +378,7 @@ exports.MinuOneItemCartUser=(req, res)=>{
     console.log(userInfo)
 
     userInfo.cart.forEach((item) => {
-        if (item.id == req.body.cart.id && item.gout1==req.body.cart.gout1 && item.gout2==req.body.cart.gout2 && item.gout3==req.body.cart.gout3 && item.gout4==req.body.cart.gout4) {
+        if (item.id == req.body.cart.id && item.gout1==req.body.cart.gout1 && item.gout2==req.body.cart.gout2 && item.gout3==req.body.cart.gout3 && item.gout4==req.body.cart.gout4 && item.gout5==req.body.cart.gout5 && item.gout6==req.body.cart.gout6) {
             duplicate = true;
         }
     })

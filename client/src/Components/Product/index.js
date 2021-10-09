@@ -91,16 +91,16 @@ axios.post("/addToCartUser",cartItems, { headers: {"Authorization" : `Bearer ${t
 
 useEffect(() => {
   //this to execute oncly once
-  axios.get('/getproduit')
+  axios.get('/api/produitsStock')
 .then(res => {
   const data=res.data;
   setProducts (data);
 
-})
+}) 
 .catch(function (error) {
     console.log(error);
 })
-axios.get('/getAllbarquettes')
+axios.get('/api/Barquettes')
 .then(res => {
   const data=res.data;
   setBarquette (data); 
@@ -109,7 +109,7 @@ axios.get('/getAllbarquettes')
     console.log(error);
 })
 
-}, []);
+}, [barquette]);
 /**********************************Geting the cart to bring the length************************** */
 const user_id=localStorage.getItem('user_id');
 console.log("USER FROM LOCAL STORAGE",user_id)

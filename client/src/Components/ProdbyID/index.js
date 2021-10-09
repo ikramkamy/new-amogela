@@ -14,6 +14,13 @@ const ProdbyID=(props)=>{
   const [here,setHere]=useState([]);
   const token=localStorage.getItem('token');
   const [isOpen, setIsOpen] = useState(false);
+  const[g5,setG5]=useState(false);
+  const[g6,setG6]=useState(false);
+  const [option,setOption]=useState([{label:"seléctioner",value:"seléctioner"},
+    
+    {label:"vanille madagascar",value:"vanille madagascar"},{label:"Créme caramel",value:"Créme caramel"}]);
+
+
   const Handelopne = () => {
     setIsOpen(!isOpen);
     };
@@ -54,12 +61,20 @@ useEffect(() => {
   
      
 console.log("heeere",here)
- 
+useEffect(() => {
+  if(here.name=="Barquettes 1000g"){
+    setG5(true);
+    setG6(true);
+  }else if(here.name=="Barquettes 750g"){
+   setG5(true);
+   setG6(false);
+  }else{
+   setG5(false);
+   setG6(false);
+  }
+})
 
-
-
-
-  const{id,getbyID}=props;
+const{id,getbyID}=props;
   
   const [cart,setCart]=useState([]);
   const [count, setCount]=useState(cart.length);
@@ -69,6 +84,8 @@ console.log("heeere",here)
         gout2: "",
         gout3: "",
         gout4: "",
+        gout5:"",
+        gout6:"",
         quantite: "",
         name:here.name,
         prix:here.prix,
@@ -101,7 +118,8 @@ console.log("heeere",here)
         /************************** */
         //************            product to mu user cart  ******************************/
         //event.preventDefault();
-        
+        if(input.gout1 || input.gout2 || input.gout3 || input.gout4 || input.gout5 || input.gout6 =="")
+{alert('SELECTIONER UN GOUT SVP')}
         console.log("we are posting ")
         const cartItems={
           "cart" :{
@@ -177,7 +195,7 @@ console.log("heeere",here)
     return(<div className="prodbyID">
       <div className="nav-shop" style={{zIndex:"10"}}>
     <Link to="/" className="image-wrapper">
-          <img src="/images/logo.png" className="product-logo" />
+          <img src="/images/logoamo.png" className="product-logo" />
         </Link>
         </div>
         <div className="shoping-cart-icon">
@@ -196,26 +214,10 @@ console.log("heeere",here)
 
 <form className="form">
   <label>GOUT GLACE (1) 
-    <select data-id="domain-switcher" onChange={handelChange} value={input.gout1} type="text" name="gout1" >
-              <option defaultValue>  GOUT GLACE (1)</option>
-              <option value="vanille madagascar" >vanille madagascar</option>
-              <option value="Créme caramel" >Créme caramel</option>
-              <option value="Nougatine">Nougatine</option>
-              <option value="Stracciatella" >Stracciatella</option>
-              <option value="Yaourt" >Yaourt</option>
-              <option value="Chocolat noir 70%" >Chocolat noir 70%</option>
-              <option value="Pistache" >Pistache</option>
-              <option value="Noisette" >Noisette</option>
-              <option value="Praliné" >Praliné</option>
-              <option value="Tiramisu" >Tiramisu</option>
-              <option value="Chocolat lait 40%" >Chocolat lait 40%</option>
-              <option value="Amaréma" >Amaréma</option>
-              <option value="Sorbet citron" >Sorbet citron </option>
-              <option value="sorbet fraise" >sorbet fraise</option>
-              <option value="Sorbet mangue" >Sorbet mangue</option>
-              <option value="Sorbet framboise" >Sorbet framboise</option>
-              <option value="Sorbet poire" >Sorbet poire</option>
-              <option value="Sorbet coco/Ananas" >Sorbet coco/Ananas</option>
+    <select data-id="domain-switcher" onChange={handelChange} value={input.gout1} type="text" name="gout1"  >
+    {option.map((option) => (
+              <option value={option.value}>{option.label}</option>
+            ))}       
               
               
   </select>
@@ -223,75 +225,49 @@ console.log("heeere",here)
   <label>
   GOUT GLACE (2)
    <select data-id="domain-switcher" onChange={handelChange} value={input.gout2} type="text" name="gout2" >
-              <option value="">GOUT GLACE (2)</option>
-              <option value="vanille madagascar" >vanille madagascar</option>
-              <option value="Créme caramel" >Créme caramel</option>
-              <option value="Nougatine">Nougatine</option>
-              <option value="Stracciatella" >Stracciatella</option>
-              <option value="Yaourt" >Yaourt</option>
-              <option value="Chocolat noir 70%" >Chocolat noir 70%</option>
-              <option value="Pistache" >Pistache</option>
-              <option value="Noisette" >Noisette</option>
-              <option value="Praliné" >Praliné</option>
-              <option value="Tiramisu" >Tiramisu</option>
-              <option value="Chocolat lait 40%" >Chocolat lait 40%</option>
-              <option value="Amaréma" >Amaréma</option>
-              <option value="Sorbet citron" >Sorbet citron </option>
-              <option value="sorbet fraise" >sorbet fraise</option>
-              <option value="Sorbet mangue" >Sorbet mangue</option>
-              <option value="Sorbet framboise" >Sorbet framboise</option>
-              <option value="Sorbet poire" >Sorbet poire</option>
-              <option value="Sorbet coco/Ananas" >Sorbet coco/Ananas</option>
+             
+              {option.map((option) => (
+              <option value={option.value}>{option.label}</option>
+            ))}
   </select>
   </label>
   <label>
     GOUT GLACE (3)
     <select data-id="domain-switcher" onChange={handelChange} value={input.gout3}type="text" name="gout3" >
-             <option value="">GOUT GLACE(3)</option>
-             <option value="vanille madagascar" >vanille madagascar</option>
-              <option value="Créme caramel" >Créme caramel</option>
-              <option value="Nougatine">Nougatine</option>
-              <option value="Stracciatella" >Stracciatella</option>
-              <option value="Yaourt" >Yaourt</option>
-              <option value="Chocolat noir 70%" >Chocolat noir 70%</option>
-              <option value="Pistache" >Pistache</option>
-              <option value="Noisette" >Noisette</option>
-              <option value="Praliné" >Praliné</option>
-              <option value="Tiramisu" >Tiramisu</option>
-              <option value="Chocolat lait 40%" >Chocolat lait 40%</option>
-              <option value="Amaréma" >Amaréma</option>
-              <option value="Sorbet citron" >Sorbet citron </option>
-              <option value="sorbet fraise" >sorbet fraise</option>
-              <option value="Sorbet mangue" >Sorbet mangue</option>
-              <option value="Sorbet framboise" >Sorbet framboise</option>
-              <option value="Sorbet poire" >Sorbet poire</option>
-              <option value="Sorbet coco/Ananas" >Sorbet coco/Ananas</option>
+    {option.map((option) => (
+              <option  value={option.value}>{option.label}</option>
+            ))}
   </select>
   </label>
   <label>
   GOUT GLACE (4)
   <select data-id="domain-switcher" onChange={handelChange} value={input.gout4}type="text" name="gout4">
-              <option value="">GOUT GLACE (4)</option>
-              <option value="vanille madagascar" >vanille madagascar</option>
-              <option value="Créme caramel" >Créme caramel</option>
-              <option value="Nougatine">Nougatine</option>
-              <option value="Stracciatella" >Stracciatella</option>
-              <option value="Yaourt" >Yaourt</option>
-              <option value="Chocolat noir 70%" >Chocolat noir 70%</option>
-              <option value="Pistache" >Pistache</option>
-              <option value="Noisette" >Noisette</option>
-              <option value="Praliné" >Praliné</option>
-              <option value="Tiramisu" >Tiramisu</option>
-              <option value="Chocolat lait 40%" >Chocolat lait 40%</option>
-              <option value="Amaréma" >Amaréma</option>
-              <option value="Sorbet citron" >Sorbet citron </option>
-              <option value="sorbet fraise" >sorbet fraise</option>
-              <option value="Sorbet mangue" >Sorbet mangue</option>
-              <option value="Sorbet framboise" >Sorbet framboise</option>
-              <option value="Sorbet poire" >Sorbet poire</option>
-              <option value="Sorbet coco/Ananas" >Sorbet coco/Ananas</option>
+  {option.map((option) => (
+              <option value={option.value}>{option.label}</option>
+            ))}
   </select>
   </label>
+{g5&&(
+  <label>
+  GOUT GLACE (5)
+  <select  value={input.gout5} onChange={handelChange} name="gout5">
+  {option.map((option) => (
+              <option value={option.value}>{option.label}</option>
+            ))}
+  </select>
+  </label>
+
+)}
+
+{g6&&(<label>
+  GOUT GLACE (6)
+  <select  value={input.gout6} onChange={handelChange} name="gout6">
+  {option.map((option) => (
+              <option value={option.value}>{option.label}</option>
+            ))}
+  </select>
+  </label>)}
+  
  <label className="quantite.wrap">
  
      {/*<input type="Number"placeholder="quantié" onChange={handelChange} value={input.quantite} name="quantite"/>*/}

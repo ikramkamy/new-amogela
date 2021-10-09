@@ -73,6 +73,7 @@ useEffect(() => {
 
           setMyCart(usercart.cart);
           console.log("we are setting your cart",mycart);
+          
           }) 
         
         
@@ -179,13 +180,8 @@ console.log("THE ID FROM CART",id)
  }
 /**********************************MIINUS ITEM************** */
 const Minesone=(e)=>{
-  if(token===null){
-    const modal = document.querySelector(".modal")
-      const closeBtn3 = document.querySelector(".close3")
-      modal.style.display = "block";
-      closeBtn3.addEventListener("click", () => {
-        modal.style.display = "none";
-      })
+  if(e.quantity===0){
+    alert("La quantitée est 0, cliquez sur supprimer")
   console.log("MINUS PRODUCT BEFOR SIGN IN")
   }else{
   

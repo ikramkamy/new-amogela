@@ -25,7 +25,7 @@ export const Product2=()=>{
   
   useEffect(() => {     
     const getData = async () => {  
-      await axios.get(`/cathegorie/${cathegorie}`)  
+      await axios.get("/cathegorie/Barquette")  
       .then(res => {  
         console.log(res) 
         const data=res.data.data;
@@ -46,7 +46,7 @@ export const Product2=()=>{
     
       <div className="nav-shop">
       <Link to="/" className="image-wrapper">
-          <img src="/images/logo.png" className="product-logo" />
+          <img src="/images/logoamo.png" className="product-logo" />
         </Link>
 
         
@@ -61,10 +61,10 @@ export const Product2=()=>{
       
 <Filter />
      
-     <div className="deco-th-style">
+      <div className="deco-th-style">
       <div className="shop-items">
       
-{barquette.map((e)=><Produit purl={e.img} pname={e.name} pprice={e.prix} prodID={e.__id}  />)}
+{barquette?.map((e)=><Produit purl={e.img} pname={e.name} pprice={e.prix} prodID={e.__id}  />)}
 
 </div>
       </div>
@@ -80,7 +80,7 @@ export const Product2=()=>{
   </div>
   </div>)
 }
-      <div className="js-btn"></div>
+<div className="js-btn"></div>
 <div class="modal">
 <span class="close3">&times;</span>
    <div class="modal_content-signin">
@@ -129,7 +129,7 @@ const handelClick=(e)=>{
   
     <div className="nav-shop">
     <Link to="/" className="image-wrapper">
-        <img src="/images/logo.png" className="product-logo" />
+        <img src="/images/logoamo.png" className="product-logo" />
       </Link>
 </div>
     <div className="shoping-cart-icon">
@@ -143,7 +143,7 @@ const handelClick=(e)=>{
    <div className="deco-th-style">
     <div className="shop-items">
     
-{products.map((e)=><Produitstock purl={e.img} pname={e.name} pprice={e.prix} prodID={e.__id} addproduct={() => handelClick(e)} />)}
+{products?.map((e)=><Produitstock purl={e.img} pname={e.name} pprice={e.prix} prodID={e.__id} addproduct={() => handelClick(e)} />)}
 {isOpen &&
 
 (<div class="modal-side-shop">
@@ -218,7 +218,7 @@ const addproduct=(product)=>{
   
     <div className="nav-shop">
     <Link to="/" className="image-wrapper">
-        <img src="/images/logo.png" className="product-logo" />
+        <img src="/images/logoamo.png" className="product-logo" />
       </Link>
 
       
@@ -235,7 +235,7 @@ const addproduct=(product)=>{
    <div className="deco-th-style">
     <div className="shop-items">
     
-{products4.map((e)=><Produitstock  purl={e.img} pname={e.name} pprice={e.prix} prodID={e.__id} addproduct={() => handelClick(e)}/>)}
+{products4?.map((e)=><Produitstock  purl={e.img} pname={e.name} pprice={e.prix} prodID={e.__id} addproduct={() => handelClick(e)}/>)}
 
 </div>
     </div>
@@ -308,7 +308,7 @@ const handelClick=(e)=>{
   
     <div className="nav-shop">
     <Link to="/" className="image-wrapper">
-          <img src="/images/logo.png" className="product-logo" />
+          <img src="/images/logoamo.png" className="product-logo" />
         </Link>
 
       
@@ -326,7 +326,7 @@ const handelClick=(e)=>{
    <div className="deco-th-style">
     <div className="shop-items">
     
-{products5.map((e)=><Produitstock addproduct={() => handelClick(e)} purl={e.img} pname={e.name} pprice={e.prix} prodID={e.__id}  />)}
+{products5?.map((e)=><Produitstock addproduct={() => handelClick(e)} purl={e.img} pname={e.name} pprice={e.prix} prodID={e.__id}  />)}
 
 </div>
     </div>
