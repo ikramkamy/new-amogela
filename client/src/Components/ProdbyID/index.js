@@ -6,7 +6,7 @@ import Footer from '../Footer';
 import {Link} from 'react-router-dom';
 import ShopinCart from "../Shopingcart";
 import { ManagedUpload } from 'aws-sdk/clients/s3';
-import { useParams } from 'react-router-dom';
+import { useParams,useHistory } from 'react-router-dom';
 import {FaShoppingBag,FaWindowClose,FaMinus ,FaPlus} from "react-icons/fa";
 import Signin from '../Signin';
 const ProdbyID=(props)=>{
@@ -57,10 +57,21 @@ useEffect(() => {
   }
   expensesListResp();
 }, []);
- 
-  
-     
 console.log("heeere",here)
+/********************************get user************************ */
+const user_id=localStorage.getItem('user_id');
+const history = useHistory();
+const[usercart,setUsercart]=useState([]);
+useEffect(() => {
+  const expensesListResp = async () => {
+    await axios.get(`/getMycartUserprofile/${user_id}`)
+    .then(response =>setUsercart(response.data))
+
+     }
+  expensesListResp();
+}, []);
+console.log("USER",usercart)   
+/***************************************************************** */
 useEffect(() => {
   if(here.name=="Barquettes 1000g"){
     setG5(true);
@@ -119,7 +130,7 @@ const{id,getbyID}=props;
         //************            product to mu user cart  ******************************/
         //event.preventDefault();
         if(input.gout1 || input.gout2 || input.gout3 || input.gout4 || input.gout5 || input.gout6 =="")
-{alert('SELECTIONER UN GOUT SVP')}
+{alert('SELECTIONER UN GOUT SVP')}else{
         console.log("we are posting ")
         const cartItems={
           "cart" :{
@@ -147,6 +158,7 @@ const{id,getbyID}=props;
         
         }     
       }
+    }
       var counter = 0;
       const trans = 300;
       var num = trans * counter;
@@ -274,7 +286,7 @@ const{id,getbyID}=props;
 <div className="quantite">
   Quantité:
   <FaMinus onClick={Minesone} style={{color:"#12705e"}}/>
-  {here.quantity}
+  {here.quantite}
   <FaPlus onClick={addproduct} style={{color:"#12705e",cursor:"pointer"}}/>
   </div>
  </label>

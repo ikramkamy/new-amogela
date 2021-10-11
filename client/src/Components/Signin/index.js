@@ -64,40 +64,11 @@ const handelChange=(event)=>{
       }
     })
     }
-    /*
-    const handelClick=(event)=>{
-    if(input.password===""||input.email===""){alert(`SVP remplissez tous les champs`)}
-        event.preventDefault();
-        console.log("we are posting ")
-        const newuser={
-         email:input.email,
-         password:input.password
-        }
-        console.log(newuser);
-        axios.post("http://localhost:3001/signin",newuser)
-        .then(response => {
-         console.log("LOGIN axios succed",response )
-         localStorage.setItem('token', response.data.token);
-         localStorage.setItem('user_id', response.data.user._id);
-        console.log("token",response.data.token)
-         
-         const id=response.data.user._id;
-         console.log("id from response",id)
-         history.push(`/shop`);
-         setLoginout("logout")
- 
-        }).catch(error => {
-          console.log("the raison of failure", error) 
-          /*history.push('/signin');
-          alert("check you if you are signed up ")
-          
-        });
-      
-      }
-*/
+
 const handelClick=()=>{
- loginUser(input);
- 
+loginUser(input);
+ /*history.push("/shop")*/
+
  }
 
 const [loginout,setLoginout]=useState("login");
@@ -124,7 +95,7 @@ return(
 <input  type="password"  required placeholder="password" onChange={handelChange} value={input.password} name="password" />
 <div className="btn-signin-wrapper">
  
-<button  onClick={handelClick}><Link to="/">Connexion</Link></button>
+<button  onClick={handelClick}>Connexion</button>
 
 </div>
 </form>

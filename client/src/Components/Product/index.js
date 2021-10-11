@@ -1,6 +1,6 @@
 import React, { useState, useContext,useEffect } from "react";
 import axios from "axios";
-import { FaShoppingBag, FaBars, FaFacebook, FaInstagram, FaClosedCaptioning, FaCross, FaIceCream, FaCalculator, FaWindowClose } from "react-icons/fa";
+import { FaShoppingBag, FaWindowClose } from "react-icons/fa";
 import { slide as Menu } from "react-burger-menu";
 import Produit from "../Produit";
 import Produitstock from "../Produit/Produitstock";
@@ -112,6 +112,7 @@ axios.get('/api/Barquettes')
 }, [barquette]);
 /**********************************Geting the cart to bring the length************************** */
 const user_id=localStorage.getItem('user_id');
+
 console.log("USER FROM LOCAL STORAGE",user_id)
 const[usercart,setUsercart]=useState([]);
 const [mycart,setMyCart]=useState([]);
@@ -200,9 +201,9 @@ const getbyID=(e)=>{
  </div>
  <div className="js-btn"></div>
 <div class="modal">
-<span class="close3">&times;</span>
+
    <div class="modal_content-signin">
-   
+   <span class="close3">&times;</span> 
      
     <Signin/>
      

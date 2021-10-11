@@ -1,7 +1,7 @@
 import React,{useState,useEffect} from 'react';
 import {FaHome, FaShoppingBag,FaBicycle, FaBaby, FaLocationArrow, FaBackspace, FaRecycle, FaArrowCircleLeft} from "react-icons/fa";
 import Select from 'react-select';
-const Mod=()=>{
+const Clique=()=>{
 
     var counter = 0;
     const trans = 300;
@@ -108,4 +108,4 @@ return(
 )
 
 }
-export default Mod;
+export default Clique;

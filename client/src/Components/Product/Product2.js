@@ -1,8 +1,7 @@
 import React, { useState, useContext,useEffect } from 'react';
 import './product.css';
 import axios from "axios";
-import { FaShoppingBag, FaBars, FaFacebook, FaInstagram ,FaWindowClose} from "react-icons/fa";
-import { slide as Menu } from "react-burger-menu";
+import { FaShoppingBag,FaWindowClose} from "react-icons/fa";
 import Produit from "../Produit";
 import Produitstock from "../Produit/Produitstock";
 import "./product.css";
@@ -97,13 +96,10 @@ export const Product2=()=>{
 };
 
 export const Product3=()=>{
-  const [barquette,setBarquette]=useState([]);
-  const [products,setProducts]= useState([]);
-  const [cathegorie, setCathegorie]=useState("Barquette");
-  const [menuOpenState, setMenuOpenState] = useState(false);
-  const [items, setItems] = useState(0);
-  const [isOpen, setIsOpen] = useState(false);
- const [counter, setCounter] = useState(0);
+const [products,setProducts]= useState([]);
+const [isOpen, setIsOpen] = useState(false);
+const [counter, setCounter] = useState(0);
+const token=localStorage.getItem('token');
  const Handelopne = () => {
   setIsOpen(!isOpen);
   };
@@ -121,8 +117,19 @@ useEffect(() => {
   }  
 getData()  
 }, [])
-const handelClick=(e)=>{
-  addproduct(e)
+const handelClick=(product)=>{
+  if(token===null){
+    const modal = document.querySelector(".modal")
+      const closeBtn3 = document.querySelector(".close3")
+      modal.style.display = "block";
+      closeBtn3.addEventListener("click", () => {
+        modal.style.display = "none";
+      })
+  console.log("WE ARE NO ADDING PRODUCT BEFOR SIGN IN")
+  }else{
+ addproduct(product,token)
+  setIsOpen(true);
+  }
 }
   return(
   <div className="product" >
@@ -160,9 +167,9 @@ const handelClick=(e)=>{
     </div>
     <div className="js-btn"></div>
 <div class="modal">
-<span class="close3">&times;</span>
+
    <div class="modal_content-signin">
-   
+   <span class="close3">&times;</span>
      
     <Signin/>
      
@@ -176,15 +183,11 @@ const handelClick=(e)=>{
 
 
 export const Product4=()=>{
-  const [barquette,setBarquette]=useState([]);
+ 
   const [products4,setProducts4]= useState([]);
-  const [cathegorie, setCathegorie]=useState("Barquette");
-  const [menuOpenState, setMenuOpenState] = useState(false);
-  const [items, setItems] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
  const [counter, setCounter] = useState(0);
- const [count, setCount] = useState(0);
- const [cart,setCart]=useState([{}]);
+ const token=localStorage.getItem('token');
  const Handelopne = () => {
   setIsOpen(!isOpen);
   };
@@ -202,16 +205,21 @@ useEffect(() => {
   }  
 getData()  
 }, [])
-/*
-const addproduct=(product)=>{
-  setCount(cart.length)
-  console.log("we are in add to cart")
-  setCart([...cart,product])
-  console.log(cart)
+
+const handelClick=(product)=>{
+  if(token===null){
+    const modal = document.querySelector(".modal")
+      const closeBtn3 = document.querySelector(".close3")
+      modal.style.display = "block";
+      closeBtn3.addEventListener("click", () => {
+        modal.style.display = "none";
+      })
+  console.log("WE ARE NO ADDING PRODUCT BEFOR SIGN IN")
+  }else{
+ addproduct(product,token)
+  setIsOpen(true);
   }
-  */
-  const handelClick=(e)=>{
-    addproduct(e)
+   
   }
   return(
   <div className="product" >
@@ -253,9 +261,9 @@ const addproduct=(product)=>{
 }
     <div className="js-btn"></div>
 <div class="modal">
-<span class="close3">&times;</span>
+
    <div class="modal_content-signin">
-   
+   <span class="close3">&times;</span>
      
     <Signin/>
      
@@ -268,21 +276,13 @@ const addproduct=(product)=>{
 };
 
 export const Product5=()=>{
-  const [barquette,setBarquette]=useState([]);
-  const [products5,setProducts5]= useState([]);
-  const [cathegorie, setCathegorie]=useState("Barquette");
-  const [menuOpenState, setMenuOpenState] = useState(false);
-  const [items, setItems] = useState(0);
-  const [isOpen, setIsOpen] = useState(false);
- const [counter, setCounter] = useState(0);
- const [count, setCount] = useState(0);
- const [cart,setCart]=useState([{}]);
- const addproduct=(product)=>{
-  setCount(cart.length)
-  console.log("we are in add to cart")
-  setCart([...cart,product])
-  console.log(cart)
-  }
+  
+const [products5,setProducts5]= useState([]);
+const [isOpen, setIsOpen] = useState(false);
+const [count, setCount] = useState(0);
+const [cart,setCart]=useState([{}]);
+const token=localStorage.getItem('token');
+
   const Handelopne = () => {
     setIsOpen(!isOpen);
     };
@@ -301,7 +301,18 @@ useEffect(() => {
 getData()  
 }, [])
 const handelClick=(e)=>{
-  addproduct(e)
+  if(token===null){
+    const modal = document.querySelector(".modal")
+      const closeBtn3 = document.querySelector(".close3")
+      modal.style.display = "block";
+      closeBtn3.addEventListener("click", () => {
+        modal.style.display = "none";
+      })
+  console.log("WE ARE NO ADDING PRODUCT BEFOR SIGN IN")
+  }else{
+ addproduct(e,token)
+  setIsOpen(true);
+  }
 }
   return(
   <div className="product" >
@@ -344,9 +355,9 @@ const handelClick=(e)=>{
 }
     <div className="js-btn"></div>
 <div class="modal">
-<span class="close3">&times;</span>
+
    <div class="modal_content-signin">
-   
+   <span class="close3">&times;</span>
      
     <Signin/>
      

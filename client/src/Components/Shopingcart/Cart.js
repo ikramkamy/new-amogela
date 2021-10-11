@@ -16,13 +16,14 @@ const Cart=(props)=>{
 <div style={{display:"flex",width:"150px",justifyContent:"space-between",alignItems:"center",color:"#12705e",cursor:"pointer"}}>Quantité:<FaMinus onClick={Minesone} style={{color:"#12705e"}}/>{props.squantity}<FaPlus onClick={addproduct} style={{color:"#12705e",cursor:"pointer"}}/></div>
 <div onClick={deletitem}style={{color:"red"}} onClick={Deletitem}><FaTrash onClick={Deletitem} style={{color:"red",cursor:"pointer"}} />Supprimer</div>
 </div>
-<div className="">
+<div className="gout-list">
     
     {props.gout1}<br/>
     {props.gout2}<br/>
     {props.gout3}<br/>
     {props.gout4}<br/>
-    
+    {props.gout5}<br/>
+    {props.gout6}<br/>
     </div>
 <div className="price-tag">{props.sprice}</div>
 </div>

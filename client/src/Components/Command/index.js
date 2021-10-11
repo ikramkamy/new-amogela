@@ -1,15 +1,16 @@
-import React from 'react';
+import React,{useState,useEffect} from 'react';
 import './command.css';
 import { Link } from 'react-router-dom';
-
+import Clique from '../Clique';
 const Command = () => {
+    const[clique,setClique]=useState(false);
 return (<div className="Command">
 
 <div className="containerCommand"> 
 
         <div className="bloc-command comBox1">
         <div className="back-color1"></div>
-            <span className="command-name"><h1>Cliqué & Retiré </h1> 
+            <span className="command-name"><h1><Link to="/shop" onClick={(()=>setClique(true))}>Cliqué & Retiré</Link> </h1> 
             </span>
             <div className="command-btn"><Link to="/shop" >Commander</Link></div>
 
@@ -37,7 +38,7 @@ return (<div className="Command">
        
         </div>
 
-
+{clique &&(<Clique/>)}
 
     </div>
 

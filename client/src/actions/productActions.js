@@ -39,7 +39,7 @@ return {
 
 /****************************function 2******************* */
 
-export const addproduct=(product)=>{
+export const addproduct=(product,token)=>{
 if(token===null){
     const modal = document.querySelector(".modal")
       const closeBtn3 = document.querySelector(".close3")

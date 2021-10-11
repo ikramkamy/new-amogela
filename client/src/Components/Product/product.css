@@ -185,23 +185,26 @@ border: 1px solid red;
     display: flex;
     justify-content: center;
     align-items: center;
-    
+    position:relative;
 }
 .close3{
-  
+  /*
     margin-top: 8%;
     margin-left: 30%;
     padding-right: 2%;
+    */
     cursor: pointer;
     color: #c19a5d;
     font-weight: 900;
     font-size: 1.3em;
-    width: 40%;
+    width: 35%;
     display: flex;
     justify-content: flex-end;
     background-color:#146f5b;
     background-size: 80%;
     background-repeat: repeat;
+    position: absolute;
+    top:5px;
     
 }
 /*

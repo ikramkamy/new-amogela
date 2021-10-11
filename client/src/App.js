@@ -20,7 +20,7 @@ import Counter from './Components/Dispatchtest';
 import Chocolat from './Components/Chocolat';
 import CommandeValide from './Components/CommandeValide';
 import { Link } from "react-router-dom";
-import Mod from './Components/Mod';
+
 import Lognav from './Components/Lognav';
 import Footer from './Components/Footer';
 import Clientpage from "./Components/Clientpage";
@@ -114,7 +114,7 @@ const showinscription=()=>{
 <Route exact path='/Consulting' component={Consulting}/>
 <Route exact path="/Chocolat" component={Chocolat}/>
 <Route exact path="/commadevalidee" component={CommandeValide}/>
-<Route exact path="/mod" component={Mod}/>
+
 <Route  path="/clientpage" component={Clientpage}/>
      </Switch> 
      </Router>
