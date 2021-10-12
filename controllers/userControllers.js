@@ -440,7 +440,18 @@ exports.Delete=(req,res)=>{
 }
 
 
+exports.DeleteType=(req,res)=>{
+  userModel.findOneAndUpdate({ "_id": req.user._id,}, {$set:{commandeType:{}}}, {new: true}, (err, doc) => {
+    if (err) {
+        console.log("Something wrong when updating data!");
+    }
 
+    console.log(doc);
+    return res.status(201).json({
+      message: ' ComandeType DELETED '
+  })
+}); 
+}
 
 exports.addCommandetoCart=(req, res)=>{
   userModel.findOne({ _id: req.user._id }, (err, userInfo) => {
@@ -448,21 +459,26 @@ exports.addCommandetoCart=(req, res)=>{
 
     console.log(userInfo)
 
-    userInfo.cart.forEach((item) => {
-        if (item.id == req.body.cart.id ) {
+
+      
             duplicate = true;
-        }
-    })
+       
+   
 
 
     if (duplicate) {
       userModel.findOneAndUpdate(
-            { _id: req.user._id, "cart.id": req.body.cart.id },
-            { $inc: { "cart.$.quantity": 1 } },
+            { _id: req.user._id },
+            { commandeType: {
+              commande:{
+                command:req.body.commandeType.commande.command,
+                  date:req.body.commandeType.commande.date,
+              }
+            } },
             { new: true },
             (err, userInfo) => {
                 if (err) return res.json({ success: false, err });
-                res.status(200).json(userInfo.cart)
+                res.status(200).json(userInfo.commandeType)
             }
         )
     } else {
@@ -470,10 +486,10 @@ exports.addCommandetoCart=(req, res)=>{
             { _id: req.user._id },
             {
                 $push: {
-                    cart: {
+                  commandeType: {
                       commande:{
-                        command:req.body.cart.commande.command,
-                          date:req.body.cart.commande.date,
+                        command:req.body.commandeType.commande.command,
+                          date:req.body.commandeType.commande.date,
                       }
                     }
                 }
@@ -481,7 +497,7 @@ exports.addCommandetoCart=(req, res)=>{
             { new: true },
             (err, userInfo) => {
                 if (err) return res.json({ success: false, err });
-                res.status(200).json(userInfo.cart)
+                res.status(200).json(userInfo.commandeType)
             }
         )
     }

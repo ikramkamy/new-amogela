@@ -13,8 +13,10 @@ import  DatePicker from "react-datepicker";
 
 const ShopinCart=(props)=>{
 const token=localStorage.getItem('token');
+const history = useHistory();
 /*********************************favture***************************** */
 const [valide,setValide]=useState(false);
+const[commType,setCommType]=useState({});
 const handelValide=()=>{
   setValide(!valide);
 }
@@ -46,14 +48,11 @@ let n=0;
   date.setDate(date.getDate() + 1);
   JSON.stringify(startDate);
   console.log("date after stringifying",startDate);
-  //date.setDate(date.getDate() + 1);
+
 //********************************************************************* */
-      //const {userId}=useParams();
+  
       const user_id=localStorage.getItem('user_id');
-     // console.log("ID from Params",userId)
-      //let idsplited=user_id.split(":")[1];
-     // console.log("idsplited",idsplited)
-      const history = useHistory();
+
       console.log("HIstory info are here",history);
       const[usercart,setUsercart]=useState([]);
       const [mycart,setMyCart]=useState([]);
@@ -69,19 +68,27 @@ useEffect(() => {
             expensesListResp();
           });
           console.log("we are getting the cart",usercart.cart); 
+       
          useEffect(()=>{
 
           setMyCart(usercart.cart);
+          setCommType(usercart.commandeType);
+          console.log("we are getting COMMANDE TYPE",commType); 
           console.log("we are setting your cart",mycart);
           
           }) 
-        
+          useEffect(() => {
+//alert("we are finding commande")
+
+
+          })   
         
    // const {addproduct,removeproduct}=props;
 /*********************Sending Clic et retirer commande***************** */
 const handelClick=(event)=>{
   event.preventDefault();
-  if(somme==!0){
+  if(somme!==0 & commType!=="" ){
+   
   console.log("we are posting commande ")
   const command={
   cart:mycart,
@@ -93,10 +100,11 @@ const handelClick=(event)=>{
   axios.post("/clickretire",command)
   .then(response => {
    console.log("post with axios succed the commande")
+   history.push('/commadevalidee')
   }).catch(error => {
     console.log("the raison of failure", error) 
   });
-}else{
+}else if(somme==0){
 
  alert("Votre shoping cart est vide !!!")
 }
@@ -220,7 +228,7 @@ const Minesone=(e)=>{
   </div>
 <div className="wrap-this">
   <div className="cart-btn nohover" onClick={handelClick}>
-  <Link to="/commadevalidee">Envoyer la commande </Link>
+ Envoyer la commande 
     </div>
     </div>
     </div>

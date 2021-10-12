@@ -1,6 +1,6 @@
 const express=require('express');
 const router=express.Router();
-const {addCommandetoCart,signup,signin,getallusers,addToCartUser,getMycartUser,addToCartUser2,Clearcard,DeletefromCartUser,MinuOneItemCartUser,Delete}=require('../controllers/userControllers');
+const {addCommandetoCart,DeleteType,signup,signin,getallusers,addToCartUser,getMycartUser,addToCartUser2,Clearcard,DeletefromCartUser,MinuOneItemCartUser,Delete}=require('../controllers/userControllers');
 const {requiresignin}=require('../controllers/userControllers')
 const user=require('../models/userModel');
 
@@ -16,6 +16,7 @@ router.post('/DeletefromCartUser',requiresignin,DeletefromCartUser);
 router.post('/MinuOneItemCartUser',requiresignin,MinuOneItemCartUser);
 router.delete('/api/utilisateurs/:_id',Delete);
 router.post('/addCommandetoCart',requiresignin,addCommandetoCart)
+router.delete('/DeleteType',requiresignin,DeleteType)
 /*
 router.get('/simple_users', async (req, res) => {
     try {

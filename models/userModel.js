@@ -44,6 +44,11 @@ const userSchema = new mongoose.Schema(
       type: Array,
       default: []
   },
+  commandeType:{
+type:Object,
+default:[]
+
+  },
     role: {
       type: String,
       enum: ["user", "admin", "super-admin"],
