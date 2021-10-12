@@ -449,7 +449,7 @@ exports.addCommandetoCart=(req, res)=>{
     console.log(userInfo)
 
     userInfo.cart.forEach((item) => {
-        if (item.id == req.body.cart.id && item.gout1==req.body.cart.gout1 && item.gout2==req.body.cart.gout2 && item.gout3==req.body.cart.gout3 && item.gout4==req.body.cart.gout4) {
+        if (item.id == req.body.cart.id ) {
             duplicate = true;
         }
     })
@@ -471,7 +471,10 @@ exports.addCommandetoCart=(req, res)=>{
             {
                 $push: {
                     cart: {
-                      commande:req.body.commande,
+                      commande:{
+                        command:req.body.cart.commande.command,
+                          date:req.body.cart.commande.date,
+                      }
                     }
                 }
             },

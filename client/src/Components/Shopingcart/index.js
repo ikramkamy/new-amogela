@@ -98,19 +98,7 @@ const handelClick=(event)=>{
   });
 }else{
 
-  const command={
-    cart:mycart,
-    user:usercart,
-    time:startDate,
-    somme:somme,
-    }
-    console.log("COMMANDE",command);
-    axios.post("/clickretire",command)
-    .then(response => {
-     console.log("post with axios succed the commande")
-    }).catch(error => {
-      console.log("the raison of failure", error) 
-    });
+ alert("Votre shoping cart est vide !!!")
 }
 /*
   axios.delete(`/Clearcard/${user_id}`)

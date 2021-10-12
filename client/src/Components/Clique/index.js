@@ -5,10 +5,14 @@ import './mod.css';
 import  DatePicker from "react-datepicker";
 import { now } from 'mongoose';
 import moment from 'moment';
-
+import {addCommande} from '../../actions/productActions';
+import Signin from '../Signin';
 import {setSeconds, setMinutes,setHours, startOfDay} from "date-fns";
+import { useHistory } from 'react-router-dom';
 const Clique=(props)=>{
 const {emporte,dilevery,show}=props;
+const token=localStorage.getItem('token');
+const history = useHistory();
     var counter = 0;
     const trans = 300;
     var num = trans * counter;
@@ -101,20 +105,21 @@ const [startDate, setStartDate] = useState(
         })
        
     const  handelvalidateEmporte=()=>{
-      commande.command= "Emporté";
-     if(commande.date==date || commande.command==""){
-       alert("selectioner la date et l'heure SVP")
-     }else{
-      commande.date=start;
-     setCommande({
-              command: "Emporté",
-              date:start,
-            })
-        console.log("CLIQU2 ET RETIRE",commande)
-        
-          
-      }
+if(token===null){
+  history.push('/signin')
+  
+  
+}else {
+  commande.command= "Emporté";
+  if(commande.date==date || commande.command==""){
+    alert("selectioner la date et l'heure SVP")
+  }else{
+     console.log("CLIQU2 ET RETIRE",commande)
+   addCommande(commande,token)
+   alert("commande avec succes")
+  }
           }
+        }
 const handelvalidateLivraison=()=>{
 if(dilevery==true){
   if(wilaya==true){
@@ -238,6 +243,17 @@ return(
     }
 
 
+</div>
+
+<div className="js-btn"></div>
+<div class="modal">
+
+   <div class="modal_content-signin">
+   <span class="close3">&times;</span>
+     
+    <Signin/>
+     
+   </div>
 </div>
 </div>
 )

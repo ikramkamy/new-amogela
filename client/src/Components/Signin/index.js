@@ -67,7 +67,7 @@ const handelChange=(event)=>{
 
 const handelClick=()=>{
 loginUser(input);
- /*history.push("/shop")*/
+ history.push("/")
 
  }
 
