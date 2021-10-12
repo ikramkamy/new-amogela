@@ -16,7 +16,7 @@ const ProdbyID=(props)=>{
   const [isOpen, setIsOpen] = useState(false);
   const[g5,setG5]=useState(false);
   const[g6,setG6]=useState(false);
-  const [option,setOption]=useState([{label:"seléctioner",value:"seléctioner"},
+  const [option,setOption]=useState([{label:"selectioner",value:""},
     
     {label:"vanille madagascar",value:"vanille madagascar"},{label:"Créme caramel",value:"Créme caramel"}]);
 
@@ -129,8 +129,10 @@ const{id,getbyID}=props;
         /************************** */
         //************            product to mu user cart  ******************************/
         //event.preventDefault();
-        if(input.gout1 || input.gout2 || input.gout3 || input.gout4 || input.gout5 || input.gout6 =="")
-{alert('SELECTIONER UN GOUT SVP')}else{
+        if(!input.gout1 & !input.gout2 && !input.gout3 & !input.gout4 & !input.gout5 & !input.gout6 )
+{alert('SELECTIONER UN GOUT SVP')
+
+}else{
         console.log("we are posting ")
         const cartItems={
           "cart" :{
@@ -143,7 +145,8 @@ const{id,getbyID}=props;
             gout2: input.gout2,
             gout3: input.gout3,
             gout4: input.gout4,
-        
+            gout5: input.gout5,
+            gout6: input.gout6,
           }
            
         }
@@ -165,13 +168,8 @@ const{id,getbyID}=props;
 
    const n=0;
    const Minesone=(e)=>{
-    if(token===null){
-      const modal = document.querySelector(".modal")
-        const closeBtn3 = document.querySelector(".close3")
-        modal.style.display = "block";
-        closeBtn3.addEventListener("click", () => {
-          modal.style.display = "none";
-        })
+    if(e.quantity===0){
+      alert("La quantitée est 0, cliquez sur supprimer")
     console.log("MINUS PRODUCT BEFOR SIGN IN")
     }else{
     

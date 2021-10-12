@@ -99,17 +99,17 @@ if(token===null){
       }else{
     console.log("we are posting ")
       const cartItems={
-        "cart" :{
+        "commandeType" :{
           "commande":{
             command:e.command,
             date:e.date
           }
       }
     }
-      console.log(cartItems);
+      console.log("ELEMENT A POSTE EST LA ",cartItems);
       const request =axios.post("/addCommandetoCart",cartItems, { headers: {"Authorization" : `Bearer ${token}`} })
       .then(response => {
-       console.log("post with axios succed")
+       console.log("LA comannde est ajoutée avec succées")
       }).catch(error => {
         console.log("the raison of failure", error) 
       });

@@ -16,7 +16,7 @@ const token=localStorage.getItem('token');
 const history = useHistory();
 /*********************************favture***************************** */
 const [valide,setValide]=useState(false);
-const[commType,setCommType]=useState({});
+const[commType,setCommType]=useState([]);
 const handelValide=()=>{
   setValide(!valide);
 }
@@ -78,8 +78,13 @@ useEffect(() => {
           
           }) 
           useEffect(() => {
-//alert("we are finding commande")
-
+            const expensesListResp = async () => {
+              await axios.get(`/getMycartUserprofile/${user_id}`)
+              .then(response =>setCommType(response.data.commandeType))
+              console.log("COMM TYPE",commType)
+               }
+            expensesListResp();
+       
 
           })   
         
@@ -91,6 +96,7 @@ const handelClick=(event)=>{
    
   console.log("we are posting commande ")
   const command={
+  commandeType:commType,
   cart:mycart,
   user:usercart,
   time:startDate,

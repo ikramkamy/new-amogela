@@ -3,13 +3,14 @@ const clickRetireModel=require('../models/clickRetireModel');
 
 exports.commander=(req,res)=>{
 
-    const {cart ,user,time,somme,} = req.body;
+    const {cart ,user,time,somme,commandeType} = req.body;
     
     const command = new clickRetireModel({
     cart,
     user,
     time,
     somme,
+    commandeType,
     });
 
     command.save((error, command) => {
@@ -24,7 +25,7 @@ exports.commander=(req,res)=>{
           const { cart,user} = command;
           console.log("WE HAVE ACCEEEEDED",command.user[0]._id)
         const userid= command.user[0]._id;
-          return res.status(201).json({command:{ cart,user,time,somme,userid},});
+          return res.status(201).json({command:{ cart,user,time,somme,userid,commandeType},});
         }
       });
 }
@@ -70,3 +71,33 @@ clickRetireModel.find({"user._id":req.params._id,},function (err,data) {
         });
       });
   }
+
+  exports.getcommandeByType=(req,res)=>{
+  
+    clickRetireModel.find({"commandeType.commande.command":req.params.type}).then((data) => {
+      res.json(data)
+      })
+      .catch((err) => {
+        res.json({
+          err: err,
+          message: "Une erreur c'est produite",
+        });
+      });
+    }
+
+
+    exports.clearCommande=(req,res)=>{
+      clickRetireModel.findOneAndDelete({ "_id": req.params._id}, (err, doc) => {
+        if (err) {
+            console.log("Something wrong when updating data!");
+        }
+    
+        console.log(doc);
+        return res.status(201).json({
+          message: ' CART DELETED '
+      })
+    });
+
+
+
+    }

@@ -1,0 +1,33 @@
+.achat-list-icon{
+    color: #12705e;
+    font-size: 1.3em;
+    cursor: pointer;
+}
+.achat-list{
+    border: 1px solid #c19a5d;
+    width: 500px;
+    height: 600px;
+    position: fixed;
+    top: 50px;
+    left:35%;
+     background-color: white;
+
+}   
+.achat-fields{
+    width: 80%;
+    display: flex;
+  margin-left: 10px;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.achat-elem{
+ 
+   
+    border-bottom: 1px solid lightgrey;
+    width: 100%;
+    height:max-content;
+display: flex;
+justify-content: left;
+}

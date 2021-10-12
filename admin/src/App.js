@@ -8,6 +8,7 @@ import Opning from './component/Opning';
 import Barquette from './component/Barquettes';
 import Gout from './component/Gout';
 import PhotosPages from './component/PhotoPages';
+import CliqueetR from './component/CliqueetR';
 function App() {
   return (
     <div className="App">
@@ -19,7 +20,7 @@ function App() {
 <div className="side-elem"><FaProductHunt className="icon-side"/><Link to="/acc">Produits sur stock</Link></div>
 <div className="side-elem"><FaCube className="icon-side"/><Link  to="/barquettes">Barquettes</Link></div>
 <div className="side-elem"><FaIceCream className="icon-side"/><Link to="/gouts">Gouts</Link></div>
-<div className="side-elem"><FaJediOrder className="icon-side"/><Link exact path="/acc">Cliqué et Retiré</Link></div>
+<div className="side-elem"><FaJediOrder className="icon-side"/><Link to="/Cliqué-et-retiré" >Cliqué et Retiré</Link></div>
 <div className="side-elem"><FaTasks className="icon-side"/><Link exact path="/acc">Cammande Livraison</Link></div>
 <div className="side-elem"><FaGlasses className="icon-side"/><Link exact path="/acc">Cammande Proffesionnelles</Link></div>
 <div className="side-elem"><FaImage className="icon-side"/><Link to="/photos">Photos pages</Link></div>
@@ -32,13 +33,15 @@ function App() {
 <Route exact path="/users" component={Utilisateurs }/>
 <Route exact path='/heure' component={Opning}/> 
 <Route exact path="/barquettes" >
-  <Barquette/>
+<Barquette/>
 </Route>
 <Route  exact path="/barquettes/:_id" component={Barquette} />
 <Route exact path="/gouts" component={Gout}/>
 <Route exact path="/gouts/:_id" component={Gout}/>
 <Route exact path="/photos"  component={ PhotosPages}/>
-  </Switch>
+<Route exact path="/Cliqué-et-retiré"  component={CliqueetR}/>
+<Route exact path="/Cliqué-et-retiré/:_id"  component={CliqueetR}/>
+</Switch>
 </Router>
 
 

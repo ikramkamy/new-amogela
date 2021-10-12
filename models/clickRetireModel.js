@@ -14,6 +14,11 @@ user:{
     type: Array,
     default: []
 },
+commandeType:{
+  type:Object,
+  default:[]
+  
+    },
 time:{
 type:Date
 },
@@ -24,5 +29,5 @@ somme:{
       }
     );
     
-const clickRetireModel=mongoose.model('click-retirez',clickRetireSchema);
+const clickRetireModel=mongoose.model('Toutes-commande',clickRetireSchema);
 module.exports=clickRetireModel;

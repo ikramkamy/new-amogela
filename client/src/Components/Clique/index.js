@@ -106,7 +106,7 @@ const [startDate, setStartDate] = useState(
        
     const  handelvalidateEmporte=()=>{
 if(token===null){
-  alert("Vous n'etes pas Signin")
+  alert("Vous n'etes pas Signin 😵")
   history.push('/signin')
   
   
@@ -115,6 +115,7 @@ if(token===null){
   if(commande.date==date || commande.command==""){
     alert("selectioner la date et l'heure SVP")
   }else{
+    commande.date=start;
      console.log("CLIQU2 ET RETIRE",commande)
    addCommande(commande,token)
    alert("Nous avons enregistré la date et l'heure de votre commande 😇")
