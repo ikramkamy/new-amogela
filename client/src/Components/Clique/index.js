@@ -1,6 +1,6 @@
 import React,{useState,useEffect} from 'react';
 import {FaHome,FaBicycle,  FaLocationArrow, FaArrowCircleLeft} from "react-icons/fa";
-import Select from 'react-select';
+
 import './mod.css';
 import  DatePicker from "react-datepicker";
 import { now } from 'mongoose';
@@ -106,6 +106,7 @@ const [startDate, setStartDate] = useState(
        
     const  handelvalidateEmporte=()=>{
 if(token===null){
+  alert("Vous n'etes pas Signin")
   history.push('/signin')
   
   
@@ -116,7 +117,7 @@ if(token===null){
   }else{
      console.log("CLIQU2 ET RETIRE",commande)
    addCommande(commande,token)
-   alert("commande avec succes")
+   alert("Nous avons enregistré la date et l'heure de votre commande 😇")
   }
           }
         }

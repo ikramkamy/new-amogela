@@ -6,7 +6,7 @@ import Product from './Components/Product';
 import Signin from './Components/Signin';
 import Signup from './Components/Signup';
 import MySidebar from './Components/MySidebar';
-import Admin from './Components/Admin';
+
 import Modal from './Components/Modal';
 import ProdbyID from './Components/ProdbyID';
 import {Product2,Product3,Product4,Product5 }from './Components/Product/Product2';
@@ -64,9 +64,7 @@ const showinscription=()=>{
 
     </Route>
 
-<Route exact path="/signin/admin">
-    <Admin/>
-    </Route>
+
  <Route exact path="/signin">
    <div className="sign-page">
   
