@@ -14,7 +14,6 @@ const now = moment().toDate();
   const [startDate, setStartDate] = useState(new Date());
   console.log(startDate);
   const {open,close}=props;
-  
   const [input, setInput] = useState({
     date:"",
     heure:""
@@ -56,7 +55,11 @@ const now = moment().toDate();
         <h4>Choisissez la date et l'heure de votre commande SVP</h4>
         <div className="dialog-box">
      
-        <DatePicker className="date-picker" selected={startDate} onChange={(date) => setStartDate(date)} showTimeSelect
+        <DatePicker 
+        className="date-picker" 
+        selected={startDate} 
+        onChange={(date) => setStartDate(date)} 
+        showTimeSelect
   dateFormat="Pp" minDate={date} dateFormat="d MMMM , yyyy h:mm aa"/>
        <button onClick={props.close}> <a href="/shop">Voir les produits</a></button>
       <h6>lorsque vous clickez ici vous serez orienter vers la page shop</h6> 

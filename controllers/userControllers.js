@@ -408,6 +408,7 @@ exports.MinuOneItemCartUser=(req, res)=>{
 	                      gout2:req.body.cart.gout2,
 	                      gout3:req.body.cart.gout3,
 	                      gout4:req.body.cart.gout4,
+                        
 	                     quantity: -1,
                         date: Date.now()
                     }
@@ -436,4 +437,50 @@ exports.Delete=(req,res)=>{
   })
 });
 
+}
+
+
+
+
+exports.addCommandetoCart=(req, res)=>{
+  userModel.findOne({ _id: req.user._id }, (err, userInfo) => {
+    let duplicate = false;
+
+    console.log(userInfo)
+
+    userInfo.cart.forEach((item) => {
+        if (item.id == req.body.cart.id && item.gout1==req.body.cart.gout1 && item.gout2==req.body.cart.gout2 && item.gout3==req.body.cart.gout3 && item.gout4==req.body.cart.gout4) {
+            duplicate = true;
+        }
+    })
+
+
+    if (duplicate) {
+      userModel.findOneAndUpdate(
+            { _id: req.user._id, "cart.id": req.body.cart.id },
+            { $inc: { "cart.$.quantity": 1 } },
+            { new: true },
+            (err, userInfo) => {
+                if (err) return res.json({ success: false, err });
+                res.status(200).json(userInfo.cart)
+            }
+        )
+    } else {
+      userModel.findOneAndUpdate(
+            { _id: req.user._id },
+            {
+                $push: {
+                    cart: {
+                      commande:req.body.commande,
+                    }
+                }
+            },
+            { new: true },
+            (err, userInfo) => {
+                if (err) return res.json({ success: false, err });
+                res.status(200).json(userInfo.cart)
+            }
+        )
+    }
+})
 }

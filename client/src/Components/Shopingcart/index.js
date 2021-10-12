@@ -9,7 +9,7 @@ import Footer from '../Footer';
 import { useParams } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
 import  DatePicker from "react-datepicker";
-import Mod from '../Mod';
+
 
 const ShopinCart=(props)=>{
 const token=localStorage.getItem('token');
