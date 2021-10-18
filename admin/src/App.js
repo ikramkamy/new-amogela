@@ -9,6 +9,7 @@ import Barquette from './component/Barquettes';
 import Gout from './component/Gout';
 import PhotosPages from './component/PhotoPages';
 import CliqueetR from './component/CliqueetR';
+import ProduitsStock from './component/ProduitsStock';
 function App() {
   return (
     <div className="App">
@@ -17,12 +18,12 @@ function App() {
   
 <div className="side-elements">
 <div className="side-elem"><FaUser className="icon-side"/><Link to="/users">Utilisateurs</Link></div>
-<div className="side-elem"><FaProductHunt className="icon-side"/><Link to="/acc">Produits sur stock</Link></div>
+<div className="side-elem"><FaProductHunt className="icon-side"/><Link to="/produits">Produits sur stock</Link></div>
 <div className="side-elem"><FaCube className="icon-side"/><Link  to="/barquettes">Barquettes</Link></div>
 <div className="side-elem"><FaIceCream className="icon-side"/><Link to="/gouts">Gouts</Link></div>
 <div className="side-elem"><FaJediOrder className="icon-side"/><Link to="/Cliqué-et-retiré" >Cliqué et Retiré</Link></div>
-<div className="side-elem"><FaTasks className="icon-side"/><Link exact path="/acc">Cammande Livraison</Link></div>
-<div className="side-elem"><FaGlasses className="icon-side"/><Link exact path="/acc">Cammande Proffesionnelles</Link></div>
+<div className="side-elem"><FaTasks className="icon-side"/><Link >Cammande Livraison</Link></div>
+<div className="side-elem"><FaGlasses className="icon-side"/><Link ex>Cammande Proffesionnelles</Link></div>
 <div className="side-elem"><FaImage className="icon-side"/><Link to="/photos">Photos pages</Link></div>
 <div className="side-elem"><FaClock className="icon-side"/><Link  to="/heure">Les heurs de travail</Link></div>
 </div>
@@ -41,6 +42,8 @@ function App() {
 <Route exact path="/photos"  component={ PhotosPages}/>
 <Route exact path="/Cliqué-et-retiré"  component={CliqueetR}/>
 <Route exact path="/Cliqué-et-retiré/:_id"  component={CliqueetR}/>
+<Route exact path="/produits" component={ProduitsStock} />
+<Route exact path="/produits/:_id" component={ProduitsStock} />
 </Switch>
 </Router>
 

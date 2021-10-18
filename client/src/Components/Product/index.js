@@ -24,7 +24,7 @@ const Product = (props) => {
   const [counter, setCounter] = useState(0);
   const [cart,setCart]=useState([]);
   const token=localStorage.getItem('token');
-  console.log("i m in product page token is here",token);
+
 
   const config = {
     headers: { Authorization: `Bearer ${token}` }
@@ -41,10 +41,7 @@ const Handelopne = () => {
 
   };
   
-  console.log("the cart legnth is ",cart.length)
-  const [count, setCount]=useState(cart.length);
- // const [showme,setShowme]=true;
-//const handleClick=()=>{setCount(cart.length)};
+
 const addproduct=(product)=>{
 
 if(token===null){
@@ -57,8 +54,7 @@ if(token===null){
 console.log("WE ARE NO ADDING PRODUCT BEFOR SIGN IN")
 }else{
 
-  setLnth(n++);
-setCounter(cart.length);
+
 console.log("we are in add to cart")
 setCart([...cart,product])
 console.log(cart);
@@ -112,12 +108,10 @@ axios.get('/api/Barquettes')
 }, [barquette]);
 /**********************************Geting the cart to bring the length************************** */
 const user_id=localStorage.getItem('user_id');
-
-console.log("USER FROM LOCAL STORAGE",user_id)
 const[usercart,setUsercart]=useState([]);
 const [mycart,setMyCart]=useState([]);
+const [cartlength,setCartlength]=useState(0)
 
-console.log("idsplited",0)
 
 useEffect(() => {
   const expensesListResp = async () => {
@@ -127,10 +121,13 @@ useEffect(() => {
      }
   expensesListResp();
 }, []);
-console.log("we are getting the cart",usercart); 
-useEffect(()=>{
 
+useEffect(()=>{
+let n=0;
 setMyCart(usercart.cart);
+mycart?.map((e)=>{n=n+e.quantity})
+setCartlength(n);
+console.log('TEST CART LENGTH',cartlength)
 console.log("we are setting your cart",mycart);
 /*
 setCounter(mycart.length);
@@ -138,12 +135,11 @@ console.log("COUNTER",counter);
 */
 
 }) 
-const [lnth,setLnth]=useState(0);
-let n=0;
-useEffect(()=>{
-})
-/*************************************POPUP SIGN IN***************************** */
 
+/*********************************POPUP SIGN IN***************************** */
+useEffect(() => {
+  window.scrollTo(0, 0)
+}, [])
 
 
 
@@ -151,10 +147,7 @@ useEffect(()=>{
 
 /******************************************************************************** */
 /************************************************************************************* */
-const getbyID=(e)=>{
-  
-  console.log("we are getting the id")
-}
+
 
   return (
     <div className="product" >
@@ -164,9 +157,9 @@ const getbyID=(e)=>{
         </Link>
         </div>
 <div className="shoping-cart-icon">
-{/*<div className="tite-panier" ></div>*/}
-<FaShoppingBag className="icon-shoping" onClick={Handelopne /*() =>/* {history.push(`/shopingcart/:${user_id}`) }*/} />
-         
+<div className="tite-panier" >{cartlength}</div>
+<FaShoppingBag className="icon-shoping" onClick={Handelopne } />
+<div className="tite-panier" >{cartlength}</div>      
 </div>
        
 <Mynavbar/>  

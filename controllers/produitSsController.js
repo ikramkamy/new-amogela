@@ -31,6 +31,7 @@ const produit=new  produiSSModel({
     gout:req.body.gout,
     prix:req.body.prix,
     cathegorie:req.body.cathegorie, 
+    disponible:req.body.disponible,
 });
 
 produit.save((error, produit)=>{
@@ -42,10 +43,10 @@ produit.save((error, produit)=>{
       }
       if (produit) {
         
-        const { name, img,prix,cathegorie } = produit;
+        const { name, img,prix,cathegorie,disponible } = produit;
         return res.status(201).json({
           
-          produit: {name, img,prix,cathegorie},
+          produit: {name, img,prix,cathegorie,disponible},
         });
       } 
 })
@@ -105,3 +106,18 @@ exports.updateBarquette=(req,res)=>{
 
 }
 */
+exports.Delete=(req,res)=>{
+
+  produiSSModel.findOneAndDelete({ "_id": req.params._id},(err, doc) => {
+    if (err) {
+        console.log("Something wrong when DELETING data!");
+    }
+
+    console.log(doc);
+    return res.status(201).json({
+      message: ' Barquette DELETED '
+  })
+});
+
+
+}

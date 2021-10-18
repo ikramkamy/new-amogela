@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{useState,useEffect} from 'react';
 import './signin.css';
 import {FaArrowCircleLeft} from "react-icons/fa";
 import axios from 'axios';
@@ -14,6 +14,9 @@ import {loginUser} from '../../actions/productActions.js';
 import Signup  from '../Signup';
 
 const Signin=(props)=>{
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
 const AUTH = 'AUTH';
 const history = useHistory();
 console.log("we are in signin");

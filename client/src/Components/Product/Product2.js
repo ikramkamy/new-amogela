@@ -15,12 +15,8 @@ import {addproduct} from '../../actions/productActions';
 import Signin from '../Signin';
 export const Product2=()=>{
     const [barquette,setBarquette]=useState([]);
-    const [products,setProducts]= useState([]);
-    const [cathegorie, setCathegorie]=useState("Barquette");
-    const [menuOpenState, setMenuOpenState] = useState(false);
-    const [items, setItems] = useState(0);
-    const [isOpen, setIsOpen] = useState(false);
-   const [counter, setCounter] = useState(0);
+ const [isOpen, setIsOpen] = useState(false);
+ const [cartlength,setCartlength]=useState(0)
   
   useEffect(() => {     
     const getData = async () => {  
@@ -52,7 +48,7 @@ export const Product2=()=>{
       </div>
       <div className="shoping-cart-icon">
        
-      
+      <div className="tite-panier" >{cartlength}</div>
          <FaShoppingBag className="icon-shoping"  onClick={Handelopne} />
          
         </div>
@@ -100,12 +96,14 @@ const [products,setProducts]= useState([]);
 const [isOpen, setIsOpen] = useState(false);
 const [counter, setCounter] = useState(0);
 const token=localStorage.getItem('token');
+const [cartlength,setCartlength]=useState(0);
+
  const Handelopne = () => {
   setIsOpen(!isOpen);
   };
 useEffect(() => {     
   const getData = async () => {  
-    await axios.get(`/findbycategorie/escimau-biscuit`)  
+    await axios.get(`/findbycategorie/Escimau-biscuit`)  
     .then(res => {  
       console.log(res) 
       const data=res.data.data;
@@ -140,8 +138,9 @@ const handelClick=(product)=>{
       </Link>
 </div>
     <div className="shoping-cart-icon">
+    <div className="tite-panier" >{cartlength}</div>
      <FaShoppingBag className="icon-shoping"  onClick={Handelopne}/>
-        <div className="items">{counter}</div>
+        
       </div>
     <Mynavbar/>
     
@@ -188,6 +187,7 @@ export const Product4=()=>{
   const [isOpen, setIsOpen] = useState(false);
  const [counter, setCounter] = useState(0);
  const token=localStorage.getItem('token');
+ const [cartlength,setCartlength]=useState(0);
  const Handelopne = () => {
   setIsOpen(!isOpen);
   };
@@ -233,7 +233,7 @@ const handelClick=(product)=>{
     </div>
     <div className="shoping-cart-icon">
      
-    
+    <div className="tite-panier" >{cartlength}</div>
      <FaShoppingBag className="icon-shoping" onClick={Handelopne}  />
       <div className="items">{counter}</div>
     </div>
@@ -282,6 +282,7 @@ const [isOpen, setIsOpen] = useState(false);
 const [count, setCount] = useState(0);
 const [cart,setCart]=useState([{}]);
 const token=localStorage.getItem('token');
+const [cartlength,setCartlength]=useState(0);
 
   const Handelopne = () => {
     setIsOpen(!isOpen);
@@ -326,10 +327,10 @@ const handelClick=(e)=>{
     </div>
     <div className="shoping-cart-icon">
      
-   
+    <div className="tite-panier" >{cartlength}</div>
      <FaShoppingBag className="icon-shoping" onClick={Handelopne} />
      
-      <div className="items">{count}</div>
+     
     </div>
     <Mynavbar/>
 <Filter />

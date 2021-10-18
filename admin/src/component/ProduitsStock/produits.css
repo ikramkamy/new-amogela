@@ -1,0 +1,10 @@
+.icon-edit{
+cursor: pointer;
+}
+select{
+    
+    width: 60%;
+    height: 50px;
+    border: none;
+    border-bottom: 1px solid lightgray;
+}

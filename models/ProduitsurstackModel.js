@@ -24,6 +24,10 @@ img: {
  cathegorie: {
      
     type:String,
+},
+disponible:{
+    type:String,
+    default:'oui',
 }
 
 

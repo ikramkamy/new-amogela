@@ -1,10 +1,12 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import './histoire.css';
 import Mynavbar from '../Mynavbar';
 import { Link } from "react-router-dom";
 import Footer from '../Footer';
 const Histoire =()=>{
-
+    useEffect(() => {
+        window.scrollTo(0, 0)
+      }, [])
     return(<div className="histoire">
  <div className="nav-shop" style={{zIndex:"10"}}>
     <Link to="/" className="image-wrapper">

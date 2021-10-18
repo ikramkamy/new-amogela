@@ -2,9 +2,6 @@ import React,{useState} from 'react';
 import './signup.css';
 import axios from 'axios';
 import {FaArrowCircleLeft} from "react-icons/fa";
-import ReCAPTCHA from "react-google-recaptcha";
-import Footer from '../Footer';
-import Mynavbar from '../Mynavbar';
 import { Link } from "react-router-dom";
 import { useHistory } from 'react-router-dom';
 const Signup=(props)=>{

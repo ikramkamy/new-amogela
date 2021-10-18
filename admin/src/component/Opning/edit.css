@@ -48,7 +48,6 @@
 }
 .close{
     width: 95%;
-    
     display: flex;
     justify-content: flex-end;
     font-size: 1.5em;

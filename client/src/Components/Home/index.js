@@ -12,6 +12,9 @@ import Footer from '../Footer'
 import { Link } from "react-router-dom";
 
 export default function Home() {
+    useEffect(() => {
+        window.scrollTo(0, 0)
+      }, [])
  var counter = 0;
 const trans = 300;
 var num = trans * counter;

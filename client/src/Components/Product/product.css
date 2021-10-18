@@ -31,10 +31,7 @@ width: 400px;
     width: 100%;
     justify-content: space-between;
 }
- .tite-panier{
-     width: 20%;
-border: 1px solid red;
-    } 
+
 
  input{
     width: 30%;
@@ -63,10 +60,20 @@ border: 1px solid red;
     position: fixed;
     top: 8px;
     z-index: 21;
-    font-size: 150%;
+    font-size: 25px;
     cursor: pointer;
     color:white;
 }
+.tite-panier{
+    width: 15px;
+    position: fixed;
+    border: 1px solid red;
+    top: 50px;
+    color: white;
+    background-color: red;
+    border-radius: 20px 20px 20px 20px;
+    z-index: 22;
+   } 
 .items{
    
     border-radius: 25%;
@@ -84,8 +91,9 @@ border: 1px solid red;
    
 }
 .icon-shoping, .FaBars{
-    font-size: 150%;
+    font-size: 35px;
     cursor: pointer;
+    
 }
 .icon-shoping:hover{
     color:#12705e;

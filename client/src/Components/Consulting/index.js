@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{useState,useEffect} from 'react';
 import './consulting.css';
 import Mynavbar from '../Mynavbar';
 import Footer from '../Footer';
@@ -9,7 +9,9 @@ import FormControl from 'react-bootstrap/FormControl';
 import FormCheck from 'react-bootstrap/FormCheck';
 
 const Consulting=()=>{
-
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
   const [input,setInput]=useState({
     lastName:"",
     firstName:"",

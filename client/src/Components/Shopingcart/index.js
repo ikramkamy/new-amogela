@@ -67,14 +67,14 @@ useEffect(() => {
                }
             expensesListResp();
           });
-          console.log("we are getting the cart",usercart.cart); 
+        
        
          useEffect(()=>{
 
           setMyCart(usercart.cart);
           setCommType(usercart.commandeType);
           console.log("we are getting COMMANDE TYPE",commType); 
-          console.log("we are setting your cart",mycart);
+          
           
           }) 
           useEffect(() => {
