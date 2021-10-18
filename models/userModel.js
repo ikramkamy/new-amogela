@@ -45,7 +45,7 @@ const userSchema = new mongoose.Schema(
       default: []
   },
   commandeType:{
-type:Object,
+type:Array,
 default:[]
 
   },

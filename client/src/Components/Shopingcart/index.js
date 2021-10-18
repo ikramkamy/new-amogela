@@ -9,7 +9,7 @@ import Footer from '../Footer';
 import { useParams } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
 import  DatePicker from "react-datepicker";
-
+import Clique from '../Clique';
 
 const ShopinCart=(props)=>{
 const token=localStorage.getItem('token');
@@ -43,17 +43,16 @@ let n=0;
 //********************************date picker***************************** */
 
   const [startDate, setStartDate] = useState(new Date());
-  console.log("the date and hour of your commande is",startDate);
+  /*console.log("the date and hour of your commande is",startDate);*/
   var date = new Date();
   date.setDate(date.getDate() + 1);
   JSON.stringify(startDate);
-  console.log("date after stringifying",startDate);
+  /*console.log("date after stringifying",startDate);*/
 
 //********************************************************************* */
   
       const user_id=localStorage.getItem('user_id');
 
-      console.log("HIstory info are here",history);
       const[usercart,setUsercart]=useState([]);
       const [mycart,setMyCart]=useState([]);
  /************************************************************************** */
@@ -73,7 +72,7 @@ useEffect(() => {
 
           setMyCart(usercart.cart);
           setCommType(usercart.commandeType);
-          console.log("we are getting COMMANDE TYPE",commType); 
+         /* console.log("we are getting COMMANDE TYPE",usercart.commandeType); */
           
           
           }) 
@@ -81,18 +80,19 @@ useEffect(() => {
             const expensesListResp = async () => {
               await axios.get(`/getMycartUserprofile/${user_id}`)
               .then(response =>setCommType(response.data.commandeType))
-              console.log("COMM TYPE",commType)
+              /*console.log("COMM TYPE",commType)*/
+              
                }
             expensesListResp();
        
 
           })   
-        
+      
    // const {addproduct,removeproduct}=props;
 /*********************Sending Clic et retirer commande***************** */
 const handelClick=(event)=>{
   event.preventDefault();
-  if(somme!==0 & commType!=="" ){
+  if(somme!==0 & usercart.commandeType.length!==0 ){
    
   console.log("we are posting commande ")
   const command={
@@ -106,22 +106,37 @@ const handelClick=(event)=>{
   axios.post("/clickretire",command)
   .then(response => {
    console.log("post with axios succed the commande")
+
    history.push('/commadevalidee')
   }).catch(error => {
     console.log("the raison of failure", error) 
   });
-}else if(somme==0){
 
- alert("Votre shoping cart est vide !!!")
-}
-/*
+ 
   axios.delete(`/Clearcard/${user_id}`)
   .then(response => {
-    console.log("DELETE with axios succed")
+    console.log("DELETE CART with axios succed")
    }).catch(error => {
      console.log("the raison of failure", error) 
    });
-   */
+   
+  axios.delete(`/Clearcommande/${user_id}`)
+   .then(response => {
+     console.log("DELETE CommandeType with axios succed")
+    }).catch(error => {
+      console.log("the raison of failure", error) 
+    });  
+   
+
+}else if(somme==0){
+
+ alert("Votre shoping cart est vide !!!")
+}else if(usercart.commandeType.length==0){
+
+alert("Vous n'aves pas préciser le type de votre commande (Emporté ou livraison)")
+history.push('/typedecommande')
+}
+
   }
 
 /*************************************adding quntity************************** */

@@ -1,12 +1,11 @@
 import React,{useState,useEffect} from 'react';
 import './signin.css';
-import {FaArrowCircleLeft} from "react-icons/fa";
+
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import {GoogleLogin} from 'react-google-login';
 import { useHistory } from 'react-router-dom';
-import Footer from '../Footer';
-import Mynavbar from '../Mynavbar';
+
 
 import Icon from './Icon';
 import {loginUser} from '../../actions/productActions.js';
@@ -19,7 +18,6 @@ const Signin=(props)=>{
   }, [])
 const AUTH = 'AUTH';
 const history = useHistory();
-console.log("we are in signin");
 const [issignin,setIssignin]=useState(false);
 const googleSuccess = async (res) => {
 const result = res?.profileObj

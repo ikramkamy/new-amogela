@@ -341,7 +341,18 @@ exports.Clearcard=function(req,res,next){
   })
 });
 }
+exports.Clearcommande=function(req,res,next){
+  userModel.findOneAndUpdate({ "_id": req.params._id,}, {$set:{commandeType:[]}}, {new: true}, (err, doc) => {
+    if (err) {
+        console.log("Something wrong when updating data!");
+    }
 
+    console.log(doc);
+    return res.status(201).json({
+      message: ' CART DELETED '
+  })
+});
+}
 
 exports.DeletefromCartUser=(req, res)=>{
 
@@ -473,6 +484,8 @@ exports.addCommandetoCart=(req, res)=>{
               commande:{
                 command:req.body.commandeType.commande.command,
                   date:req.body.commandeType.commande.date,
+                  lieux:req.body.commandeType.commande.lieux,
+                  wilaya:req.body.commandeType.commande.wilaya,
               }
             } },
             { new: true },
@@ -490,6 +503,8 @@ exports.addCommandetoCart=(req, res)=>{
                       commande:{
                         command:req.body.commandeType.commande.command,
                           date:req.body.commandeType.commande.date,
+                          lieux:req.body.commandeType.commande.lieux,
+                          wilaya:req.body.commandeType.commande.wilaya,
                       }
                     }
                 }
