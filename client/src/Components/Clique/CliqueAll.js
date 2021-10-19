@@ -9,8 +9,11 @@ import {addCommande} from '../../actions/productActions';
 import Signin from '../Signin';
 import {setSeconds, setMinutes,setHours, startOfDay} from "date-fns";
 import { useHistory } from 'react-router-dom';
-const Clique=(props)=>{
-const {emporte,dilevery,show}=props;
+const CliqueAll=(props)=>{
+
+const[emporte,setEmporte]=useState(false);
+const [dilevery,setDilevery]=useState(false);
+const [show,setShow]=useState(true);
 const token=localStorage.getItem('token');
 const history = useHistory();
     var counter = 0;
@@ -30,8 +33,8 @@ const [startDate, setStartDate] = useState(
     const [wilaya2,setWilaya2]=useState(false);
    // const [emporte,setEmporte]=useState(false);
     const handelwilaya=()=>{
-      commande.wilaya="Alger";
-      commande.command="livraison";
+       input.wilaya="Alger";
+       input.commande="livraison";
       
        setWilaya(true)
        setWilaya2(false);
@@ -47,19 +50,21 @@ const [startDate, setStartDate] = useState(
         setShow(false)
         setEmporte(false)*/
         input.commande="livraison";
-        
+        setDilevery(true);
+        setShow(false);
     }
     const choiceEmporte=()=>{
         /*setEmporte(!emporte) 
         setShow(false)
         setDilevery(false)*/
         input.commande="emporte"
-      
+      setEmporte(true);
+      setShow(false);
     }
     const goback=()=>{
-       /* setShow(true)*/
-       /* setDilevery(false)
-        setEmporte(false) */
+        setShow(true)
+        setDilevery(false)
+        setEmporte(false) 
     }
     const options = [
         { value: 'jeudi', label: 'jeudi' },
@@ -82,15 +87,18 @@ const [startDate, setStartDate] = useState(
         
        }) 
        const [input,setInput]=useState({
-      
+        commande:"Livraison",
+        wilaya:"",
+        date:start,
         commune:"",
-     })
+        commune2:""
+    })
      
        const handelChange=(event)=>{
       const {name,value}=event.target;
-        setInput(newInput=>{
+        setInput(prevInput=>{
           return  { 
-            ...newInput,
+            ...prevInput,
             [name]:value
      }
         })
@@ -124,36 +132,32 @@ if(token===null){
           }
         }
 const handelvalidateLivraison=()=>{
-  if(token===null){
-    alert("Vous n'etes pas Signin 😵")
-    history.push('/signin')
-    
-    
-  }else {
 if(dilevery==true){
   if(wilaya==true){
-    commande.date=start;
-    commande.command= "Livraison";
-    commande.wilaya= "Alger";
-    commande.lieux= input.commune2;
-    console.log("LIVRAISON-ALGER",commande);
-    addCommande(commande,token)
+    setCommande({
+      command: "Livraison",
+      date:start,
+      wilaya:"Alger",
+      lieux:input.commune,
+    })
     alert("Nous avons enregistré la date et l'heure et l'adresse de votre commande 😇")
+    console.log("LIVRAISON-ALGER",commande)
+    addCommande(commande,token)
     history.push("/shop")
   }
   else if(wilaya2==true)
   
   { setCommande({
-    command: "Livraison",
+    command:"Livraison",
     date:start,
     wilaya:"Boumerdes",
     commune:input.commune2,
   })}
+  
   console.log("LIVRAISON-BOUMERDES",commande)
   addCommande(commande,token)
   alert("Nous avons enregistré la date et l'heure et l'adresse de votre commande 😇")
   history.push("/shop")
-}
 }
 }
 return(
@@ -176,7 +180,7 @@ return(
     }
     {emporte &&(<div class="modal_content_cmd">
      <span class="close">&times;</span>
-     <FaArrowCircleLeft onClick ={goback} style={{color:"#c19a5d"}}/>
+     <FaArrowCircleLeft onClick ={goback} style={{color:"#c19a5d",cursor:"pointer"}}/>
 
      <h4>Cliqué et retiré</h4>
      <h3>Récupérez votre commande aprés 24h</h3>
@@ -210,7 +214,7 @@ return(
     }
       {dilevery &&(<div class="modal_content_cmd">
      <span class="close">&times;</span>
-     <FaArrowCircleLeft onClick ={goback} style={{color:"#c19a5d"}}/>
+     <FaArrowCircleLeft onClick ={goback} style={{color:"#c19a5d",cursor:"pointer"}}/>
      <h3>la livraison est disponible pour ces endroits</h3>
      <div className="choice-box">
      <div className="emporte"  onClick={handelwilaya} ><FaLocationArrow/>Alger</div>
@@ -235,19 +239,19 @@ return(
  />
  </div>
      {wilaya &&(<select  className="select-style" type="text" name="commune" value={input.commune} onChange={handelChange}>
-     <option value="">choisissez une commune</option>
-     <option value="Alger-centre">Alger-centre</option>
-     <option value="Draria">Draria</option>
-    
+     {comAlger.map((option) => (
+              <option value={option.value}>{option.label}</option>
+            ))} 
+
      </select>)}
 
 
 
-     {wilaya2 && ( <select className="select-style" placeholder="Boumerdes-communes" name="commune" value={input.commune} onChange={handelChange}>
-     <option value="boumerdes 01">boumerdess 01</option>
-     <option value="boumerdes 02">boumerdes 02</option>
-     <option value="boumerdes 03">boumerdes 03</option>
-     <option value="boumerdes 04">boumerdes 04</option>
+     {wilaya2 && ( <select className="select-style" placeholder="Boumerdes-communes" name="commune2" value={input.commune2} onChange={handelChange}>
+     {comBoumerdess.map((option) => (
+              <option value={option.value}>{option.label}</option>
+            ))}
+
      </select>)}
    
     <div className="box-cmd-text"><FaHome/>Adresse amogela</div>
@@ -273,4 +277,4 @@ return(
 )
 
 }
-export default Clique;
+export default CliqueAll;

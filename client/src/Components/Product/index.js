@@ -127,8 +127,10 @@ let n=0;
 setMyCart(usercart.cart);
 mycart?.map((e)=>{n=n+e.quantity})
 setCartlength(n);
+/*
 console.log('TEST CART LENGTH',cartlength)
 console.log("we are setting your cart",mycart);
+*/
 /*
 setCounter(mycart.length);
 console.log("COUNTER",counter);

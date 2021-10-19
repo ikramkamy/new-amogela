@@ -16,11 +16,11 @@ import Consulting from './Components/Consulting';
 import Chocolat from './Components/Chocolat';
 import CommandeValide from './Components/CommandeValide';
 import { Link } from "react-router-dom";
-
 import Lognav from './Components/Lognav';
 import Footer from './Components/Footer';
 import Clientpage from "./Components/Clientpage";
 import ShopPro from "./Components/ShopPro";
+import CliqueAll from './Components/Clique/CliqueAll';
 function App() {
   const [open,setOpen]=useState(false);
   const [etat, setEtat] = useState(false);
@@ -109,12 +109,14 @@ const showinscription=()=>{
 <Route exact path="/Chocolat" component={Chocolat}/>
 <Route exact path="/commadevalidee" component={CommandeValide}/>
 
-<Route  path="/clientpage" component={Clientpage}/>
+<Route exact path="/clientpage" component={Clientpage}/>
+<Route exact path="/typedecommande" >
+
+<CliqueAll         />
+
+</Route> 
      </Switch> 
      </Router>
-
-
-
     </div>
   );
 }
