@@ -1,0 +1,9 @@
+.log-out-item a{
+color: red;
+}
+.wrap-lo-out{
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 50px;
+}

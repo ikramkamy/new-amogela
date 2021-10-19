@@ -256,17 +256,7 @@ border: none;
         align-items: center;
     }
     
-     @media screen and (max-width : 1036px) {
-        .infoContent{
-            flex-direction: column;
-            height: auto;
-            align-items: flex-start;
-        }
-    
-        .footerContact,  .footerContainer{
-       height: auto;
-         }
-     }
+  
      @media screen and (max-width : 873px) {
     
      .containerOwlSlide{

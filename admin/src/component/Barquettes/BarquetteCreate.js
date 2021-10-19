@@ -43,7 +43,13 @@ const BarquetteCreate=(props)=>{
    
    <div></div>
    
-   <input placeholder="Barquettes" name="name" onChange={handelchange} value={barquette.name}/>
+   
+   <select placeholder="Barquettes" type="text"  name="name" onChange={handelchange} value={barquette.name}>
+   <option value="Selectionner">Selectionner</option>
+<option value="Barquettes 500g">Barquettes 500g</option>
+<option value="Barquettes 750g">Barquettes 750g</option>
+<option value="Barquettes 1000g">Barquettes 1000g</option>
+   </select>
    <input placeholder="Prix" name="prix" onChange={handelchange} value={barquette.prix}/>
    <input placeholder="Disponible sur stock?" name="disponible" onChange={handelchange} value={barquette.disponible}/>
    </div>

@@ -18,12 +18,13 @@ const Histoire =()=>{
 <div className="Pagename"> Histoire</div>
 <div className="histoirs-ceontent">
 <div className="text-histoire-wrapper">
-<div className="text-histoire">Amogela est le résultat d'une réconversion professionnelle opérée à partir de 2014,aprés plusieurs parcours dans diveres industries.</div> 
+<div className="text-histoire displayFlex">Amogela est le résultat d'une réconversion professionnelle opérée à partir de 2014,aprés plusieurs parcours dans diveres industries.</div> 
 </div>
-<img src="/images/histo1.jpg"/>
+<img src="/images/histo1.jpg" className="histo-img-size"/>
+<div className="text-histoire displayNone">Amogela est le résultat d'une réconversion professionnelle opérée à partir de 2014,aprés plusieurs parcours dans diveres industries.</div> 
 </div>
 <div className="histoirs-ceontent">
-<img src="/images/histo3.jpg"/>
+<img src="/images/histo3.jpg" className="histo-img-size"/>
 <div className="text-histoire-wrapper">
 <div className="text-histoire"><span>Toufik Khelef,</span> ingénieur de formation a eu l'idée d'entreprendre dans le domaine de la glace artisanale suite à un séjour effectué en Italie entre 2011 et 2013 à Cuneo dans le région de Piemont</div> 
 </div>
@@ -32,7 +33,7 @@ const Histoire =()=>{
 <div className="text-histoire-wrapper">
 <div className="text-histoire">A partir de ce moment il  décide d'abandonner l'industrie pour l'artisanat et entreprend plusieurs formations en Italie dans le domaine du Gelato, et fini par créer Amogela.</div> 
 </div>
-<img src="/images/histo2.jpg"/>
+<img src="/images/histo2.jpg" className="histo-img-size"/>
 </div>
 </div>
 <div className="choco-btn-wrapper"><button className="choco-btn nohover"><Link to="/Consulting">Consulting </Link></button></div>

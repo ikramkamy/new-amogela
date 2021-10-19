@@ -5,10 +5,6 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import {GoogleLogin} from 'react-google-login';
 import { useHistory } from 'react-router-dom';
-import Footer from '../Footer';
-import Mynavbar from '../Mynavbar';
-
-import Icon from './Icon';
 import {loginUser} from '../../actions/productActions.js';
 /* test pull2*/ 
 import Signup  from '../Signup';
@@ -92,10 +88,10 @@ return(
 <div className="signin-box">
 
 <form className="form-signin" onSubmit={handelSubmit}>
-<label>Email</label>
-<input  type="text"  placeholder="email@gmail.com" onChange={handelChange} value={input.email} name="email"/>
-<label>Mot de Passe</label>
-<input  type="password"  required placeholder="password" onChange={handelChange} value={input.password} name="password" />
+<label className="label-sigin">Email</label>
+<input  className="label-sigin" type="text"  placeholder="email@gmail.com" onChange={handelChange} value={input.email} name="email"/>
+<label className="label-sigin">Mot de Passe</label>
+<input className="label-sigin" type="password"  required placeholder="password" onChange={handelChange} value={input.password} name="password" />
 <div className="btn-signin-wrapper">
  
 <button  onClick={handelClick}>Connexion</button>

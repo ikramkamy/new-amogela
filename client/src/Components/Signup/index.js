@@ -10,7 +10,11 @@ const Signup=(props)=>{
 const [input,setInput]=useState({
     nom:"",
     email:"",
-    password:""
+    password:"",
+    firstName:"",
+    lastName:"",
+    phone:"",
+    username:"",
 })
 const handelChange=(event)=>{
     

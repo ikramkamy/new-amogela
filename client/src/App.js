@@ -4,9 +4,6 @@ import {BrowserRouter as Router,Switch, Route, useParams } from "react-router-do
 import Command from './Components/Command';
 import Product from './Components/Product';
 import Signin from './Components/Signin';
-import Signup from './Components/Signup';
-import MySidebar from './Components/MySidebar';
-
 import Modal from './Components/Modal';
 import ProdbyID from './Components/ProdbyID';
 import {Product2,Product3,Product4,Product5 }from './Components/Product/Product2';
@@ -16,7 +13,6 @@ import Home from './Components/Home';
 import Glaces from './Components/Glacesetsorbet';
 import Histoire from './Components/Histoire';
 import Consulting from './Components/Consulting';
-import Counter from './Components/Dispatchtest';
 import Chocolat from './Components/Chocolat';
 import CommandeValide from './Components/CommandeValide';
 import { Link } from "react-router-dom";

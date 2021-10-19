@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Link } from "react-router-dom";
 import {FaIceCream, FaLock } from "react-icons/fa";
 import {FaPersonBooth} from "react-icons/fa";
+import './logout.css';
 const Lognav = (props) => {
 const {issignin}=props;
 console.log("issignin",issignin);
@@ -12,6 +13,7 @@ const togglesmallscreen=()=>{
    setToggleMenu(!toggleMenu);
 
 }
+/*
 useEffect(()=>{
 
 const changeWidth=()=>{
@@ -27,32 +29,22 @@ window.removeEventListener('resize',changeWidth);
 
 
 },[])
+*/
 const logout=()=>{
     alert("you are loged out")
     localStorage.clear();
-    window.location.href = '/';
+   // window.location.href = '/';
 }
-//const {get,}=props;
+
   return (
-    <div className="filter">
-        <div className="filter-items">
-       <div className="filter-item" >
+    <div className="wrap-lo-out">
+        <div className="log-out-item">
+      
          
          <Link to="/signin" onClick={logout}>Logout <FaLock/></Link></div>
        
-      </div>
-      <div className="burgerMenu-filer">
-                  <FaIceCream onClick={togglesmallscreen} />
- </div>
-
-                {toggleMenu && (
-                <div className="filter-items-small">
-       <div className="filter-item" ><Link to="/signin">login</Link></div>
-   
-       
-       </div>
-       )
-}
+     
+      
       
 
 
