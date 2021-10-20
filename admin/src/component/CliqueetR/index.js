@@ -31,7 +31,9 @@ return(
  <div className="btn-create">
    
    <div><FaArrowDown className="icon-creat"/>Export</div>
+ 
    </div>
+   <h1 className="title-pages-admin"> les commandes Cliqué et Retiré</h1>
   <div className="user_info">
   <div className="item-user">Nom utilisateurs</div>      
   <div className="item-user">Télèphone</div>

@@ -229,6 +229,19 @@ const Minesone=(e)=>{
   });
   }
  }
+ 
+const [load,setLoad]=useState(false);
+useEffect(()=>{
+
+  if(!mycart){
+
+    setLoad(true)
+   
+  }else{
+    setLoad(false)
+  }
+})
+
 
     return(
 <div className="shopcart-wrapper" >
@@ -239,6 +252,7 @@ const Minesone=(e)=>{
 
 {mycart?.map((e)=><Cart  sname={e.name}  sprice={e.prix} gout1={e.gout1} gout2={e.gout2} gout3={e.gout3} gout4={e.gout4} squantity={e.quantity}  Deletitem={()=>  Deletitem(e)} img={e.img} Minesone={()=>Minesone(e)} addproduct={()=>addproduct(e)}/>)}
 </div>  
+{load &&(<div> votre panier sera prêt dans quelques secondes patientez SVP!</div>)}
 </div>
 
 <div className="footer-cart">
@@ -247,6 +261,7 @@ const Minesone=(e)=>{
   Total : {somme}DA
   </div>
   </div>
+  
 <div className="wrap-this">
   <div className="cart-btn nohover" onClick={handelClick}>
  Envoyer la commande 

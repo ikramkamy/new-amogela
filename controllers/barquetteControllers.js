@@ -74,7 +74,7 @@ exports.getbarquettebyID=(req,res)=>{
 BarquetteModel.findOne({"_id": req.params._id,},function (err,data) {
     if (err) {
         err.status = 406;
-        return next(err);
+        return res.status(406);
     }
     console.log(data);
     return res.status(201).json({

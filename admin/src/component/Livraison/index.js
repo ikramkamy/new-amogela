@@ -4,6 +4,7 @@ import LivraisonList from './LivraisonList';
 import axios from 'axios';
 import {FaArrowDown, FaPlus} from "react-icons/fa";
 import { useParams,useHistory } from 'react-router-dom';
+import './livraison.css';
 const Livraison=(props)=>{
 const [clickcom,setClickcom]=useState([]);
   let {_id}=useParams();
@@ -30,7 +31,9 @@ return(
  <div className="btn-create">
    
    <div><FaArrowDown className="icon-creat"/>Export</div>
+  
    </div>
+   <h1 className="title-pages-admin"> les commandes par livraison</h1>
   <div className="user_info">
   <div className="item-user">Nom</div>      
   <div className="item-user">Télèphone</div>
@@ -38,7 +41,7 @@ return(
   <div className="item-user">La date</div>
   <div className="item-user">Le lieux</div>
   <div className="item-user"> Montant(DA) </div>
-  <div className="item-user">Modifie</div>
+  <div className="item-user">Modifier</div>
   <div className="item-user">Supprimer</div>
   
   
@@ -48,7 +51,7 @@ return(
   {clickcom?.map((e)=><LivraisonList
   username="ikram" list="Voire" 
    phone={e.user[0].phone} 
-   commandLieux={e.commandeType[0].commande.command}
+   commandLieux={e.commandeType[0].commande.lieux}
    commandDate={e.commandeType[0].commande.date}
  email={e.user[0].email} 
      handelDelete={(()=>handelDelete(e))}

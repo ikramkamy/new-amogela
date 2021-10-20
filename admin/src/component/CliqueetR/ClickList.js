@@ -17,7 +17,7 @@ console.log("thecartis passed succesfully",cart)
 return(
 <div className="user_info">
 <div className="item-user">{props.username}</div>      
-  <div className="item-user">{props.phone}</div>
+  <div className="item-user">+213{props.phone}</div>
 
  <div className="item-user"><FaEye className="achat-list-icon"  onClick={handelshow}/>{showAchat &&(<AchatList product={props.product} cart={cart} showhendel={handelshow}/>)}</div>
  <div className="item-user">{props.commandDate}</div>

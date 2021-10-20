@@ -35,6 +35,7 @@ const bodyParameters = {
 };
 const Handelopne = () => {
     setIsOpen(!isOpen);
+   
     };
   const handleStateChange = () => {
     setIsOpen(true);
@@ -74,13 +75,15 @@ const cartItems={
     gout4:product.gout4,
 }
 }
-console.log(cartItems);
+//console.log(cartItems);
 axios.post("/addToCartUser",cartItems, { headers: {"Authorization" : `Bearer ${token}`} })
+
 .then(response => {
- console.log("post with axios succed")
+ //console.log("post with axios succed")
+ window.location.reload()
  setIsOpen(!isOpen);
 }).catch(error => {
-  console.log("the raison of failure", error) 
+ // console.log("the raison of failure", error) 
 });
 }
 }
@@ -144,6 +147,9 @@ useEffect(() => {
 }, [])
 
 
+
+
+  
 
 
 

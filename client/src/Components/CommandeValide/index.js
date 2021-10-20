@@ -29,7 +29,7 @@ const CommandeValide=()=>{
      <p>commencer une nouvel commande </p>
      
       
-      <div className="choco-btn-wrapper bnt-val"><button className="choco-btn nohover"><Link to="/shop">Shop </Link></button></div>
+      <div className=" bnt-val"><button className="choco-btn nohover"><Link to="/shop">Shop </Link></button></div>
      </div>
 
 
