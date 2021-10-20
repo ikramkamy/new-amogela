@@ -70,7 +70,7 @@ useEffect(() => {
      }
   expensesListResp();
 }, []);
-console.log("USER",usercart)   
+ 
 /***************************************************************** */
 useEffect(() => {
   if(here.name=="Barquettes 1000g"){
@@ -97,7 +97,7 @@ const{id,getbyID}=props;
         gout4: "",
         gout5:"",
         gout6:"",
-        quantite: "",
+        quantite:0,
         name:here.name,
         prix:here.prix,
         img:here.img,
@@ -180,15 +180,17 @@ const{id,getbyID}=props;
     console.log("we are MINUSING")
     const cartItems={
       "cart" :{
-        id:e.id,
-        img:e.img,
-        name:e.name,
-        prix:e.prix,
-        quantite:e.quantite,
-        gout1:e.gout1,
-        gout2:e.gout2,
-        gout3:e.gout3,
-        gout4:e.gout4,
+        id:here._id,
+            name:here.name,
+            prix:here.prix,
+            img:here.img,
+            quantite:here.quantite,
+            gout1: input.gout1,
+            gout2: input.gout2,
+            gout3: input.gout3,
+            gout4: input.gout4,
+            gout5: input.gout5,
+            gout6: input.gout6,
     }
     }
     console.log(cartItems);
@@ -201,7 +203,27 @@ const{id,getbyID}=props;
     });
     }
    }
-  
+  const MinesoneB=()=>{
+    if(input.quantite==0){
+      alert("la quantité est null")
+    }else{
+      input.quantite=input.quantite-1;
+    }
+  }
+  const addproductB=()=>{
+    let n=input.quantite;
+    n=n+1;
+    setInput(n) 
+  }
+  const[cartlength,setCartlength]=useState(0);
+  const [mycart,setMycart]=useState([])
+  useEffect(()=>{
+    let n=0;
+    setMycart(usercart.cart);
+    mycart?.map((e)=>{n=n+e.quantity})
+    setCartlength(n);
+    
+    }) 
     return(<div className="prodbyID">
       <div className="nav-shop" style={{zIndex:"10"}}>
     <Link to="/" className="image-wrapper">
@@ -210,7 +232,7 @@ const{id,getbyID}=props;
         </div>
         <div className="shoping-cart-icon">
      
-   
+        <div className="tite-panier" >{cartlength}</div>
      <FaShoppingBag className="icon-shoping" onClick={Handelopne} />
      
       <div className="items"></div>
@@ -278,16 +300,7 @@ const{id,getbyID}=props;
   </select>
   </label>)}
   
- <label className="quantite.wrap">
- 
-     {/*<input type="Number"placeholder="quantié" onChange={handelChange} value={input.quantite} name="quantite"/>*/}
-<div className="quantite">
-  Quantité:
-  <FaMinus onClick={Minesone} style={{color:"#12705e"}}/>
-  {here.quantite}
-  <FaPlus onClick={addproduct} style={{color:"#12705e",cursor:"pointer"}}/>
-  </div>
- </label>
+
    
 </form>
 </div>

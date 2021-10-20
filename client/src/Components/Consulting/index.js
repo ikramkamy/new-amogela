@@ -57,13 +57,13 @@ const handelChange=(event)=>{
 return(<div className="consulting">
      <div className="nav-shop" style={{zIndex:"10"}}>
     <Link to="/" className="image-wrapper">
-          <img src="/images/logo.png" className="product-logo" />
+          <img src="/images/logos.jpg" className="product-logo" />
         </Link>
         </div>
 <Mynavbar/>
 <div className="Consulting" >Consulting</div>
-<div className="back-consulting"><img src="/images/12.jpg"/></div>
-<div className="consult-form">
+<div className="back-consulting"><img src="/images/12.jpg" className="img-consulting-size"/></div>
+<div className="consult-form" style={{backgroundImage:"/images/15.jpg"}}>
 
 <Form className="Form-ui-styling">
 <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -98,7 +98,7 @@ return(<div className="consulting">
   </button>
 </Form>
 
-<div className="image-consult"><img src="/images/15.jpg" className="size-consult"/></div>
+<div className="image-consult" style={{backgroundImage:"/images/15.jpg"}}></div>
 </div>
 
 

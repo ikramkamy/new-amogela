@@ -61,3 +61,26 @@ align-items: center;
    
     width: 45%;
 }
+.img-sorbet-size{
+    width: 45%;
+    height: 425px;
+}
+@media screen and (max-width :1000px){
+
+.sorbets-ceontent{
+    flex-direction: column;
+}
+.text-sorbets{
+    font-size: 1.3em;
+}
+.text-sorbet-wrapper{
+    width: 100%;
+}
+.img-sorbet-size{
+    width: 100%;
+    height: 100%;
+}
+.principal-desc{
+    font-size: 1.3em;
+}
+}

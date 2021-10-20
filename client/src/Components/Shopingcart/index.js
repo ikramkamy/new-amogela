@@ -187,11 +187,11 @@ useEffect(()=>{
 console.log("THE ID FROM CART",id)
  axios.post("/DeletefromCartUser",id,{ headers: {"Authorization" : `Bearer ${token}`} })
  .then(response => {
-  console.log("DELETED ITEMM",response)
+  //console.log("DELETED ITEMM",response)
 
   //setIsOpen(!isOpen);
  }).catch(error => {
-   console.log("ERRER DELETED ITEMM", error) 
+   //console.log("ERRER DELETED ITEMM", error) 
  });
 
  }

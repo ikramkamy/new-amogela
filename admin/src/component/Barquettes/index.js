@@ -19,8 +19,8 @@ const Barquette=(props)=>{
     expensesListResp();
   },[barquette]);
     console.log("Barquettes de glaces", barquette)
-    const handelDelete=()=>{
-    axios.delete(`/api/barquettes/${_id}`,)
+    const handelDelete=(e)=>{
+    axios.delete(`/api/barquettes/${e._id}`,)
       .then()
       }
 

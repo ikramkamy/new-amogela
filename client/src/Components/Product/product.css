@@ -148,6 +148,7 @@ width: 400px;
     width: 100%;
     display: flex;
     flex-wrap: wrap;
+    
     /*justify-content: center;*/
  
     background-color: white;
@@ -225,6 +226,9 @@ width: 400px;
 @media screen and (max-width: 1200px){
     .nav-shop{
         display: none;
+    }
+    .shop-items{
+       
     }
 }
 

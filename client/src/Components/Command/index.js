@@ -30,7 +30,7 @@ return (<div className="Command">
 <div className="bloc-command comBox2">
     <div className="back-color2"></div>
             <span className="command-name"><h1>Service Livraison</h1>
-            <h2 >Alger/Boumerdes</h2>
+            <h3 style={{width:"100%",textAlign:"center",position:"relative"}} >Alger/Boumerdes</h3>
             </span>
             
             <div className="command-btn livraison" onClick={handelLivraison}>Commander</div>

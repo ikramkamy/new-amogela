@@ -36,6 +36,25 @@ export const Product2=()=>{
   const Handelopne = () => {
     setIsOpen(!isOpen);
     };
+    const[usercart,setUsercart]=useState([]);
+    const user_id=localStorage.getItem('user_id');
+    useEffect(() => {
+      const expensesListResp = async () => {
+        await axios.get(`/getMycartUserprofile/${user_id}`)
+        .then(response =>setUsercart(response.data))
+    
+         }
+      expensesListResp();
+    }, []);
+   
+    const [mycart,setMycart]=useState([])
+    useEffect(()=>{
+      let n=0;
+      setMycart(usercart.cart);
+      mycart?.map((e)=>{n=n+e.quantity})
+      setCartlength(n);
+      
+      }) 
     return(
     <div className="product" >
     
@@ -68,7 +87,7 @@ export const Product2=()=>{
 (<div class="modal-side-shop">
 <div className="side-shop" >
 <div className="shoping-cart-icon">
-<FaWindowClose className="icon-shoping" onClick={Handelopne}/>
+<FaWindowClose className="icon-Close-cart" onClick={Handelopne}/>
 </div>
   
   <ShopinCart/>
@@ -129,6 +148,25 @@ const handelClick=(product)=>{
   setIsOpen(true);
   }
 }
+const[usercart,setUsercart]=useState([]);
+const user_id=localStorage.getItem('user_id');
+useEffect(() => {
+  const expensesListResp = async () => {
+    await axios.get(`/getMycartUserprofile/${user_id}`)
+    .then(response =>setUsercart(response.data))
+
+     }
+  expensesListResp();
+}, []);
+
+const [mycart,setMycart]=useState([])
+useEffect(()=>{
+  let n=0;
+  setMycart(usercart.cart);
+  mycart?.map((e)=>{n=n+e.quantity})
+  setCartlength(n);
+  
+  }) 
   return(
   <div className="product" >
   
@@ -155,7 +193,7 @@ const handelClick=(product)=>{
 (<div class="modal-side-shop">
 <div className="side-shop" >
 <div className="shoping-cart-icon">
-<FaWindowClose className="icon-shoping" onClick={Handelopne}/>
+<FaWindowClose className="icon-Close-cart" onClick={Handelopne}/>
 </div> 
   
   <ShopinCart/>
@@ -221,6 +259,25 @@ const handelClick=(product)=>{
   }
    
   }
+  const[usercart,setUsercart]=useState([]);
+  const user_id=localStorage.getItem('user_id');
+  useEffect(() => {
+    const expensesListResp = async () => {
+      await axios.get(`/getMycartUserprofile/${user_id}`)
+      .then(response =>setUsercart(response.data))
+  
+       }
+    expensesListResp();
+  }, []);
+ 
+  const [mycart,setMycart]=useState([])
+  useEffect(()=>{
+    let n=0;
+    setMycart(usercart.cart);
+    mycart?.map((e)=>{n=n+e.quantity})
+    setCartlength(n);
+    
+    }) 
   return(
   <div className="product" >
   
@@ -235,7 +292,7 @@ const handelClick=(product)=>{
      
     <div className="tite-panier" >{cartlength}</div>
      <FaShoppingBag className="icon-shoping" onClick={Handelopne}  />
-      <div className="items">{counter}</div>
+     
     </div>
     <Mynavbar/> 
 <Filter />
@@ -252,7 +309,7 @@ const handelClick=(product)=>{
 (<div class="modal-side-shop">
 <div className="side-shop" >
 <div className="shoping-cart-icon">
-<FaWindowClose className="icon-shoping" onClick={Handelopne}/>
+<FaWindowClose className="icon-Close-cart" onClick={Handelopne}/>
 </div> 
  
   <ShopinCart/>
@@ -315,6 +372,25 @@ const handelClick=(e)=>{
   setIsOpen(true);
   }
 }
+const[usercart,setUsercart]=useState([]);
+const user_id=localStorage.getItem('user_id');
+useEffect(() => {
+  const expensesListResp = async () => {
+    await axios.get(`/getMycartUserprofile/${user_id}`)
+    .then(response =>setUsercart(response.data))
+
+     }
+  expensesListResp();
+}, []);
+
+const [mycart,setMycart]=useState([])
+useEffect(()=>{
+  let n=0;
+  setMycart(usercart.cart);
+  mycart?.map((e)=>{n=n+e.quantity})
+  setCartlength(n);
+  
+  }) 
   return(
   <div className="product" >
   
@@ -347,7 +423,7 @@ const handelClick=(e)=>{
 (<div class="modal-side-shop">
 <div className="side-shop" >
 <div className="shoping-cart-icon">
-<FaWindowClose className="icon-shoping" onClick={Handelopne}/>
+<FaWindowClose className="icon-Close-cart" onClick={Handelopne}/>
 </div> 
   
   <ShopinCart/>

@@ -109,7 +109,7 @@ axios.get('/api/Barquettes')
 /**********************************Geting the cart to bring the length************************** */
 const user_id=localStorage.getItem('user_id');
 const[usercart,setUsercart]=useState([]);
-const [mycart,setMyCart]=useState([]);
+const [mycart,setMycart]=useState([]);
 const [cartlength,setCartlength]=useState(0)
 
 
@@ -120,11 +120,11 @@ useEffect(() => {
 
      }
   expensesListResp();
-}, []);
+});
 
 useEffect(()=>{
 let n=0;
-setMyCart(usercart.cart);
+setMycart(usercart.cart);
 mycart?.map((e)=>{n=n+e.quantity})
 setCartlength(n);
 /*

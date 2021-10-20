@@ -220,7 +220,14 @@ border: none;
         pointer-events: none;
         opacity: 0.4;
     }
-    
+    .input-quantite{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 2ps solid #146f5b;
+        color: #c19a5d;
+        text-align: center;
+    }
      @media screen and (max-width : 1394px) {
     
         .container {
@@ -256,7 +263,7 @@ border: none;
         align-items: center;
     }
     
-  
+ 
      @media screen and (max-width : 873px) {
     
      .containerOwlSlide{

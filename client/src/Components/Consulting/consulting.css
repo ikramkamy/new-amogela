@@ -3,6 +3,7 @@
     height: fit-content;
     overflow: hidden;
     margin-top: 100px;
+    
 }
 .Consulting{
     color: #12705e;
@@ -14,8 +15,13 @@
     justify-content: flex-start;
     position: absolute;
     top: 320px;
+    border: 1px hidden red;
     
  
+}
+.img-consulting-size{
+    height: 500px;
+    width: 100%;
 }
 .consulting{
     width: 100%;
@@ -28,7 +34,9 @@
     width: 50%;
     margin-top: 10%;
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
+    background-color: #12705e;
+    
 }
 .consult-form h1{
     color: aquamarine;
@@ -51,12 +59,18 @@
 }
 .consult-form button{
 
-background-color:rgb(195,140,163) ;
-width: 50%;
+background-color:#c19a5d ;
+width: 100%;
+display: flex;
+justify-content: center;
+align-items: center;
+text-align: center;
 height: fit-content;
 border: none;
 color: white;
 font-weight: 500;
+margin-bottom: 15px;
+
 }
 .consult-form button:hover{
     background-color:#12705e;   
@@ -75,6 +89,7 @@ font-weight: 500;
     justify-content: center;
     align-items: center;
     position: absolute;
+    background-size: cover;
 }
 .Form-ui-styling{
     z-index: 1;

@@ -12,7 +12,7 @@ const Glaces=()=>{
 return(<div className="glaces">
     <div className="nav-shop" style={{zIndex:"10"}}>
     <Link to="/" className="image-wrapper">
-          <img src="/images/logo.png" className="product-logo" />
+          <img src="/images/logos.jpg" className="product-logo" />
         </Link>
         </div>
     <Mynavbar/>
@@ -31,7 +31,7 @@ return(<div className="glaces">
                 <Carousel.Item className="carousselItem">
                     <img src="/images/sorbet4.jpg" />
                 </Carousel.Item>
-            </Carousel>
+  </Carousel>
 <div className="glaces">
     
     <div className="principal-desc">
@@ -43,10 +43,10 @@ return(<div className="glaces">
 
      </div>
  
- <img src="/images/sorbet1.jpg" style={{width:"45%",height:"425px"}}/>
+ <img src="/images/sorbet1.jpg" className="img-sorbet-size"  />
  </div>
  <div className="sorbets-ceontent">
- <img src="/images/sorbet2.jpg" style={{width:"45%",height:"425px"}}/>
+ <img src="/images/sorbet2.jpg" className="img-sorbet-size" />
  <div className="text-sorbet-wrapper">
  <div className="text-sorbets"> Le choix des parfums commence par les classiques comme la vanille, le chocolat en passant par les
  Sorbets fraise, citron jusqu'à arrivé à des saveurs authentiques tel que le Gianduja ou la nougatine.

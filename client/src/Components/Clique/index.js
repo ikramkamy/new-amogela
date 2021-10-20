@@ -1,6 +1,5 @@
 import React,{useState,useEffect} from 'react';
 import {FaHome,FaBicycle,  FaLocationArrow, FaArrowCircleLeft} from "react-icons/fa";
-
 import './mod.css';
 import  DatePicker from "react-datepicker";
 import { now } from 'mongoose';

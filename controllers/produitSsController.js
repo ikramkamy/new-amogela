@@ -121,3 +121,35 @@ exports.Delete=(req,res)=>{
 
 
 }
+
+
+exports.updateProduitSS=(req,res)=>{
+  console.log("WE ARE UPDATING HORAIRE")
+  const _id=req.params.id;
+ const name=req.body.name;
+ const prix=req.body.prix;
+ const cathegorie=req.body.cathegory;
+ produiSSModel.findByIdAndUpdate({_id:req.params._id},
+  {
+  name:req.body.name,
+  prix:req.body.prix,
+  disponible:req.body.disponible,
+  cathegorie:req.body.cathegorie
+}
+      ).then((data)=>{
+ const noteup={_id,name,prix,disponible,cathegorie}
+       res.json(noteup)
+       console.log("UPDATE SUCCED",noteup)
+ })
+  // const goutToUpdate =  Gout.findById(noteId).then()
+  // res.code(200).send({ data: goutToUpdate })
+  
+       .catch((err) => {
+         console.log("UPDATE FAILED",err)
+         res.json({
+           err: err,
+           message: "Une erreur c'est produite",
+         });
+       });
+  
+}

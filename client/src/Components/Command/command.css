@@ -108,7 +108,7 @@ align-items: center;
     width: 100%;
     font-family:'times-new-roman-italic' ;
     font-style: italic;
-    font-size: 1.7em;
+    font-size: 1.5em;
     font-weight: 600;
     text-align: left;
     display: flex;
@@ -169,7 +169,10 @@ align-items: center;
     background-repeat: no-repeat;
     background-size:cover; 
  }
-
+.command-name{
+    height: 170px;
+    border: 1px hidden red;
+}
 
  .command-name h1{
    width: 100%; 
@@ -194,14 +197,20 @@ align-items: center;
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    color: white;
+    font-weight: 600;
+    font-size: 1.5em;
+    font-family:'times-new-roman-italic' ;
+    font-style: italic;
 }
 .command-btn a{
     text-decoration: none;
-    color: black;
-    font-weight: 900;
+    color: white;
+    font-weight: 600;
     font-family:'times-new-roman-italic' ;
     font-style: italic;
-    font-size: 1.5em;
+    font-size: 1.2em;
+    text-decoration: none;
 }
 .command-btn:hover{
     background-color: #146f5b;  
@@ -227,5 +236,11 @@ align-items: center;
     .bloc-command{
         width: 300px;
         margin : 10px;
+    }
+}
+@media screen and (max-width:   1070px) {
+    .Command{
+        margin-top: 0px;
+        
     }
 }

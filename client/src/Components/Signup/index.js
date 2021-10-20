@@ -7,6 +7,7 @@ import { useHistory } from 'react-router-dom';
 const Signup=(props)=>{
   const {handelshowBack}=props;
   const history = useHistory();
+  const emailPattern = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 const [input,setInput]=useState({
     nom:"",
     email:"",
@@ -29,6 +30,13 @@ const handelChange=(event)=>{
   
     const handelClick=(event)=>{
         event.preventDefault();
+        if(input.firstName ==''  || input.email =='' || input.username =='' || input.password =='' || input.phone =='' || input.lastName =='' ){
+alert("Remplissez tous les champs SVP !")
+        }
+       else if(!emailPattern.test(input.email)&& input.email.length>0){
+
+        alert("Entrez un email valide SVP !")
+       }else{
         console.log("we are posting ")
         const newuser={
             firstName:input.firstName,
@@ -42,11 +50,13 @@ const handelChange=(event)=>{
         axios.post(`http://localhost:3001/signup`,newuser)
         .then(response => {
          console.log("post with axios succed")
+     
          /*history.push(`/`)*/
          handelshowBack();
         }).catch(error => {
           console.log("the raison of failure", error) 
         });
+      }
         }
 
     

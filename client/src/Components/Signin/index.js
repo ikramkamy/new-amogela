@@ -55,18 +55,36 @@ const [input,setInput]=useState({
 const handelChange=(event)=>{
    
     const {name,value}=event.target;
-    setInput(prevInput=>{
+    setInput(newInput=>{
       return  { 
-        ...prevInput,
+        ...newInput,
         [name]:value
     
       }
     })
     }
-
+    const token=localStorage.getItem('token');
 const handelClick=()=>{
 loginUser(input);
- history.push("/")
+setInput(
+  { email:"",
+   password:""}
+ )
+if(token!==null){
+  history.push("/")
+  setInput(
+   { email:"",
+    password:""}
+  )
+}else if (token===null){
+  alert("votre email ou mot de passe est invalide, Vérifiez votre inscription !")
+  history.push("/signin")
+  setInput(
+    { email:"",
+     password:""}
+   )
+}
+ 
 
  }
 

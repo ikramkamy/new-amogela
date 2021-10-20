@@ -12,7 +12,7 @@ const Chocolat=()=>{
     return(<div >
         <div className="nav-shop" style={{zIndex:"10"}}>
           <Link to="/" className="image-wrapper">
-          <img src="/images/logo.png" className="product-logo" />
+          <img src="/images/logos.jpg" className="product-logo" />
           </Link>
         </div>
         <Mynavbar/>

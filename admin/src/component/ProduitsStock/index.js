@@ -5,11 +5,14 @@ import {FaArrowDown, FaPlus,FaPen} from "react-icons/fa";
 import { useParams } from 'react-router-dom';
 import ProduitCreate from './CreatProduct';
 import ProduitsList from './ProduitsList';
+import EditeProduit from './EditeProduit';
+import { useHistory } from 'react-router';
 const ProduitsStock=(props)=>{
   const [produits,setProduits]=useState([]);
   let {_id}=useParams();
   const [show,setShow]=useState(false);
   const [show1,setShow1]=useState(false);
+  const history=useHistory();
   useEffect(() => {
     const expensesListResp = async () => {
       await axios.get(`/api/produitsStock`)
@@ -17,12 +20,14 @@ const ProduitsStock=(props)=>{
    }
     expensesListResp();
   },[produits]);
-    console.log("Les produits sur stock",produits)
-    const handelDelete=()=>{
-       
-    axios.delete(`/deleteProduits/${_id}`)
+   
+    const handelDelete=(e)=>{
+     alert("voulez-vous supprimer ce produit?") 
+
+    axios.delete(`/deleteProduits/${e._id}`)
 
       .then()
+     
       }
 
 
@@ -33,7 +38,7 @@ return(
    <div><FaArrowDown className="icon-creat"/>Export</div>
    </div>
 <div className="tableau">
-    <div className="tab-item">ID</div>
+
     <div className="tab-item">Produit</div>
     <div className="tab-item">Cathégorie</div>
     <div className="tab-item">prix </div>
@@ -44,7 +49,7 @@ return(
 {produits?.map((e)=><ProduitsList name={e.name} _id={e._id} prix={e.prix} disponible={e.disponible} cathegorie={e.cathegorie}  show={(()=>setShow(true))} handelDelete={()=>handelDelete(e)}/>)}
 
 {
-show&&(<div _id="" showhendel={(()=>setShow(false))}></div>)
+show&&(<EditeProduit  _id="" showhendel={(()=>setShow(false))}/>)
   
 }
 {

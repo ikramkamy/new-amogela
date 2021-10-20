@@ -15,6 +15,7 @@
     height: 580px;
     display: flex;
     flex-direction: column;
+    
 }
 
 .logoFooter{
@@ -69,6 +70,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    text-align: left;
 }
 .boxContent a{
 color: black;
@@ -188,12 +190,20 @@ text-decoration: none;
  @media screen and (max-width : 1036px) {
     .footerContact,  .footerContainer{
         height: auto;
-     
+     width: 100%;
+
           }
-          .infoContent{
+          .infoContent {
             flex-direction: column;
             height: auto;
-            align-items: flex-start;
+            align-items: center;
+            width:100%;
         }
-
+.infoContent .box{
+   
+    
+}
+.boxContent{
+    padding-left: 51px;
+}
  }

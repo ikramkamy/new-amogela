@@ -27,6 +27,7 @@ function App() {
 <div className="side-elem"><FaGlasses className="icon-side"/><Link to="commandeProfessionnelles">Cammande Proffesionnelles</Link></div>
 <div className="side-elem"><FaImage className="icon-side"/><Link to="/photos">Photos pages</Link></div>
 <div className="side-elem"><FaClock className="icon-side"/><Link  to="/heure">Les heurs de travail</Link></div>
+<div className="side-elem"><FaClock className="icon-side"/><Link  to="/">Consulting</Link></div>
 </div>
 </div>
 

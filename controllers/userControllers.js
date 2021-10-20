@@ -210,7 +210,7 @@ exports.getMycartUser=(req,res)=>{
     console.log(userInfo)
 }).then((data) => {
     res.json(data)
-    console.log("data",data)
+  
     })
     .catch((err) => {
       res.json({
@@ -224,7 +224,7 @@ exports.getMycartUserprofile=(req,res)=>{
         err.status = 406;
         return next(err);
     }
-    console.log(data);
+    
     return res.status(201).json({
         message: ' success.',data:data
     })
@@ -288,10 +288,10 @@ exports.addToCartUser2=(req, res)=>{
 exports.getMycartUser=(req,res)=>{
   userModel.findOne({ "_id": req.params._id,}, (err, userInfo) => {
 
-    console.log(userInfo)
+    //console.log(userInfo)
 }).then((data) => {
     res.json(data)
-    console.log("data",data)
+   // console.log("data",data)
     })
     .catch((err) => {
       res.json({
@@ -307,7 +307,7 @@ exports.getMycartUserprofile=(req,res)=>{
         err.status = 406;
         return next(err);
     }
-    console.log(data);
+   // console.log(data);
     return res.status(201).json({
         message: 'success.',data:data
     })
@@ -335,7 +335,7 @@ exports.Clearcard=function(req,res,next){
         console.log("Something wrong when updating data!");
     }
 
-    console.log(doc);
+    //console.log(doc);
     return res.status(201).json({
       message: ' CART DELETED '
   })
@@ -344,7 +344,7 @@ exports.Clearcard=function(req,res,next){
 exports.Clearcommande=function(req,res,next){
   userModel.findOneAndUpdate({ "_id": req.params._id,}, {$set:{commandeType:[]}}, {new: true}, (err, doc) => {
     if (err) {
-        console.log("Something wrong when updating data!");
+        //console.log("Something wrong when updating data!");
     }
 
     console.log(doc);
@@ -386,7 +386,7 @@ exports.MinuOneItemCartUser=(req, res)=>{
   userModel.findOne({ _id: req.user._id }, (err, userInfo) => {
     let duplicate = false;
 
-    console.log(userInfo)
+   // console.log(userInfo)
 
     userInfo.cart.forEach((item) => {
         if (item.id == req.body.cart.id && item.gout1==req.body.cart.gout1 && item.gout2==req.body.cart.gout2 && item.gout3==req.body.cart.gout3 && item.gout4==req.body.cart.gout4 && item.gout5==req.body.cart.gout5 && item.gout6==req.body.cart.gout6) {
@@ -439,7 +439,7 @@ exports.Delete=(req,res)=>{
 
   userModel.findOneAndDelete({ "_id": req.params._id},(err, doc) => {
     if (err) {
-        console.log("Something wrong when DELETING data!");
+        //console.log("Something wrong when DELETING data!");
     }
 
     console.log(doc);
@@ -454,7 +454,7 @@ exports.Delete=(req,res)=>{
 exports.DeleteType=(req,res)=>{
   userModel.findOneAndUpdate({ "_id": req.user._id,}, {$set:{commandeType:{}}}, {new: true}, (err, doc) => {
     if (err) {
-        console.log("Something wrong when updating data!");
+        //console.log("Something wrong when updating data!");
     }
 
     console.log(doc);
@@ -468,7 +468,7 @@ exports.addCommandetoCart=(req, res)=>{
   userModel.findOne({ _id: req.user._id }, (err, userInfo) => {
     let duplicate = false;
 
-    console.log(userInfo)
+    //console.log(userInfo)
 
 
       

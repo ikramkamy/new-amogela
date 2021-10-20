@@ -120,7 +120,7 @@ margin-top: 0px;
     justify-content: center;
     align-items: center;
     /*font-size: 1.3em;*/
-    font-size: 2vw;
+    font-size: 1.3em;
     font-weight: 300;
     font-family:'times-new-roman-italic' ;
     font-style: italic;
@@ -184,8 +184,8 @@ margin-top: 0px;
     width: 60%;
     padding-left: 5%;
     padding-right: 5%;
-    
     width: 100%;
+    height: auto;
 }
 
 @media screen and (max-width : 1337px) {
