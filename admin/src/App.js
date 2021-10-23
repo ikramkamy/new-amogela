@@ -18,6 +18,7 @@ function App() {
     <div className="side-bar">
   
 <div className="side-elements">
+  <img src="/images/logos.jpg" className="logo-admin-size"/>
 <div className="side-elem"><FaUser className="icon-side"/><Link to="/users">Utilisateurs</Link></div>
 <div className="side-elem"><FaProductHunt className="icon-side"/><Link to="/produits">Produits sur stock</Link></div>
 <div className="side-elem"><FaCube className="icon-side"/><Link  to="/barquettes">Barquettes</Link></div>

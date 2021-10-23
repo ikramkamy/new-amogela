@@ -34,7 +34,7 @@ return(
 <div className="tableau">
     <div className="tab-item">ID</div>
     <div className="tab-item">barquette</div>
-    <div className="tab-item">prix </div>
+    <div className="tab-item">prix</div>
     <div className="tab-item">disposible</div>
     <div className="tab-item"> </div>
     <div className="tab-item"> </div>

@@ -102,7 +102,9 @@ if(token===null){
         "commandeType" :{
           "commande":{
             command:e.command,
-            date:e.date
+            date:e.date,
+            lieux:e.lieux,
+            commune:e.commune,
           }
       }
     }

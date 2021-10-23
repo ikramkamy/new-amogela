@@ -49,7 +49,7 @@ return(
 
     
   {clickcom?.map((e)=><LivraisonList
-  username="ikram" list="Voire" 
+  username={e.user[0].username} list="Voire" 
    phone={e.user[0].phone} 
    commandLieux={e.commandeType[0].commande.lieux}
    commandDate={e.commandeType[0].commande.date}

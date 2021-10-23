@@ -48,7 +48,7 @@ return(
 
     
   {clickcom?.map((e)=><ClickList 
-  username="ikram" list="Voire" 
+  username={e.user[0].username} list="Voire" 
    phone={e.user[0].phone} 
    
  email={e.user[0].email} 

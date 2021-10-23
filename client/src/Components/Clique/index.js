@@ -29,15 +29,16 @@ const [startDate, setStartDate] = useState(
     const [wilaya2,setWilaya2]=useState(false);
    // const [emporte,setEmporte]=useState(false);
     const handelwilaya=()=>{
+      /*
       commande.wilaya="Alger";
       commande.command="livraison";
       
        setWilaya(true)
        setWilaya2(false);
+       */
     }
     const handelwilaya2=()=>{
-       input.wilaya="Boumerdes";
-       input.commande="livraison";
+       
        setWilaya(false)
        setWilaya2(true);
     }
@@ -45,14 +46,14 @@ const [startDate, setStartDate] = useState(
       /*  setDilevery(!dilevery)
         setShow(false)
         setEmporte(false)*/
-        input.commande="livraison";
+        commande.command="livraison";
         
     }
     const choiceEmporte=()=>{
         /*setEmporte(!emporte) 
         setShow(false)
         setDilevery(false)*/
-        input.commande="emporte"
+       commande.command="Emporte"
       
     }
     const goback=()=>{
@@ -60,16 +61,7 @@ const [startDate, setStartDate] = useState(
        /* setDilevery(false)
         setEmporte(false) */
     }
-    const options = [
-        { value: 'jeudi', label: 'jeudi' },
-        { value: 'lundi', label: 'lundi' },
-       ]
-    const options2=[{ value: '15:30', label: '15:30'}]
-    const comAlger=[{value: 'Alger-centre', label: 'Alger-centre'},
-    {value: 'Draria', label: 'Draria'}
-    ]
-    const comBoumerdess=[{value: 'boumerdes', label: 'boumerdes'},
-    {value: 'boumerdes', label: 'boumerdes'}]
+
     useEffect(()=>{
         const modal = document.querySelector(".modal")
         const closeBtn = document.querySelector(".close")
@@ -81,22 +73,20 @@ const [startDate, setStartDate] = useState(
         
        }) 
        const [input,setInput]=useState({
-      
-        commune:"",
-     })
+commune:""
+})
      
        const handelChange=(event)=>{
       const {name,value}=event.target;
-        setInput(newInput=>{
-          return  { 
-            ...newInput,
-            [name]:value
-     }
-        })
+      const comm=document.querySelector("#boumerdes");
+        setInput({commune:comm.value}
+
+
+        )
         console.log("input commune value",input)
         }
 
-        const[commande,setCommande]=useState({
+const[commande,setCommande]=useState({
           command:"",
           date:date,
           wilaya:"",
@@ -122,6 +112,8 @@ if(token===null){
   }
           }
         }
+
+console.log("COMMANDE LIEU",commande.lieux)
 const handelvalidateLivraison=()=>{
   if(token===null){
     alert("Vous n'etes pas Signin 😵")
@@ -131,22 +123,35 @@ const handelvalidateLivraison=()=>{
   }else {
 if(dilevery==true){
   if(wilaya==true){
+
+    commande.command="Livraison";
     commande.date=start;
-    commande.command= "Livraison";
-    commande.wilaya= "Alger";
-    commande.lieux= input.commune2;
-    console.log("LIVRAISON-ALGER",commande);
+    commande.wilaya="Alger";
+    commande.lieux=input.commune;
+    setCommande({
+    date:start,
+   commande:"Livraison",
+      wilaya: "Alger",
+     lieux: input.commune,
+     commune:""
+      })
+      console.log("LIVRAISON-ALGER",commande)
     addCommande(commande,token)
     alert("Nous avons enregistré la date et l'heure et l'adresse de votre commande 😇")
     history.push("/shop")
   }
   else if(wilaya2==true)
   
-  { setCommande({
+  {   
+    commande.command="Livraison"
+   //commande.date=start;
+    commande.wilaya="Boumerdes"
+    commande.lieux=input.commune
+    setCommande({
     command: "Livraison",
     date:start,
     wilaya:"Boumerdes",
-    commune:input.commune2,
+    commune:input.commune,
   })}
   console.log("LIVRAISON-BOUMERDES",commande)
   addCommande(commande,token)
@@ -186,13 +191,13 @@ return(
       
      selected={start}
       onChange={(date) => {setStart(date) }}
-    placeholderText="seléctionez "
-  dateFormat="Pp"
-   minDate={date} 
-   dateFormat="d MMMM , yyyy h:mm aa"
-   timeIntervals={60}
-   timeFormat="HH:mm"
-   minTime={setHours(setMinutes(new Date(), 0), 8)}
+     placeholderText="seléctionez "
+     dateFormat="Pp"
+     minDate={date} 
+     dateFormat="d MMMM , yyyy h:mm aa"
+     timeIntervals={60}
+     timeFormat="HH:mm"
+     minTime={setHours(setMinutes(new Date(), 0), 8)}
       maxTime={setHours(setMinutes(new Date(), 30), 22)}
    showTimeSelect
 
@@ -242,8 +247,8 @@ return(
 
 
 
-     {wilaya2 && ( <select className="select-style" placeholder="Boumerdes-communes" name="commune" value={input.commune} onChange={handelChange}>
-     <option value="boumerdes 01">boumerdess 01</option>
+     {wilaya2 && ( <select id="boumerdes" className="select-style" placeholder="Boumerdes-communes" name="commune" value={input.commune} onChange={handelChange}>
+     <option  selected value="boumerdes 01">boumerdess 01</option>
      <option value="boumerdes 02">boumerdes 02</option>
      <option value="boumerdes 03">boumerdes 03</option>
      <option value="boumerdes 04">boumerdes 04</option>
