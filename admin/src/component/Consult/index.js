@@ -1,24 +1,22 @@
 import React,{useEffect,useState} from 'react';
 import { Link } from 'react-router-dom';
-import GoutList from './GoutList';
 import axios from 'axios';
-import GoutEdit from "./GoutEdit";
-import GoutCreate from "./GoutCreate";
 import {FaArrowDown, FaPlus,FaPen} from "react-icons/fa";
-const Gout=(props)=>{
-  const [gout,setGout]=useState([]);
+import ConsultList from './ConsultList';
+const Consult=(props)=>{
+  const [consult,setConsult]=useState([]);
   const [show,setShow]=useState(false);
   const [show1,setShow1]=useState(false);
   useEffect(() => {
     const expensesListResp = async () => {
-      await axios.get(`/api/gouts`)
-      .then(response =>setGout(response.data))
+      await axios.get(`/consult`)
+      .then(response =>setConsult(response.data))
    }
     expensesListResp();
   });
-    console.log("Gout", gout)
+    console.log("Gout", consult)
     const handelDelete=(user)=>{
-    axios.delete(`/api/gouts/${user._id}`,)
+    axios.delete(`/consult/${user._id}`,)
       .then()
       }
 
@@ -31,18 +29,15 @@ return(
    </div>
 <div className="tableau">
     
-<div className="item-user">Gout</div>
-<div className="item-user">Disponible </div>
+<div className="item-user">Nom</div>
+<div className="item-user">Télèphone</div>
+<div className="item-user">Email</div>
+<div className="item-user">Message</div>
 <div className="item-user"></div>
 <div className="item-user"></div>
 </div>
 
-{gout?.map((e)=><GoutList name={e.name} _id={e._id}  disponible={e.disponible} show={(()=>setShow(true) )} handelDelete={(()=>handelDelete(e))}/>)}
-{
-  show&&(<GoutEdit  showhendel={(()=>setShow(false))}/>)
-}
-{
-    show1&&(<GoutCreate  showhendel1={(()=>setShow1(false))}/>)
-}
+{consult?.map((e)=><ConsultList name={e.name} _id={e._id} text={e.text}  phone={e.phone}  email={e.email} show={(()=>setShow(true) )} handelDelete={(()=>handelDelete(e))}/>)}
+
  </div>)}
-export default Gout;
+export default Consult;

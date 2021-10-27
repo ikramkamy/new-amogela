@@ -19,7 +19,7 @@ type:String,
 },
 img: { 
     type:String,
-    default:'/images/2.jpg',
+    default:'/images/prod10.png',
  },
  cathegorie: {
      

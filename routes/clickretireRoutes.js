@@ -7,7 +7,7 @@ const {commander,getallcommands,getcommandeByID,getallcarts,getcommandeByType,cl
 router.post('/clickretire',commander);
 router.get('/api/click-retirezs',getallcommands);
 router.get('/getcommandeByID/:_id',getcommandeByID);
-router.get('/getallcarts',getallcarts)
+//router.get('/getallcarts',getallcarts)
 router.get('/getcommandeByType/:type',getcommandeByType)
-router.delete("/clearCommande/:_id",clearCommande);
+router.delete('/clearCommande/:_id', clearCommande);
 module.exports = router;

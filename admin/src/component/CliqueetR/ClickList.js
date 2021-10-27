@@ -12,7 +12,7 @@ const handelshow=()=>{
 
     setShowAchat(!showAchat)
 }
-console.log("thecartis passed succesfully",cart)
+//console.log("thecartis passed succesfully",cart)
     
 return(
 <div className="user_info">

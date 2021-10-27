@@ -1,5 +1,6 @@
 .icon-edit{
 cursor: pointer;
+color: red;
 }
 select{
     
@@ -7,4 +8,20 @@ select{
     height: 50px;
     border: none;
     border-bottom: 1px solid lightgray;
+}
+.product-wrap{
+    width: 70%;
+    
+}
+.product-wrap-all{
+ 
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+}
+.tab-product{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
 }

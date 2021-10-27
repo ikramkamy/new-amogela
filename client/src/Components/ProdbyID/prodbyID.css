@@ -281,3 +281,30 @@ border: none;
           }
         
         }
+
+        @media screen and (max-width : 835px) {
+            .resposiveByid{
+                
+                flex-direction: column;
+                width: 100%;
+                }
+                .form-responsivByID{
+                    
+                    width: 100%;
+                }
+                select{
+                    height: 20px;
+                    font-size: smaller;
+                }
+                form label{
+                    font-size: 15px;
+                }
+                .btn-produit{
+                    font-size: 15px;
+                }
+                .image-product{
+                    width: 3cm;
+                    height: 3cm;
+                }
+                
+        }

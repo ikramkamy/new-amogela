@@ -34,7 +34,7 @@ exports.getnotes =(req,res)=>{
   res.header('Access-Control-Expose-Headers', 'Content-Range')
   res.header("Content-Range", `notes 1-9/9`);
     res.json(data)
-    console.log("FETCH SUCCED")
+    console.log("FETCH SUCCED here")
     })
     .catch((err) => {
       console.log("FETCH FAILED",err)
@@ -75,39 +75,4 @@ const noteup={_id,text}
 
 
 
-  //#get the list of notes
-  /*
-  fetch: async (request, reply) => {
-    try {
-      const notes = await Note.find({});
-      reply.code(200).send(notes);
-    } catch (e) {
-      reply.code(500).send(e);
-    }
-  },
-
-  //#get a single note
-  get: async (request, reply) => {
-    try {
-      const noteId = request.params.id;
-      const note = await Note.findById(noteId);
-      reply.code(200).send(note);
-    } catch (e) {
-      reply.code(500).send(e);
-    }
-  },
-
- 
-
-  //#delete a note
-  delete: async (request, reply) => {
-    try {
-      const noteId = request.params.id;
-      const noteToDelete = await Note.findById(noteId);
-      await Note.findByIdAndDelete(noteId);
-      reply.code(200).send({ data: noteToDelete });
-    } catch (e) {
-      reply.code(500).send(e);
-    }
-  },
-*/
+  

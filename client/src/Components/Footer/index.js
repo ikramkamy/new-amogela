@@ -1,10 +1,29 @@
-import React from 'react'
+import React,{useState,useEffect} from 'react'
 import './footer.css';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
-//import Smalllogo from '../images/LOGO_Plan de travail 1 (2).jpg'
+
 
 export default function Footer() {
+
+const getopen=()=>{
+    axios.get(`/api/notes`)
+    .then(response =>setOption(response.data))
+//console.log("HEUR DE TRAVAILLE",option)
+
+}
+const [count,setCount]=useState(1);
+const [option,setOption]=useState([]);
+    useEffect(() => {
+   getopen();   
+
+      },[]);
+
+
+
+
+
     return (
       
                  <div className="FooterContact">
@@ -23,7 +42,7 @@ export default function Footer() {
                             <div className="boxContent">
                             <div className="opening">
                                     <h5> Heures/jours d'ouverture</h5>
-                                    <div> Samedi-Jeudi <section>  8H-30 - 22H  </section></div>
+                                    <div> Samedi-Jeudi <section>  {option[0]?.text}  </section></div>
 
                                 </div>
                                 <div className="address">

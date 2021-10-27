@@ -28,3 +28,25 @@ a{
 .bnt-val :hover{
    background-color:#c19a5d ; 
 }
+.btn-page-valide{
+  height: 50px;  
+  margin-bottom: 20px;
+}
+.btn-page-valide:hover {
+    color: white;
+    background-color: #c19a5d;
+
+}
+@media screen and (max-width:1200px) {
+  .goto-shop-box{
+      height: auto;
+      width: 70%;
+     
+  }  
+}
+
+@media screen  and (max-width:400px){
+ .goto-shop-box{
+     width: 90%;
+ }   
+}

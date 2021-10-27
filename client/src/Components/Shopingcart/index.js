@@ -66,36 +66,22 @@ useEffect(() => {
                }
             expensesListResp();
           });
-        
-       
-         useEffect(()=>{
+      useEffect(()=>{
 
           setMyCart(usercart.cart);
           setCommType(usercart.commandeType);
-         /* console.log("we are getting COMMANDE TYPE",usercart.commandeType); */
+          console.log("we are getting COMMANDE TYPE",usercart.commandeType); 
           
           
           }) 
-          useEffect(() => {
-            const expensesListResp = async () => {
-              await axios.get(`/getMycartUserprofile/${user_id}`)
-              .then(response =>setCommType(response.data.commandeType))
-              /*console.log("COMM TYPE",commType)*/
-              
-               }
-            expensesListResp();
-       
-
-          })   
+        
       
    // const {addproduct,removeproduct}=props;
 /*********************Sending Clic et retirer commande***************** */
 const handelClick=(event)=>{
   event.preventDefault();
-  if(somme!==0 & usercart.commandeType.length!==0 ){
-   
-  console.log("we are posting commande ")
-  const command={
+  if(somme!==0 & usercart.commandeType.length!==0){
+    const command={
   commandeType:commType,
   cart:mycart,
   user:usercart,
@@ -135,6 +121,8 @@ const handelClick=(event)=>{
 
 alert("Vous n'aves pas préciser le type de votre commande (Emporté ou livraison)")
 history.push('/typedecommande')
+}else if(usercart.commandeType===undefined){
+  alert("il faut signin d'abord !!!")
 }
 
   }
@@ -248,7 +236,7 @@ useEffect(()=>{
 <div className="user-name">Mon panier :{usercart.username}</div>      
 <div className="show">
 
-     <div style={{height:"auto",top:"0px",position:"absolute",width:"100%",paddingLeft:"2%",paddingRight:"2%"}}>        
+<div className="under-show" >        
 
 {mycart?.map((e)=><Cart  sname={e.name}  sprice={e.prix} gout1={e.gout1} gout2={e.gout2} gout3={e.gout3} gout4={e.gout4} squantity={e.quantity}  Deletitem={()=>  Deletitem(e)} img={e.img} Minesone={()=>Minesone(e)} addproduct={()=>addproduct(e)}/>)}
 </div>  
@@ -272,7 +260,7 @@ useEffect(()=>{
 
 
 
-<div className="js-btn"></div>
+{/*<div className="js-btn"></div>
 <div class="modal">
    <div class="modal_content">
      <span class="close">&times;</span>
@@ -280,7 +268,7 @@ useEffect(()=>{
      <p>Votre Shoping Cart est vide SVP sellectionez des produits</p>
      amogela
    </div>
-    </div>
+    </div>*/}
 
 
     </div>)

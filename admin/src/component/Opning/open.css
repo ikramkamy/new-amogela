@@ -7,11 +7,12 @@
 
 
 .open{
-    width: 85%;
-    height: 100px;
-    border: 1px hidden red;
+    width: 80%;
+    height: auto;
+ 
     margin-top: 5%;
     margin-left: 10px;
+  
 }
 .tableau{
     border: 1px hidden blue;
@@ -20,10 +21,11 @@
     align-items: center;
     border-bottom: 1px solid lightgray;
     padding-bottom:20px;
+   
 }
 .tab-item{
-    width: 200px;
-    border: 1px hidden red;
+    width: 100px;
+    
 }
 .icon-edit-u{
 color: blue;
@@ -31,6 +33,6 @@ color: blue;
 
 .tab-item a{
     text-decoration: none;
-color: blue;
+color: red;
 margin-left: 10px;
 }

@@ -49,11 +49,7 @@ const showinscription=()=>{
         <Mynavbar className="stylemodify"/>
         <Home/>
 </Route>
-    <Route exact path="/accueil">
-   
-   <Modal open={open} close={close} />
-  <Command openModal={()=>setOpen(true)}/>
-     </Route>
+    
 
      <Route exact path="/Glacesetsorbets" >
     <Glaces/>

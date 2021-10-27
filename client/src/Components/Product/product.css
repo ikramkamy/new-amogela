@@ -222,7 +222,12 @@ width: 400px;
     color: red;
   }
   */
-
+@media screen and (max-width:1000px) {
+   .icon-shoping{
+    position: fixed;
+       top: 50px;
+   } 
+}
 @media screen and (max-width: 1200px){
     .nav-shop{
         display: none;
@@ -230,8 +235,15 @@ width: 400px;
     .shop-items{
        
     }
+    .side-shop{
+        width: 60%;
+    }
 }
 
- 
+ @media screen and (max-width: 600px){
+     .side-shop{
+         width: 100%;
+     }
+ }
   
  

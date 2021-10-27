@@ -1,7 +1,7 @@
 .utilisateurs{
-    border: 1px solid lightgray;
+    border: 1px hidden lightgray;
     width: 80%;
-    height: 100vh;
+    height: auto;
     padding-top: 50px;
     padding-left: 5px;
 }

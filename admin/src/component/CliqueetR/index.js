@@ -14,8 +14,8 @@ const [clickcom,setClickcom]=useState([]);
       .then(response =>setClickcom(response.data))
    }
     expensesListResp();
-    console.log('Clique et retiré commandes sont ici')
-    console.log("clickcom", clickcom)
+    //console.log('Clique et retiré commandes sont ici')
+    //console.log("clickcom", clickcom)
   },[clickcom]);
 
     const handelDelete=(user)=>{
@@ -50,8 +50,7 @@ return(
   {clickcom?.map((e)=><ClickList 
   username={e.user[0].username} list="Voire" 
    phone={e.user[0].phone} 
-   
- email={e.user[0].email} 
+   commandDate={e.commandeType[0].commande.date}
      handelDelete={(()=>handelDelete(e))}
      product={e.cart.name}
      somme={e.somme}

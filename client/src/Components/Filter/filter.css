@@ -9,7 +9,7 @@
     position: sticky;
     top:80px;
     background-color: white;
-    z-index: 12;
+    z-index: 9;
 }
 .filter-items{
     display: flex;

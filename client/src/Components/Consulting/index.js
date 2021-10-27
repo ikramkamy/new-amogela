@@ -13,11 +13,10 @@ const Consulting=()=>{
     window.scrollTo(0, 0)
   }, [])
   const [input,setInput]=useState({
-    lastName:"",
-    firstName:"",
+    name:"",
     email:"",
-   // password:"",
-    message:"",
+    text:"",
+    phone:"",
 
 })
 const handelChange=(event)=>{
@@ -33,20 +32,25 @@ const handelChange=(event)=>{
    const handelClick=(event)=>{
       
     event.preventDefault();
+
     console.log("we are posting ")
     const newuser={
-        firstName:input.firstName,
-        lastName:input.lastName,
+        name:input.name,
         email:input.email,
-        message:input.message
-       /* phone:input.phone,
-        username:input.username,
-        password:input.password*/
+        text:input.text,
+        phone:input.phone,
     }
     console.log(newuser);
-    axios.post(`http://localhost:3001/signup`,newuser)
+    axios.post(`/consult`,newuser)
     .then(response => {
-     console.log("post with axios succed")
+     //console.log("post with axios succed")
+     alert("votre message a étè transmis, attendez un appel de la part de l'admin")
+     setInput({
+      name:"",
+      email:"",
+      text:"",
+      phone:"",
+     })
     }).catch(error => {
       console.log("the raison of failure", error) 
     });
@@ -67,14 +71,14 @@ return(<div className="consulting">
 
 <Form className="Form-ui-styling">
 <Form.Group className="mb-3" controlId="formBasicEmail">
-    <Form.Label style={{color:"white"}}>Nom</Form.Label>
-    <Form.Control type="text" placeholder="Nom" name="lastName" onChange={handelChange} value={input.lastName}/>
+    <Form.Label style={{color:"white"}}>Nom et prénom</Form.Label>
+    <Form.Control type="text" placeholder="Nom" name="name" onChange={handelChange} value={input.name}/>
     <Form.Text className="text-muted">
     </Form.Text>
   </Form.Group>
   <Form.Group className="mb-3" controlId="formBasicEmail">
-    <Form.Label style={{color:"white"}}>Prénom</Form.Label>
-    <Form.Control type="text" placeholder="Prenom" name="firstName" onChange={handelChange} value={input.firstName}/>
+    <Form.Label style={{color:"white"}}>Numéro de télèphone:</Form.Label>
+    <Form.Control type="Number" placeholder="Numéro de télèphone" name="phone" onChange={handelChange} value={input.phone}/>
     <Form.Text className="text-muted">
     </Form.Text>
   </Form.Group>
@@ -87,13 +91,13 @@ return(<div className="consulting">
 
   <Form.Group className="mb-3">
     <Form.Label style={{color:"white"}}>message</Form.Label>
-    <textarea className="message"  placeholder="Ecrivez votre message .."  name="message" onChange={handelChange} value={input.message}/>
+    <textarea className="message"  placeholder="Ecrivez votre message .."  name="text" onChange={handelChange} value={input.text}/>
     <Form.Text className="">
     </Form.Text>
   </Form.Group>
   
   
-  <button variant="primary" type="submit">
+  <button variant="primary" type="submit" onClick={handelClick}>
     Submit
   </button>
 </Form>

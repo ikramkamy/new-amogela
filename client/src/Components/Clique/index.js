@@ -29,13 +29,8 @@ const [startDate, setStartDate] = useState(
     const [wilaya2,setWilaya2]=useState(false);
    // const [emporte,setEmporte]=useState(false);
     const handelwilaya=()=>{
-      /*
-      commande.wilaya="Alger";
-      commande.command="livraison";
-      
-       setWilaya(true)
-       setWilaya2(false);
-       */
+      setWilaya(true);
+      setWilaya2(false);
     }
     const handelwilaya2=()=>{
        
@@ -73,7 +68,8 @@ const [startDate, setStartDate] = useState(
         
        }) 
        const [input,setInput]=useState({
-commune:""
+commune:"",
+commune2:""
 })
      
        const handelChange=(event)=>{
@@ -85,7 +81,10 @@ commune:""
         )
         console.log("input commune value",input)
         }
-
+const handelChange2=(event)=>{
+input.commune2=event.target.value;
+console.log("COMMUNE ALGER",input)
+}
 const[commande,setCommande]=useState({
           command:"",
           date:date,
@@ -93,7 +92,7 @@ const[commande,setCommande]=useState({
           lieux:"",
         })
        
-    const  handelvalidateEmporte=()=>{
+ const  handelvalidateEmporte=()=>{
 if(token===null){
   alert("Vous n'etes pas Signin 😵")
   history.push('/signin')
@@ -113,7 +112,7 @@ if(token===null){
           }
         }
 
-console.log("COMMANDE LIEU",commande.lieux)
+
 const handelvalidateLivraison=()=>{
   if(token===null){
     alert("Vous n'etes pas Signin 😵")
@@ -121,20 +120,15 @@ const handelvalidateLivraison=()=>{
     
     
   }else {
-if(dilevery==true){
-  if(wilaya==true){
-
     commande.command="Livraison";
     commande.date=start;
-    commande.wilaya="Alger";
-    commande.lieux=input.commune;
-    setCommande({
-    date:start,
-   commande:"Livraison",
-      wilaya: "Alger",
-     lieux: input.commune,
-     commune:""
-      })
+if(dilevery==true){
+
+  if(wilaya==true){
+    alert("nous somme dans la livraison alger")
+   commande.wilaya="Alger";
+    commande.lieux=input.commune2;
+  
       console.log("LIVRAISON-ALGER",commande)
     addCommande(commande,token)
     alert("Nous avons enregistré la date et l'heure et l'adresse de votre commande 😇")
@@ -145,8 +139,8 @@ if(dilevery==true){
   {   
     commande.command="Livraison"
    //commande.date=start;
-    commande.wilaya="Boumerdes"
-    commande.lieux=input.commune
+    commande.wilaya="Boumerdes";
+    commande.lieux=input.commune;
     setCommande({
     command: "Livraison",
     date:start,
@@ -197,7 +191,7 @@ return(
      dateFormat="d MMMM , yyyy h:mm aa"
      timeIntervals={60}
      timeFormat="HH:mm"
-     minTime={setHours(setMinutes(new Date(), 0), 8)}
+     minTime={setHours(setMinutes(new Date(), 0), 18)}
       maxTime={setHours(setMinutes(new Date(), 30), 22)}
    showTimeSelect
 
@@ -229,6 +223,7 @@ return(
     placeholderText="seléctionez "
     dateFormat="Pp"
     minDate={date} 
+    filterDate={date=>date.getDay() !== 0 && date.getDay() !== 2 && date.getDay() !== 1 && date.getDay() !== 3 && date.getDay() !== 6 && date.getDay() !== 5}
     dateFormat="d MMMM , yyyy h:mm aa"
     timeIntervals={60}
     timeFormat="HH:mm"
@@ -238,7 +233,7 @@ return(
     timeCaption="time"
  />
  </div>
-     {wilaya &&(<select  className="select-style" type="text" name="commune" value={input.commune} onChange={handelChange}>
+     {wilaya &&(<select  className="select-style" type="text" name="commune2" value={input.commune2} onChange={handelChange2}>
      <option value="">choisissez une commune</option>
      <option value="Alger-centre">Alger-centre</option>
      <option value="Draria">Draria</option>

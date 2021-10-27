@@ -24,7 +24,7 @@ return(
 {cart?.map((e)=><div className="achat-fields">
     <div className="achat-elem">{e.name}</div>
     <div className="achat-elem">{e.quantity}</div>
-    <div className="achat-elem">{e.gout1}{e.gout2}{e.gout3}{e.gout4}{e.gout5}{e.gout6}</div>
+    <div className="achat-elem gout-style">{e.gout1}{e.gout2}{e.gout3}{e.gout4}{e.gout5}{e.gout6}</div>
     </div>)}
  </div>)
 }

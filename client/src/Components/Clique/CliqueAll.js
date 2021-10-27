@@ -14,6 +14,12 @@ const CliqueAll=(props)=>{
 const[emporte,setEmporte]=useState(false);
 const [dilevery,setDilevery]=useState(false);
 const [show,setShow]=useState(true);
+const isWeekday = date => {
+  let d= new Date();
+  const day = d.getDay(date);
+  return  day != 0 && day != 1 && day != 2 && day != 3;
+};
+
 const token=localStorage.getItem('token');
 const history = useHistory();
     var counter = 0;
@@ -26,7 +32,13 @@ const[start,setStart]=useState(date.setDate(date.getDate()))
 const [startDate, setStartDate] = useState(
   setHours(setMinutes(new Date(), 0), 8)
 );
-
+const [input,setInput]=useState({
+  commande:"Livraison",
+  wilaya:"",
+  date:date,
+  commune:"",
+  commune2:""
+})
     //const[show,setShow]=useState(true);
    // const [dilevery,setDilevery]=useState(false);
     const [wilaya,setWilaya]=useState(false);
@@ -44,6 +56,7 @@ const [startDate, setStartDate] = useState(
        input.commande="livraison";
        setWilaya(false)
        setWilaya2(true);
+       console.log("INPUT step 02",input)
     }
     const choiseDilivery=()=>{
       /*  setDilevery(!dilevery)
@@ -52,7 +65,13 @@ const [startDate, setStartDate] = useState(
         input.commande="livraison";
         setDilevery(true);
         setShow(false);
+        console.log("INPUT step 01",input)
     }
+    const handelChange2=(event)=>{
+      input.commune2=event.target.value;
+      console.log("INPUT step 03",input)
+    }
+   /***************************************************************************************** */   
     const choiceEmporte=()=>{
         /*setEmporte(!emporte) 
         setShow(false)
@@ -66,16 +85,15 @@ const [startDate, setStartDate] = useState(
         setDilevery(false)
         setEmporte(false) 
     }
-    const options = [
-        { value: 'jeudi', label: 'jeudi' },
-        { value: 'lundi', label: 'lundi' },
-       ]
-    const options2=[{ value: '15:30', label: '15:30'}]
-    const comAlger=[{value: 'Alger-centre', label: 'Alger-centre'},
+   
+    
+    const [comAlger,setComAlger]=useState(
+      [
+    {value: 'Alger-centre', label: 'Alger-centre'},
+    {value: 'Ben-Aknoun', label: 'Ben-Aknoun'},
     {value: 'Draria', label: 'Draria'}
-    ]
-    const comBoumerdess=[{value: 'boumerdes', label: 'boumerdes'},
-    {value: 'boumerdes', label: 'boumerdes'}]
+    ])
+   
     useEffect(()=>{
         const modal = document.querySelector(".modal")
         const closeBtn = document.querySelector(".close")
@@ -83,35 +101,20 @@ const [startDate, setStartDate] = useState(
         closeBtn.addEventListener("click", () => {
           modal.style.display = "none";
         })
-    
-        
-       }) 
-       const [input,setInput]=useState({
-        commande:"Livraison",
-        wilaya:"",
-        date:start,
-        commune:"",
-        commune2:""
+    }) 
+ /*********************************************************ENVOYER LA COMMANDE********************************************** */   
+    const[commande,setCommande]=useState({
+      command:"",
+      date:start,
+      wilaya:"",
+      lieux:"",
     })
-     
+   
        const handelChange=(event)=>{
-      const {name,value}=event.target;
-        setInput(prevInput=>{
-          return  { 
-            ...prevInput,
-            [name]:value
-     }
-        })
-        console.log("input commune value",input)
+      input.commune=event.target.value;
+    console.log("INPUT step 04",input)
         }
-
-        const[commande,setCommande]=useState({
-          command:"",
-          date:date,
-          wilaya:"",
-          lieux:"",
-        })
-       
+     
     const  handelvalidateEmporte=()=>{
 if(token===null){
   alert("Vous n'etes pas Signin 😵")
@@ -132,27 +135,25 @@ if(token===null){
           }
         }
 const handelvalidateLivraison=()=>{
+  commande.command="Livraison";
+  commande.date=start;
+  if(date.getDay()==3){
+    alert("votre commande sera livrer le jeudi prochain")
+  }
 if(dilevery==true){
   if(wilaya==true){
-    setCommande({
-      command: "Livraison",
-      date:start,
-      wilaya:"Alger",
-      lieux:input.commune,
-    })
-    alert("Nous avons enregistré la date et l'heure et l'adresse de votre commande 😇")
+  
+    commande.wilaya="Alger";
+    commande.lieux=input.commune;
+    alert("Nous avons enregistré la date et l'heure et l'adresse de votre commande 😇");
     console.log("LIVRAISON-ALGER",commande)
     addCommande(commande,token)
     history.push("/shop")
   }
-  else if(wilaya2==true)
-  
-  { setCommande({
-    command:"Livraison",
-    date:start,
-    wilaya:"Boumerdes",
-    commune:input.commune2,
-  })}
+  else if(wilaya2==true){ 
+    commande.wilaya="Boumerdess";
+    commande.lieux=input.commune2; 
+  }
   
   console.log("LIVRAISON-BOUMERDES",commande)
   addCommande(commande,token)
@@ -165,7 +166,7 @@ return(
     <div className="js-btn"></div>
 <div class="modal">
     {show &&(<div class="modal_content_cmd">
-     <span class="close">&times;</span>
+     <span class="close">{/*&times;*/}</span>
      <p>Comment voulez-vous récupérer votre commande?</p>
     <div className="choice-box">
 <div className="emporte" onClick={choiceEmporte} ><FaHome/>A emporté</div>
@@ -179,7 +180,7 @@ return(
 
     }
     {emporte &&(<div class="modal_content_cmd">
-     <span class="close">&times;</span>
+     <span class="close">{/*&times;*/}</span>
      <FaArrowCircleLeft onClick ={goback} style={{color:"#c19a5d",cursor:"pointer"}}/>
 
      <h4>Cliqué et retiré</h4>
@@ -191,13 +192,13 @@ return(
       
      selected={start}
       onChange={(date) => {setStart(date) }}
-    placeholderText="seléctionez "
-  dateFormat="Pp"
-   minDate={date} 
-   dateFormat="d MMMM , yyyy h:mm aa"
-   timeIntervals={60}
-   timeFormat="HH:mm"
-   minTime={setHours(setMinutes(new Date(), 0), 8)}
+      placeholderText="seléctionez "
+      dateFormat="Pp"
+      minDate={date} 
+      dateFormat="d MMMM , yyyy h:mm aa"
+       timeIntervals={60}
+      timeFormat="HH:mm"
+       minTime={setHours(setMinutes(new Date(), 0), 18)}
       maxTime={setHours(setMinutes(new Date(), 30), 22)}
    showTimeSelect
 
@@ -213,7 +214,7 @@ return(
 
     }
       {dilevery &&(<div class="modal_content_cmd">
-     <span class="close">&times;</span>
+     <span class="close">{/*&times;*/}</span>
      <FaArrowCircleLeft onClick ={goback} style={{color:"#c19a5d",cursor:"pointer"}}/>
      <h3>la livraison est disponible pour ces endroits</h3>
      <div className="choice-box">
@@ -229,6 +230,7 @@ return(
     placeholderText="seléctionez "
     dateFormat="Pp"
     minDate={date} 
+    filterDate={date=>date.getDay() !== 0 && date.getDay() !== 2 && date.getDay() !== 1 && date.getDay() !== 3 && date.getDay() !== 6 && date.getDay() !== 5}
     dateFormat="d MMMM , yyyy h:mm aa"
     timeIntervals={60}
     timeFormat="HH:mm"
@@ -238,7 +240,9 @@ return(
     timeCaption="time"
  />
  </div>
-     {wilaya &&(<select  className="select-style" type="text" name="commune" value={input.commune} onChange={handelChange}>
+     {wilaya &&(
+    <select  className="select-style" 
+     name="commune" value={input.commune} onChange={handelChange}>
      {comAlger.map((option) => (
               <option value={option.value}>{option.label}</option>
             ))} 
@@ -247,11 +251,13 @@ return(
 
 
 
-     {wilaya2 && ( <select className="select-style" placeholder="Boumerdes-communes" name="commune2" value={input.commune2} onChange={handelChange}>
-     {comBoumerdess.map((option) => (
-              <option value={option.value}>{option.label}</option>
-            ))}
-
+     {wilaya2 && ( <select 
+     className="select-style" 
+      name="commune2" value={input.commune2} onChange={handelChange2}>
+     <option value="boumerdes 01">boumerdess 01</option>
+     <option value="boumerdes 02">boumerdes 02</option>
+     <option value="boumerdes 03">boumerdes 03</option>
+     <option value="boumerdes 04">boumerdes 04</option>
      </select>)}
    
     <div className="box-cmd-text"><FaHome/>Adresse amogela</div>

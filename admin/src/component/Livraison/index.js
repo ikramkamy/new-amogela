@@ -14,15 +14,16 @@ const [clickcom,setClickcom]=useState([]);
       .then(response =>setClickcom(response.data))
    }
     expensesListResp();
-    console.log('Clique et retiré commandes sont ici')
-    console.log("clickcom", clickcom)
+    //console.log('Clique et retiré commandes sont ici')
+    //console.log("clickcom", clickcom)
   },[clickcom]);
 
-    const handelDelete=(user)=>{
-    axios.delete(`/clearCommande/${_id}`,)
-    
+    const handelDelete=(elem)=>{
+    //alert("vous etes sur que vous voulez supprimer cette commande !")
+    axios.delete(`/clearCommande/${_id}`  ,)
+   
       .then()
-     
+      console.log('we are deleting',elem._id)
       }
 
 

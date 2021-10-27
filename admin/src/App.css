@@ -1,7 +1,7 @@
 .App {
   text-align: center;
   display: flex;
-
+justify-content: flex-end;
 }
 .side-bar{
   height: 100vh;
@@ -10,6 +10,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+
 }
 .side-elements{
 display: flex;
@@ -73,7 +77,19 @@ justify-content: space-between;
 .App-link {
   color: #61dafb;
 }
-
+.admin-page{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+.admin-name{
+  font-size: 24px;
+  color: #12705e;
+  margin-bottom: 50px;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

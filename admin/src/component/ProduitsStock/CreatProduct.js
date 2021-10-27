@@ -13,6 +13,7 @@ const ProduitCreate=(props)=>{
         disponible:"",
         prix:"",
         cathegorie:"",
+        img:"",
       }
 );
     const create=()=>{
@@ -55,8 +56,10 @@ const ProduitCreate=(props)=>{
  
    <input placeholder="Prix" name="prix" onChange={handelchange} value={produits.prix}/>
    <input placeholder="Disponible sur stock?" name="disponible" onChange={handelchange} value={produits.disponible}/>
+   <input type="file" placeholder="image" name="img" onChange={handelchange} value={produits.img}/>
+   
    </div>
-   <div className="save-btn" onClick={create} ><FaPlus className="icon-save" onClick={props.showhendel1} /> save</div>
+   <div className="save-btn" onClick={create} ><FaPlus className="icon-save" onClick={props.showhendel1} /> Créer</div>
     </div>)
   
   }

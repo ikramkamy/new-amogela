@@ -53,7 +53,7 @@ router.post('/api/photoPages', upload.single('img'), (req, res, next) => {
         });
       });
   });
-  
+  /*
   router.get("/:productId", (req, res, next) => {
     const id = req.params.productId;
     Product.findById(id)
@@ -81,4 +81,5 @@ router.post('/api/photoPages', upload.single('img'), (req, res, next) => {
       });
   })
 router.get('/api/photoPages',getimages)
+*/
 module.exports = router;

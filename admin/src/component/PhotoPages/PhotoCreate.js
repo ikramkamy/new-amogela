@@ -51,7 +51,15 @@ const PhotoCreate=(props)=>{
    
    
    
-   <input placeholder="La page" name="name" onChange={handelchange} value={photo.name}/>
+  
+   <select data-id="domain-switcher" onChange={handelchange} value={photo.name} type="text" name="name" >
+   <option label="selectioner" value="selectioner"></option>
+            <option label="home01" value="home01"></option>
+            <option label="home02" value="home02"></option>
+            <option label="home03" value="home03"></option>
+  </select>
+   
+   
    <input type="file" name="img" onChange={handelchange} value={photo.img} style={{marginTop:"50px"}}/>
    
    </div>

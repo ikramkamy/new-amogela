@@ -44,8 +44,7 @@ clickRetireModel.find({"user._id":req.params._id,},function (err,data) {
 })
 }
   exports.getallcommands=(req,res)=>{
-    res.header('Access-Control-Expose-Headers', 'Content-Range')
-    res.header("Content-Range", `gouts 1-9/9`);
+    
     clickRetireModel.find().then((data) => {
       res.json(data)
       })
@@ -87,9 +86,12 @@ clickRetireModel.find({"user._id":req.params._id,},function (err,data) {
 
 
     exports.clearCommande=(req,res)=>{
-      clickRetireModel.findOneAndDelete({ "_id": req.params._id}, (err, doc) => {
+     
+      clickRetireModel.findOneAndDelete({"_id": req.params._id}, (err, doc) => {
+        console.log("we find it and know we are deleting")
         if (err) {
             console.log("Something wrong when updating data!");
+            
         }
     
         console.log(doc);

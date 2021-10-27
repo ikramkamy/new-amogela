@@ -14,6 +14,7 @@ const EditeProduit=(props)=>{
         prix:"",
         disponible:"",
         cathegorie:"",
+        img:"",
        });
     console.log("UPDATES",updates)
 const handelchange=(event)=>{
@@ -32,14 +33,17 @@ alert("Remplissez les cases vides SVP")
           _id:"",
           name:updates.name,
           prix:updates.prix,
-         disponible:updates.disponible
+         disponible:updates.disponible,
+         cathegorie:updates.cathegorie,
+         img:updates.img,
          
         })
     .then(setUpdates({
           name:"",
           _id:"",
           prix:"",
-          disponible:""
+          disponible:"",
+          img:"",
         })
     ) 
     showhendel();
@@ -56,14 +60,14 @@ return(
     <input placeholder="_ID" name="_id" value={_id}/>
     <input placeholder="Barquettes" name="name" onChange={handelchange} value={updates.name} required={true}/>
     <input placeholder="Prix" name="prix" onChange={handelchange} value={updates.prix} required/>
-    <select data-id="domain-switcher" onChange={handelchange} value={updates.cathegorie} type="text" name="cathegorie" >
+    <select  onChange={handelchange} value={updates.cathegorie} type="text" name="cathegorie" >
    <option label="selectioner" value="selectioner"></option>
             <option label="chocolat-confiserie" value="chocolat-confiserie"></option>
             <option label="entremets-glace" value="entremets-glace"></option>
             <option label="Escimau-biscuit" value="Escimau-biscuit"></option>
   </select>
     <input placeholder="Disponible" name="disponible" onChange={handelchange} value={updates.disponible} required/>
-    
+    <input type="file" placeholder="image" name="img" onChange={handelchange} value={updates.img}/>
     </div>
     <div className="save-btn" onClick={update} ><FaSave className="icon-save"  /> save</div>
      </div>)

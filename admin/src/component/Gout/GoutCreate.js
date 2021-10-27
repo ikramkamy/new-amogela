@@ -9,8 +9,7 @@ const GoutCreate=(props)=>{
     const [gout,setGout]=useState(
       {    
         name:"",
-        prix:"",
-        disponible:""}
+      disponible:""}
 );
     const create=()=>{
         

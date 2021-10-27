@@ -108,7 +108,7 @@ axios.get('/api/Barquettes')
     console.log(error);
 })
 
-}, [barquette]);
+}, []);
 /**********************************Geting the cart to bring the length************************** */
 const user_id=localStorage.getItem('user_id');
 const[usercart,setUsercart]=useState([]);
@@ -130,6 +130,7 @@ let n=0;
 setMycart(usercart.cart);
 mycart?.map((e)=>{n=n+e.quantity})
 setCartlength(n);
+console.log("function is executed")
 /*
 console.log('TEST CART LENGTH',cartlength)
 console.log("we are setting your cart",mycart);
@@ -139,7 +140,7 @@ setCounter(mycart.length);
 console.log("COUNTER",counter);
 */
 
-}) 
+},[cartlength]) 
 
 /*********************************POPUP SIGN IN***************************** */
 useEffect(() => {

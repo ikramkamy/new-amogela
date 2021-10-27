@@ -104,16 +104,16 @@ if(token===null){
             command:e.command,
             date:e.date,
             lieux:e.lieux,
-            commune:e.commune,
+            wilaya:e.wilaya,
           }
       }
     }
-      console.log("ELEMENT A POSTE EST LA ",cartItems);
+     /*console.log("ELEMENT A POSTE EST LA ",cartItems);*/
       const request =axios.post("/addCommandetoCart",cartItems, { headers: {"Authorization" : `Bearer ${token}`} })
       .then(response => {
-       console.log("LA comannde est ajoutée avec succées")
+       //console.log("LA comannde est ajoutée avec succées")
       }).catch(error => {
-        console.log("the raison of failure", error) 
+       // console.log("the raison of failure", error) 
       });
       return {
         type: ADD_PRODUCT,

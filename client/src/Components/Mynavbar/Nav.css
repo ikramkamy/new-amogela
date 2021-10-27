@@ -59,7 +59,7 @@
     font-family: 'Poppins', sans-serif;
     cursor: pointer;
     position: relative;
-    
+    z-index: 11;
 
 }
 .menuLarge a{
@@ -122,7 +122,7 @@
         background-color: #146f5b;
         color: #c19a5d;
         font-weight: 700;
-        z-index: 2;
+        z-index: 3;
         
    }
 

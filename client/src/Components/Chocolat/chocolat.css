@@ -59,9 +59,7 @@
     margin-top: 100px;
 
 }
-.choco-btn:hover{
-    background-color: #146f5b;  
-}
+
 @media screen and (max-width: 1000px) {
     .text-chocolat {
 font-size: 1.3em;

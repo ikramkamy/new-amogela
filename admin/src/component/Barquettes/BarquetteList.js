@@ -11,7 +11,7 @@ return(
 <div className="user_info">
 
    
-  <div className="item-user">{props._id}</div>      
+      
   <div className="item-user">{props.name}</div>
   <div className="item-user">{props.prix}</div>
   <div className="item-user">{props.disponible}</div>

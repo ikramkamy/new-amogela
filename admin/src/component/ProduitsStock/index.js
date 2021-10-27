@@ -43,11 +43,13 @@ return(
     <div className="tab-item">Cathégorie</div>
     <div className="tab-item">prix </div>
     <div className="tab-item">disponible</div>
+    <div className="tab-item">image</div>
     <div className="tab-item"> </div>
     <div className="tab-item"> </div>
 </div>
-{produits?.map((e)=><ProduitsList name={e.name} _id={e._id} prix={e.prix} disponible={e.disponible} cathegorie={e.cathegorie}  show={(()=>setShow(true))} handelDelete={()=>handelDelete(e)}/>)}
 
+  {produits?.map((e)=><ProduitsList img={e.img} name={e.name} _id={e._id} prix={e.prix} disponible={e.disponible} cathegorie={e.cathegorie}  show={(()=>setShow(true))} handelDelete={()=>handelDelete(e)}/>)}
+  
 {
 show&&(<EditeProduit  _id="" showhendel={(()=>setShow(false))}/>)
   

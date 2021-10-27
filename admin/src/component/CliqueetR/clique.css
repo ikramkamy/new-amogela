@@ -8,7 +8,7 @@
     width: 500px;
     height: 600px;
     position: fixed;
-    top: 50px;
+    top: 10px;
     left:35%;
      background-color: white;
 
@@ -27,7 +27,10 @@
    
     border-bottom: 1px solid lightgrey;
     width: 100%;
-    height:max-content;
+    height:50px;
 display: flex;
 justify-content: left;
+}
+.gout-style{
+    font-size: 15px;
 }

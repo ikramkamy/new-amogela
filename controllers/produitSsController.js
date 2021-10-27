@@ -32,6 +32,7 @@ const produit=new  produiSSModel({
     prix:req.body.prix,
     cathegorie:req.body.cathegorie, 
     disponible:req.body.disponible,
+    img:req.body.img,
 });
 
 produit.save((error, produit)=>{
@@ -128,7 +129,7 @@ exports.updateProduitSS=(req,res)=>{
   const _id=req.params.id;
  const name=req.body.name;
  const prix=req.body.prix;
- const cathegorie=req.body.cathegory;
+ const cathegorie=req.body.cathegorie;
  produiSSModel.findByIdAndUpdate({_id:req.params._id},
   {
   name:req.body.name,

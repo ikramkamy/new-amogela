@@ -23,11 +23,11 @@ const token = res?.tokenId;
 setLoginout("logout")
 try {
       //dispatch({ type: AUTH, data: { result, token } });
-console.log(res)
+//console.log(res)
       history.push('/signin');
       
     } catch (error) {
-      console.log(error);
+      //console.log(error);
     }
   };
 
@@ -51,20 +51,19 @@ const [input,setInput]=useState({
     email:"",
     password:""
 })
-
+const [email,setEmail]=useState("");
+const [password,setPassword]=useState("");
 const handelChange=(event)=>{
-   
-    const {name,value}=event.target;
-    setInput(newInput=>{
-      return  { 
-        ...newInput,
-        [name]:value
-    
-      }
-    })
+   setEmail(event.target.value);
     }
+    const handelChange2=(event)=>{
+    setPassword(event.target.value);
+       }
+       
     const token=localStorage.getItem('token');
 const handelClick=()=>{
+input.email=email;
+input.password=password;
 loginUser(input);
 setInput(
   { email:"",
@@ -107,9 +106,9 @@ return(
 
 <form className="form-signin" onSubmit={handelSubmit}>
 <label className="label-sigin">Email</label>
-<input  className="label-sigin" type="text"  placeholder="email@gmail.com" onChange={handelChange} value={input.email} name="email"/>
+<input  className="label-sigin" type="text"  placeholder="email@gmail.com" onChange={handelChange} value={email} name="email"/>
 <label className="label-sigin">Mot de Passe</label>
-<input className="label-sigin" type="password"  required placeholder="password" onChange={handelChange} value={input.password} name="password" />
+<input className="label-sigin" type="password"  required placeholder="password" onChange={handelChange2} value={password} name="password" />
 <div className="btn-signin-wrapper">
  
 <button  onClick={handelClick}>Connexion</button>

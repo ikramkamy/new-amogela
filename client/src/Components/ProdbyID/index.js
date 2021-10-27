@@ -16,22 +16,29 @@ const ProdbyID=(props)=>{
   const [isOpen, setIsOpen] = useState(false);
   const[g5,setG5]=useState(false);
   const[g6,setG6]=useState(false);
-  const [option,setOption]=useState([{label:"selectioner",value:""},
-    
-    {label:"vanille madagascar",value:"vanille madagascar"},{label:"Créme caramel",value:"Créme caramel"}]);
+  const [option,setOption]=useState([]);
 
 
   const Handelopne = () => {
     setIsOpen(!isOpen);
     };
+
+    useEffect(() => {
+      const expensesListResp = async () => {
+        await axios.get(`/api/gouts`)
+        .then(response =>setOption(response.data))
+    console.log("GOUTS",option)
+         }
+      expensesListResp();
+    });
   //const [counter, setCounter] = useState(0);
   //const {addproduct}=props;
   let {productId}=useParams();
 
   let idsplited=productId.split(":")[1];
-  console.log("idsplited",idsplited)
+  //console.log("idsplited",idsplited)
   //const objectID=("611fc0d3ba3b3720b4666a49");
-  console.log("ID from Params",productId)
+  //console.log("ID from Params",productId)
   // setId(props.prodID)
   //const productId = props.match.params.productId;
   /*
@@ -57,7 +64,7 @@ useEffect(() => {
   }
   expensesListResp();
 }, []);
-console.log("heeere",here)
+//console.log("heeere",here)
 /********************************get user************************ */
 const user_id=localStorage.getItem('user_id');
 const history = useHistory();
@@ -240,15 +247,15 @@ const{id,getbyID}=props;
       <Mynavbar/>
 <div className="prod-name">{here.name}</div>
 <div className="product-bloc">
-<div className="command-bloc">
+<div className="command-bloc  resposiveByid">
 <div className="image-product" style={{backgroundImage:"url(/images/prod2.png)"}}></div>
 
 
-<form className="form">
+<form className="form  form-responsivByID">
   <label>GOUT GLACE (1) 
     <select data-id="domain-switcher" onChange={handelChange} value={input.gout1} type="text" name="gout1"  >
     {option.map((option) => (
-              <option value={option.value}>{option.label}</option>
+              <option value={option.name}>{option.name}</option>
             ))}       
               
               
@@ -259,7 +266,7 @@ const{id,getbyID}=props;
    <select data-id="domain-switcher" onChange={handelChange} value={input.gout2} type="text" name="gout2" >
              
               {option.map((option) => (
-              <option value={option.value}>{option.label}</option>
+              <option value={option.name}>{option.name}</option>
             ))}
   </select>
   </label>
@@ -267,7 +274,7 @@ const{id,getbyID}=props;
     GOUT GLACE (3)
     <select data-id="domain-switcher" onChange={handelChange} value={input.gout3}type="text" name="gout3" >
     {option.map((option) => (
-              <option  value={option.value}>{option.label}</option>
+              <option  value={option.name}>{option.name}</option>
             ))}
   </select>
   </label>
@@ -275,7 +282,7 @@ const{id,getbyID}=props;
   GOUT GLACE (4)
   <select data-id="domain-switcher" onChange={handelChange} value={input.gout4}type="text" name="gout4">
   {option.map((option) => (
-              <option value={option.value}>{option.label}</option>
+              <option value={option.name}>{option.name}</option>
             ))}
   </select>
   </label>
@@ -284,7 +291,7 @@ const{id,getbyID}=props;
   GOUT GLACE (5)
   <select  value={input.gout5} onChange={handelChange} name="gout5">
   {option.map((option) => (
-              <option value={option.value}>{option.label}</option>
+              <option value={option.name}>{option.name}</option>
             ))}
   </select>
   </label>
@@ -295,7 +302,7 @@ const{id,getbyID}=props;
   GOUT GLACE (6)
   <select  value={input.gout6} onChange={handelChange} name="gout6">
   {option.map((option) => (
-              <option value={option.value}>{option.label}</option>
+              <option value={option.name}>{option.name}</option>
             ))}
   </select>
   </label>)}
