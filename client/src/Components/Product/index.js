@@ -13,6 +13,7 @@ import {useParams,useHistory } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import Signin from '../Signin';
 import ShopinCart from "../Shopingcart";
+import {getuser} from '../../actions/productActions';
 const Product = (props) => {
   const history = useHistory();
   const [barquette,setBarquette]=useState([]);
@@ -23,10 +24,12 @@ const Product = (props) => {
   const [isOpen, setIsOpen] = useState(false);
   const [counter, setCounter] = useState(0);
   const [cart,setCart]=useState([]);
+  const [incriment,setIncriment]=useState(0);
+  const [incriment2,setIncriment2]=useState(0)
   const token=localStorage.getItem('token');
 
 
-  const config = {
+  const config = { 
     headers: { Authorization: `Bearer ${token}` }
 };
 
@@ -35,7 +38,8 @@ const bodyParameters = {
 };
 const Handelopne = () => {
     setIsOpen(!isOpen);
-   
+    setIncriment2(incriment2+1)
+    setIncriment(incriment+1);
     };
   const handleStateChange = () => {
     setIsOpen(true);
@@ -55,7 +59,7 @@ if(token===null){
 console.log("WE ARE NO ADDING PRODUCT BEFOR SIGN IN")
 }else{
 
-
+  
 console.log("we are in add to cart")
 setCart([...cart,product])
 console.log(cart);
@@ -77,10 +81,11 @@ const cartItems={
 }
 //console.log(cartItems);
 axios.post("/addToCartUser",cartItems, { headers: {"Authorization" : `Bearer ${token}`} })
-
 .then(response => {
  //console.log("post with axios succed")
- window.location.reload()
+ //window.location.reload()
+ setIncriment(incriment+1);
+
  setIsOpen(!isOpen);
 }).catch(error => {
  // console.log("the raison of failure", error) 
@@ -114,46 +119,27 @@ const user_id=localStorage.getItem('user_id');
 const[usercart,setUsercart]=useState([]);
 const [mycart,setMycart]=useState([]);
 const [cartlength,setCartlength]=useState(0)
-
-
 useEffect(() => {
-  const expensesListResp = async () => {
+const expensesListResp = async () => {
     await axios.get(`/getMycartUserprofile/${user_id}`)
     .then(response =>setUsercart(response.data))
-
-     }
+}
   expensesListResp();
-});
+
+},[incriment]);
 
 useEffect(()=>{
 let n=0;
 setMycart(usercart.cart);
 mycart?.map((e)=>{n=n+e.quantity})
 setCartlength(n);
-console.log("function is executed")
-/*
-console.log('TEST CART LENGTH',cartlength)
-console.log("we are setting your cart",mycart);
-*/
-/*
-setCounter(mycart.length);
-console.log("COUNTER",counter);
-*/
-
-},[cartlength]) 
+console.log("function calcul legnth",usercart)
+}) 
 
 /*********************************POPUP SIGN IN***************************** */
 useEffect(() => {
   window.scrollTo(0, 0)
 }, [])
-
-
-
-
-  
-
-
-
 /******************************************************************************** */
 /************************************************************************************* */
 
@@ -195,7 +181,7 @@ useEffect(() => {
 <div className="shoping-cart-icon">
 <FaWindowClose className="icon-Close-cart" onClick={Handelopne}/>
 </div> 
-  <ShopinCart/>
+  <ShopinCart incriment2={incriment2}/>
   </div>
   </div>)
 }

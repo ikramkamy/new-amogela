@@ -1,6 +1,6 @@
 
 import axios from 'axios';
-import {LOGIN_USER,ADD_PRODUCT} from './types';
+import {LOGIN_USER,ADD_PRODUCT,GET_USER} from './types';
 import {useHistory} from 'react-router-dom';
 const token=localStorage.getItem('token');
 export function loginUser (newuser){
@@ -119,6 +119,9 @@ if(token===null){
         type: ADD_PRODUCT,
         payload: request
     }
-      }
+      } 
      
       }
+
+
+

@@ -14,27 +14,29 @@ import { Link } from 'react-router-dom'
 import {addproduct} from '../../actions/productActions';
 import Signin from '../Signin';
 export const Product2=()=>{
-    const [barquette,setBarquette]=useState([]);
+const [barquette,setBarquette]=useState([]);
  const [isOpen, setIsOpen] = useState(false);
- const [cartlength,setCartlength]=useState(0)
+ const [cartlength,setCartlength]=useState(0);
+ const [increment,setIncrement]=useState(0);
   
   useEffect(() => {     
     const getData = async () => {  
       await axios.get("/cathegorie/Barquette")  
       .then(res => {  
-        console.log(res) 
+        //console.log(res) 
         const data=res.data.data;
         setBarquette(data);
-        console.log("data barquettees is here",data)
+        //console.log("data barquettees is here",data)
       })  
       .catch(err => {  
-        console.log(err)  
+        //console.log(err)  
       });  
     }  
  getData()  
   }, [])
   const Handelopne = () => {
     setIsOpen(!isOpen);
+    setIncrement(increment+1);
     };
     const[usercart,setUsercart]=useState([]);
     const user_id=localStorage.getItem('user_id');
@@ -45,7 +47,7 @@ export const Product2=()=>{
     
          }
       expensesListResp();
-    }, []);
+    }, [increment]);
    
     const [mycart,setMycart]=useState([])
     useEffect(()=>{
@@ -116,20 +118,22 @@ const [isOpen, setIsOpen] = useState(false);
 const [counter, setCounter] = useState(0);
 const token=localStorage.getItem('token');
 const [cartlength,setCartlength]=useState(0);
+const [increment,setIncrement]=useState(0);
 
  const Handelopne = () => {
   setIsOpen(!isOpen);
+  setIncrement(increment+1);
   };
 useEffect(() => {     
   const getData = async () => {  
     await axios.get(`/findbycategorie/Escimau-biscuit`)  
     .then(res => {  
-      console.log(res) 
+     // console.log(res) 
       const data=res.data.data;
       setProducts(data);
     })  
     .catch(err => {  
-      console.log(err)  
+     // console.log(err)  
     });  
   }  
 getData()  
@@ -146,6 +150,7 @@ const handelClick=(product)=>{
   }else{
  addproduct(product,token)
   setIsOpen(true);
+  setIncrement(increment+1);
   }
 }
 const[usercart,setUsercart]=useState([]);
@@ -157,7 +162,7 @@ useEffect(() => {
 
      }
   expensesListResp();
-}, []);
+}, [increment]);
 
 const [mycart,setMycart]=useState([])
 useEffect(()=>{
@@ -226,8 +231,10 @@ export const Product4=()=>{
  const [counter, setCounter] = useState(0);
  const token=localStorage.getItem('token');
  const [cartlength,setCartlength]=useState(0);
+ const [increment,setIncrement]=useState(0);
  const Handelopne = () => {
   setIsOpen(!isOpen);
+  setIncrement(increment+1);
   };
 useEffect(() => {     
   const getData = async () => {  
@@ -256,6 +263,7 @@ const handelClick=(product)=>{
   }else{
  addproduct(product,token)
   setIsOpen(true);
+  setIncrement(increment+1);
   }
    
   }
@@ -268,7 +276,7 @@ const handelClick=(product)=>{
   
        }
     expensesListResp();
-  }, []);
+  }, [increment]);
  
   const [mycart,setMycart]=useState([])
   useEffect(()=>{
@@ -340,9 +348,11 @@ const [count, setCount] = useState(0);
 const [cart,setCart]=useState([{}]);
 const token=localStorage.getItem('token');
 const [cartlength,setCartlength]=useState(0);
+const [increment,setIncrement]=useState(0);
 
   const Handelopne = () => {
     setIsOpen(!isOpen);
+    setIncrement(increment+1);
     };
 useEffect(() => {     
   const getData = async () => {  
@@ -370,6 +380,7 @@ const handelClick=(e)=>{
   }else{
  addproduct(e,token)
   setIsOpen(true);
+  setIncrement(increment+1);
   }
 }
 const[usercart,setUsercart]=useState([]);
@@ -381,7 +392,7 @@ useEffect(() => {
 
      }
   expensesListResp();
-}, []);
+}, [increment]);
 
 const [mycart,setMycart]=useState([])
 useEffect(()=>{

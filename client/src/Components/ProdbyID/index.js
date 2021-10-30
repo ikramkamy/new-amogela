@@ -17,10 +17,11 @@ const ProdbyID=(props)=>{
   const[g5,setG5]=useState(false);
   const[g6,setG6]=useState(false);
   const [option,setOption]=useState([]);
-
+  const [increment,setIncrement]=useState(0);
 
   const Handelopne = () => {
     setIsOpen(!isOpen);
+    setIncrement(increment+1);
     };
 
     useEffect(() => {
@@ -30,33 +31,12 @@ const ProdbyID=(props)=>{
     console.log("GOUTS",option)
          }
       expensesListResp();
-    });
-  //const [counter, setCounter] = useState(0);
-  //const {addproduct}=props;
+    },[]);
+
   let {productId}=useParams();
 
   let idsplited=productId.split(":")[1];
-  //console.log("idsplited",idsplited)
-  //const objectID=("611fc0d3ba3b3720b4666a49");
-  //console.log("ID from Params",productId)
-  // setId(props.prodID)
-  //const productId = props.match.params.productId;
-  /*
-  useEffect(()=>{
-
-    
-   const response= await axios.get('/getproduit').then(res => {
-     setProducts(response.data);
-     setHere(response.data);
-      console.log("fetchin by IS from params",products);
-      console.log("data from fetch axios",res.data);
-      console.log("heeere",here)
-    })
-    .catch(function (error) {
-        console.log(error);6112eae87406252de8f9e039
-    })
-},[])
-   */
+  
 useEffect(() => {
   const expensesListResp = async () => {
     await axios.get(`/getbarquettebyID/${idsplited}`)
@@ -76,7 +56,7 @@ useEffect(() => {
 
      }
   expensesListResp();
-}, []);
+},[increment]);
  
 /***************************************************************** */
 useEffect(() => {
@@ -128,7 +108,7 @@ const{id,getbyID}=props;
             closeBtn3.addEventListener("click", () => {
               modal.style.display = "none";
             })
-        console.log("WE ARE NO ADDING PRODUCT BEFOR SIGN IN")
+        //console.log("WE ARE NO ADDING PRODUCT BEFOR SIGN IN")
         
         
         }else{
@@ -160,10 +140,11 @@ const{id,getbyID}=props;
         console.log(cartItems);
         axios.post("/addToCartUser2",cartItems, { headers: {"Authorization" : `Bearer ${token}`} })
         .then(response => {
-         console.log("post with axios succed")
+        // console.log("post with axios succed")
          setIsOpen(!isOpen);
+         setIncrement(increment+1);
         }).catch(error => {
-          console.log("the raison of failure", error) 
+         // console.log("the raison of failure", error) 
         });
         
         }     
@@ -203,10 +184,10 @@ const{id,getbyID}=props;
     console.log(cartItems);
     axios.post("/MinuOneItemCartUser",cartItems, { headers: {"Authorization" : `Bearer ${token}`} })
     .then(response => {
-     console.log("MINUS")
-    
+     //console.log("MINUS")
+     setIncrement(increment+1);
     }).catch(error => {
-      console.log("the raison of failure MINUS", error) 
+      //console.log("the raison of failure MINUS", error) 
     });
     }
    }

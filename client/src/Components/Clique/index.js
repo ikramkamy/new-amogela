@@ -174,29 +174,27 @@ return(
     }
     {emporte &&(<div class="modal_content_cmd">
      <span class="close">&times;</span>
-     <FaArrowCircleLeft onClick ={goback} style={{color:"#c19a5d"}}/>
+     <FaArrowCircleLeft onClick ={goback} style={{color:"#c19a5d",cursor:"pointer"}}/>
 
      <h4>Cliqué et retiré</h4>
      <h3>Récupérez votre commande aprés 24h</h3>
     
-   <div className="wrap-date-picker">
+     <div className="wrap-date-picker">
    
      <DatePicker className="date-picker"
       
      selected={start}
-      onChange={(date) => {setStart(date) }}
+     onChange={(date) => {setStart(date) }}
      placeholderText="seléctionez "
      dateFormat="Pp"
      minDate={date} 
      dateFormat="d MMMM , yyyy h:mm aa"
      timeIntervals={60}
      timeFormat="HH:mm"
-     minTime={setHours(setMinutes(new Date(), 0), 18)}
-      maxTime={setHours(setMinutes(new Date(), 30), 22)}
-   showTimeSelect
-
-  
-   timeCaption="time"
+     minTime={setHours(setMinutes(new Date(), 0), 14)}
+     maxTime={setHours(setMinutes(new Date(), 30), 22)}
+     showTimeSelect
+     timeCaption="time"
    />
    </div>
    
@@ -208,13 +206,46 @@ return(
     }
       {dilevery &&(<div class="modal_content_cmd">
      <span class="close">&times;</span>
-     <FaArrowCircleLeft onClick ={goback} style={{color:"#c19a5d"}}/>
+     <FaArrowCircleLeft onClick ={goback} style={{color:"#c19a5d",cursor:"pointer"}}/>
      <h3>la livraison est disponible pour ces endroits</h3>
      <div className="choice-box">
      <div className="emporte"  onClick={handelwilaya} ><FaLocationArrow/>Alger</div>
      <div className="emporte" onClick={handelwilaya2}><FaLocationArrow/> Boumerdes</div>
      </div>
-     <div className="wrap-date-picker">
+    
+     {wilaya &&(<div  className="wrap-new-wilaya" >
+      <div className="wrap-date-picker">
+   
+   <DatePicker className="date-picker"
+    
+    selected={start}
+    onChange={(date) => {setStart(date) }}
+    placeholderText="seléctionez"
+    dateFormat="Pp"
+    minDate={date} 
+    filterDate={date=>date.getDay() !== 0 && date.getDay() !== 2 && date.getDay() !== 1 && date.getDay() !== 3 && date.getDay() !== 6 && date.getDay() !== 5}
+    dateFormat="d MMMM , yyyy h:mm aa"
+    timeIntervals={60}
+    timeFormat="HH:mm"
+    minTime={setHours(setMinutes(new Date(), 0), 14)}
+    maxTime={setHours(setMinutes(new Date(), 30), 22)}
+    showTimeSelect
+    timeCaption="time"
+ />
+ </div> 
+    <select  className="select-style" type="text"
+     name="commune2" value={input.commune2} onChange={handelChange2}>
+    <option value="">choisissez une commune</option>
+    <option value="Alger-centre">Alger-centre</option>
+    <option value="Draria">Draria</option>
+    
+     </select>
+     </div>)}
+
+
+
+     {wilaya2 && (<div  className="wrap-new-wilaya">
+      <div className="wrap-date-picker">
    
    <DatePicker className="date-picker"
     
@@ -223,31 +254,22 @@ return(
     placeholderText="seléctionez "
     dateFormat="Pp"
     minDate={date} 
-    filterDate={date=>date.getDay() !== 0 && date.getDay() !== 2 && date.getDay() !== 1 && date.getDay() !== 3 && date.getDay() !== 6 && date.getDay() !== 5}
     dateFormat="d MMMM , yyyy h:mm aa"
     timeIntervals={60}
     timeFormat="HH:mm"
-    minTime={setHours(setMinutes(new Date(), 0), 8)}
+    minTime={setHours(setMinutes(new Date(), 0), 14)}
     maxTime={setHours(setMinutes(new Date(), 30), 22)}
     showTimeSelect
     timeCaption="time"
  />
- </div>
-     {wilaya &&(<select  className="select-style" type="text" name="commune2" value={input.commune2} onChange={handelChange2}>
-     <option value="">choisissez une commune</option>
-     <option value="Alger-centre">Alger-centre</option>
-     <option value="Draria">Draria</option>
-    
-     </select>)}
-
-
-
-     {wilaya2 && ( <select id="boumerdes" className="select-style" placeholder="Boumerdes-communes" name="commune" value={input.commune} onChange={handelChange}>
+ </div> 
+      <select id="boumerdes" className="select-style" placeholder="Boumerdes-communes" name="commune" value={input.commune} onChange={handelChange}>
      <option  selected value="boumerdes 01">boumerdess 01</option>
      <option value="boumerdes 02">boumerdes 02</option>
      <option value="boumerdes 03">boumerdes 03</option>
      <option value="boumerdes 04">boumerdes 04</option>
-     </select>)}
+     </select>
+     </div>)}
    
     <div className="box-cmd-text"><FaHome/>Adresse amogela</div>
     <div className="btn-box-valid" onClick={handelvalidateLivraison}>Valider</div>

@@ -60,7 +60,7 @@ const handelChange=(event)=>{
     setPassword(event.target.value);
        }
        
-    const token=localStorage.getItem('token');
+const token=localStorage.getItem('token');
 const handelClick=()=>{
 input.email=email;
 input.password=password;

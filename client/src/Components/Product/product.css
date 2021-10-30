@@ -103,6 +103,7 @@ width: 400px;
     position: fixed;
     top: 33px;
     z-index: 21;
+    color: #c19a5d;
 }
 .burger-menu{
   
@@ -245,5 +246,17 @@ width: 400px;
          width: 100%;
      }
  }
-  
+  @media screen and (max-width:950px) {
+    .icon-shoping{
+        position: fixed;
+           top: 120px;
+       } 
+       .icon-shoping:hover{
+           color: #c19b5de5;
+       }
+       .tite-panier{
+        position: fixed;
+        top: 130px;  
+       }   
+  }
  

@@ -12,8 +12,10 @@ import  DatePicker from "react-datepicker";
 import Clique from '../Clique';
 
 const ShopinCart=(props)=>{
+const {incriment2}=props;
 const token=localStorage.getItem('token');
 const history = useHistory();
+const [increment,setIncrement]=useState(0);
 /*********************************favture***************************** */
 const [valide,setValide]=useState(false);
 const[commType,setCommType]=useState([]);
@@ -88,29 +90,30 @@ const handelClick=(event)=>{
   time:startDate,
   somme:somme,
   }
-  console.log("COMMANDE",command);
+  //console.log("COMMANDE",command);
   axios.post("/clickretire",command)
   .then(response => {
-   console.log("post with axios succed the commande")
+   //console.log("post with axios succed the commande")
 
    history.push('/commadevalidee')
+   localStorage.clear();
   }).catch(error => {
-    console.log("the raison of failure", error) 
+    //console.log("the raison of failure", error) 
   });
 
  
   axios.delete(`/Clearcard/${user_id}`)
   .then(response => {
-    console.log("DELETE CART with axios succed")
+    //console.log("DELETE CART with axios succed")
    }).catch(error => {
-     console.log("the raison of failure", error) 
+     //console.log("the raison of failure", error) 
    });
    
   axios.delete(`/Clearcommande/${user_id}`)
    .then(response => {
-     console.log("DELETE CommandeType with axios succed")
+     //console.log("DELETE CommandeType with axios succed")
     }).catch(error => {
-      console.log("the raison of failure", error) 
+     // console.log("the raison of failure", error) 
     });  
    
 
@@ -152,9 +155,11 @@ const addproduct=(product)=>{
   console.log(cartItems);
   axios.post("/addToCartUser",cartItems, { headers: {"Authorization" : `Bearer ${token}`} })
   .then(response => {
-   console.log("post with axios succed")
+    setIncrement(increment+1);
+  // console.log("post with axios succed")
   }).catch(error => {
-    console.log("the raison of failure", error) 
+    //console.log("the raison of failure", error) 
+    
   });
   
   }
@@ -176,7 +181,7 @@ console.log("THE ID FROM CART",id)
  axios.post("/DeletefromCartUser",id,{ headers: {"Authorization" : `Bearer ${token}`} })
  .then(response => {
   //console.log("DELETED ITEMM",response)
-
+  setIncrement(increment+1);
   //setIsOpen(!isOpen);
  }).catch(error => {
    //console.log("ERRER DELETED ITEMM", error) 
@@ -210,10 +215,10 @@ const Minesone=(e)=>{
   console.log(cartItems);
   axios.post("/MinuOneItemCartUser",cartItems, { headers: {"Authorization" : `Bearer ${token}`} })
   .then(response => {
-   console.log("MINUS")
-  
+   //console.log("MINUS")
+   setIncrement(increment+1);
   }).catch(error => {
-    console.log("the raison of failure MINUS", error) 
+    //console.log("the raison of failure MINUS", error) 
   });
   }
  }

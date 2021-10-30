@@ -198,7 +198,7 @@ return(
       dateFormat="d MMMM , yyyy h:mm aa"
        timeIntervals={60}
       timeFormat="HH:mm"
-       minTime={setHours(setMinutes(new Date(), 0), 18)}
+       minTime={setHours(setMinutes(new Date(), 0), 14)}
       maxTime={setHours(setMinutes(new Date(), 30), 22)}
    showTimeSelect
 
@@ -221,44 +221,66 @@ return(
      <div className="emporte"  onClick={handelwilaya} ><FaLocationArrow/>Alger</div>
      <div className="emporte" onClick={handelwilaya2}><FaLocationArrow/> Boumerdes</div>
      </div>
-     <div className="wrap-date-picker">
-   
-   <DatePicker className="date-picker"
     
-    selected={start}
-    onChange={(date) => {setStart(date) }}
-    placeholderText="seléctionez "
-    dateFormat="Pp"
-    minDate={date} 
-    filterDate={date=>date.getDay() !== 0 && date.getDay() !== 2 && date.getDay() !== 1 && date.getDay() !== 3 && date.getDay() !== 6 && date.getDay() !== 5}
-    dateFormat="d MMMM , yyyy h:mm aa"
-    timeIntervals={60}
-    timeFormat="HH:mm"
-    minTime={setHours(setMinutes(new Date(), 0), 8)}
-    maxTime={setHours(setMinutes(new Date(), 30), 22)}
-    showTimeSelect
-    timeCaption="time"
- />
- </div>
-     {wilaya &&(
+     {wilaya &&(<div className="wrap-new-wilaya">
+       <div className="wrap-date-picker">
+   
+       <DatePicker className="date-picker"
+        
+        selected={start}
+        onChange={(date) => {setStart(date) }}
+        placeholderText="seléctionez "
+        dateFormat="Pp"
+        minDate={date} 
+        filterDate={date=>date.getDay() !== 0 && date.getDay() !== 2 && date.getDay() !== 1 && date.getDay() !== 3 && date.getDay() !== 6 && date.getDay() !== 5}
+        dateFormat="d MMMM , yyyy h:mm aa"
+        timeIntervals={60}
+        timeFormat="HH:mm"
+        minTime={setHours(setMinutes(new Date(), 0), 14)}
+        maxTime={setHours(setMinutes(new Date(), 30), 22)}
+        showTimeSelect
+        timeCaption="time"
+     />
+     </div>
     <select  className="select-style" 
      name="commune" value={input.commune} onChange={handelChange}>
      {comAlger.map((option) => (
               <option value={option.value}>{option.label}</option>
             ))} 
 
-     </select>)}
+     </select>
+     </div>)}
 
 
 
-     {wilaya2 && ( <select 
+     {wilaya2 && (<div className="wrap-new-wilaya">
+      <div className="wrap-date-picker">
+     <DatePicker className="date-picker"
+        
+     selected={start}
+     onChange={(date) => {setStart(date) }}
+     placeholderText="seléctionez "
+     dateFormat="Pp"
+     minDate={date} 
+    dateFormat="d MMMM , yyyy h:mm aa"
+     timeIntervals={60}
+     timeFormat="HH:mm"
+     minTime={setHours(setMinutes(new Date(), 0), 14)}
+     maxTime={setHours(setMinutes(new Date(), 30), 22)}
+     showTimeSelect
+     timeCaption="time"
+  />
+  </div>
+     <select 
      className="select-style" 
       name="commune2" value={input.commune2} onChange={handelChange2}>
      <option value="boumerdes 01">boumerdess 01</option>
      <option value="boumerdes 02">boumerdes 02</option>
      <option value="boumerdes 03">boumerdes 03</option>
      <option value="boumerdes 04">boumerdes 04</option>
-     </select>)}
+     </select>
+     </div> 
+     )}
    
     <div className="box-cmd-text"><FaHome/>Adresse amogela</div>
     <div className="btn-box-valid" onClick={handelvalidateLivraison}>Valider</div>

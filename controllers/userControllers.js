@@ -85,10 +85,8 @@ userModel.findOne({email: req.body.email}).exec(async (error, user) => {
   }).then(function (result){return res.status(200).json({result}) })
   
   if(result){
-   
-    
-      console.log("password correct");
-      return res.status(200).json({message:'correct'})
+   console.log("password correct");
+  return res.status(200).json({message:'correct'})
       /*
        
       const token=generateJwtToken(user._id, user.role);
@@ -147,7 +145,7 @@ exports.addToCartUser=(req, res)=>{
   userModel.findOne({ _id: req.user._id }, (err, userInfo) => {
     let duplicate = false;
 
-    console.log(userInfo)
+    //console.log(userInfo)
 
     userInfo.cart.forEach((item) => {
         if (item.id == req.body.cart.id) {
@@ -206,8 +204,7 @@ exports.addToCartUser=(req, res)=>{
 
 exports.getMycartUser=(req,res)=>{
   userModel.findOne({ "_id": req.params._id,}, (err, userInfo) => {
-
-    console.log(userInfo)
+//console.log(userInfo)
 }).then((data) => {
     res.json(data)
   
@@ -232,6 +229,7 @@ exports.getMycartUserprofile=(req,res)=>{
 }
 
 }
+
 exports.addToCartUser2=(req, res)=>{
   userModel.findOne({ _id: req.user._id }, (err, userInfo) => {
     let duplicate = false;
@@ -283,7 +281,7 @@ exports.addToCartUser2=(req, res)=>{
         )
     }
 })
-}
+} 
 
 exports.getMycartUser=(req,res)=>{
   userModel.findOne({ "_id": req.params._id,}, (err, userInfo) => {
@@ -298,23 +296,30 @@ exports.getMycartUser=(req,res)=>{
         err: err,
         message: "une erreur c'est produite",
       });
-    });
+    
+});
+
+
+
 exports.getMycartUserprofile=(req,res)=>{
-  
-
   userModel.findOne({"_id": req.params._id,},function (err,data) {
-    if (err) {
-        err.status = 406;
-        return next(err);
-    }
-   // console.log(data);
-    return res.status(201).json({
-        message: 'success.',data:data
+      if (err) {
+          err.status = 406;
+          return next(err);
+      }
+     // console.log(data);
+      return res.status(201).json({
+          message: 'success.',data:data
+      })
     })
-  })
-}
+  }
+  
+  }
 
-}
+
+
+
+
 //this one removes all documets of this colection
 /*
 exports.Clearcard = function(req, res, next) {
@@ -329,6 +334,7 @@ exports.Clearcard = function(req, res, next) {
 };
 */
 //
+
 exports.Clearcard=function(req,res,next){
   userModel.findOneAndUpdate({ "_id": req.params._id,}, {$set:{cart:[]}}, {new: true}, (err, doc) => {
     if (err) {
@@ -518,3 +524,14 @@ exports.addCommandetoCart=(req, res)=>{
     }
 })
 }
+
+
+
+
+
+
+
+
+
+
+
