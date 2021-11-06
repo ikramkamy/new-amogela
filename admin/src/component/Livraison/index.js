@@ -16,7 +16,7 @@ const [clickcom,setClickcom]=useState([]);
     expensesListResp();
     //console.log('Clique et retiré commandes sont ici')
     //console.log("clickcom", clickcom)
-  },[clickcom]);
+  },[]);
 
     const handelDelete=(elem)=>{
     //alert("vous etes sur que vous voulez supprimer cette commande !")
@@ -29,6 +29,7 @@ const [clickcom,setClickcom]=useState([]);
 
 return(
 <div className="utilisateurs">
+<div className="wrap-data">
  <div className="btn-create">
    
    <div><FaArrowDown className="icon-creat"/>Export</div>
@@ -61,7 +62,7 @@ return(
      cart={e.cart}
      _id={e._id}
   />)}
-
+</div>
  </div>)
 }
 export default Livraison;

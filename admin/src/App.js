@@ -38,9 +38,10 @@ function App() {
 
 <div className="admin-page">
 
-
+<div>
   <img src="/images/logos.jpg" />
   <h1>Page Admin </h1>
+  </div>
 </div>
 
 

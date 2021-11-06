@@ -32,7 +32,7 @@ return(
 <div className="Edit-fields">
 
 <div></div>
-<input placeholder="_ID" name="_id" value={props._id}/>
+{/*<input placeholder="_ID" name="_id" value={props._id}/>*/}
 <input placeholder="Heure de travail" name="text" onChange={handelchange} value={updates.text}/>
 </div>
 <div className="save-btn" onClick={create} ><FaPlus className="icon-save"/>Créer</div>

@@ -19,7 +19,7 @@ const ProduitsStock=(props)=>{
       .then(response =>setProduits(response.data))
    }
     expensesListResp();
-  },[produits]);
+  },[]);
    
     const handelDelete=(e)=>{
      alert("voulez-vous supprimer ce produit?") 
@@ -32,7 +32,8 @@ const ProduitsStock=(props)=>{
 
 
 return(
-<div className="open">
+<div className="utilisateurs">
+<div className="wrap-data">
 <div className="btn-create">
    <div ><FaPlus className="icon-creat" onClick={(()=>setShow1(true))}/>Créer</div>
    <div><FaArrowDown className="icon-creat"/>Export</div>
@@ -57,6 +58,6 @@ show&&(<EditeProduit  _id="" showhendel={(()=>setShow(false))}/>)
 {
  show1&&(<ProduitCreate showhendel1={(()=>setShow1(false))}/>) 
 }
-
+</div>
  </div>)}
 export default ProduitsStock;

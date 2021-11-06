@@ -15,8 +15,8 @@ const Opning=(props)=>{
       .then(response =>setOpen(response.data))
    }
     expensesListResp();
-  });
-    console.log("Heure de travail", open)
+  },[]);
+    //console.log("Heure de travail", open)
     const handelDelete=(user)=>{
     axios.delete(`/api/utilisateurs/${user._id}`,)
       .then()

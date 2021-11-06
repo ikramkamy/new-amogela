@@ -15,7 +15,7 @@ const Gout=(props)=>{
       .then(response =>setGout(response.data))
    }
     expensesListResp();
-  });
+  },[]);
     console.log("Gout", gout)
     const handelDelete=(user)=>{
     axios.delete(`/api/gouts/${user._id}`,)
@@ -24,7 +24,8 @@ const Gout=(props)=>{
 
 
 return(
-<div className="open">
+<div className="utilisateurs">
+<div className="wrap-data">
 <div className="btn-create">
    <div ><FaPlus className="icon-creat" onClick={(()=>setShow1(true))}/>Créer</div>
    <div><FaArrowDown className="icon-creat"/>Export</div>
@@ -44,5 +45,6 @@ return(
 {
     show1&&(<GoutCreate  showhendel1={(()=>setShow1(false))}/>)
 }
+</div>
  </div>)}
 export default Gout;

@@ -12,7 +12,7 @@ const Utilisateurs=(props)=>{
       .then(response =>setUsers(response.data))
    }
     expensesListResp();
-  });
+  },[]);
     console.log("users", users)
     const handelDelete=(user)=>{
     axios.delete(`/api/utilisateurs/${user._id}`,)
@@ -22,6 +22,7 @@ const Utilisateurs=(props)=>{
 
 return(
 <div className="utilisateurs">
+  <div className="wrap-data">
  <div className="btn-create">
    <div ><FaPlus className="icon-creat"/>Créer</div>
    <div><FaArrowDown className="icon-creat"/>Export</div>
@@ -37,7 +38,7 @@ return(
   </div>
     {users?.map((e)=><UserList username={e.username} phone={e.phone}  email={e.email} handelDelete={(()=>handelDelete(e))}/>)}
     
-
+    </div>
  </div>)
 }
 export default Utilisateurs;

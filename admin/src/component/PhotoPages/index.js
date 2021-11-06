@@ -15,7 +15,7 @@ const PhotosPages=(props)=>{
       .then(response =>setPhotos(response.data))
    }
     expensesListResp();
-  });
+  },[]);
     console.log("La liste des photos à modifier", photos)
   
 

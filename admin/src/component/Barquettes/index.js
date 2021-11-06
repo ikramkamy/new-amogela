@@ -17,7 +17,7 @@ const Barquette=(props)=>{
       .then(response =>setBarquette(response.data))
    }
     expensesListResp();
-  },[barquette]);
+  },[]);
     console.log("Barquettes de glaces", barquette)
     const handelDelete=(e)=>{
     axios.delete(`/api/barquettes/${e._id}`,)
@@ -26,7 +26,8 @@ const Barquette=(props)=>{
 
 
 return(
-<div className="open">
+<div className="utilisateurs">
+<div className="wrap-data">
 <div className="btn-create">
    <div ><FaPlus className="icon-creat" onClick={(()=>setShow1(true))}/>Créer</div>
    <div><FaArrowDown className="icon-creat"/>Export</div>
@@ -48,6 +49,6 @@ show&&(<BarquetteEdit _id="" showhendel={(()=>setShow(false))}/>)
 {
  show1&&(<BarquetteCreate  showhendel1={(()=>setShow1(false))}  />) 
 }
-
+</div>
  </div>)}
 export default Barquette;

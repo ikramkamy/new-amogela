@@ -6,12 +6,12 @@ import { useParams } from 'react-router-dom';
 const BarquetteEdit=(props)=>{
     let {_id}=useParams();
   const {showhendel}=props;
-    console.log("ID FROM PARAMS",_id);
+    //console.log("ID FROM PARAMS",_id);
     const[updates,setUpdates]=useState({
         _id:_id,
-        name:"",
-        prix:"",
-        disponible:""
+        name:"Produit",
+        prix:"1 DA",
+        disponible:"oui"
        });
     console.log("UPDATES",updates)
 const handelchange=(event)=>{
