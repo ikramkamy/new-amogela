@@ -24,12 +24,13 @@ onClick={handelshow}/>{showAchat &&(<AchatList product={props.product}
 cart={cart} showhendel={handelshow}/>)}
 </div>
  <div className="item-user" style={{textAlign:"center"}}>{props.commandDate}</div>
+ <div className="item-user" style={{textAlign:"center"}}>{props.commandheur}</div>
  <div className="item-user" style={{textAlign:"center"}}>{props.somme}</div>
-<div className="item-user edite-btn-u"
+{/*<div className="item-user edite-btn-u"
  onClick={props.show}>
 <FaPen className="icon-edit-u"/>
 <Link to={`/Cliqué-et-retiré/${props._id}`}>Edite</Link>
- </div>
+</div>*/}
  <div className="item-user edite-btn"
   onClick={handelDelete}><FaTrash className="icon-edit"/>
   <Link to={`/Cliqué-et-retiré/${props._id}`}>Supprimer</Link> </div>

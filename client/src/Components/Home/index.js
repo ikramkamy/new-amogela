@@ -5,7 +5,7 @@ import Logo from '../../images/logo.png'
 import './home.css'
 import Picture from '../../images/A.jpg'
 import Slideimg from '../../images/B.jpg'
-import Slideimg1 from '../../images/C.jpg'
+//import Slideimg1 from '../..'
 import Slideimg2 from '../../images/D.jpg'
 import Command from '../Command'
 import Footer from '../Footer'
@@ -75,7 +75,7 @@ const [wilaya2,setWilaya2]=useState(false);
 
             <Carousel className="slide">
                 <Carousel.Item className="carousselItem">
-                    <img src={Slideimg1} className="carousselItem" />
+                    <img src="/images/amo1.jpeg" className="carousselItem" />
                 </Carousel.Item >
 
                 <Carousel.Item className="carousselItem">

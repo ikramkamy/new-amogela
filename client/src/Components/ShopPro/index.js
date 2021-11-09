@@ -8,7 +8,15 @@ import ProduitPro from '../Produit/ProduitsPro';
 import axios from 'axios';
 const ShopPro=()=>{
 const [products,setProducts]=useState([]);
-const [barquette,setBarquette]=useState([]);
+const [barquette,setBarquette]=useState([
+  {
+    name:"bac de glace",
+   gout:"Fraise/vanille",
+    img:"/images/bacdeglace.jpg"
+  }
+]);
+
+/*
     useEffect(() => {
         //this to execute oncly once
         axios.get('/api/produitsStock')
@@ -30,6 +38,7 @@ const [barquette,setBarquette]=useState([]);
       })
       
       }, [barquette]);
+      */
     return(<div className="shop-pro">
 <div className="nav-shop" style={{zIndex:"10"}}>
     <Link to="/" className="image-wrapper">
@@ -39,10 +48,10 @@ const [barquette,setBarquette]=useState([]);
         <Mynavbar/>
         <div className="histoire-wrapper">
 <div className="Pagename"> Shop Professionnel</div>
-<div className="shop-items">
+<div className="shop-items-pro">
 
 
-    {barquette?.map((e)=><ProduitPro name={e.name} prix={e.prix} purl={e.img}/>)}
+    {barquette?.map((e)=><ProduitPro name={e.name} prix={e.gout} purl={e.img}/>)}
 </div>
 </div>
 

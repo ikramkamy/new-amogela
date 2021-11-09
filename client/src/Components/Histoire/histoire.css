@@ -50,11 +50,23 @@ font-family:'times-new-roman-italic' ;
     
 }
 .histo-img-size{
-    width: 50%;
+    /*width: 50%;
     height: 50%;
+    */
+    height: 500px;
+    width: 490px;
 }
 .displayNone{
     display: none;
+}
+@media screen  and (max-width: 1320px) {
+    .histo-img-size{
+        /*width: 50%;
+        height: 50%;
+        */
+        height: 400px;
+        width: 415px;
+    }   
 }
 
 @media screen and (max-width :1000px){
@@ -68,6 +80,7 @@ font-family:'times-new-roman-italic' ;
   .histo-img-size{
       width: 70%;
       height: 70%;
+      
   } 
   .histoirs-ceontent{
       display: flex;

@@ -57,7 +57,7 @@ return(
     <div className="Edit-fields">
     
     <div></div>
-    <input placeholder="_ID" name="_id" value={_id}/>
+   
     <input placeholder="Barquettes" name="name" onChange={handelchange} value={updates.name} required={true}/>
     <input placeholder="Prix" name="prix" onChange={handelchange} value={updates.prix} required/>
     <select  onChange={handelchange} value={updates.cathegorie} type="text" name="cathegorie" >
@@ -67,9 +67,9 @@ return(
             <option label="Escimau-biscuit" value="Escimau-biscuit"></option>
   </select>
     <input placeholder="Disponible" name="disponible" onChange={handelchange} value={updates.disponible} required/>
-    <input type="file" placeholder="image" name="img" onChange={handelchange} value={updates.img}/>
+   <input type="file"  className="input-img"  placeholder="image" name="img" onChange={handelchange} value={updates.img}/>
     </div>
-    <div className="save-btn" onClick={update} ><FaSave className="icon-save"  /> save</div>
+    <div className="save-btn" onClick={update} >Enregistrer</div>
      </div>)
      }
 export default EditeProduit;

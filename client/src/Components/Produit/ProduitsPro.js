@@ -17,11 +17,11 @@ const {addproduct,prodID}=props;
     <div className="content-wrapper">
            <div className="info-product">
               <div> {props.name}</div>
-             <div className="price-prod" >Prix: {props.prix}</div> 
+             <div className="price-prod" >Goûts: {props.prix}</div> 
            </div>
         <div className="button-wrapper-pro ">
              <button style={{fontSize:"1.85em"}} variant="contained" color="secondary">
-            <Link to="/Consulting">Plus d'information</Link> 
+            <Link to="/Consulting">Commander</Link> 
              </button>
         </div>
       </div>  

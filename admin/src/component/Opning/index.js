@@ -42,7 +42,7 @@ return(
 </div>
 
 {
-  show&&(<OpenEdit _id={open[0]?._id} showhendel={(()=>setShow(false))}/>)
+show&&(<OpenEdit _id={open[0]?._id} showhendel={(()=>setShow(false))}/>)
 }
 {show1 &&(<OpenCreate showhendel={(()=>setShow1(false))} />)}
  </div>)}

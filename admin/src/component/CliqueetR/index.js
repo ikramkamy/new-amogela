@@ -30,18 +30,20 @@ return(
 <div className="wrap-data">
  <div className="btn-create">
    
-   <div><FaArrowDown className="icon-creat"/>Export</div>
+   <div>
+     <FaArrowDown className="icon-creat"/>Export</div>
  
    </div>
    <h1 className="title-pages-admin"> les commandes Cliqué et Retiré</h1>
   <div className="user_info">
-  <div className="item-user" style={{textAlign:"center"}}>Le cleint</div>      
-  <div className="item-user" style={{textAlign:"center"}}>Télèphone</div>
-  <div className="item-user" style={{textAlign:"center"}}>List d'achat</div>
-  <div className="item-user" style={{textAlign:"center"}}> La date</div>
-  <div className="item-user" style={{textAlign:"center"}}> Montant(DA) </div>
-  <div className="item-user" style={{textAlign:"center"}}>Modifie</div>
-  <div className="item-user" style={{textAlign:"center"}}>Supprimer</div>
+  <div className="item-user  tit" >Le cleint</div>      
+  <div className="item-user tit" style={{textAlign:"center"}}>Télèphone</div>
+  <div className="item-user tit" style={{textAlign:"center"}}>List d'achat</div>
+  <div className="item-user tit" style={{textAlign:"center"}}> La date</div>
+  <div className="item-user tit" style={{textAlign:"center"}}> L'heur</div>
+  <div className="item-user tit" style={{textAlign:"center"}}> Montant(DA) </div>
+  
+  <div className="item-user tit" style={{textAlign:"center"}}>Supprimer</div>
   
   
   </div>
@@ -50,7 +52,8 @@ return(
   {clickcom?.map((e)=><ClickList 
   username={e.user[0].username} list="Voire" 
    phone={e.user[0].phone} 
-   commandDate={e.commandeType[0].commande.date.split(".")[0]}
+   commandDate={e.commandeType[0].commande.date.split("T")[0]}
+   commandheur={e.commandeType[0].commande.date.split("T")[1].split(".")[0]}
      handelDelete={(()=>handelDelete(e))}
      product={e.cart.name}
      somme={e.somme}

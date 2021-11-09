@@ -20,7 +20,7 @@ const Histoire =()=>{
 <div className="text-histoire-wrapper">
 <div className="text-histoire displayFlex">Amogela est le résultat d'une réconversion professionnelle opérée à partir de 2014,aprés plusieurs parcours dans diveres industries.</div> 
 </div>
-<img src="/images/histo1.jpg" className="histo-img-size"/>
+<img src="/images/histof.jpg" className="histo-img-size"/>
 <div className="text-histoire displayNone">Amogela est le résultat d'une réconversion professionnelle opérée à partir de 2014,aprés plusieurs parcours dans diveres industries.</div> 
 </div>
 <div className="histoirs-ceontent">
@@ -33,7 +33,7 @@ const Histoire =()=>{
 <div className="text-histoire-wrapper">
 <div className="text-histoire">A partir de ce moment il  décide d'abandonner l'industrie pour l'artisanat et entreprend plusieurs formations en Italie dans le domaine du Gelato, et fini par créer Amogela.</div> 
 </div>
-<img src="/images/histo2.jpg" className="histo-img-size"/>
+<img src="/images/histos.jpg" className="histo-img-size"/>
 </div>
 </div>
 <div className="choco-btn-wrapper"><button className="choco-btn nohover"><Link to="/Consulting">Consulting </Link></button></div>

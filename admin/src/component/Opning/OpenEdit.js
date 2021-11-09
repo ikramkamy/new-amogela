@@ -34,10 +34,10 @@ return(
 <div className="Edit-fields">
 
 <div></div>
-<input placeholder="_ID" name="_id" value={props._id}/>
 <input placeholder="Heure de travail" name="text" onChange={handelchange} value={updates.text}/>
 </div>
-<div className="save-btn" onClick={update} ><FaSave className="icon-save"/> save</div>
+
+<div className="save-btn" onClick={update} >Enregistrer</div>
  </div>)
 }
 export default OpenEdit;

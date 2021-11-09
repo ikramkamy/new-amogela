@@ -26,15 +26,15 @@ return(
 <div className="utilisateurs">
 <div className="wrap-data">
 <div className="btn-create">
-   <div ><FaPlus className="icon-creat" onClick={(()=>setShow1(true))}/>Créer</div>
+  {/*<div ><FaPlus className="icon-creat" onClick={(()=>setShow1(true))}/>Créer</div>*/}
    <div><FaArrowDown className="icon-creat"/>Export</div>
    </div>
 <div className="tableau">
     
-<div className="item-user ">Nom</div>
-<div className="item-user ">Télèphone</div>
-<div className="item-user text-center">Email</div>
-<div className="item-user text-center">Message</div>
+<div className="item-user tit titf ">Nom</div>
+<div className="item-user  tit titf">Télèphone</div>
+<div className="item-user tit text-center">Email</div>
+<div className="item-user tit text-center">Message</div>
 <div className="item-user "></div>
 <div className="item-user "></div>
 </div>

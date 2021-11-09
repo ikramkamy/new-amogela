@@ -38,18 +38,18 @@ return(
    <div ><FaPlus className="icon-creat" onClick={(()=>setShow1(true))}/>Créer</div>
    <div><FaArrowDown className="icon-creat"/>Export</div>
    </div>
+   <h1 className="title-pages-admin"> Les produits sur stock</h1>
 <div className="tableau">
 
-    <div className="tab-item">Produit</div>
-    <div className="tab-item">Cathégorie</div>
-    <div className="tab-item">prix </div>
-    <div className="tab-item">disponible</div>
-    <div className="tab-item">image</div>
+    <div className="tab-item tit">Produit</div>
+    <div className="tab-item tit">Cathégorie</div>
+    <div className="tab-item tit">prix </div>
+    <div className="tab-item tit">disponible</div>
     <div className="tab-item"> </div>
     <div className="tab-item"> </div>
 </div>
 
-  {produits?.map((e)=><ProduitsList img={e.img} name={e.name} _id={e._id} prix={e.prix} disponible={e.disponible} cathegorie={e.cathegorie}  show={(()=>setShow(true))} handelDelete={()=>handelDelete(e)}/>)}
+  {produits?.map((e)=><ProduitsList  name={e.name} _id={e._id} prix={e.prix} disponible={e.disponible} cathegorie={e.cathegorie}  show={(()=>setShow(true))} handelDelete={()=>handelDelete(e)}/>)}
   
 {
 show&&(<EditeProduit  _id="" showhendel={(()=>setShow(false))}/>)
