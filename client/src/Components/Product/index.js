@@ -170,7 +170,7 @@ useEffect(() => {
       </div>
       <div className="deco-th-style2"> 
       <div className="shop-items">
-{products?.map((e)=><Produitstock purl={e.img} pname={e.name} pprice={e.prix} prodID={e.__id} addproduct={() => addproduct(e)} />)}  
+{products?.map((e)=><Produitstock disponible={e.disponible}  purl={e.img} pname={e.name} pprice={e.prix} prodID={e.__id} addproduct={() => addproduct(e)} />)}  
 
      </div>
   

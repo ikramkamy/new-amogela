@@ -15,6 +15,7 @@ const {addproduct,prodID}=props;
     <div className="content-wrapper">
            <div className="info-product">
               <div> {props.pname}</div>
+              <div> {props.disponible}</div>
              <div className="price-prod" >Prix: {props.pprice}</div> 
            </div>
         <div className="button-wrapper">
