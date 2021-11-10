@@ -29,12 +29,12 @@ padding: 5px;
 }
 .icon-edit{
     color: red;
-    font-size: 1em;
+    font-size: 18px;
 }
 .edite-btn{
-    font-size: 1em;
+    font-size: 18px;
     color: red;
-    
+    display: flex;
 }
 .edite-btn a{
     font-size: 1em;

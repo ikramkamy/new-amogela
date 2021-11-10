@@ -51,13 +51,13 @@ return(
     <div className="Edit-fields">
     
     <div></div>
-    <input placeholder="_ID" name="_id" value={_id}/>
+  
     <input placeholder="Barquettes" name="name" onChange={handelchange} value={updates.name} required={true}/>
     <input placeholder="Prix" name="prix" onChange={handelchange} value={updates.prix} required/>
     <input placeholder="Disponible" name="disponible" onChange={handelchange} value={updates.disponible} required/>
     
     </div>
-    <div className="save-btn" onClick={update} ><FaSave className="icon-save"  /> save</div>
+    <div className="save-btn" onClick={update} >Enregistrer</div>
      </div>)
      }
 export default BarquetteEdit;

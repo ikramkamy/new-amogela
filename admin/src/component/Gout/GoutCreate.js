@@ -50,7 +50,7 @@ const GoutCreate=(props)=>{
   
    <input placeholder="Disponible sur stock?" name="disponible" onChange={handelchange} value={gout.disponible}/>
    </div>
-   <div className="save-btn" onClick={create} ><FaPlus className="icon-save" onClick={props.showhendel1} /> Ajouter</div>
+   <div className="save-btn" onClick={create} >Créer</div>
     </div>)
   
   }

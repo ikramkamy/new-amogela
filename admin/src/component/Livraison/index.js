@@ -37,14 +37,15 @@ return(
    </div>
    <h1 className="title-pages-admin"> les commandes par livraison</h1>
   <div className="user_info">
-  <div className="item-user">Nom</div>      
-  <div className="item-user">Télèphone</div>
-  <div className="item-user">List d'achat</div>
-  <div className="item-user">La date</div>
-  <div className="item-user">Le lieux</div>
-  <div className="item-user"> Montant(DA) </div>
-  <div className="item-user">Modifier</div>
-  <div className="item-user">Supprimer</div>
+  <div className="item-user  tit"style={{textAlign:"center"}}>Nom</div>      
+  <div className="item-user tit" style={{textAlign:"center"}}>Télèphone</div>
+  <div className="item-user tit" style={{textAlign:"center"}}>List d'achat</div>
+  <div className="item-user tit" style={{textAlign:"center"}}>La date</div>
+  <div className="item-user tit" style={{textAlign:"center"}}>L'heur</div>
+  <div className="item-user tit" style={{textAlign:"center"}}>Le lieux</div>
+  <div className="item-user tit" style={{textAlign:"center"}}> Montant(DA) </div>
+  
+  <div className="item-user tit" style={{textAlign:"center"}}>Supprimer</div>
   
   
   </div>
@@ -54,7 +55,8 @@ return(
   username={e.user[0].username} list="Voire" 
    phone={e.user[0].phone} 
    commandLieux={e.commandeType[0].commande.lieux}
-   commandDate={e.commandeType[0].commande.date}
+   commandDate={e.commandeType[0].commande.date.split("T")[0]}
+   commandheur={e.commandeType[0].commande.date.split("T")[1].split(".")[0]}
  email={e.user[0].email} 
      handelDelete={(()=>handelDelete(e))}
      product={e.cart.name}

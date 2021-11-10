@@ -46,11 +46,11 @@ return(
    <div><FaArrowDown className="icon-creat" onClick={generatepdf}/>Export</div>
    </div>
   <div className="user_info">
-  <div className="item-user">Nom utilisateurs</div>      
-  <div className="item-user">Télèphone</div>
+  <div className="item-user tit">Nom utilisateurs</div>      
+  <div className="item-user tit">Télèphone</div>
   
-  <div className="item-user">Email</div>
-  <div className="item-user">supprimer</div>
+  <div className="item-user tit">Email</div>
+  <div className="item-user tit">supprimer</div>
 
 
   </div>

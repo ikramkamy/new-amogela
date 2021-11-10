@@ -77,7 +77,7 @@ return(<div className="signup">
 <label>Email</label>
 <input  type="email"  placeholder="email@gmail.com" onChange={handelChange} value={input.email} name="email"/>
 <label>Télèphone</label>
-<input  type="Number"  placeholder="Numéro de télèphone" onChange={handelChange} value={input.phone} name="phone"/>
+<input  type="Number" maxLength="10" placeholder="Numéro de télèphone" onChange={handelChange} value={input.phone} name="phone"/>
 <label>Password</label>
 <input  type="password"  placeholder="password" onChange={handelChange} value={input.password} name="password" />
 

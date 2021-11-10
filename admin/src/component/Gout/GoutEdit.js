@@ -47,11 +47,11 @@ return(
 <div className="Edit-fields">
 
 <div></div>
-<input placeholder="_ID" name="_id" value={_id}/>
+
 <input placeholder="Gout" name="name" onChange={handelchange} value={updates.name}/>
 <input placeholder="Disponible sur stock?" required name="disponible" onChange={handelchange} value={updates.disponible}/>
 </div>
-<div className="save-btn" onClick={update}><FaSave className="icon-save"/> save</div>
+<div className="save-btn" onClick={update}>save</div>
  </div>)
 }
 export default GoutEdit;

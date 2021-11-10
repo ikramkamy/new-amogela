@@ -45,8 +45,8 @@ return(
     <div className="tab-item tit">Cathégorie</div>
     <div className="tab-item tit">prix </div>
     <div className="tab-item tit">disponible</div>
-    <div className="tab-item"> </div>
-    <div className="tab-item"> </div>
+    <div className="tab-item tit"> </div>
+    <div className="tab-item tit"> </div>
 </div>
 
   {produits?.map((e)=><ProduitsList  name={e.name} _id={e._id} prix={e.prix} disponible={e.disponible} cathegorie={e.cathegorie}  show={(()=>setShow(true))} handelDelete={()=>handelDelete(e)}/>)}

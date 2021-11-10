@@ -34,11 +34,11 @@ return(
    </div>
 <div className="tableau">
     
-    <div className="tab-item">barquette</div>
-    <div className="tab-item">prix</div>
-    <div className="tab-item">disposible</div>
-    <div className="tab-item"> </div>
-    <div className="tab-item"> </div>
+    <div className="tab-item tit">barquette</div>
+    <div className="tab-item  tit">prix</div>
+    <div className="tab-item tit">disposible</div>
+    <div className="tab-item tit"> </div>
+    <div className="tab-item tit"> </div>
 </div>
 {barquette?.map((e)=><BarquetteList name={e.name} _id={e._id} prix={e.prix} disponible={e.disponible} show={(()=>setShow(true))} handelDelete={()=>handelDelete(e)}/>)}
 
