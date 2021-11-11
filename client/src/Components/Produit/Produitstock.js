@@ -10,16 +10,17 @@ const {addproduct,prodID}=props;
     return(<div className="produit-component" id={props.prodID}>
 
 <div className="">
-  
+<div className="disponible-label"  > {props.disponible}</div>
   <img src={props.purl} style={{width:"300px",height:"300px"}}></img></div>
     <div className="content-wrapper">
            <div className="info-product">
               <div> {props.pname}</div>
-              <div> {props.disponible}</div>
+            
              <div className="price-prod" >Prix: {props.pprice}</div> 
            </div>
         <div className="button-wrapper">
-             <button style={{fontSize:"1.85em"}} onClick = {addproduct}   variant="contained" color="secondary">
+             <button disabled={props.bl}   style={{fontSize:"1.85em"}} 
+             onClick = {addproduct}   variant="contained" color="secondary">
              Ajouter
              </button>
         </div>

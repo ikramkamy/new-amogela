@@ -1,5 +1,8 @@
 const produiSSModel=require('../models/ProduitsurstackModel');
 const multer=require('multer');
+
+/*
+the old version of uploading image in product
 const storage = multer.diskStorage({
   //destination for files
   destination: function (request, file, callback) {
@@ -19,8 +22,17 @@ const upload = multer({
     fieldSize: 1024 * 1024 * 3,
   },
 });4
+*/
+const storage = multer.diskStorage({
+  destination : function (req, file, cb) {
+    cb(null, 'uploads')
+  },
+  filename : (req, file, cb) => {
+    cb(null, file.originalname)
+  }
+ })
 
-
+const upload = multer({ storage : storage}).single('file');
 
 exports.addproduit=(req,res)=>{
  

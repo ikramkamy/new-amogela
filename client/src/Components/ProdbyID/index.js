@@ -352,7 +352,7 @@ const{id,getbyID}=props;
                                 <div> <div> 1300 DZD</div> </div>
                             </div>
                         </div>
-                        <div className="products">
+                       {/* <div className="products">
                             <div className="imgProduct"> <div className="imgContainer"> <img src="/images/prod2.png" /> </div>  <div className="productName"> <div> Barquette de glaces 1000g</div> </div></div>
                             <div className="priceButton">
                                 <div> <div> 2500 DZD</div> </div>
@@ -364,7 +364,7 @@ const{id,getbyID}=props;
                                 <div> <div> 1900 DZD</div> </div>
                             </div>
                         </div>
-
+              */}
                         </div>
                         </div>
                         </div>

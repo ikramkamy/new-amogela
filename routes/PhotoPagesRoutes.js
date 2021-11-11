@@ -2,6 +2,8 @@ const express=require('express');
 const router=express.Router();
 const multer = require('multer');
 const Photo=require('../models/PhotoPgages');
+/********************old method ******************* */
+
 const storage = multer.diskStorage({
     destination: function(req, file, cb) {
       cb(null, './uploads/');
@@ -21,8 +23,7 @@ const storage = multer.diskStorage({
 
 
   const upload = multer({storage :storage });
-  
-  
+
 const {postPhoto,getimages}=require('../controllers/PhotoPageControllers');
 
 router.post('/api/photoPages', upload.single('img'), (req, res, next) => {
@@ -57,7 +58,7 @@ router.post('/api/photoPages', upload.single('img'), (req, res, next) => {
   router.get("/:productId", (req, res, next) => {
     const id = req.params.productId;
     Product.findById(id)
-      .select('name price _id productImage')
+      .select('name price _id productImage') 
       .exec()
       .then(doc => {
         console.log("From database", doc);
@@ -82,4 +83,6 @@ router.post('/api/photoPages', upload.single('img'), (req, res, next) => {
   })
 router.get('/api/photoPages',getimages)
 */
+
+
 module.exports = router;

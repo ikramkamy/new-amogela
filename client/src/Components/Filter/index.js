@@ -37,9 +37,9 @@ window.removeEventListener('resize',changeWidth);
         
       <div className="filter-items">
        <div className="filter-item" ><Link to="/shop-barquette">Barquettes de glaces</Link></div>
-       <div className="filter-item"><Link onClick={()=>{}} to="/escimau-biscuit">Escimaux & Biscuits</Link></div>
+       <div className="filter-item"><Link onClick={()=>{}} to="/escimau-biscuit">esquimaux et biscuits</Link></div>
        <div className="filter-item"><Link to="/entremets-glace">Entremet et glaces</Link></div>
-       <div className="filter-item"><Link to="/chocolat-confiserie">Chocolat&Confiserie</Link></div>
+       <div className="filter-item"><Link to="/chocolat-confiserie">Chocolat et Confiserie</Link></div>
 
 
       </div>

@@ -58,7 +58,7 @@ return(
     
     <div></div>
    
-    <input placeholder="Barquettes" name="name" onChange={handelchange} value={updates.name} required={true}/>
+    <input placeholder="Produit" name="name" onChange={handelchange} value={updates.name} required={true}/>
     <input placeholder="Prix" name="prix" onChange={handelchange} value={updates.prix} required/>
     <select  onChange={handelchange} value={updates.cathegorie} type="text" name="cathegorie" >
    <option label="selectioner" value="selectioner"></option>

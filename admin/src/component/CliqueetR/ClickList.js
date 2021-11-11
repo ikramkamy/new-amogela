@@ -4,7 +4,7 @@ import './clique.css';
 import AchatList from './AchatList';
 import {FaPen,FaTrash,FaEye} from "react-icons/fa";
 const ClickList=(props)=>{
-const {handelDelete,cart,_id}=props;
+const {handelDelete,cart,_id,user}=props;
 const[showAchat,setShowAchat]=useState(false);
 
 
@@ -20,8 +20,10 @@ return(
   <div className="item-user">+213{props.phone}</div>
 
  <div className="item-user" style={{textAlign:"center"}}><FaEye className="achat-list-icon"
-onClick={handelshow}/>{showAchat &&(<AchatList product={props.product} 
-cart={cart} showhendel={handelshow}/>)}
+onClick={handelshow}/>
+{showAchat &&(
+<AchatList product={props.product} 
+cart={cart} user={user} showhendel={handelshow}/>)}
 </div>
  <div className="item-user" style={{textAlign:"center"}}>{props.commandDate}</div>
  <div className="item-user" style={{textAlign:"center"}}>{props.commandheur}</div>

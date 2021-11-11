@@ -6,6 +6,8 @@
     flex-direction: column;
     justify-content: space-around;
    margin-bottom: 50px;
+   border: 1px hidden red;
+   position: relative;
 }
 .card-header{
 display: flex;
@@ -103,6 +105,30 @@ justify-content: center;
     
   }
   */
+  .disponible-label{
+      background-color:#c19a5d;
+      color: white;
+      font-weight: 700;
+      width: 25%;
+      border-radius: 20px 20px 20px 20px ;
+      position: absolute;
+      top:20px ;
+      right: 50px;
+      animation-duration: 1s;
+      animation-name:slidein ;
+      animation-iteration-count: infinite;
+  }
+  @keyframes slidein {
+    from {
+   
+    background-color: #c19a5d;
+    }
+  
+    to {
+        
+        background-color: orangered;
+    }
+  }
   @media screen and (max-width: 1200px ){
     .produit-component{
         width: 50%;

@@ -8,7 +8,9 @@ import ProduitsList from './ProduitsList';
 import EditeProduit from './EditeProduit';
 import { useHistory } from 'react-router';
 const ProduitsStock=(props)=>{
-  const [produits,setProduits]=useState([]);
+  const [produits,setProduits]=useState([{
+    
+  }]);
   let {_id}=useParams();
   const [show,setShow]=useState(false);
   const [show1,setShow1]=useState(false);

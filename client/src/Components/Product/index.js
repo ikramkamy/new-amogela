@@ -143,7 +143,7 @@ useEffect(() => {
 /******************************************************************************** */
 /************************************************************************************* */
 
-
+const [bl,setBl]=useState(true);
   return (
     <div className="product" >
   <div className="nav-shop">
@@ -165,12 +165,18 @@ useEffect(() => {
       
 {barquette?.map((e)=>
 
-<Produit  purl={e.img} pname={e.name} pprice={e.prix} prodID={e._id} />)}
+<Produit  disponible={e.disponible} 
+
+
+purl={e.img} pname={e.name} pprice={e.prix} prodID={e._id} />)}
 </div>
       </div>
       <div className="deco-th-style2"> 
       <div className="shop-items">
-{products?.map((e)=><Produitstock disponible={e.disponible}  purl={e.img} pname={e.name} pprice={e.prix} prodID={e.__id} addproduct={() => addproduct(e)} />)}  
+{products?.map((e)=><Produitstock
+
+bl={e.disponible==="non disponible"}
+disponible={e.disponible}  purl={e.img} pname={e.name} pprice={e.prix} prodID={e.__id} addproduct={() => addproduct(e)} />)}  
 
      </div>
   

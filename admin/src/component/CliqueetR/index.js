@@ -51,6 +51,7 @@ return(
     
   {clickcom?.map((e)=><ClickList 
   username={e.user[0].username} list="Voire" 
+ user={e.user}
    phone={e.user[0].phone} 
    commandDate={e.commandeType[0].commande.date.split("T")[0]}
    commandheur={e.commandeType[0].commande.date.split("T")[1].split(".")[0]}

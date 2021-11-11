@@ -7,4 +7,5 @@ router.get('/findbycategorie/:cathegorie',findbycategorie)
 router.get('/getproduitByID/:_id',getproduitByID)
 router.delete('/deleteProduits/:_id',Delete);
 router.post('/updateProduitSS/:_id',updateProduitSS);
+
 module.exports = router;

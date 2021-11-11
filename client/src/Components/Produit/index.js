@@ -30,6 +30,7 @@ const Produit=(props)=>{
 
 return(<div className="produit-component" id={props.prodID}>
 <div className="">
+<div className="disponible-label"> {props.disponible}</div>
 <img src={props.purl} style={{width:"300px",height:"300px"}}></img></div>
 <div className="content-wrapper">
        <div className="info-product">

@@ -52,10 +52,26 @@ return(
     
     <div></div>
   
-    <input placeholder="Barquettes" name="name" onChange={handelchange} value={updates.name} required={true}/>
-    <input placeholder="Prix" name="prix" onChange={handelchange} value={updates.prix} required/>
-    <input placeholder="Disponible" name="disponible" onChange={handelchange} value={updates.disponible} required/>
     
+    
+    <select placeholder="Barquettes" type="text"  name="name" onChange={handelchange} value={updates.name}>
+   <option value="Selectionner">Selectionner</option>
+<option value="Barquettes 500g">Barquettes 500g</option>
+<option value="Barquettes 750g">Barquettes 750g</option>
+<option value="Barquettes 1000g">Barquettes 1000g</option>
+   </select>
+    <input placeholder="Prix" name="prix" onChange={handelchange} value={updates.prix} required/>
+    
+    
+    <select placeholder="Disponible?" type="text"  name="disponible" onChange={handelchange} value={updates.disponible}>
+    <option value="disponible">Selectionner</option>
+   <option value="disponible">disponible</option>
+   <option value="non disponible"> non disponible</option>
+   </select>
+
+
+
+
     </div>
     <div className="save-btn" onClick={update} >Enregistrer</div>
      </div>)

@@ -112,7 +112,7 @@ border: none;
         width: 3000px;
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        justify-content: space-around;
         overflow-x: hidden;
      }
     
@@ -201,7 +201,7 @@ border: none;
         display: flex;
         align-items: center;
         justify-content: center;
-       overflow: hidden;
+        overflow: hidden;
     }
     
     .buttonsControl button {
@@ -212,8 +212,8 @@ border: none;
         border-radius: 50px;
         margin: 5px;
         display: flex;
-    justify-content: center;
-    align-items: center;
+        justify-content: center;
+        align-items: center;
     }
     
     .minusButton{
