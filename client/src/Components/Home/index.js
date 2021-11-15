@@ -10,11 +10,27 @@ import Slideimg2 from '../../images/D.jpg'
 import Command from '../Command'
 import Footer from '../Footer'
 import { Link } from "react-router-dom";
-
+import axios from 'axios';
 export default function Home() {
     useEffect(() => {
         window.scrollTo(0, 0)
       }, [])
+const [photos,setPhotos]=useState([]);
+      useEffect(() => {
+        const expensesListResp = async () => {
+          await axios.get(`/photos-pages`)
+          .then(response =>setPhotos(response.data))
+       }
+        expensesListResp();
+      },[]);
+       
+
+
+
+
+
+
+
  var counter = 0;
 const trans = 300;
 var num = trans * counter;
@@ -75,16 +91,19 @@ const [wilaya2,setWilaya2]=useState(false);
 
             <Carousel className="slide">
                 <Carousel.Item className="carousselItem">
-                    <img src="/images/amo1.jpeg" className="carousselItem" />
+                   {/* <img src="/images/amo1.jpeg" className="carousselItem" />*/}
+                   <div className="dynamic-home"  style={{backgroundImage:`url("http://localhost:3001/uploads/${photos[0]?.name}")`}}></div>
                 </Carousel.Item >
 
                 <Carousel.Item className="carousselItem">
-                    <img src={Slideimg2} className="carousselItem" />
+                   {/* <img src={Slideimg2} className="carousselItem" />*/}
+                    <div className="dynamic-home"  style={{backgroundImage:`url("http://localhost:3001/uploads/${photos[1]?.name}")`}}></div>
                 </Carousel.Item>
 
 
                 <Carousel.Item className="carousselItem" >
-                    <img src={Slideimg} className="carousselItem" />
+                    {/*<img src={Slideimg} className="carousselItem" />*/}
+                    <div className="dynamic-home"  style={{backgroundImage:`url("http://localhost:3001/uploads/${photos[2]?.name}")`}}></div>
                 </Carousel.Item>
             </Carousel>
 

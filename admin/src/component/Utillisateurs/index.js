@@ -45,6 +45,7 @@ return(
    <div ><FaPlus className="icon-creat"/>Créer</div>
    <div><FaArrowDown className="icon-creat" onClick={generatepdf}/>Export</div>
    </div>
+   <h1 className="title-pages-admin"> La liste des inscrits sur le site Amogela</h1>
   <div className="user_info">
   <div className="item-user tit">Nom utilisateurs</div>      
   <div className="item-user tit">Télèphone</div>

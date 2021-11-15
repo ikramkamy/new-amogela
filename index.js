@@ -1,6 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-
+const path=require('path');
 const app = express();
 
 const debug = require("debug")("server")
@@ -81,7 +81,15 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 
+/******utiliser ce dossier pour le stackage*****/
+/*
+app.use(express.static('./public'));
+app.use('/public', express.static('public'));
 
+app.use(express.static(path.join(__dirname, '../public')));
+*/
+
+app.use(express.static('./public'));
 
 app.listen(process.env.PORT,() =>{
 console.log(`server amogela is running on port ${process.env.PORT}`)

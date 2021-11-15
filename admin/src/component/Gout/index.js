@@ -30,6 +30,7 @@ return(
    <div ><FaPlus className="icon-creat" onClick={(()=>setShow1(true))}/>Créer</div>
    <div><FaArrowDown className="icon-creat"/>Export</div>
    </div>
+   <h1 className="title-pages-admin"> la liste des gouts disponibles</h1>
 <div className="tableau">
     
 <div className="item-user">Gout</div>

@@ -6,11 +6,15 @@ const PhotoSchema = new Schema({
   name: {
        type: String, 
        required: true,
-       default:"Home01"
+       
     
     },
   id: {
     type:String
+  },
+  page: {
+    type: String, 
+    
   },
   img:{
      type:String,

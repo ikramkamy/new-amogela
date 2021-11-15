@@ -2,13 +2,15 @@ const express=require('express');
 const router=express.Router();
 const multer = require('multer');
 const Photo=require('../models/PhotoPgages');
+const path=require('path');
+const {postPhoto,getimages,deletephoto}=require('../controllers/PhotoPageControllers');
 /********************old method ******************* */
 
 const storage = multer.diskStorage({
-    destination: function(req, file, cb) {
-      cb(null, './uploads/');
-    },
-    filename: function(req, file, cb) {
+  destination: function (req, file, cb) {
+    cb(null,'./public/uploads');
+},
+   filename: function(req, file, cb) {
       cb(null, file.originalname);
     }
   });
@@ -24,17 +26,18 @@ const storage = multer.diskStorage({
 
   const upload = multer({storage :storage });
 
-const {postPhoto,getimages}=require('../controllers/PhotoPageControllers');
 
-router.post('/api/photoPages', upload.single('img'), (req, res, next) => {
+
+router.post('/api/photoPages', upload.single('img'), (req, res,next) => {
     const photo = new Photo({
       name: req.body.name,
-      img: req.body.img
+      page: req.body.page,
+      img: req.file.path
     });
     photo
       .save()
       .then(result => {
-        console.log(result);
+        console.log("responde frome posting an image",result);
         res.status(201).json({
           message: "Created product successfully",
           photo: {
@@ -54,6 +57,53 @@ router.post('/api/photoPages', upload.single('img'), (req, res, next) => {
         });
       });
   });
+
+
+
+router.post('/update/:_id',upload.single('img'), (req, res,next) => {
+  const photo = new Photo({
+    name: req.body.name,
+    img: req.file.path
+  })
+  Photo.findByIdAndUpdate({_id:req.params._id},{ name: req.body.name})
+
+  
+    /*photo .save() */
+      .then(result => {
+        console.log("responde frome posting an image",result);
+        res.status(201).json({
+          message: "Created product successfully",
+          photo: {
+              name: result.name,
+              
+              request: {
+                  type: 'GET',
+                  url: "http://localhost:3000/photos/" + result._id
+              }
+          }
+        });
+      })
+      .catch(err => {
+        console.log(err);
+        res.status(500).json({
+          error: err
+        });
+      });
+  });
+
+
+router.get('/photos-pages',getimages);
+router.delete("/supprimer/:_id",deletephoto);
+
+
+
+
+
+
+
+
+
+
   /*
   router.get("/:productId", (req, res, next) => {
     const id = req.params.productId;

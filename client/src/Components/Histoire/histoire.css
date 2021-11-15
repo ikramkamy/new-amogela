@@ -56,6 +56,14 @@ font-family:'times-new-roman-italic' ;
     height: 500px;
     width: 490px;
 }
+.dynamic-histoire{
+    height: 500px;
+    width: 490px; 
+    background-size: cover;
+    background-repeat: no-repeat; 
+    background-position-x: center;
+    background-position-y: center;
+}
 .displayNone{
     display: none;
 }

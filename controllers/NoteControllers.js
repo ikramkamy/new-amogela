@@ -46,8 +46,7 @@ exports.getnotes =(req,res)=>{
 }
 
  //#update a note
-
- exports.update= (req, res) => {
+exports.update= (req, res) => {
  console.log("WE ARE UPDATING HORAIRE")
  const _id=req.body.id;
 const text=req.body.text;

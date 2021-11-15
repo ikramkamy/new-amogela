@@ -56,7 +56,15 @@ const handelChange=(event)=>{
     });
     }
 
-
+    const [photos,setPhotos]=useState([]);
+    useEffect(() => {
+      const expensesListResp = async () => {
+        await axios.get(`/photos-pages`)
+        .then(response =>setPhotos(response.data))
+     }
+      expensesListResp();
+    },[]);
+    
 
 return(<div className="consulting">
      <div className="nav-shop" style={{zIndex:"10"}}>
@@ -66,8 +74,9 @@ return(<div className="consulting">
         </div>
 <Mynavbar/>
 <div className="Consulting" >Consulting</div>
-<div className="back-consulting"><img src="/images/12.jpg" className="img-consulting-size"/></div>
-<div className="consult-form" style={{backgroundImage:"/images/15.jpg"}}>
+<div className="back-consulting" style={{backgroundImage:`url("http://localhost:3001/uploads/${photos[14]?.name}")`}}>{/*<img src="/images/12.jpg" className="img-consulting-size"/>*/}</div>
+
+<div className="consult-form" >
 
 <Form className="Form-ui-styling">
 <Form.Group className="mb-3" controlId="formBasicEmail">

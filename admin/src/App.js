@@ -56,6 +56,7 @@ function App() {
 <Route exact path="/gouts" component={Gout}/>
 <Route exact path="/gouts/:_id" component={Gout}/>
 <Route exact path="/photos"  component={ PhotosPages}/>
+<Route exact path="/photos/:_id"  component={ PhotosPages}/>
 <Route exact path="/Cliqué-et-retiré"  component={CliqueetR}/>
 <Route exact path="/Cliqué-et-retiré/:_id"  component={CliqueetR}/>
 <Route exact path="/produits" component={ProduitsStock} />

@@ -32,6 +32,7 @@ return(
    <div ><FaPlus className="icon-creat" onClick={(()=>setShow1(true))}/>Créer</div>
    <div><FaArrowDown className="icon-creat"/>Export</div>
    </div>
+   <h1 className="title-pages-admin"> les barquettes de glaces</h1>
 <div className="tableau">
     
     <div className="tab-item tit">barquette</div>

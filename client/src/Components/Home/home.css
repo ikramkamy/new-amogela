@@ -187,7 +187,14 @@ margin-top: 0px;
     width: 100%;
     height: auto;
 }
-
+.dynamic-home{
+height: 600px;
+width: 100%;
+background-position-y: center;
+background-position-y: center;
+background-size: cover;
+background-repeat: no-repeat;
+}
 @media screen and (max-width : 1337px) {
     /*
     .Command{
