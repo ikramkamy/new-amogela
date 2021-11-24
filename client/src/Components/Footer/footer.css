@@ -183,10 +183,18 @@ text-decoration: none;
      align-items: center;
  }
  .map-size{
-     width: 400px;
+     width: 350px;
      height: 150px;
  }
- 
+ .btn-footer{
+     
+     width: 50%;
+ }
+ .btn-footer button{
+     width: 100%;
+     font-size: 1.9em;
+     height: 50px;
+ }
  @media screen and (max-width : 1036px) {
     .footerContact,  .footerContainer{
         height: auto;

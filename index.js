@@ -25,7 +25,9 @@ const GoutRoutes=require('./routes/GoutRoutes');
 const PhotoRoutes=require('./routes/PhotoPagesRoutes');
 const ConsultRoutes=require('./routes/ConsultRoutes');
 const contentrangeHook = require("./hooks/contentrangeHook");
+const DestinationRoutes=require("./routes/DestinationRoutes");
 const { countDocuments } = require("./models/userModel");
+
 app.use(bodyParser.json())
 
 
@@ -67,6 +69,7 @@ app.use(NoteRoutes);
 app.use(GoutRoutes);
 app.use(PhotoRoutes);
 app.use(ConsultRoutes);
+app.use(DestinationRoutes);
 env.config();
 
 

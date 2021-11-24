@@ -23,15 +23,7 @@ const [photos,setPhotos]=useState([]);
        }
         expensesListResp();
       },[]);
-       
-
-
-
-
-
-
-
- var counter = 0;
+var counter = 0;
 const trans = 300;
 var num = trans * counter;
 const[show,setShow]=useState(true);

@@ -14,9 +14,11 @@ const Consulting=()=>{
   }, [])
   const [input,setInput]=useState({
     name:"",
+    fname:"",
     email:"",
     text:"",
     phone:"",
+    entreprise:""
 
 })
 const handelChange=(event)=>{
@@ -36,9 +38,11 @@ const handelChange=(event)=>{
     console.log("we are posting ")
     const newuser={
         name:input.name,
+        fname:input.fname,
         email:input.email,
         text:input.text,
         phone:input.phone,
+        entreprise:input.entreprise
     }
     console.log(newuser);
     axios.post(`/consult`,newuser)
@@ -47,9 +51,11 @@ const handelChange=(event)=>{
      alert("votre message a étè transmis, attendez un appel de la part de l'admin")
      setInput({
       name:"",
+      fname:"",
       email:"",
       text:"",
       phone:"",
+      entreprise:""
      })
     }).catch(error => {
       console.log("the raison of failure", error) 
@@ -79,36 +85,57 @@ return(<div className="consulting">
 <div className="consult-form" >
 
 <Form className="Form-ui-styling">
+  <div className="wrap-first">
 <Form.Group className="mb-3" controlId="formBasicEmail">
-    <Form.Label style={{color:"white"}}>Nom et prénom</Form.Label>
+    <Form.Label style={{color:"white"}}>Nom </Form.Label>
     <Form.Control type="text" placeholder="Nom" name="name" onChange={handelChange} value={input.name}/>
-    <Form.Text className="text-muted">
-    </Form.Text>
+   
+  </Form.Group>
+  <Form.Group className="mb-3" controlId="formBasicEmail">
+    <Form.Label style={{color:"white"}}>Prénom</Form.Label>
+    <Form.Control type="text" placeholder="Prénom" name="fname" onChange={handelChange} value={input.fname}/>
+   
+  </Form.Group>
+  
+  </div>
+  <div className="wrap-first">
+  <Form.Group className="mb-3 " controlId="formBasicEmail">
+    <Form.Label style={{color:"white"}}>Email address</Form.Label>
+    <Form.Control  type="email" placeholder="Enter email" name="email" onChange={handelChange} value={input.email} />
+    
   </Form.Group>
   <Form.Group className="mb-3" controlId="formBasicEmail">
     <Form.Label style={{color:"white"}}>Numéro de télèphone:</Form.Label>
-    <Form.Control type="Number" placeholder="Numéro de télèphone" name="phone" onChange={handelChange} value={input.phone}/>
-    <Form.Text className="text-muted">
-    </Form.Text>
+    <Form.Control  min="0" className="phone" type="Number" placeholder="Numéro de télèphone" name="phone" onChange={handelChange} value={input.phone}/>
+    
   </Form.Group>
-  <Form.Group className="mb-3" controlId="formBasicEmail">
-    <Form.Label style={{color:"white"}}>Email address</Form.Label>
-    <Form.Control type="email" placeholder="Enter email" name="email" onChange={handelChange} value={input.email} />
-    <Form.Text className="text-muted">
-    </Form.Text>
-  </Form.Group>
-
+  </div>
+  <div className="wrap-first">
   <Form.Group className="mb-3">
-    <Form.Label style={{color:"white"}}>message</Form.Label>
-    <textarea className="message"  placeholder="Ecrivez votre message .."  name="text" onChange={handelChange} value={input.text}/>
+    <Form.Label style={{color:"white"}}>Entreprise</Form.Label>
+    <Form.Control  placeholder="Entreprise"  name="entreprise" onChange={handelChange} value={input.entreprise}/>
+    <Form.Text className="">
+    </Form.Text>
+  </Form.Group>
+  <Form.Group className="mb-3">
+    <Form.Label style={{color:"white"}}></Form.Label>
+   
     <Form.Text className="">
     </Form.Text>
   </Form.Group>
   
+  </div>
+  <Form.Group className="mb-3">
+    <Form.Label style={{color:"white"}}>message</Form.Label>
+    <textarea className="message"  placeholder="Ecrivez votre message.."  name="text" onChange={handelChange} value={input.text}/>
+    <Form.Text className="">
+    </Form.Text>
+  </Form.Group>
   
-  <button variant="primary" type="submit" onClick={handelClick}>
+ <div className="wrap-consult-btn"><div className="consult-btn" onClick={handelClick}>
     Submit
-  </button>
+  </div>
+  </div> 
 </Form>
 
 <div className="image-consult" style={{backgroundImage:"/images/15.jpg"}}></div>

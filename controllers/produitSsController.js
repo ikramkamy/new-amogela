@@ -38,7 +38,7 @@ exports.addproduit=(req,res)=>{
  
 
 const produit=new  produiSSModel({
-     name:req.body.name,
+    name:req.body.name,
     quantite:req.body.quantite,
     gout:req.body.gout,
     prix:req.body.prix,
@@ -92,17 +92,15 @@ exports.findbycategorie=(req,res)=>{
 
 }
 
-exports.getproduitByID=(req,res)=>{
-  console.log("WEAREHEREINGET COMMAND BY ID")
+exports.getproduitByID=(req,res,next)=>{
+  //console.log("WEAREHEREINGET COMMAND BY ID")
 produiSSModel.findOne({"_id": req.params._id,},function (err,data) {
     if (err) {
         err.status = 406;
         return next(err);
     }
     console.log(data);
-    return res.status(201).json({
-        message: 'success.',data:data
-    })
+    return res.status(201).json(data)
   })
 }
 

@@ -8,10 +8,10 @@ exports.create =  (req, res) => {
    const consult=new  Consult ({
     text:req.body.text,
     name:req.body.name,
+    fname:req.body.fname,
+    entreprise:req.body.entreprise,
     phone:req.body.phone,
     email:req.body.email,
-  
-  
 });
 consult.save((error, consult)=>{
    if (error) {
@@ -22,18 +22,20 @@ consult.save((error, consult)=>{
      }
      if (consult) {
        
-       const {text,name,phone,email} = consult;
+       const {text,name,phone,email,entreprise,fname} = consult;
        return res.status(201).json({
          
-         note: {text,name,phone,email},
+         note: {text,name,fname,phone,email,entreprise},
        });
      } 
 })
 }
 exports.getConsulting =(req,res)=>{
 Consult .find().then((data) => {
+  /*
 res.header('Access-Control-Expose-Headers', 'Content-Range')
 res.header("Content-Range", `notes 1-9/9`);
+*/
   res.json(data)
   console.log("FETCH SUCCED")
   })

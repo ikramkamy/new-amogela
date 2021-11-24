@@ -3,15 +3,13 @@ const ProduitsurStockSchema =new mongoose.Schema(
     {
 name:{
     type:String,
-   
-
-},
+   },
 quantite: {
     type:Number,
     
 },
 gout: {
-    type:Object,
+    type:String,
     
 },
 prix:{
@@ -19,15 +17,19 @@ type:String,
 },
 img: { 
     type:String,
-    default:'/images/prod10.png',
+
  },
  cathegorie: {
      
     type:String,
 },
+pathname: {
+     
+    type:String,
+},
 disponible:{
     type:String,
-    default:'oui',
+    default:'disponible',
 }
 
 

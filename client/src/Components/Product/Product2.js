@@ -80,7 +80,10 @@ const [barquette,setBarquette]=useState([]);
       <div className="deco-th-style">
       <div className="shop-items">
       
-{barquette?.map((e)=><Produit disponible={e.disponible} purl={e.img} pname={e.name} pprice={e.prix} prodID={e.__id}  />)}
+{barquette?.map((e)=><Produit 
+dis={e.disponible==="non disponible"}
+img={e.img}
+disponible={e.disponible} purl={e.img} pname={e.name} pprice={e.prix} prodID={e.__id}  />)}
 
 </div>
       </div>
@@ -192,7 +195,11 @@ useEffect(()=>{
    <div className="deco-th-style">
     <div className="shop-items">
     
-{products?.map((e)=><Produitstock bl={e.disponible==="non disponible"} disponible={e.disponible} purl={e.img} pname={e.name} pprice={e.prix} prodID={e.__id} addproduct={() => handelClick(e)} />)}
+{products?.map((e)=><Produitstock 
+dis={e.disponible==="non disponible"}
+bl={e.disponible==="non disponible"} 
+img={e.img}
+disponible={e.disponible} purl={e.img} pname={e.name} pprice={e.prix} prodID={e.__id} addproduct={() => handelClick(e)} />)}
 {isOpen &&
 
 (<div class="modal-side-shop">
@@ -308,7 +315,10 @@ const handelClick=(product)=>{
    <div className="deco-th-style">
     <div className="shop-items">
     
-{products4?.map((e)=><Produitstock bl={e.disponible==="non disponible"} disponible={e.disponible} purl={e.img} pname={e.name} pprice={e.prix} prodID={e.__id} addproduct={() => handelClick(e)}/>)}
+{products4?.map((e)=><Produitstock 
+dis={e.disponible==="non disponible"}
+img={e.img}
+bl={e.disponible==="non disponible"} disponible={e.disponible} purl={e.img} pname={e.name} pprice={e.prix} prodID={e.__id} addproduct={() => handelClick(e)}/>)}
 
 </div>
     </div>
@@ -425,7 +435,11 @@ useEffect(()=>{
    <div className="deco-th-style">
     <div className="shop-items">
     
-{products5?.map((e)=><Produitstock bl={e.disponible==="non disponible"} disponible={e.disponible} addproduct={() => handelClick(e)} purl={e.img} pname={e.name} pprice={e.prix} prodID={e.__id}  />)}
+{products5?.map((e)=><Produitstock
+dis={e.disponible==="non disponible"}
+ bl={e.disponible==="non disponible"} 
+ img={e.img}
+ disponible={e.disponible} addproduct={() => handelClick(e)} purl={e.img} pname={e.name} pprice={e.prix} prodID={e.__id}  />)}
 
 </div>
     </div>

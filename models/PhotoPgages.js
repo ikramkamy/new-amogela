@@ -6,9 +6,7 @@ const PhotoSchema = new Schema({
   name: {
        type: String, 
        required: true,
-       
-    
-    },
+        },
   id: {
     type:String
   },

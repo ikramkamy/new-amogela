@@ -29,7 +29,7 @@ default:'Barquette',
      },
      disponible:{
          type:String,
-         default:'oui',
+         default:'disponible',
      }
  
 

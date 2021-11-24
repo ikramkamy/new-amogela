@@ -8,9 +8,7 @@ import ProduitsList from './ProduitsList';
 import EditeProduit from './EditeProduit';
 import { useHistory } from 'react-router';
 const ProduitsStock=(props)=>{
-  const [produits,setProduits]=useState([{
-    
-  }]);
+  const [produits,setProduits]=useState([]);
   let {_id}=useParams();
   const [show,setShow]=useState(false);
   const [show1,setShow1]=useState(false);
@@ -21,7 +19,7 @@ const ProduitsStock=(props)=>{
       .then(response =>setProduits(response.data))
    }
     expensesListResp();
-  },[]);
+  },[produits]);
    
     const handelDelete=(e)=>{
      alert("voulez-vous supprimer ce produit?") 
@@ -46,19 +44,26 @@ return(
     <div className="tab-item tit">Produit</div>
     <div className="tab-item tit">Cathégorie</div>
     <div className="tab-item tit">prix </div>
+    <div className="tab-item tit">Photo</div>
     <div className="tab-item tit">disponible</div>
     <div className="tab-item tit"> </div>
     <div className="tab-item tit"> </div>
 </div>
 
-  {produits?.map((e)=><ProduitsList  name={e.name} _id={e._id} prix={e.prix} disponible={e.disponible} cathegorie={e.cathegorie}  show={(()=>setShow(true))} handelDelete={()=>handelDelete(e)}/>)}
+  {produits?.map((e)=><ProduitsList 
+  img={e.img} name={e.name} 
+  pname={e.pname}
+  _id={e._id} prix={e.prix} 
+  disponible={e.disponible} 
+  cathegorie={e.cathegorie}  
+  show={(()=>setShow(true))} handelDelete={()=>handelDelete(e)}/>)}
   
 {
 show&&(<EditeProduit  _id="" showhendel={(()=>setShow(false))}/>)
   
 }
 {
- show1&&(<ProduitCreate showhendel1={(()=>setShow1(false))}/>) 
+ show1&&(<ProduitCreate  showhendel1={(()=>setShow1(false))}/>) 
 }
 </div>
  </div>)}

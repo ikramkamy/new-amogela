@@ -44,10 +44,27 @@
 .achat-elem{
     border-bottom: 1px solid lightgrey;
     width: 100%;
-    height:50px;
+   
+   /* margin-top: 20px;
+    margin-bottom: 20px;*/
+    max-height: max-content;
     display: flex;
     justify-content: left;
 }
 .gout-style{
     font-size: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.achat-ajuster{
+   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:150px;
+}
+.gout-ajuster{
+    border: 1px hidden blue;
+    width: 100%;
 }

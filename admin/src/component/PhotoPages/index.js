@@ -16,7 +16,7 @@ const [show2,setShow2]=useState(false);
       .then(response =>setPhotos(response.data))
    }
     expensesListResp();
-  },[]);
+  },[photos]);
     console.log("La liste des photos à modifier", photos)
   
 

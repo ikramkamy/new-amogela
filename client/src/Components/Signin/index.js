@@ -70,7 +70,7 @@ setInput(
    password:""}
  )
 if(token!==null){
-  history.push("/")
+  history.push("/shop")
   setInput(
    { email:"",
     password:""}

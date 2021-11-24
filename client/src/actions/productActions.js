@@ -22,13 +22,13 @@ console.log("token",response.data.token)
  const history = useHistory();
  //history.push(`/shop`);
  //setLoginout("logout")
-
+// 8 sécembre 18:00 
 
 }).catch(error => {
-
-  /*history.push('/signin');
-  alert("check you if you are signed up ")
-  */
+/*
+history.push('/signin');
+alert("check you if you are signed up ")
+*/
 });
 
 return {

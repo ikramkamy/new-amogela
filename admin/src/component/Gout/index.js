@@ -15,8 +15,8 @@ const Gout=(props)=>{
       .then(response =>setGout(response.data))
    }
     expensesListResp();
-  },[]);
-    console.log("Gout", gout)
+  },[gout]);
+    //console.log("Gout", gout)
     const handelDelete=(user)=>{
     axios.delete(`/api/gouts/${user._id}`,)
       .then()

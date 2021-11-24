@@ -73,7 +73,7 @@ const [option,setOption]=useState([]);
                                 <div className="newsletter">
                                     <h5> NEWSLETTER</h5>
                                     <input type="text"  placeholder="Entrez email" /> 
-                                    <div> <button> <b>Envoyer</b> </button></div>
+                                    <div className="btn-footer"> <button > Envoyer </button></div>
                                 </div>
 
                                 <div className="socialMedia">

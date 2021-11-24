@@ -14,6 +14,7 @@ import { Link } from 'react-router-dom';
 import Signin from '../Signin';
 import ShopinCart from "../Shopingcart";
 import {getuser} from '../../actions/productActions';
+
 const Product = (props) => {
   const history = useHistory();
   const [barquette,setBarquette]=useState([]);
@@ -92,6 +93,18 @@ axios.post("/addToCartUser",cartItems, { headers: {"Authorization" : `Bearer ${t
 });
 }
 }
+/*********************************DYNAMIC CLASS FOR disponible**************************** */
+const [dynamicclass,setDynamicclass]=useState("")
+const changeclass=(e)=> {
+if(bl==true){
+  /*setDynamicclass("disponible-label")*/
+
+}  
+ if(bl==false) {
+  console.log("props for disabled",bl)
+  /*setDynamicclass("disponible-label-2")*/
+}
+}
 
 useEffect(() => {
   //this to execute oncly once
@@ -99,7 +112,7 @@ useEffect(() => {
 .then(res => {
   const data=res.data;
   setProducts (data);
-
+  
 }) 
 .catch(function (error) {
     console.log(error);
@@ -114,6 +127,8 @@ axios.get('/api/Barquettes')
 })
 
 }, []);
+
+
 /**********************************Geting the cart to bring the length************************** */
 const user_id=localStorage.getItem('user_id');
 const[usercart,setUsercart]=useState([]);
@@ -159,26 +174,31 @@ const [bl,setBl]=useState(true);
        
 <Mynavbar/>  
 <Filter />
- 
-     <div className="deco-th-style">
-      <div className="shop-items">
+ <div className="deco-th-style">
+  <div className="shop-items">
       
 {barquette?.map((e)=>
 
 <Produit  disponible={e.disponible} 
-
-
-purl={e.img} pname={e.name} pprice={e.prix} prodID={e._id} />)}
+dynamicclass={()=>dynamicclass(e)}
+dis={e.disponible==="non disponible"}
+purl={e.img} pname={e.name} pprice={e.prix} prodID={e._id} img={e.img}/>)}
 </div>
       </div>
       <div className="deco-th-style2"> 
       <div className="shop-items">
-{products?.map((e)=><Produitstock
+     
+{products?.map((e)=>
+
+<Produitstock
 
 bl={e.disponible==="non disponible"}
-disponible={e.disponible}  purl={e.img} pname={e.name} pprice={e.prix} prodID={e.__id} addproduct={() => addproduct(e)} />)}  
+dis={e.disponible==="non disponible"}
+dynamicclass={()=>changeclass(e)}
 
-     </div>
+disponible={e.disponible} 
+ purl={e.img} pname={e.name} img={e.img} pprice={e.prix} prodID={e.__id} addproduct={() => addproduct(e)} />)}  
+</div>
   
 {isOpen &&
 

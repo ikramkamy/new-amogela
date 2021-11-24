@@ -5,7 +5,8 @@ import './produits.css';
 
 
 const ProduitCreate=(props)=>{
-
+  const[files,setFiles]=useState([]);
+  const [formData, setFormData] = useState('');
   const {showhendel1}=props;
     const [produits,setProduits]=useState(
       {  name:"",
@@ -13,14 +14,31 @@ const ProduitCreate=(props)=>{
         disponible:"",
         prix:"",
         cathegorie:"",
+        pname:"",
         img:"",
       }
 );
+// Upload image
+const upload = ({ target: { files } }) => {
+  
+  let data = new FormData();
+  data.append('img', files[0]);
+  data.append('pname', files[0].name);
+  data.append('name',produits.name);
+  data.append('cathegorie',produits.cathegorie);
+  data.append('disponible',produits.disponible);
+  data.append('prix', produits.prix);
+  setFormData(data);
+ 
+};
+console.log("image name",produits.pname);
+console.log("form data",formData);
     const create=()=>{
-        
+      console.log("form data",formData);
+     
         const expensesListResp = async () => {
-          await axios.post(`/addproduits`,produits)
-          .then(response =>setProduits(response.data))
+          await axios.post(`/addproduits`,formData)
+          .then(response =>console.log("response ",response))
        }
         expensesListResp();
         showhendel1();
@@ -55,8 +73,17 @@ const ProduitCreate=(props)=>{
   </select>
  
    <input placeholder="Prix" name="prix" onChange={handelchange} value={produits.prix}/>
-   <input placeholder="Disponible sur stock?" name="disponible" onChange={handelchange} value={produits.disponible}/>
-   <input type="file"   className="input-img" placeholder="image" name="img" onChange={handelchange} value={produits.img}/>
+   
+   
+   <select  onChange={handelchange} value={produits.disponible} type="text" name="disponible"s >
+    <option label="selectioner" value="selectioner"></option>
+            <option label="disponible" value="disponible"></option>
+            <option label="non disponible" value="non disponible"></option>
+   </select>
+   
+   <input type="file" 
+     className="input-img" placeholder="image" 
+     name="pimg" onChange={upload} />
    
    </div>
    <div className="save-btn" onClick={create} > Créer</div>

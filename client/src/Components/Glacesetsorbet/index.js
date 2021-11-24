@@ -74,7 +74,7 @@ return(<div className="glaces">
  </div>
  
  </div>
- <div className="choco-btn-wrapper"><button className="choco-btn nohover"><Link to="/shop">Shop </Link></button></div>
+ <div className="choco-btn-wrapper"><div className="choco-btn nohover"><Link to="/shop">Shop </Link></div></div>
  <Footer/>
 </div>)
 

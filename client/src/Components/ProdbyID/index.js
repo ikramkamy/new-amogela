@@ -100,8 +100,7 @@ const{id,getbyID}=props;
         });
       };
       const addproduct=(product)=>{
-
-        if(token===null){
+if(token===null){
           const modal = document.querySelector(".modal")
             const closeBtn3 = document.querySelector(".close3")
             modal.style.display = "block";
@@ -352,10 +351,11 @@ const{id,getbyID}=props;
                                 <div> <div> 1300 DZD</div> </div>
                             </div>
                         </div>
-                       {/* <div className="products">
-                            <div className="imgProduct"> <div className="imgContainer"> <img src="/images/prod2.png" /> </div>  <div className="productName"> <div> Barquette de glaces 1000g</div> </div></div>
-                            <div className="priceButton">
-                                <div> <div> 2500 DZD</div> </div>
+                       {/*
+                       <div className="products">
+                       <div className="imgProduct"> <div className="imgContainer"> <img src="/images/prod2.png" /> </div>  <div className="productName"> <div> Barquette de glaces 1000g</div> </div></div>
+                       <div className="priceButton">
+                       <div><div>2500 DZD</div></div>
                             </div>
                         </div>
                         <div className="products">

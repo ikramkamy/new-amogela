@@ -14,7 +14,7 @@ const storage = multer.diskStorage({
       cb(null, file.originalname);
     }
   });
-  const fileFilter = (req, file, cb) => {
+const fileFilter = (req, file, cb) => {
     // reject a file
     if (file.mimetype === 'image/jpeg' || file.mimetype === 'image/png') {
       cb(null, true);
@@ -22,11 +22,31 @@ const storage = multer.diskStorage({
       cb(null, false);
     }
   };  
+// Check File Type
+function checkFileType(file, cb){
+  // Allowed ext
+  const filetypes = /jpeg|jpg|png|gif/;
+  // Check ext
+  const extname = filetypes.test(path.extname(file.originalname).toLowerCase());
+  // Check mime
+  const mimetype = filetypes.test(file.mimetype);
 
+  if(mimetype && extname){
+    return cb(null,true);
+  } else {
+    cb('Error: Images Only!');
+  }
+}
 
-  const upload = multer({storage :storage });
+  const upload = multer({storage :storage, fileFilter:fileFilter,});
 
-
+/**  fileFilter: function (req, file, callback) {
+      var ext = path.extname(file.originalname);
+      if(ext !== '.png' && ext !== '.jpg' && ext !== '.gif' && ext !== '.jpeg') {
+          return callback(new Error('Only images are allowed'))
+      }
+      callback(null, true)
+  }, */
 
 router.post('/api/photoPages', upload.single('img'), (req, res,next) => {
     const photo = new Photo({

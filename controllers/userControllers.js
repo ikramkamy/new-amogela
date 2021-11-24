@@ -58,8 +58,10 @@ exports.signup = (req, res) => {
   }
   exports.getallusers=(req,res)=>{
       userModel.find().then((data) => {
+        /*
         res.header('Access-Control-Expose-Headers', 'Content-Range')
         res.header("Content-Range", `simple_users 1-9/9`);
+        */
       res.json(data)
       })
       .catch((err) => {
@@ -237,7 +239,7 @@ exports.addToCartUser2=(req, res)=>{
     console.log(userInfo)
 
     userInfo.cart.forEach((item) => {
-        if (item.id == req.body.cart.id && item.gout1==req.body.cart.gout1 && item.gout2==req.body.cart.gout2 && item.gout3==req.body.cart.gout3 && item.gout4==req.body.cart.gout4) {
+        if (item.id == req.body.cart.id && item.gout1==req.body.cart.gout1 && item.gout2==req.body.cart.gout2 && item.gout3==req.body.cart.gout3 && item.gout4==req.body.cart.gout4  && item.gout5==req.body.cart.gout5  && item.gout6==req.body.cart.gout6 ) {
             duplicate = true;
         }
     })
@@ -267,7 +269,8 @@ exports.addToCartUser2=(req, res)=>{
 	                      gout2:req.body.cart.gout2,
 	                      gout3:req.body.cart.gout3,
 	                      gout4:req.body.cart.gout4,
-	                     
+                        gout5:req.body.cart.gout5,
+                        gout6:req.body.cart.gout6,
                        quantity: 1,
                         date: Date.now()
                     }

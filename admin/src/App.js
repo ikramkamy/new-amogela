@@ -1,6 +1,6 @@
 
 import './App.css';
-import {FaIceCream,FaGlasses,FaJediOrder,FaCube,FaProductHunt,FaTasks,FaImage,FaClock,FaUser} from "react-icons/fa";
+import {FaIceCream,FaGlasses,FaJediOrder,FaCube,FaProductHunt,FaTasks,FaImage,FaClock,FaUser, FaRoad} from "react-icons/fa";
 import {BrowserRouter as Router,Switch, Route, useParams } from "react-router-dom"
 import { Link } from "react-router-dom";
 import Utilisateurs from './component/Utillisateurs';
@@ -12,6 +12,8 @@ import CliqueetR from './component/CliqueetR';
 import Livraison from './component/Livraison';
 import ProduitsStock from './component/ProduitsStock';
 import Consult from './component/Consult';
+import Destination from './component/Destination';
+import Destination2 from './component/Destination/Destionation2';
 function App() {
   return (
     <div className="App">
@@ -24,12 +26,14 @@ function App() {
 <div className="side-elem"><FaProductHunt className="icon-side"/><Link to="/produits">Produits sur stock</Link></div>
 <div className="side-elem"><FaCube className="icon-side"/><Link  to="/barquettes">Barquettes</Link></div>
 <div className="side-elem"><FaIceCream className="icon-side"/><Link to="/gouts">Gouts</Link></div>
+<div className="side-elem"><FaRoad className="icon-side"/><Link to="/destination">Destination Alger</Link></div>
+<div className="side-elem"><FaRoad className="icon-side"/><Link to="/destination2">Destination Boumerdes</Link></div>
 <div className="side-elem"><FaJediOrder className="icon-side"/><Link to="/Cliqué-et-retiré" >Cliqué et Retiré</Link></div>
 <div className="side-elem"><FaTasks className="icon-side"/><Link to="/livraison">Cammande Livraison</Link></div>
 <div className="side-elem"><FaGlasses className="icon-side"/><Link to="/commandeProfessionnelles">Cammande Proffesionnelles</Link></div>
 <div className="side-elem"><FaImage className="icon-side"/><Link to="/photos">Photos pages</Link></div>
 <div className="side-elem"><FaClock className="icon-side"/><Link  to="/heure">Les heurs de travail</Link></div>
-<div className="side-elem"><FaClock className="icon-side"/><Link  to="/">Consulting</Link></div>
+<div className="side-elem"><FaClock className="icon-side"/><Link  to="/commandeProfessionnelles">Consulting</Link></div>
 </div>
 </div>
 
@@ -64,6 +68,10 @@ function App() {
 <Route exact path="/Livraison" component={Livraison}/>
 <Route exact path="/Livraison/:type" component={Livraison}/>
 <Route exact path="/commandeProfessionnelles" component={Consult}/>
+<Route exact path="/destination" component={Destination}/>
+<Route exact path="/destination/:_id" component={Destination}/>
+<Route exact path="/destination2" component={Destination2}/>
+<Route exact path="/destination2/:_id" component={Destination2}/>
 </Switch>
 </Router>
 

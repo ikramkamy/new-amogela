@@ -126,9 +126,7 @@ alert("Vous n'aves pas préciser le type de votre commande (Emporté ou livraiso
 history.push('/typedecommande')
 }else if(usercart.commandeType===undefined){
   alert("il faut signin d'abord !!!")
-}
-
-  }
+}}
 
 /*************************************adding quntity************************** */
 const addproduct=(product)=>{
@@ -164,6 +162,10 @@ const addproduct=(product)=>{
   
   }
 /********************************POP-UP***************************/
+const [tarifvar,setTarifvar]=useState({commande: {
+command:""
+
+}});
 useEffect(()=>{
   let n=0;
   mycart?.map((e)=>n=n+ parseInt(e.prix?.split(" ")[0])*e.quantity)

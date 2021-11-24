@@ -4,10 +4,13 @@ import LivraisonList from './LivraisonList';
 import axios from 'axios';
 import {FaArrowDown, FaPlus} from "react-icons/fa";
 import { useParams,useHistory } from 'react-router-dom';
+import Pagination2 from './Pagination';
 import './livraison.css';
 const Livraison=(props)=>{
 const [clickcom,setClickcom]=useState([]);
   let {_id}=useParams();
+  const [currentPage,setCurrentPage]=useState(1);
+  const [dataperpage,setDataperpage]=useState (20);
   useEffect(() => {
     const expensesListResp = async () => {
       await axios.get("/getcommandeByType/Livraison")
@@ -16,7 +19,7 @@ const [clickcom,setClickcom]=useState([]);
     expensesListResp();
     //console.log('Clique et retiré commandes sont ici')
     //console.log("clickcom", clickcom)
-  },[]);
+  },[clickcom]);
 
     const handelDelete=(elem)=>{
     //alert("vous etes sur que vous voulez supprimer cette commande !")
@@ -26,7 +29,11 @@ const [clickcom,setClickcom]=useState([]);
       console.log('we are deleting',elem._id)
       }
 
-
+      /****************PAGINATION*****************/
+      const indexOfLastPost=currentPage * dataperpage;
+      const indexOfFirstPost=indexOfLastPost-dataperpage;
+      const currentPost=clickcom.slice(indexOfFirstPost,indexOfLastPost);
+      const paginate =(number)=> setCurrentPage(number);
 return(
 <div className="utilisateurs">
 <div className="wrap-data">
@@ -51,7 +58,7 @@ return(
   </div>
 
     
-  {clickcom?.map((e)=><LivraisonList
+  {currentPost?.map((e)=><LivraisonList
   username={e.user[0].username} list="Voire" 
    phone={e.user[0].phone} 
    commandLieux={e.commandeType[0].commande.lieux}
@@ -63,7 +70,12 @@ return(
      somme={e.somme}
      cart={e.cart}
      _id={e._id}
+     user={e.user}
   />)}
+  <Pagination2 
+    dataperpage={dataperpage} 
+    totaldata={clickcom.length} 
+    paginate={paginate}/>
 </div>
  </div>)
 }

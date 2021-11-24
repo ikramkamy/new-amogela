@@ -2,12 +2,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './clique.css';
 import {FaPen,FaTrash,FaEye} from "react-icons/fa";
-import UserList from '../Utillisateurs/UserList';
+//import UserList from '../Utillisateurs/UserList';
 const AchatList=(props)=>{
 const {showAchat,cart,user}=props;
 
 console.log("CAART IN ACGATLIST",cart)
-console.log("CAART IN ACGATLIST",user)   
+console.log("CAART IN user",user)   
 return(
 <div className=" achat-list">
 
@@ -23,23 +23,30 @@ return(
 {user?.map((e)=><div className="achat-fields-header mrg-btm">
 
 <div className="achat-elem-header">{e.username}</div>
-    <div className="achat-elem-header">{e.phone}</div>
+    <div className="achat-elem-header">+213{e.phone}</div>
     <div className="achat-elem-header">{e.commandeType[0].commande.command}</div>
     </div>)}
 
 <div className="achat-fields">
 
 <div className="achat-elem">le produits</div>
-<div className="achat-elem">la quantité</div>
-<div className="achat-elem">les gouts</div>
+<div className="achat-elem ">la quantité</div>
+<div className="achat-elem ">les gouts</div>
 
 </div>
 {cart?.map((e)=><div className="achat-fields">
 
 
-    <div className="achat-elem">{e.name}</div>
-    <div className="achat-elem">{e.quantity}</div>
-    <div className="achat-elem gout-style">{e.gout1}{e.gout2}{e.gout3}{e.gout4}{e.gout5}{e.gout6}</div>
+    <div className="achat-elem achat-ajuster">{e.name}</div>
+    <div className="achat-elem achat-ajuster" >{e.quantity}</div>
+    <div className="achat-elem gout-style achat-ajuster">
+        <div className="gout-ajuster">{e.gout1}</div>
+        <div className="gout-ajuster">{e.gout2}<br/></div>
+        <div className="gout-ajuster">{e.gout3}<br/></div>
+        <div className="gout-ajuster">{e.gout4}<br/></div>
+        <div className="gout-ajuster">{e.gout5}<br/></div>
+        <div className="gout-ajuster">{e.gout6}<br/></div>
+       </div>
     </div>)}
  </div>)
 }

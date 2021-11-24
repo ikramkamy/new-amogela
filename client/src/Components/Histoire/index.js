@@ -52,7 +52,7 @@ const Histoire =()=>{
 <div className="dynamic-histoire"  style={{backgroundImage:`url("http://localhost:3001/uploads/${photos[5]?.name}")`}}></div>
 </div>
 </div>
-<div className="choco-btn-wrapper"><button className="choco-btn nohover"><Link to="/Consulting">Consulting </Link></button></div>
+<div className="choco-btn-wrapper"><div className="choco-btn nohover"><Link to="/Consulting">Consulting </Link></div></div>
 <Footer/>
     </div>)
 }

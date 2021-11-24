@@ -15,7 +15,7 @@ const Opning=(props)=>{
       .then(response =>setOpen(response.data))
    }
     expensesListResp();
-  },[]);
+  },[open]);
     //console.log("Heure de travail", open)
     const handelDelete=(user)=>{
     axios.delete(`/api/utilisateurs/${user._id}`,)
@@ -37,7 +37,10 @@ return(
 <div className="tableau">
     
     <div className="tab-item">{open[0]?.text}</div>
-    <div className="tab-item" onClick={(()=>setShow(true))}><FaPen className="icon-edit-u" /><Link to='/heure' >Edit</Link>  </div>
+    <div className="tab-item" onClick={(()=>setShow(true))}>
+      <FaPen className="icon-save"/>
+     <Link to='/heure'>Modifier</Link>
+    </div>
     <div className="tab-item"></div>
 </div>
 
